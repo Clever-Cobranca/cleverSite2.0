@@ -8,9 +8,9 @@ import WhatsApp from '../../assets/WhatsApp.png'
 
 import '../../global.css'
 
-export function Menu(){
+export function Header(){
     return(
-        <header className='mt-4 ml-16 mr-16 shadow-[]'>
+        <header className='mt-4 ml-16 mr-16'>
             <nav className='flex justify-between'>
                 <div className='flex items-center gap-16'>
                     <img src={Logo}/>
