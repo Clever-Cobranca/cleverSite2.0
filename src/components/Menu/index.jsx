@@ -18,7 +18,7 @@ import {
 
 const items = [
     {
-        name: "inicio",
+        name: "Inicio",
         path: "/",
     },
     {
@@ -39,62 +39,61 @@ const items = [
     }
 ];
 
-export function Menu() {
+export function Header() {
     const location = useLocation()
 
     return (
-        <header className='mt-4 ml-16 mr-16 relative'>
+        <header className='pt-4 pl-16 pr-16 w-full border border-black/20'>
             <nav className='flex justify-between'>
                 <div className='flex items-center gap-16'>
                     <img src={Logo} />
                     <ul className='flex gap-8'>
-                        {items.map((item) => (
-                            <li key={item.name}>
-                                <Link to={item.path} className={cn(
-                                    "relative w-full flex py-1.5 px-2.5 rounded-[6px] gap-[11px] items-center",
-                                    location.pathname === item.path
-                                        ? "text-foreground"
-                                        : "text-muted-foreground fill-muted-foreground transition-colors hover:fill-foreground hover:text-foreground"
-                                )}>
-                                    {item.icon}
-                                    <span className="text-[18px] font-medium">{item.name}</span>
+                        {items.map((item) => {
+                            const isActive = location.pathname === item.path;
 
-                                    <AnimatePresence>
-                                        {location.pathname === item.path && (
-                                            <motion.div
-                                                layoutId="active-pill"
-                                                className="absolute inset-0 bg-[#EFF1F3] rounded-lg -z-10"
-                                                style={{ borderRadius: 8 }}
-                                                transition={{
-                                                    type: "spring",
-                                                    duration: 0.4,
-                                                    bounce: 0,
-                                                }}
-                                            />
+                            return (
+                                <li key={item.name} className="relative text-[18px]">
+                                    <Link
+                                        to={item.path}
+                                        // Adicione 'group' aqui vvv
+                                        className={cn("group relative block", isActive ? "text-[#F1B434]" : "text-black")}
+                                    >
+                                        {item.name}
+
+                                        {/* Se estiver ATIVO, mostra a borda fixa. Se NÃO, prepara a animação de hover */}
+                                        {isActive ? (
+                                            // Borda fixa do item ativo
+                                            <span className="absolute -bottom-[2px] left-0 h-[3px] w-full bg-[#F1B434] rounded-full"></span>
+                                        ) : (
+                                            // Animação para itens inativos
+                                            <span className="absolute -bottom-[2px] left-0 h-[3px] w-0 bg-[#F1B434] transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
                                         )}
-                                    </AnimatePresence>
-                                </Link>
-                            </li>
-                        ))}
+                                    </Link>
+                                </li>
+                            )
+                        })}
+
+                        <li>
+                            <DropdownMenu className="z-10 absolute">
+                                <DropdownMenuTrigger>A Clever</DropdownMenuTrigger>
+                                <DropdownMenuContent>
+                                    <DropdownMenuItem>Sobre Nós</DropdownMenuItem>
+                                    <DropdownMenuItem>Nossa Cultura</DropdownMenuItem>
+                                    <DropdownMenuItem>Nossos Serviços</DropdownMenuItem>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
+                        </li>
                     </ul>
 
-                    <DropdownMenu className="z-10 absolutes">
-                        <DropdownMenuTrigger>A Clever</DropdownMenuTrigger>
-                        <DropdownMenuContent>
-                            <DropdownMenuItem>Item 1</DropdownMenuItem>
-                            <DropdownMenuItem>Item 2</DropdownMenuItem>
-                            <DropdownMenuItem>Item 3</DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
                 </div>
 
                 <div className='flex items-center gap-8'>
                     <a target='blank' href='https://www.instagram.com/clevercobranca'><img src={Intagram} /></a>
-                    <a target='blank' href='https://www.instagram.com/clevercobranca'><img src={Facebook} /></a>
-                    <a target='blank' href='https://www.instagram.com/clevercobranca'><img src={Tiktok} /></a>
-                    <a target='blank' href='https://www.instagram.com/clevercobranca'><img src={Youtube} /></a>
-                    <a target='blank' href='https://www.instagram.com/clevercobranca'><img src={Linkedin} /></a>
-                    <a target='blank' href='https://www.instagram.com/clevercobranca'><img src={WhatsApp} /></a>
+                    <a target='blank' href='https://web.facebook.com/clevercobranca?_rdc=1&_rdr#'><img src={Facebook} /></a>
+                    <a target='blank' href='https://www.tiktok.com/@cleverassessoria1?is_from_webapp=1&sender_device=pc'><img src={Tiktok} /></a>
+                    <a target='blank' href='https://www.youtube.com/@cleverassessoriaecobranca7043'><img src={Youtube} /></a>
+                    <a target='blank' href='https://www.linkedin.com/company/clevercobranca/?viewAsMember=true'><img src={Linkedin} /></a>
+                    <a target='blank' href='https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+quero+saber+mais!&type=phone_number&app_absent=0'><img src={WhatsApp} /></a>
                 </div>
             </nav>
         </header>
