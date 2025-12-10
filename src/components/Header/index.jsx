@@ -15,11 +15,11 @@ export function Header(){
                 <div className='flex items-center gap-16'>
                     <img src={Logo}/>
                     <ul className='flex gap-8'>
-                        <li className='list-none text-[22px] font-[Montserrat] opacity-50 hover:font-bold cursor-pointer'>Inicio</li>
-                        <li className='list-none text-[22px] font-[Montserrat] opacity-50 hover:font-bold cursor-pointer'>A clever</li>
-                        <li className='list-none text-[22px] font-[Montserrat] opacity-50 hover:font-bold cursor-pointer'>Nossas Soluções</li>
-                        <li className='list-none text-[22px] font-[Montserrat] opacity-50 hover:font-bold cursor-pointer'>Blog</li>
-                        <li className='list-none text-[22px] font-[Montserrat] opacity-50 hover:font-bold cursor-pointer'>Educação</li>
+                        <li className='list-none text-[22px]  opacity-50 hover:font-bold cursor-pointer'>Inicio</li>
+                        <li className='list-none text-[22px]  opacity-50 hover:font-bold cursor-pointer'>A clever</li>
+                        <li className='list-none text-[22px]  opacity-50 hover:font-bold cursor-pointer'>Nossas Soluções</li>
+                        <li className='list-none text-[22px]  opacity-50 hover:font-bold cursor-pointer'>Blog</li>
+                        <li className='list-none text-[22px]  opacity-50 hover:font-bold cursor-pointer'>Educação</li>
                     </ul>
                 </div>
 
