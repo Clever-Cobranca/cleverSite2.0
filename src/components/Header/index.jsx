@@ -43,7 +43,7 @@ export function Header() {
     const location = useLocation()
 
     return (
-        <header className='pt-4 pl-16 pr-16 w-full border border-black/20'>
+        <header className='pt-4 pl-16 pr-16 w-full border border-black/20 fixed bg-[#fff]'>
             <nav className='flex justify-between'>
                 <div className='flex items-center gap-16'>
                     <img src={Logo} />
@@ -74,10 +74,10 @@ export function Header() {
                         })}
 
                         <li>
-                            <DropdownMenu className="z-10 absolute">
+                            <DropdownMenu className="z-10">
                                 <DropdownMenuTrigger>A Clever</DropdownMenuTrigger>
                                 <DropdownMenuContent>
-                                    <DropdownMenuItem>Sobre Nós</DropdownMenuItem>
+                                    <DropdownMenuItem><Link to="/Sobre">Sobre Nós</Link></DropdownMenuItem>
                                     <DropdownMenuItem>Nossa Cultura</DropdownMenuItem>
                                     <DropdownMenuItem>Nossos Serviços</DropdownMenuItem>
                                 </DropdownMenuContent>
