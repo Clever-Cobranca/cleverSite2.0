@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ChevronUpIcon, ChevronDownIcon } from "@radix-ui/react-icons";
+import { FiChevronUp, FiChevronDown } from "react-icons/fi";
+
 
 const Accordion = () => {
   // State to manage the currently open item's ID
@@ -59,9 +60,9 @@ const Accordion = () => {
         >
           <p className="text-lg font-bold text-gray-800">{question}</p>
           {isOpen ? (
-            <ChevronUpIcon className="w-5 h-5 text-gray-600" />
-          ) : (
-            <ChevronDownIcon className="w-5 h-5 text-gray-600" />
+            <FiChevronUp className="w-5 h-5 text-gray-600 " />
+          ) : ( 
+            <FiChevronDown className="w-5 h-5 text-gray-600" />
           )}
         </button>
 

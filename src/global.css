@@ -2,9 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
 @import "tailwindcss";
 
-
 @theme {
-  --font-title: clamp(1.5rem, 4vw, 2.25rem);
   --font-family-roboto-slab: "Roboto Slab", "Monteserrat", sans-serif;
   --color-orange-primary: #f1b434;
   --color-gray-primary: #f2f2f2;
