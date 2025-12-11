@@ -78,7 +78,7 @@ export function Header() {
                                 <DropdownMenuTrigger>A Clever</DropdownMenuTrigger>
                                 <DropdownMenuContent>
                                     <DropdownMenuItem><Link to="/Sobre">Sobre Nós</Link></DropdownMenuItem>
-                                    <DropdownMenuItem>Nossa Cultura</DropdownMenuItem>
+                                    <DropdownMenuItem><Link to="/cultura">Nossa Cultura</Link></DropdownMenuItem>
                                     <DropdownMenuItem>Nossos Serviços</DropdownMenuItem>
                                 </DropdownMenuContent>
                             </DropdownMenu>
