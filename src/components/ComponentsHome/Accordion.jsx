@@ -45,15 +45,14 @@ const Accordion = () => {
   ];
 
   const toggleItem = (itemId) => {
-    // If the clicked item is already open, close it (set to null); otherwise, open the new one.
     setOpenItemId(openItemId === itemId ? null : itemId);
   };
 
   const AccordionItem = ({ question, answer, isOpen, toggleItem }) => {
     return (
-      <div className="group border-b border-gray-300">
+      <div className="group border-b border-gray-300 last:border-0">
         <button
-          className="flex peer justify-between items-center w-full p-4 text-left focus:outline-none bg-gray-50 group-hover:bg-gray-200 hover:cursor-pointer transition duration-300"
+          className="flex min-h-[82px] h-full peer justify-between items-center w-full p-4 text-left focus:outline-none bg-gray-50 group-hover:bg-gray-200 hover:cursor-pointer transition duration-300"
           onClick={toggleItem}
           aria-expanded={isOpen}
           aria-controls={`accordion-content-${question.id}`}
@@ -66,10 +65,8 @@ const Accordion = () => {
           )}
         </button>
 
-        {/* The content area, conditionally rendered based on 'isOpen' state */}
         <div
           id={`accordion-content-${question.id}`}
-          // Using Tailwind's 'max-h-0' and 'max-h-screen' for a simple CSS transition (adjust duration as needed)
           className={`overflow-hidden bg-gray-50 group-hover:bg-gray-200 transition-all duration-300 ease-in-out ${
             isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           }`}
@@ -85,7 +82,7 @@ const Accordion = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto shadow-lg rounded-lg overflow-hidden">
+    <div className="w-full min-h-[90%] max-w-2xl mx-auto shadow-lg rounded-lg overflow-hidden">
       {accordionData.map((item) => (
         <AccordionItem
           key={item.id}
