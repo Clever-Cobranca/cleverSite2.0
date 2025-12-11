@@ -1,4 +1,4 @@
-import Banner from "../assets/Banner.png" 
+import Banner from "../assets/svgs/Banner.svg" 
 import LauraManifesto from "../assets/lauraManifesto.png"
 import NossaHistoria from "../assets/nossaHistoria.png"
 import LinhadoTempo from "../assets/svgs/linhadoTempo.svg"

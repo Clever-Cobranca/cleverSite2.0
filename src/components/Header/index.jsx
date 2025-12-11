@@ -79,7 +79,7 @@ export function Header() {
                                 <DropdownMenuContent>
                                     <DropdownMenuItem><Link to="/Sobre">Sobre Nós</Link></DropdownMenuItem>
                                     <DropdownMenuItem><Link to="/cultura">Nossa Cultura</Link></DropdownMenuItem>
-                                    <DropdownMenuItem>Nossos Serviços</DropdownMenuItem>
+                                    <DropdownMenuItem><Link to="/Serviços">Nossos Serviços</Link></DropdownMenuItem>
                                 </DropdownMenuContent>
                             </DropdownMenu>
                         </li>
