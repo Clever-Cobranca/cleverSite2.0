@@ -1,4 +1,4 @@
-import { Header } from "../components/Header/Header";
+import { Header } from "../../components/Header/Header";
 import Homepage from "../assets/Homepage_Image.png";
 import Vector from "../assets/svgs/Vector.svg";
 import Fi_Mountains from "../assets/svgs/Fi_Mountains.svg";
@@ -9,8 +9,8 @@ import SejaClever from "../assets/Seja_Clever.png";
 import DollarSign from "../assets/svgs/Dollar_sign.svg";
 import Calendar from "../assets/svgs/Calendar.svg";
 import Trophy from "../assets/svgs/Trophy.svg";
-import Accordion from "../components/ComponentsHome/Accordion";
-import { Footer } from "../components/Footer/Footer";
+import Accordion from "../../components/ComponentsHome/Accordion";
+import { Footer } from "../../components/Footer/Footer";
 
 export default function Home() {
   return (
