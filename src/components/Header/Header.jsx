@@ -27,7 +27,7 @@ const items = [
     },
     {
         name: "Educação",
-        path: "/blog"
+        path: "/Educacao"
     },
     {
         name: "Quero Pagar",
