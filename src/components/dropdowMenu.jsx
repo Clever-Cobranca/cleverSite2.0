@@ -1,22 +1,21 @@
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { cn } from "../lib/utils"; 
 import { Slot } from "@radix-ui/react-slot";
 
-// --- 1. VOLTANDO PARA A ANIMAÇÃO ORIGINAL (ClipPath + Blur) ---
 const contentVariants = {
   hidden: {
-    clipPath: "inset(10% 50% 90% 50% round 12px)", // Começa pequeno no centro
+    clipPath: "inset(10% 50% 90% 50% round 12px)",
   },
   show: {
-    clipPath: "inset(0% 0% 0% 0% round 12px)", // Abre para o tamanho total
+    clipPath: "inset(0% 0% 0% 0% round 12px)",
     transition: {
       type: "spring",
       bounce: 0,
       duration: 0.5,
       delayChildren: 0.15,
-      staggerChildren: 0.1, // Efeito cascata nos itens
+      staggerChildren: 0.1,
     },
   },
 };
@@ -34,18 +33,42 @@ const itemVariants = {
   },
 };
 
-// --- Componentes ---
-
 export function DropdownMenu({ className, children, ...props }) {
   return (
     <DropdownMenuProvider>
-      <div
-        className={cn("relative inline-block text-left", className)}
-        {...props}
-      >
+      <DropdownMenuContainer className={className} {...props}>
         {children}
-      </div>
+      </DropdownMenuContainer>
     </DropdownMenuProvider>
+  );
+}
+
+function DropdownMenuContainer({ className, children, ...props }) {
+  const { setIsOpen } = useDropdownMenu();
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [setIsOpen]);
+
+  return (
+    <div
+      ref={menuRef}
+      className={cn("relative inline-block text-left", className)}
+      {...props}
+    >
+      {children}
+    </div>
   );
 }
 
@@ -86,25 +109,17 @@ export function DropdownMenuContent({
   const { isOpen } = useDropdownMenu();
 
   return (
-    // NOTA: Removi o <AnimatePresence> aqui porque a animação de clipPath 
-    // funciona melhor controlando o estado 'animate' direto no componente.
     <motion.ul
       className={cn(
-        // POSICIONAMENTO (Mantido o que consertou o layout):
         "absolute top-full mt-2 left-1/2 -translate-x-1/2", 
         "z-50",
-        
-        // ESTILO VISUAL:
         "min-w-[180px] p-2 rounded-xl bg-white border border-gray-100 shadow-xl",
         "flex flex-col gap-1",
-        
-        // INTERATIVIDADE (Importante para clipPath):
-        isOpen ? "pointer-events-auto" : "pointer-events-none", // Impede clique quando fechado
+        isOpen ? "pointer-events-auto" : "pointer-events-none",
         className
       )}
       variants={contentVariants}
       initial="hidden"
-      // Aqui controlamos se mostra ou esconde baseado no isOpen
       animate={isOpen ? "show" : "hidden"} 
       {...props}
     >
@@ -136,8 +151,6 @@ export function DropdownMenuItem({
     </motion.li>
   );
 }
-
-// --- Contexto ---
 
 const Context = createContext({});
 
