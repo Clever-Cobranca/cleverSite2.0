@@ -6,12 +6,10 @@ import Sobre from "./Pages/Sobre"
 import Cultura from "./Pages/Cultura";
 import Serviços from "./Pages/Serviços";
 import "./global.css";
-import { Header } from "./components/Header";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <Header />
 
       <Routes>
         <Route path="/" element={<Home />} />

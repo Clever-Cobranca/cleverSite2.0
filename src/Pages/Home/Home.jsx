@@ -1,14 +1,14 @@
 import { Header } from "../../components/Header/Header";
-import Homepage from "../assets/Homepage_Image.png";
-import Vector from "../assets/svgs/Vector.svg";
-import Fi_Mountains from "../assets/svgs/Fi_Mountains.svg";
-import Fi_Microphone from "../assets/svgs/Fi_Microphone.svg";
-import Chart_Histogram from "../assets/svgs/Chart_Histogram.svg";
-import Signal_Alt from "../assets/svgs/Signal_Alt.svg";
-import SejaClever from "../assets/Seja_Clever.png";
-import DollarSign from "../assets/svgs/Dollar_sign.svg";
-import Calendar from "../assets/svgs/Calendar.svg";
-import Trophy from "../assets/svgs/Trophy.svg";
+import Homepage from "../../assets/Homepage_Image.png";
+import Vector from "../../assets/svgs/Vector.svg";
+import Fi_Mountains from "../../assets/svgs/Fi_Mountains.svg";
+import Fi_Microphone from "../../assets/svgs/Fi_Microphone.svg";
+import Chart_Histogram from "../../assets/svgs/Chart_Histogram.svg";
+import Signal_Alt from "../../assets/svgs/Signal_Alt.svg";
+import SejaClever from "../../assets/Seja_Clever.png";
+import DollarSign from "../../assets/svgs/Dollar_sign.svg";
+import Calendar from "../../assets/svgs/Calendar.svg";
+import Trophy from "../../assets/svgs/Trophy.svg";
 import Accordion from "../../components/ComponentsHome/Accordion";
 import { Footer } from "../../components/Footer/Footer";
 
