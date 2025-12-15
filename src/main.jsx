@@ -7,12 +7,10 @@ import Cultura from "./Pages/Cultura";
 import Serviços from "./Pages/Serviços";
 import Educacao from "./Pages/Educacao";
 import "./global.css";
-import { Header } from "./components/Header/Header";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sobre" element={<Sobre />} />
