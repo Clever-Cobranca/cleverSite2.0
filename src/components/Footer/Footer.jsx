@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import CleverLogo from "../../assets/Clever_Logo_Escrita.png";
 import { BsTelephone } from "react-icons/bs";
 import { CiMail } from "react-icons/ci";
