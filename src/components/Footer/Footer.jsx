@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import CleverLogo from "../../assets/Clever_Logo_Escrita.png";
 import { BsTelephone } from "react-icons/bs";
 import { CiMail } from "react-icons/ci";
@@ -9,9 +10,13 @@ import {
   FaYoutube,
 } from "react-icons/fa6";
 
-export function Footer() {
+export function Footer({ isBgGray }) {
   return (
-    <footer className="sm:min-h-[352px] sm:p-7 p-3 flex justify-around max-md:flex-col max-md:gap-8  max-md:flex-wrap">
+    <footer
+      className={`sm:min-h-[352px] sm:p-7 p-3 flex justify-around max-md:flex-col max-md:gap-8  max-md:flex-wrap ${
+        isBgGray ? "bg-gray-primary" : "bg-white"
+      }`}
+    >
       <div className="flex flex-col justify-between max-md:items-center max-sm:items-stretch">
         <img
           alt="Clever_Logo_Escrita"
