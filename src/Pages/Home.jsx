@@ -18,7 +18,7 @@ export default function Home() {
       <div className="min-h-screen">
         <Header />
         {/* main mantém a altura fixa */}
-        <div className="2xl:max-md:pt-28">
+        <div className="2xl:pt-28 max-md:pt-28">
           <main className="h-full">
             <section className="lg:h-screen flex items-center  max-lg:flex-col">
               <div id="aside" className="flex flex-col gap-6 px-20">
