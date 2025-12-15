@@ -31,7 +31,7 @@ const items = [
     },
     {
         name: "Quero Pagar",
-        path: "/pagar",
+        path: "/Pagar",
     },
     {
         name: "Trabalhe Conosco",
@@ -43,7 +43,7 @@ export function Header() {
     const location = useLocation()
 
     return (
-        <header className='pt-4 pl-16 pr-16 w-full border border-black/20 fixed bg-[#fff]'>
+        <header className='pt-4 pl-16 pr-16 w-full border z-50 border-black/20 fixed bg-[#fff]'>
             <nav className='flex justify-between'>
                 <div className='flex items-center gap-16'>
                     <img src={Logo} />
