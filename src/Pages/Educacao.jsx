@@ -1,14 +1,15 @@
 import { Header } from "../components/Header/Header"
 import Alan from "../assets/Alan.png"
 import EbookCapa from "../assets/svgs/cobranca-sem-medo.svg"
+import { Footer } from "../components/Footer/Footer"
 export default function Educacao(){
     return(
         <>
             <Header />
-            <main className="mt-25">
+            <main className="mt-25 mb-25">
                 <section className="flex justify-between">
-                    <div className="w-2/5 p-14 bg-[#F1B434]">
-                        <img className="ml-27   " src={Alan}/>
+                    <div className="w-2/5 h-full p-14 bg-[#F1B434]">
+                        <img className="ml-27" src={Alan}/>
                     </div>
 
                     <div className="w-1/2 mt-5">
@@ -23,19 +24,35 @@ export default function Educacao(){
                     </div>
                 </section>
 
-                <section className="justify-center">
-                    <h2>Peodutos Pagos</h2>
-                    <div className="flex w-2/5 h-4/12 justify-around bg-[#E2E2E2] items-center p-3 rounded-4xl">
-                        <img className="size-4/12 rounded-2xl" src={EbookCapa} />
-                        <div className="flex flex-col w-1/2 items-center justify-center gap-7">
-                            <h3 className="font-bold ">Cobrança Sem medo, Escola Sem prejuízo</h3>
-                            <p>Reduza a inadimplência, estruture processos eficazes e profissionalize a cobrança em sua escola. </p>
-                            <button className="bg-[#F1B434] text-[#fff] p-3 rounded-3xl">Comprar</button>
+                <section>
+                    <h2 className="text-center font-family-roboto-slab font-bold text-8xl p-7">Produtos Pagos</h2>
+
+                    <div className="flex justify-center gap-5">
+                        <div className="flex w-2/5 h-4/12 justify-around bg-[#E2E2E2] items-center p-3 rounded-4xl">
+                            <img className="size-4/12 rounded-2xl" src={EbookCapa} />
+                            <div className="flex flex-col w-1/2  items-center justify-center gap-7">
+                                <h3 className="font-bold text-2xl">Cobrança Sem medo, Escola Sem prejuízo</h3>
+                                <p>Reduza a inadimplência, estruture processos eficazes e profissionalize a cobrança em sua escola. </p>
+                                <a target="_blank" href="https://pay.hotmart.com/F99606678F?bid=1765816975227" className="bg-[#F1B434] w-full text-center rounded-3xl text-[#fff] p-3 hover:bg-[#000]/70 transition-all duration-500 cursor-pointer">
+                                    <button>Comprar</button>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                        
+
+                        <div className="flex w-2/5 h-4/12 justify-around bg-[#E2E2E2] items-center p-3 rounded-4xl">
+                            <img className="size-4/12 rounded-2xl" src={EbookCapa} />
+                            <div className="flex flex-col w-1/2 items-center justify-center gap-7">
+                                <h3 className="font-bold  text-2xl">Cobrança Sem medo, Escola Sem prejuízo</h3>
+                                <p>Reduza a inadimplência, estruture processos eficazes e profissionalize a cobrança em sua escola. </p>
+                                <a target="_blank" href="https://pay.hotmart.com/F99606678F?bid=1765816975227" className="bg-[#F1B434] w-full text-center rounded-3xl text-[#fff] p-3 hover:bg-[#000]/70 transition-all duration-500 cursor-pointer">
+                                    <button className="">Comprar</button>
+                                </a>                            
+                            </div>
+                        </div>
+                    </div>                     
                 </section>
             </main>
+            <Footer isBgGray/>
         </>
     )
 }

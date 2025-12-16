@@ -7,6 +7,7 @@ import { FaRegChartBar, FaRegStar } from "react-icons/fa";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { FiUserPlus } from "react-icons/fi";
 import { PiBank } from "react-icons/pi";
+import { Footer } from '../components/Footer/Footer'
 
 export default function Cultura() {
   return (
@@ -55,54 +56,57 @@ export default function Cultura() {
           </h4>
         </section>
 
-        <section>
+        <section className="">
           <h3 className="text-[clamp(4rem,8vw,7rem)]/tight font-bold font-family-roboto-slab text-center mt-5">
             Nosso <span className="text-[#F1B434]">Valores</span>
           </h3>
 
-          <div className="max-sm:p-2.5 grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] md:grid-rows-3 md:grid-flow-col gap-5 mt-14 mb-15 justify-around">
-            <div className="flex items-center w-full  gap-2 sm:gap-10">
-              <FaRegStar size={30} color="#707372" />
-              <p>Foco em resultado</p>
-            </div>
+          <div className="">
+            <div className="grid grid-cols-1 md:grid-cols-none md:grid-rows-3 md:grid-flow-col gap-5 mt-14 mb-15 justify-around items-center">
+              <div className="flex items-center w-full  gap-2 sm:gap-10 justify-center md:justify-start">
+                <FaRegStar size={30} color="#F1B434" />
+                <p>Foco em resultado</p>
+              </div>
 
-            <div className="flex items-center w-full  gap-2 sm:gap-10">
-              <HiOutlineDocumentCheck size={30} color="#707372" />
-              <p>Ética e Transparencia</p>
-            </div>
+              <div className="flex items-center w-full gap-2 sm:gap-10 justify-center md:justify-start">
+                <HiOutlineDocumentCheck size={30} color="#F1B434" />
+                <p>Ética e Transparencia</p>
+              </div>
 
-            <div className="flex items-center w-full  gap-2 sm:gap-10">
-              <HiPaperClip size={30} color="#707372" />
-              <p>Compromisso</p>
-            </div>
+              <div className="flex items-center w-full  gap-2 sm:gap-10 justify-center md:justify-start">
+                <HiPaperClip size={30} color="#F1B434" />
+                <p>Compromisso</p>
+              </div>
 
-            <div className="flex items-center w-full  gap-2 sm:gap-10">
-              <LiaHandHoldingHeartSolid size={30} color="#707372" />
-              <p>Respeito</p>
-            </div>
+              <div className="flex items-center w-full  gap-2 sm:gap-10 justify-center md:justify-start">
+                <LiaHandHoldingHeartSolid size={30} color="#F1B434" />
+                <p>Respeito</p>
+              </div>
 
-            <div className="flex items-center w-full  gap-2 sm:gap-10">
-              <FaRegChartBar size={30} color="#707372" />
-              <p>Desenvolvimento Contínuo</p>
-            </div>
+              <div className="flex items-center w-full  gap-2 sm:gap-10 justify-center md:justify-start">
+                <FaRegChartBar size={30} color="#F1B434" />
+                <p>Desenvolvimento Contínuo</p>
+              </div>
 
-            <div className="flex items-center w-full  gap-2 sm:gap-10">
-              <BsCurrencyDollar size={30} color="#707372" />
-              <p>Responsabilidade Financeira</p>
-            </div>
+              <div className="flex items-center w-full  gap-2 sm:gap-10 justify-center md:justify-start">
+                <BsCurrencyDollar size={30} color="#F1B434" />
+                <p>Responsabilidade Financeira</p>
+              </div>
 
-            <div className="flex items-center w-full  gap-2 sm:gap-10">
-              <FiUserPlus size={30} color="#707372" />
-              <p>Trabalho em equipe</p>
-            </div>
+              <div className="flex items-center w-full  gap-2 sm:gap-10 justify-center md:justify-start">
+                <FiUserPlus size={30} color="#F1B434" />
+                <p>Trabalho em equipe</p>
+              </div>
 
-            <div className="flex items-center w-full  gap-2 sm:gap-10">
-              <PiBank size={30} color="#707372" />
-              <p>Legalidade</p>
+              <div className="flex items-center w-full  gap-2 sm:gap-10 justify-center md:justify-start">
+                <PiBank size={30} color="#F1B434" />
+                <p>Legalidade</p>
+              </div>
             </div>
           </div>
         </section>
       </main>
+      <Footer isBgGray/>
     </>
-  );
+  )
 }

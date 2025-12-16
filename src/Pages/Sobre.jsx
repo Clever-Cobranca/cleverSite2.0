@@ -1,9 +1,9 @@
-import Banner from "../assets/svgs/Banner.svg";
-import LauraManifesto from "../assets/lauraManifesto.png";
-import NossaHistoria from "../assets/nossaHistoria.png";
-import LinhadoTempo from "../assets/svgs/linhadoTempo.svg";
-import { Header } from "../components/Header/Header";
-import { Footer } from "../components/Footer/Footer";
+import Banner from "../assets/svgs/Banner.svg" 
+import LauraManifesto from "../assets/lauraManifesto.png"
+import NossaHistoria from "../assets/nossaHistoria.png"
+import LinhadoTempo from "../assets/svgs/linhadoTempo.svg"
+import { Header } from "../components/Header/Header"
+import { Footer } from "../components/Footer/Footer"
 
 export default function Sobre() {
   return (
