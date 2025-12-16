@@ -11,6 +11,7 @@ import Calendar from "../assets/svgs/Calendar.svg";
 import Trophy from "../assets/svgs/Trophy.svg";
 import Accordion from "../components/ComponentsHome/Accordion";
 import { Footer } from "../components/Footer/Footer";
+import mic from "../assets/svgs/mic.svg"
 
 export default function Home() {
   return (
@@ -21,7 +22,7 @@ export default function Home() {
         <div className="2xl:pt-25 max-lg:pt-28">
           <main className="h-full">
             <section className="lg:h-screen flex items-center  max-lg:flex-col">
-              <div id="aside" className="flex flex-col gap-6 px-20">
+              <div id="aside" className="flex flex-col gap-6 md:px-20 px-10">
                 <p className="text-xl pt-20 ">
                   Há 7 anos desenvolvendo excelência em recuperação de crédito
                   educacional
@@ -34,7 +35,7 @@ export default function Home() {
                   </strong>
                   , com atuação estratégica e alto índice de efetividade
                 </p>
-                <div className="mt-12 py-5 flex gap-7 items-center flex-wrap">
+                <div className="md:mt-12 mt-2 py-5 flex gap-7 items-center ">
                   <button className="h-12 md:h-[87px] max-sm:p-1 w-52 max-md:max-w-36 font-bold text-[clamp(0.8rem,3vw,1.25rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
                     Negocie suas Dívidas
                   </button>
@@ -149,6 +150,16 @@ export default function Home() {
                 <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
                   <img
                     src={Trophy}
+                    alt="Ícone de trofeu"
+                    className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
+                  />
+                  <h2 className=" text-[var(--font-title)] ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
+                    Assessoria Jurídica
+                  </h2>
+                </div>
+                <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
+                  <img
+                    src={mic}
                     alt="Ícone de trofeu"
                     className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
                   />
