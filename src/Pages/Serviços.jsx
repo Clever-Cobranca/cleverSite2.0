@@ -1,63 +1,142 @@
-import LauraRecuperacao from '../assets/LauraRecuperacao.png'
-import nossaHistoria from '../assets/nossaHistoria.png'
-import lauraCalendario from '../assets/lauraCalendario.png'
-import LauraTrofeu from '../assets/lauraTrofeu.png'
-import { Header } from '../components/Header/Header'
+import LauraRecuperacao from "../assets/LauraRecuperacao.png";
+import nossaHistoria from "../assets/nossaHistoria.png";
+import lauraCalendario from "../assets/lauraCalendario.png";
+import LauraTrofeu from "../assets/lauraTrofeu.png";
+import { Header } from "../components/Header/Header";
+import { Footer } from "../components/Footer/Footer";
 
 export default function Serviços() {
-    return(
-        <>
-            <Header />
-            <main className="mt-36">
-                <h1 className="text-center text-7xl font-family-roboto-slab font-bold">Nossos Serviços</h1>
+  return (
+    <>
+      <Header />
+      <main className="mt-36">
+        <h1 className="text-center text-[clamp(2.5rem,5vw,4.5rem)] font-family-roboto-slab font-bold">
+          Nossos Serviços
+        </h1>
 
-                <section className=''>
-                    <div className='flex items-center justify-center'>
-                        <img className='' src={LauraRecuperacao}/>
+        <section className="">
+          <div className="flex items-center justify-center flex-wrap">
+            <img
+              className="max-md:hidden"
+              src={LauraRecuperacao}
+              alt="Laura recuperação de dinheiro"
+            />
 
-                        <div className='w-1/2 flex flex-col gap-5 mb-30'>
-                            <h2 className='font-family-roboto-slab text-8xl font-bold'>Recuperação de <span className='text-[#F1B434]'>Dívidas</span></h2>
-                            <p>É a recuperação daqueles Títulos, Contratos, Mensalidade, Notas Promissórias, Cheques, Dívidas . Que já estão com mais de 90 (noventa) dias em atraso, e você já tentou negociar, já fez restrições nos Órgãos de Proteção ao Crédito, tentou fazer de tudo e mesmo assim o devedor insiste em não querer te pagar.</p>
-                        </div>
-                    </div>
-                </section>
+            <div className="sm:w-1/2 max-md:p-8 flex flex-col gap-16 md:mb-30 mb-20">
+              <h2 className=" max-sm:text-center font-family-roboto-slab text-[clamp(2rem,5vw,5rem)]/tight font-bold">
+                Recuperação de <span className="text-[#F1B434]">Dívidas</span>
+              </h2>
+              <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
+                É a recuperação daqueles Títulos, Contratos, Mensalidade, Notas
+                Promissórias, Cheques, Dívidas . Que já estão com mais de 90
+                (noventa) dias em atraso, e você já tentou negociar, já fez
+                restrições nos Órgãos de Proteção ao Crédito, tentou fazer de
+                tudo e mesmo assim o devedor insiste em não querer te pagar.
+              </p>
+            </div>
+          </div>
+        </section>
 
-                <section className='bg-[#E2E2E2] flex p-12 items-center justify-between'>
-                    <div className='flex flex-col gap-8'>
-                        <p className=''>
-                            Realizamos a cobrança no local que o devedor adquiriu o produto ou serviço. Enviamos um de nossos representantes em qualquer lugar do Brasil. Este irá realizar atendimentos presenciais com hora marcada, negociações e também formalização dos acordos. Apenas solicitamos uma sala reservada, impressora e acesso à internet.
-                        </p>
-                        <p>
-                            Nosso trabalho consiste em localizar, notificar e levar o devedor até o dia do atendimento. Um de nossos representantes realiza o acordo e você recebe. Como resultado, nossa estratégia de cobrança presencial, entrega um retorno de 40% maior que as soluções de negociações digitais ou apenas via call center. Dentro da recuperação de dívida a sua empresa pode optar entre 2 (duas) formas de pagamento de honorários.
-                        </p>
-                    </div>
-                    <img src={nossaHistoria} />
-                </section>
+        <section className="bg-[#E2E2E2] flex sm:p-12 p-8 items-center justify-between">
+          <div className="flex flex-col gap-8">
+            <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
+              Realizamos a cobrança no local que o devedor adquiriu o produto ou
+              serviço. Enviamos um de nossos representantes em qualquer lugar do
+              Brasil. Este irá realizar atendimentos presenciais com hora
+              marcada, negociações e também formalização dos acordos. Apenas
+              solicitamos uma sala reservada, impressora e acesso à internet.
+            </p>
+            <img
+              src={nossaHistoria}
+              alt="Nossa História - Clever"
+              className="lg:hidden"
+            />
 
-                <section>
-                    <div className='flex p-10'>
-                        <div className='flex flex-col gap-5'>
-                            <h3 className='text-8xl font-family-roboto-slab font-bold'>Cobrança Preventiva</h3>
-                            <p>Serviço composto por lembretes de vencimento, envio de boletos e cobranças, incluindo renegociação de atrasos de até 90 dias. Atuamos em plataforma Omni-Channel (call center, e-mail, SMS, WhatsApp, redes sociais e boleto impresso) para reduzir até 95% dos atrasos recorrentes.</p>
-                            <p>A cobrança preventiva elimina custos de manter um setor interno, garante que o credor receba o que é devido e reduz vínculos empregatícios. A Clever estrutura toda a operação de lembretes e cobranças recorrentes.</p>
-                            <p>Trabalhamos com estratégia definida: aviso 3 dias antes do vencimento; reforço no dia; e contato humanizado 2 dias após o atraso para cobrança e acordos. Durante 30 dias, realizamos todos os contatos necessários. Pagamento por pacote mensal: sua empresa envia clientes e datas de vencimento, e paga apenas R$ “consulte” por CPF pelo ciclo completo.</p>
-                        </div>
-                        <img className='w-1/2' src={lauraCalendario}/>
-                    </div>
-                </section>
+            <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
+              Nosso trabalho consiste em localizar, notificar e levar o devedor
+              até o dia do atendimento. Um de nossos representantes realiza o
+              acordo e você recebe. Como resultado, nossa estratégia de cobrança
+              presencial, entrega um retorno de 40% maior que as soluções de
+              negociações digitais ou apenas via call center. Dentro da
+              recuperação de dívida a sua empresa pode optar entre 2 (duas)
+              formas de pagamento de honorários.
+            </p>
+          </div>
+          <img
+            src={nossaHistoria}
+            alt="Nossa História - Clever"
+            className="max-lg:hidden"
+          />
+        </section>
 
-                <section className='bg-[#F1B434] p-20'>
-                    <h4 className='text-8xl font-bold text-center'>Assessoria Jurídica</h4>
-                    <div className='flex mt-5 gap-20'>
-                        <img className='w-1/2' src={LauraTrofeu}/>
-                        <div className='flex flex-col gap-10 mt-30'>
-                            <p>Serviço composto por lembretes de vencimento, envio de boletos e cobranças, com renegociação de atrasos de até 90 dias. Atuamos via plataforma Omni-Channel (call center, e-mail, SMS, WhatsApp, redes sociais e boleto impresso), reduzindo até 95% dos atrasos recorrentes.</p>
-                            <p>A cobrança preventiva elimina custos internos, reduz vínculos empregatícios e garante que o credor receba o que é devido. A Clever assume toda a operação de lembretes e cobranças. A estratégia é objetiva: aviso 3 dias antes do vencimento, reforço no dia e contato humanizado 2 dias após o atraso. Durante 30 dias, realizamos todos os contatos necessários.</p>
-                            <p>Forma de pagamento: pacote mensal. Sua empresa envia os clientes e vencimentos, e paga apenas R$ “consulte” por CPF pelo ciclo completo.</p>
-                        </div>
-                    </div>
-                </section>
-            </main>
-        </>
-    )
+        <section>
+          <div className="flex p-8 sm:p-10">
+            <div className="flex flex-col gap-5">
+              <h3 className="text-[clamp(2.2rem,4vw,5.8rem)] leading-12 font-family-roboto-slab font-bold">
+                Cobrança Preventiva
+              </h3>
+              <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
+                Serviço composto por lembretes de vencimento, envio de boletos e
+                cobranças, incluindo renegociação de atrasos de até 90 dias.
+                Atuamos em plataforma Omni-Channel (call center, e-mail, SMS,
+                WhatsApp, redes sociais e boleto impresso) para reduzir até 95%
+                dos atrasos recorrentes.
+              </p>
+              <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
+                A cobrança preventiva elimina custos de manter um setor interno,
+                garante que o credor receba o que é devido e reduz vínculos
+                empregatícios. A Clever estrutura toda a operação de lembretes e
+                cobranças recorrentes.
+              </p>
+              <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
+                Trabalhamos com estratégia definida: aviso 3 dias antes do
+                vencimento; reforço no dia; e contato humanizado 2 dias após o
+                atraso para cobrança e acordos. Durante 30 dias, realizamos
+                todos os contatos necessários. Pagamento por pacote mensal: sua
+                empresa envia clientes e datas de vencimento, e paga apenas R$
+                “consulte” por CPF pelo ciclo completo.
+              </p>
+            </div>
+            <img className="w-1/2 max-lg:hidden" src={lauraCalendario} />
+          </div>
+        </section>
+
+        <section className="bg-[#F1B434] md:p-20 p-8">
+          <h4 className="text-[clamp(2.2rem,4vw,5.8rem)] leading-10 font-bold text-center">
+            Assessoria Jurídica
+          </h4>
+          <div className="flex mt-5 gap-20">
+            <img
+              className="w-1/2 max-lg:hidden"
+              src={LauraTrofeu}
+              alt="Laura segurando troféu da melhor Assessoria BR"
+            />
+            <div className="flex flex-col md:gap-10 gap-5 md:mt-30">
+              <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
+                Serviço composto por lembretes de vencimento, envio de boletos e
+                cobranças, com renegociação de atrasos de até 90 dias. Atuamos
+                via plataforma Omni-Channel (call center, e-mail, SMS, WhatsApp,
+                redes sociais e boleto impresso), reduzindo até 95% dos atrasos
+                recorrentes.
+              </p>
+              <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
+                A cobrança preventiva elimina custos internos, reduz vínculos
+                empregatícios e garante que o credor receba o que é devido. A
+                Clever assume toda a operação de lembretes e cobranças. A
+                estratégia é objetiva: aviso 3 dias antes do vencimento, reforço
+                no dia e contato humanizado 2 dias após o atraso. Durante 30
+                dias, realizamos todos os contatos necessários.
+              </p>
+              <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
+                Forma de pagamento: pacote mensal. Sua empresa envia os clientes
+                e vencimentos, e paga apenas R$ “consulte” por CPF pelo ciclo
+                completo.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
 }
