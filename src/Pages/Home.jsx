@@ -18,7 +18,7 @@ export default function Home() {
       <div className="min-h-screen">
         <Header />
         {/* main mantém a altura fixa */}
-        <div className="2xl:pt-25 max-md:pt-28">
+        <div className="2xl:pt-25 max-lg:pt-28">
           <main className="h-full">
             <section className="lg:h-screen flex items-center  max-lg:flex-col">
               <div id="aside" className="flex flex-col gap-6 px-20">
@@ -26,7 +26,7 @@ export default function Home() {
                   Há 7 anos desenvolvendo excelência em recuperação de crédito
                   educacional
                 </p>
-                <p className="min-h-9 font-light text-[clamp(1.4rem,4vw,2.25rem)] leading-tight">
+                <p className="min-h-9 font-light text-[clamp(1.4rem,4vw,2rem)] leading-tight">
                   A <strong>Clever</strong> é referência em
                   <strong>
                     {" "}
@@ -130,7 +130,7 @@ export default function Home() {
                   <img
                     src={DollarSign}
                     alt="Ícone de cifrão"
-                    className="max-sm:w-[30px] max-w-sm:h-[30px]"
+                    className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
                   />
                   <h2 className=" ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
                     Recuperação de Dívidas
@@ -140,7 +140,7 @@ export default function Home() {
                   <img
                     src={Calendar}
                     alt="Ícone de calendario"
-                    className="sm:ml-3 max-sm:w-[30px] max-w-sm:h-[30px]"
+                    className="sm:ml-3 max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
                   />
                   <h2 className="text-fluid-lg ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px]  border-orange-primary">
                     Cobrança Preventina
@@ -150,7 +150,7 @@ export default function Home() {
                   <img
                     src={Trophy}
                     alt="Ícone de trofeu"
-                    className="max-sm:w-[30px] max-w-sm:h-[30px]"
+                    className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
                   />
                   <h2 className=" text-[var(--font-title)] ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
                     Assessoria Jurídica
@@ -164,7 +164,7 @@ export default function Home() {
                 <h1 className="text-[clamp(3rem,4vw,4.25rem)] leading-tight w-[500px] max-sm:w-max max-md:text-center font-family-roboto-slab font-bold">
                   Vem ser <p className="text-orange-primary">um Clever!</p>
                 </h1>
-                <p className="text-[clamp(0.8rem,4vw, 1.5rem)]font-normal h-[90px] max-w-[678px] max-md:w-[340px] max-sm:w-[260px] ">
+                <p className="text-[clamp(0.8rem,4vw, 1.5rem)] h-[90px] max-w-[678px] max-md:w-[340px] max-sm:w-[260px] ">
                   Conheça as oportunidades de carreira na Clever e junte-se a
                   nós em nossa missão de ser parte da solução para pessoas,
                   empresas e comunidades.
