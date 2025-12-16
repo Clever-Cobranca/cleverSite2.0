@@ -1,11 +1,15 @@
 import LauraRecuperacao from "../assets/LauraRecuperacao.png";
 import nossaHistoria from "../assets/nossaHistoria.png";
+import nossaHistoriaFull from "../assets/nossaHistoriaFullScreen.png";
 import lauraCalendario from "../assets/lauraCalendario.png";
 import LauraTrofeu from "../assets/lauraTrofeu.png";
+import Laura_Mic from "../assets/Laura_Mic.png";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 
 export default function Serviços() {
+  const nossaHistoriaFullUrl = `url('${nossaHistoriaFull}')`;
+
   return (
     <>
       <Header />
@@ -133,6 +137,29 @@ export default function Serviços() {
                 completo.
               </p>
             </div>
+          </div>
+        </section>
+        <section className="relative">
+          <div
+            style={{ "--bg-url": nossaHistoriaFullUrl }}
+            className={`bg-[image:var(--bg-url)] bg-[#E2E2E2] opacity-60 -z-10  h-[600px] bg-cover bg-center`}
+          ></div>
+          <div class="bg-gradient-to-t absolute inset-0 from-black/50 to-transparent flex">
+            <div className="flex items-center gap-5 flex-col px-6 mb-3.5 justify-center w-full">
+              <h4 className="text-[clamp(2.2rem,6vw,5.5rem)] font-bold mr-[300px]">
+                SAC
+              </h4>
+              <p className="text-[clamp(0.8rem,4vw,1rem)] font-black text-left leading-5 max-w-[500px]">
+                SAC significa Serviço de Atendimento ao Consumidor, um canal
+                direto que empresas oferecem para clientes tirarem dúvidas,
+                fazerem reclamações, solicitações ou darem sugestões, usando
+                canais como telefone, e-mail, chat ou redes sociais, visando
+                resolver problemas e melhorar a satisfação e fidelização do
+                cliente, sendo obrigatório para algumas empresas e regulamentado
+                por lei.
+              </p>
+            </div>
+            <img src={Laura_Mic} alt="Laurinha Clever com microfone" height={600} className="max-md:hidden"/>
           </div>
         </section>
       </main>

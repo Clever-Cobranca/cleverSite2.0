@@ -21,7 +21,7 @@ export function Header() {
 
   return (
     <>
-      <header className="pt-4 flex items-center-safe justify-between max-sm:justify-between pl-16 pr-16 w-full border border-black/20 fixed bg-white">
+      <header className="pt-4 z-50 flex items-center-safe justify-between max-sm:justify-between pl-16 pr-16 w-full border border-black/20 fixed bg-white">
 
         <div className="max-md:hidden flex items-center gap-10">
           <img src={Logo} />
