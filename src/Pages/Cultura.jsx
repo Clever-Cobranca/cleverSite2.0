@@ -14,7 +14,7 @@ export default function Cultura() {
     <>
       <Header />
       <main className="mt-25">
-        <div className="flex flex-col items-center w-full pr-20 pl-20">
+        <div className="flex flex-col items-center w-full md:pr-20 md:pl-20">
           <h1 className="text-[clamp(2.2rem,6vw,5rem)]/tight max-sm:text-center font-family-roboto-slab font-bold">
             Nossa Cultura
           </h1>
@@ -24,12 +24,12 @@ export default function Cultura() {
           </h4>
         </div>
 
-        <section className="flex items-center justify-center lg:gap-24 md:pr-20 md:pl-20 max-sm:px-3.5 mt-5 flex-wrap">
+        <section className="flex items-center max-md:px-3.5 md:pl-20 max-md:flex-col mt-5">
           <div className="flex flex-col gap-5 lg:pb-40 max-lg:w-full max-lg:items-center">
             <h2 className="text-[clamp(2.8rem,5vw,6rem)]/tight max-sm:text-center font-bold font-family-roboto-slab">
               Nossa <span className="text-[#F1B434]">Missão</span>
             </h2>
-            <p className="text-[clamp(0.8rem,4vw,1.5rem)] max-sm:text-justify max-w-[520px]">
+            <p className="text-[clamp(0.8rem,3vw,1.5rem)] max-w-[900px] text-wrap">
               Defender os direitos dos credores com assertividade, eficiência e
               compromisso, garantindo a recuperação de crédito por meio de
               soluções práticas, firmes e alinhadas à legislação vigente, sempre
