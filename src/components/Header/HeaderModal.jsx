@@ -1,6 +1,14 @@
 import clsx from "clsx";
 import { NavHeaderComponent } from "./NavHeaderComponent";
 import { IoCloseOutline } from "react-icons/io5";
+import {
+  FaFacebookF,
+  FaTiktok,
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube,
+  FaWhatsapp,
+} from "react-icons/fa6";
 
 export function HeaderModal({ isModalOpen, setIsModalOpen }) {
   return (
@@ -23,7 +31,44 @@ export function HeaderModal({ isModalOpen, setIsModalOpen }) {
           transform: isModalOpen ? `translate(0px)` : `translate(100%)`,
         }}
       >
-        <NavHeaderComponent />
+        <div className="flex flex-col justify-around">
+          <NavHeaderComponent />
+          <div className="flex items-center gap-5 ">
+            <a target="blank" href="https://www.instagram.com/clevercobranca">
+              <FaInstagram size={20} />
+            </a>
+            <a
+              target="blank"
+              href="https://web.facebook.com/clevercobranca?_rdc=1&_rdr#"
+            >
+              <FaFacebookF size={20} />
+            </a>
+            <a
+              target="blank"
+              href="https://www.tiktok.com/@cleverassessoria1?is_from_webapp=1&sender_device=pc"
+            >
+              <FaTiktok size={20} />
+            </a>
+            <a
+              target="blank"
+              href="https://www.youtube.com/@cleverassessoriaecobranca7043"
+            >
+              <FaYoutube size={20} />
+            </a>
+            <a
+              target="blank"
+              href="https://www.linkedin.com/company/clevercobranca/?viewAsMember=true"
+            >
+              <FaLinkedinIn size={20} />
+            </a>
+            <a
+              target="blank"
+              href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+quero+saber+mais!&type=phone_number&app_absent=0"
+            >
+              <FaWhatsapp size={20} />
+            </a>
+          </div>
+        </div>
         <button
           className="w-max h-max
             hover:cursor-pointer pt-3

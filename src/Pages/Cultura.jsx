@@ -8,6 +8,7 @@ import iconFinanceiro from '../assets/iconFinanceiro.png'
 import iconTrabalhoEquipe from '../assets/iconTrabalhoEquipe.png'
 import iconLegalidade from '../assets/iconLegalidade.png'
 import { Header } from '../components/Header/Header'
+import { Footer } from '../components/Footer/Footer'
 
 export default function Cultura() {
     return (
@@ -79,6 +80,7 @@ export default function Cultura() {
                     </div>
                 </section>
             </main>
+            <Footer isBgGray/>
         </>
     )
 }

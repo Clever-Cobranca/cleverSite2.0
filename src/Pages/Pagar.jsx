@@ -1,5 +1,6 @@
 import { Header } from "../components/Header/Header";
 import fundoLaura from "../assets/fundoLaura.png"
+import { Footer } from "../components/Footer/Footer";
 
 export default function Pagar() {
     return (
@@ -7,7 +8,7 @@ export default function Pagar() {
             <Header />
             <main className="mt-25">
                 <div className="flex justify-end">
-                    <img src={fundoLaura} alt="" className="-z-10 absolute h-screen" />
+                    <img src={fundoLaura} alt="" className="-z-10 absolute fixed h-full" />
                 </div>
 
                 <h1 className="text-6xl font-family-roboto-slab mt-10 font-bold text-center">Quer quitar suas <span className="text-[#F1B434]">dívida</span>?</h1>
@@ -25,6 +26,8 @@ export default function Pagar() {
                 </div>
 
             </main>
+
+            <Footer isBgGray/>
         </>
     )
 }

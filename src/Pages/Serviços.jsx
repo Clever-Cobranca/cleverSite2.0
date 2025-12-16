@@ -3,6 +3,7 @@ import nossaHistoria from '../assets/nossaHistoria.png'
 import lauraCalendario from '../assets/lauraCalendario.png'
 import LauraTrofeu from '../assets/lauraTrofeu.png'
 import { Header } from '../components/Header/Header'
+import { Footer } from '../components/Footer/Footer'
 
 export default function Serviços() {
     return(
@@ -46,7 +47,7 @@ export default function Serviços() {
                     </div>
                 </section>
 
-                <section className='bg-[#F1B434] p-20'>
+                <section className='bg-[#F1B434] pt-20 pl-20 pr-20'>
                     <h4 className='text-8xl font-bold text-center'>Assessoria Jurídica</h4>
                     <div className='flex mt-5 gap-20'>
                         <img className='w-1/2' src={LauraTrofeu}/>
@@ -58,6 +59,7 @@ export default function Serviços() {
                     </div>
                 </section>
             </main>
+            <Footer />
         </>
     )
 }

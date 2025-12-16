@@ -1,11 +1,12 @@
 import { Header } from "../components/Header/Header"
 import Alan from "../assets/Alan.png"
 import EbookCapa from "../assets/svgs/cobranca-sem-medo.svg"
+import { Footer } from "../components/Footer/Footer"
 export default function Educacao(){
     return(
         <>
             <Header />
-            <main className="mt-25">
+            <main className="mt-25 mb-25">
                 <section className="flex justify-between">
                     <div className="w-2/5 h-full p-14 bg-[#F1B434]">
                         <img className="ml-27" src={Alan}/>
@@ -23,7 +24,7 @@ export default function Educacao(){
                     </div>
                 </section>
 
-                <section className="">
+                <section>
                     <h2 className="text-center font-family-roboto-slab font-bold text-8xl p-7">Produtos Pagos</h2>
 
                     <div className="flex justify-center gap-5">
@@ -51,6 +52,7 @@ export default function Educacao(){
                     </div>                     
                 </section>
             </main>
+            <Footer isBgGray/>
         </>
     )
 }
