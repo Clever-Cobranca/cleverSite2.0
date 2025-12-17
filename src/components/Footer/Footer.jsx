@@ -8,6 +8,7 @@ import {
   FaLinkedinIn,
   FaYoutube,
 } from "react-icons/fa6";
+import { Link } from "react-router";
 
 export function Footer({ isBgGray }) {
   return (
@@ -30,25 +31,25 @@ export function Footer({ isBgGray }) {
       <nav>
         <ul className="flex flex-col md:gap-6 gap-1 text-base font-light">
           <li>
-            <a href="#!">Sobre nós</a>
+            <Link to="/sobre">Sobre nós</Link>
           </li>
           <li>
-            <a href="#!">Nossa Cultura</a>
+            <Link to="/cultura">Nossa Cultura</Link>
           </li>
           <li>
-            <a href="#!">Nossos Serviços</a>
+            <Link to="/servicos">Nossos Serviços</Link>
           </li>
           <li>
-            <a href="#!">Blog</a>
+            <Link to="#!">Blog</Link>
           </li>
           <li>
-            <a href="#!">Educação</a>
+            <Link to="/educacao">Educação</Link>
           </li>
           <li>
-            <a href="#!">Quero pagar</a>
+            <Link to="/pagar">Quero pagar</Link>
           </li>
           <li>
-            <a href="#!">Trabalhe Conosco</a>
+            <Link to="/trabalhe-conosco">Trabalhe Conosco</Link>
           </li>
         </ul>
       </nav>
@@ -78,7 +79,7 @@ export function Footer({ isBgGray }) {
         <div className="flex flex-col gap-2">
           <p className="text-base">Nos Acompanhe</p>
           <nav className="flex gap-4 items-center">
-            <a target="blank" href="https://www.instagram.com/clevercobranca">
+            <a toet="blank" href="https://www.instagram.com/clevercobranca">
               <FaInstagram size={20} />
             </a>
             <a

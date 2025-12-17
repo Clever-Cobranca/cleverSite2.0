@@ -71,13 +71,13 @@ export function NavHeaderComponent() {
               <DropdownMenuTrigger>A Clever</DropdownMenuTrigger>
               <DropdownMenuContent>
                 <DropdownMenuItem>
-                  <Link to="/Sobre">Sobre Nós</Link>
+                  <Link to="/sobre">Sobre Nós</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Link to="/cultura">Nossa Cultura</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link to="/Serviços">Nossos Serviços</Link>
+                  <Link to="/servicos">Nossos Serviços</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
