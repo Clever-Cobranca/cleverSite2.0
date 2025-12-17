@@ -16,7 +16,7 @@ export default function Sobre() {
           className="object-scale-down"
         />
         <div className="flex justify-between max-lg:justify-center w-full mt-5 flex-wrap">
-          <img className="Laurinha da Clever" src={LauraManifesto} />
+          <img className="size-2/4 md:size-auto" src={LauraManifesto} alt="Laurinha da Clever"/>
           <div className="lg:w-1/2 p-5">
             <h1 className="text-[clamp(2.5rem,6vw,6.2rem)]  leading-tight font-family-roboto-slab font-bold py-2">
               Nosso Manifesto
