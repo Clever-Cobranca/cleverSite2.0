@@ -145,8 +145,8 @@ export default function Serviços() {
             className={`bg-[image:var(--bg-url)] bg-[#E2E2E2] opacity-60 -z-10  h-[600px] bg-cover bg-center`}
           ></div>
           <div class="bg-gradient-to-t absolute inset-0 from-black/50 to-transparent flex">
-            <div className="flex items-center gap-5 flex-col px-6 mb-3.5 justify-center w-full">
-              <h4 className="text-[clamp(2.2rem,6vw,5.5rem)] font-bold mr-[300px]">
+            <div className="flex sm:items-baseline items-center   gap-5 flex-col px-10 mb-3.5 justify-center w-full">
+              <h4 className="text-[clamp(2.2rem,6vw,5.5rem)] font-bold ">
                 SAC
               </h4>
               <p className="text-[clamp(0.8rem,4vw,1rem)] font-black text-left leading-5 max-w-[500px]">
