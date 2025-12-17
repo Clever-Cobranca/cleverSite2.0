@@ -8,9 +8,6 @@ import {
   DropdownMenuItem,
 } from "../dropdowMenu";
 
-
-import { clsx } from "clsx";
-
 export function NavHeaderComponent() {
   const location = useLocation();
 
@@ -38,9 +35,9 @@ export function NavHeaderComponent() {
   ];
 
   return (
-    <nav className={clsx("flex justify-between gap-11 max-md:p-4 max-md:flex-col", {})}>
+    <nav className={"flex justify-between gap-11 max-lgs:p-4 max-lgs:flex-col"}>
       <div className="flex items-center gap-16">
-        <ul className={clsx("flex gap-8  max-md:flex-col ")}>
+        <ul className={"flex gap-8  max-lgs:flex-col "}>
           {items.map((item) => {
             const isActive = location.pathname === item.path;
 
@@ -87,8 +84,6 @@ export function NavHeaderComponent() {
           </li>
         </ul>
       </div>
-
-
     </nav>
   );
 }

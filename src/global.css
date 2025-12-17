@@ -3,10 +3,11 @@
 @import "tailwindcss";
 
 @theme {
+  --breakpoint-lgs: 66rem;
   --font-family-roboto-slab: "Roboto Slab", "Monteserrat", sans-serif;
   --color-orange-primary: #f1b434;
   --color-gray-primary: #f2f2f2;
-  --text-color-dark: #F1B434
+  --text-color-dark: #f1b434;
 
   --font-family: {
     /* Cria o utilitário font-roboto-slab */

@@ -21,21 +21,20 @@ export function Header() {
 
   return (
     <>
-      <header className="pt-4 z-50 flex items-center-safe justify-between max-sm:justify-between pl-16 pr-16 w-full border border-black/20 fixed bg-white">
-
-        <div className="max-md:hidden flex items-center gap-10">
+      <header className="pt-4 z-40 flex items-center-safe justify-between max-sm:justify-between pl-16 pr-16 w-full border border-black/20 fixed bg-white">
+        <div className="max-[1056px]:hidden flex items-center gap-10">
           <img src={Logo} />
           <NavHeaderComponent />
         </div>
-        <img src={Logo} className="md:hidden"/>
+        <img src={Logo} className="lgs:hidden" />
         <IoMenuOutline
           aria-label="Abrir Modal"
           size={32}
-          className="hover:cursor-pointer md:hidden"
+          className="hover:cursor-pointer lgs:hidden"
           onClick={() => setIsModalOpen(true)}
         />
 
-        <div className="flex items-center gap-5 max-md:hidden">
+        <div className="flex items-center gap-5 max-[1056px]:hidden">
           <a target="blank" href="https://www.instagram.com/clevercobranca">
             <FaInstagram size={20} />
           </a>
