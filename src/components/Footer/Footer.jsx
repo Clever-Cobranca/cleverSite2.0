@@ -16,13 +16,13 @@ export function Footer({ isBgGray }) {
         isBgGray ? "bg-gray-primary" : "bg-white"
       }`}
     >
-      <div className="flex flex-col justify-between max-md:items-center max-sm:items-stretch">
+      <div className="flex flex-col justify-between max-md:items-center max-lgs:w-1/3 max-sm:items-stretch">
         <img
           alt="Clever_Logo_Escrita"
           src={CleverLogo}
           className="md:max-w-[340px] w-52 max-h-[143px]"
         />
-        <p className="text-base max-md:hidden">
+        <p className="text-base max-md:hidden max-lgs:text-sm">
           Copyright © 2025 - Clever Assessoria e Cobrança - CNPJ
           33.331.482/0001-11
         </p>
