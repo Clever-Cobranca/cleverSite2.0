@@ -17,10 +17,6 @@ export function NavHeaderComponent() {
       path: "/",
     },
     {
-      name: "Blog",
-      path: "/solucoes",
-    },
-    {
       name: "Educação",
       path: "/Educacao",
     },

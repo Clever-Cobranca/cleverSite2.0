@@ -105,7 +105,7 @@ export default function Serviços() {
           </div>
         </section>
 
-        <section className="bg-[#F1B434] md:p-20 p-8">
+        <section className="bg-[#F1B434] md:pt-8 md:pl-8 md:pr-8 md:pb-0 p-8">
           <h4 className="text-[clamp(2.2rem,4vw,5.8rem)] leading-10 font-bold text-center">
             Assessoria Jurídica
           </h4>
