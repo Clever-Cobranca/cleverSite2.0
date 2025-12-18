@@ -18,7 +18,7 @@ export function NavHeaderComponent() {
     },
     {
       name: "Educação",
-      path: "/Educacao",
+      path: "/educacao",
     },
     {
       name: "Quero Pagar",
@@ -26,7 +26,7 @@ export function NavHeaderComponent() {
     },
     {
       name: "Trabalhe Conosco",
-      path: "/educacao",
+      path: "/trabalhe-conosco",
     },
   ];
 

@@ -79,7 +79,7 @@ export function Footer({ isBgGray }) {
         <div className="flex flex-col gap-2">
           <p className="text-base">Nos Acompanhe</p>
           <nav className="flex gap-4 items-center">
-            <a toet="blank" href="https://www.instagram.com/clevercobranca">
+            <a target="blank" href="https://www.instagram.com/clevercobranca">
               <FaInstagram size={20} />
             </a>
             <a
