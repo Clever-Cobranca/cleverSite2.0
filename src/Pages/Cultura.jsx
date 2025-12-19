@@ -23,8 +23,8 @@ export default function Cultura() {
           </h4>
         </div>
 
-        <section className="flex items-center max-md:px-3.5 md:pl-20 max-md:flex-col mt-5">
-          <div className="flex flex-col gap-5 lg:pb-40 max-lg:w-full max-lg:items-center">
+        <section className="flex items-center justify-evenly max-md:px-3.5 md:pl-20 max-lg:flex-wrap mt-5">
+          <div className="flex flex-col gap-5 lg:pb-40 max-xl:w-full max-lg:items-center">
             <h2 className="text-[clamp(2.8rem,5vw,6rem)]/tight max-sm:text-center font-bold font-family-roboto-slab">
               Nossa <span className="text-[#F1B434]">Missão</span>
             </h2>
@@ -64,42 +64,42 @@ export default function Cultura() {
             <div className="grid grid-cols-1 md:grid-cols-none md:grid-rows-3 md:grid-flow-col gap-5 mt-14 mb-15 justify-around items-center">
               <div className="flex items-center w-full  gap-2 sm:gap-10 justify-center md:justify-start">
                 <FaRegStar size={30} color="#F1B434" />
-                <p>Foco em resultado</p>
+                <p className="max-sm:w-60">Foco em resultado</p>
               </div>
 
               <div className="flex items-center w-full gap-2 sm:gap-10 justify-center md:justify-start">
                 <HiOutlineDocumentCheck size={30} color="#F1B434" />
-                <p>Ética e Transparencia</p>
+                <p className="max-sm:w-60">Ética e Transparencia</p>
               </div>
 
               <div className="flex items-center w-full  gap-2 sm:gap-10 justify-center md:justify-start">
                 <HiPaperClip size={30} color="#F1B434" />
-                <p>Compromisso</p>
+                <p className="max-sm:w-60">Compromisso</p>
               </div>
 
               <div className="flex items-center w-full  gap-2 sm:gap-10 justify-center md:justify-start">
                 <LiaHandHoldingHeartSolid size={30} color="#F1B434" />
-                <p>Respeito</p>
+                <p className="max-sm:w-60">Respeito</p>
               </div>
 
               <div className="flex items-center w-full  gap-2 sm:gap-10 justify-center md:justify-start">
                 <FaRegChartBar size={30} color="#F1B434" />
-                <p>Desenvolvimento Contínuo</p>
+                <p className="max-sm:w-60">Desenvolvimento Contínuo</p>
               </div>
 
               <div className="flex items-center w-full  gap-2 sm:gap-10 justify-center md:justify-start">
                 <BsCurrencyDollar size={30} color="#F1B434" />
-                <p>Responsabilidade Financeira</p>
+                <p className="max-sm:w-60">Responsabilidade Financeira</p>
               </div>
 
               <div className="flex items-center w-full  gap-2 sm:gap-10 justify-center md:justify-start">
                 <FiUserPlus size={30} color="#F1B434" />
-                <p>Trabalho em equipe</p>
+                <p className="max-sm:w-60">Trabalho em equipe</p>
               </div>
 
               <div className="flex items-center w-full  gap-2 sm:gap-10 justify-center md:justify-start">
                 <PiBank size={30} color="#F1B434" />
-                <p>Legalidade</p>
+                <p className="max-sm:w-60">Legalidade</p>
               </div>
             </div>
           </div>

@@ -23,10 +23,10 @@ export function Header() {
     <>
       <header className="pt-4 z-40 flex items-center-safe justify-between max-sm:justify-between pl-16 pr-16 w-full border border-black/20 fixed bg-white">
         <div className="max-[1056px]:hidden flex items-center gap-10">
-          <img src={Logo} />
+          <img src={Logo} alt="Icon Clever" />
           <NavHeaderComponent />
         </div>
-        <img src={Logo} className="lgs:hidden" />
+        <img src={Logo} className="lgs:hidden" alt="Icon Clever" />
         <IoMenuOutline
           aria-label="Abrir Modal"
           size={32}

@@ -13,7 +13,7 @@ export default function Sobre() {
         <img
           alt="clever_referencia"
           src={Banner}
-          className="object-scale-down"
+          className="object-scale-down w-full "
         />
         <div className="flex justify-between max-xl:justify-center w-full mt-5 flex-wrap">
           <img className="size-2/4 md:size-auto" src={LauraManifesto} alt="Laurinha da Clever"/>
@@ -53,7 +53,7 @@ export default function Sobre() {
         <section>
           <img
             alt="Linha do tempo clever"
-            className="select-none object-fill"
+            className="select-none object-fill w-full"
             draggable="false"
             onContextMenu={(e) => e.preventDefault()}
             src={LinhadoTempo}
