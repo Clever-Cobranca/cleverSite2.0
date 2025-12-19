@@ -41,7 +41,7 @@ export default function Serviços() {
           </div>
         </section>
 
-        <section className="bg-[#E2E2E2] flex sm:p-12 p-8 items-center justify-between">
+        <section className="bg-[#E2E2E2] flex sm:p-12 max-lgs:flex-col p-8 items-center justify-between">
           <div className="flex flex-col gap-8">
             <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
               Realizamos a cobrança no local que o devedor adquiriu o produto ou
@@ -69,7 +69,7 @@ export default function Serviços() {
           <img
             src={nossaHistoria}
             alt="Nossa História - Clever"
-            className="max-lg:hidden"
+            className="max-lg:hidden lgs:"
           />
         </section>
 

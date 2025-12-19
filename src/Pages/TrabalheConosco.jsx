@@ -79,6 +79,34 @@ export default function TrabalheConosco() {
             </div>{" "}
           </div>
         </section>
+        
+        <section className="p-10">
+          <div className="flex">
+            <div className="flex-col gap-5 flex">
+              <h2 className="text-7xl font-family-roboto-slab font-bold">Vem fazer Parte da <br/> <span className="text-[#F1B434]">#CleverFamily</span></h2>
+              <p>Estamos entre as melhores empresas para iniciar a carreira e 85% de nossas vagas administrativas e de liderança são preenchidas internamente! Então, se você sonha em fazer parte de um time que valoriza a carreira e seu desenvolvimento, conheça as novas vagas!</p>
+            </div>
+            <div className="w-11/12">
+              <div className="w-11/12 border-t-3 rounded-2xl border-[#F1B434]"/>
+            </div>
+          </div>
+        </section>
+
+        <section className="flex gap-10 flex-wrap">
+          <div className="w-full items-center">           
+            <div className="w-3/12 bg-[#F1B434]">
+              <h3>Supervisor/<br/>coordenador de operações</h3>
+            </div>
+          </div>
+
+          <div className="w-3/12 bg-[#F1B434]">
+            <h3>Operação de cobrança</h3>
+          </div>
+
+          <div className="w-3/12 bg-[#F1B434]">
+            <h3>Operador de notificação</h3>
+          </div>
+        </section>
       </main>
     </>
   );
