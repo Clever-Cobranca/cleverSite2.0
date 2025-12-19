@@ -19,11 +19,11 @@ export default function Home() {
       <div className="min-h-screen">
         <Header />
         {/* main mantém a altura fixa */}
-        <div className="2xl:pt-25 max-lg:pt-28">
+        <div className="2xl:pt-25 max-lg:pt-28 max-sm:pt-22">
           <main className="h-full">
-            <section className="lg:h-screen flex items-center  max-lg:flex-col">
-              <div id="aside" className="flex flex-col gap-6 md:px-20 px-10">
-                <p className="text-xl pt-20 ">
+            <section className="max-lgs:h-auto lgs:flex justify-around items-center max-sm:pt-0 max-lgs:pt-10 max-lg:flex-col">
+              <div id="aside" className="flex max-lgs:items-center max-lgs:justify-around flex-col gap-6 md:px-20 px-10">
+                <p className="text-xl max-lgs:text-3xl max-lgs:text-center pt-20 ">
                   Há 7 anos desenvolvendo excelência em recuperação de crédito
                   educacional
                 </p>
@@ -35,20 +35,20 @@ export default function Home() {
                   </strong>
                   , com atuação estratégica e alto índice de efetividade
                 </p>
-                <div className="md:mt-12 mt-2 py-5 flex gap-7 items-center ">
-                  <button className="h-12 md:h-[87px] max-sm:p-1 w-52 max-md:max-w-36 font-bold text-[clamp(0.8rem,3vw,1.25rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
+                <div className="md:mt-12 mt-2 py-5 flex gap-7 items-center">
+                  <button className="h-12 md:h-[87px] max-sm:p-1 w-52 max-md:max-w-36 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(0.8rem,3vw,1.25rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
                     Negocie suas Dívidas
                   </button>
-                  <button className="h-12 md:h-[87px] w-52 max-md:max-w-36 font-bold text-[clamp(0.8rem,3vw,1.25rem)] rounded-4xl bg-[#ffffff] text-[#707372] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[rgb(247,246,246)]  hover:cursor-pointer">
+                  <button className="h-12 md:h-[87px] w-52 max-md:max-w-36 max-lgs:w-auto max-sm:p-2 max-lgs:p-5 font-bold text-[clamp(0.8rem,3vw,1.25rem)] rounded-4xl bg-[#ffffff] text-[#707372] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[rgb(247,246,246)]  hover:cursor-pointer">
                     Fale Conosco
                   </button>
                 </div>
               </div>
 
               {/* 2. CONTAINER DA IMAGEM: Deve usar h-full para ocupar 100% da altura da section. */}
-              <div className="flex h-full w-full">
+              <div className="flex h-full w-full max-lgs:h-0">
                 <img
-                  className="w-full h-full object-fill"
+                  className="w-full h-full object-fill max-lgs:hidden"
                   src={Homepage}
                   alt="Clever Informações"
                 />
@@ -58,11 +58,11 @@ export default function Home() {
             {/* Container Nossos Números */}
 
             <section className="bg-orange-primary flex flex-col items-center py-10 gap-10">
-              <h2 className="text-[clamp(1rem,9vw,3.0rem)]  font-family-roboto-slab font-bold">
+              <h2 className="text-[clamp(1rem,9vw,3.0rem)] font-family-roboto-slab font-bold">
                 Nossos Números
               </h2>
 
-              <div className="flex items-center max-md:flex-col gap-10 flex-wrap">
+              <div className="flex items-center max-md:flex-col max-lgs:justify-center gap-10 flex-wrap">
                 <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
                   <img
                     className="sm:w-[50px] sm:h-[50px] h-[30px] w-[30px]"
