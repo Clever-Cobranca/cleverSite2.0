@@ -21,7 +21,7 @@ export default function Serviços() {
         <section className="">
           <div className="flex items-center justify-center flex-wrap">
             <img
-              className="max-md:hidden"
+              className="max-md:hidden md:w-[400px]"
               src={LauraRecuperacao}
               alt="Laura recuperação de dinheiro"
             />
@@ -75,7 +75,7 @@ export default function Serviços() {
 
         <section>
           <div className="flex p-8 sm:p-10">
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-5 xl:mt-24">
               <h3 className="text-[clamp(2.2rem,4vw,5.8rem)] leading-12 font-family-roboto-slab font-bold">
                 Cobrança Preventiva
               </h3>
@@ -115,7 +115,7 @@ export default function Serviços() {
               src={LauraTrofeu}
               alt="Laura segurando troféu da melhor Assessoria BR"
             />
-            <div className="flex flex-col md:gap-10 gap-5 md:mt-30">
+            <div className="flex flex-col md:gap-10 gap-5 lg:mt-30">
               <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
                 Serviço composto por lembretes de vencimento, envio de boletos e
                 cobranças, com renegociação de atrasos de até 90 dias. Atuamos
@@ -145,11 +145,11 @@ export default function Serviços() {
             className={`bg-[image:var(--bg-url)] bg-[#E2E2E2] opacity-60 -z-10  h-[600px] bg-cover bg-center`}
           ></div>
           <div class="bg-gradient-to-t absolute inset-0 from-black/50 to-transparent flex">
-            <div className="flex sm:items-baseline items-center   gap-5 flex-col px-10 mb-3.5 justify-center w-full">
-              <h4 className="text-[clamp(2.2rem,6vw,5.5rem)] font-bold ">
+            <div className="flex sm:max-lg:items-baseline items-center   gap-5 flex-col px-10 mb-3.5 justify-center w-full">
+              <h4 className="text-[clamp(2.2rem,6vw,5.5rem)] text-center font-bold min-w-1/2 ">
                 SAC
               </h4>
-              <p className="text-[clamp(0.8rem,4vw,1rem)] font-black text-left leading-5 max-w-[500px]">
+              <p className="text-[clamp(0.8rem,4vw,1rem)] font-black text-left leading-5 max-w-[900px]">
                 SAC significa Serviço de Atendimento ao Consumidor, um canal
                 direto que empresas oferecem para clientes tirarem dúvidas,
                 fazerem reclamações, solicitações ou darem sugestões, usando
@@ -159,7 +159,13 @@ export default function Serviços() {
                 por lei.
               </p>
             </div>
-            <img src={Laura_Mic} alt="Laurinha Clever com microfone" height={600} className="max-md:hidden"/>
+            <img
+              src={Laura_Mic}
+              alt="Laurinha Clever com microfone"
+              width={550}
+              height={500}
+              className="max-lg:hidden"
+            />
           </div>
         </section>
       </main>
