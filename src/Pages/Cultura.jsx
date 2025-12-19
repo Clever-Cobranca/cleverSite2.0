@@ -1,6 +1,5 @@
 import LauraeEstagiario from "../assets/LauraeEstagiario.png";
 import { Header } from "../components/Header/Header";
-
 import { HiOutlineDocumentCheck, HiPaperClip } from "react-icons/hi2";
 import { LiaHandHoldingHeartSolid } from "react-icons/lia";
 import { FaRegChartBar, FaRegStar } from "react-icons/fa";

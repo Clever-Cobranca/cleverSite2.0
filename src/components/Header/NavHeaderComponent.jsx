@@ -26,7 +26,7 @@ export function NavHeaderComponent() {
     },
     {
       name: "Trabalhe Conosco",
-      path: "/educacao",
+      path: "/trabalhe-conosco",
     },
   ];
 

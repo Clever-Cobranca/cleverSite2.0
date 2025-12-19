@@ -1,6 +1,7 @@
 import { Header } from "../components/Header/Header";
 import fundoLaura from "../assets/fundoLaura.png";
 import { Footer } from "../components/Footer/Footer";
+import fundoPagar from "../assets/fundoPagar.jpg"
 
 export default function Pagar() {
   return (
@@ -11,7 +12,7 @@ export default function Pagar() {
           <img
             src={fundoLaura}
             alt="Laura Clever feliz"
-            className="-z-10 fixed h-full hidden md:block"
+            className="-z-10 fixed h-full max-sm:hidden md:hidden max-md:hidden lgs:block "
           />
         </div>
 
@@ -19,7 +20,7 @@ export default function Pagar() {
           Quer quitar suas <span className="text-[#F1B434]">dívidas</span>?
         </h1>
 
-        <div className="md:flex md:justify-center mt-10 mb:mt-0 text-center items-center flex-col h-full md:z-10 md:w-1/2 md:p-35">
+        <div className="md:flex md:justify-center mt-10 mb:mt-0 text-center items-center flex-col h-full md:z-10 md: lgs:p-35">
           <h2 className="text-2xl md:text-4xl">
             Entre em contato com nossa assistente, a{" "}
             <span className="text-[#f1b534]">Laura</span>!
@@ -41,6 +42,7 @@ export default function Pagar() {
             </a>
           </div>
         </div>
+        <img src={fundoPagar} className="max-sm:hidden hidden max-lgs:block"/>
       </main>
 
       <Footer isBgGray />
