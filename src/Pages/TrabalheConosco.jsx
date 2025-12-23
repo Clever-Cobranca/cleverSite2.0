@@ -99,9 +99,8 @@ export default function TrabalheConosco() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-10 flex-wrap">
+            <div className="flex flex-col items-center flex-wrap">
 
-              
               <button onClick={() => setIsOpen('supervisor')}>
                 <CircleExpandButton
                   bgColor="bg-white"
@@ -113,7 +112,25 @@ export default function TrabalheConosco() {
                   onClick={() => setIsOpen(true)}
                 />
               </button>
+              <div className="flex items-center w-full justify-center">
+                <div className="w-px h-6 bg-gray-300"></div>
+              </div>
 
+              <div className="flex items-center justify-center w-full">
+                <div className="w-62 h-px bg-gray-300"></div>
+                <div className="w-0 h-px bg-gray-300"></div>
+              </div>
+
+              <div className="flex justify-center gap-60">
+                <div className="flex flex-col items-center">
+                  <div className="w-px h-8 bg-gray-300"></div>
+                  <div className="w-2 h-2 rounded-full bg-gray-300 -mt-1"></div>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-px h-8 bg-gray-300"></div>
+                  <div className="w-2 h-2 rounded-full bg-gray-300 -mt-1"></div>
+                </div>
+              </div>
               <div className="flex justify-center gap-10">
                 <button onClick={() => setIsOpen('operadorCobranca')}>
                   <CircleExpandButton

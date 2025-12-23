@@ -32,7 +32,6 @@ export function CircleExpandButton({ bgColor, hoverColor, textColor, text, hover
             onMouseLeave={handleMouseLeave}
             whileTap={{ scale: 0.95 }}
         >
-            {/* Círculo que expande */}
             <motion.div
                 className={`absolute ${hoverColor} rounded-full pointer-events-none`}
                 style={{
@@ -50,7 +49,7 @@ export function CircleExpandButton({ bgColor, hoverColor, textColor, text, hover
                     scale: isHovered ? 1 : 0,
                 }}
                 transition={{
-                    duration: 0.5,
+                    duration: 0.4,
                     ease: "easeOut",
                 }}
             />
@@ -100,7 +99,6 @@ function BorderCircleButton() {
             onMouseLeave={handleMouseLeave}
             whileTap={{ scale: 0.95 }}
         >
-            {/* Círculo que expande */}
             <motion.div
                 className="absolute bg-orange-500 rounded-full pointer-events-none"
                 style={{
