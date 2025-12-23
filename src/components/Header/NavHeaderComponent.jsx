@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router";
-import { motion } from "motion/react";
 import { cn } from "../../lib/utils";
 import {
   DropdownMenu,
@@ -78,7 +77,7 @@ export function NavHeaderComponent() {
               </DropdownMenuContent>
             </DropdownMenu>
           </li>
-        </ul>
+        </ul> 
       </div>
     </nav>
   );

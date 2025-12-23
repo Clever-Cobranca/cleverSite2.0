@@ -6,7 +6,7 @@ export const post = [
     slug: "reincidencia-inadimplencia-bate-recorde",
     body: ` <main className="main">
       <img src={post.banner} alt={post.title} />
-        <div className="wrap max-md:sm:w-full">
+        <div className="wrap">
           <div className="hero">
             <h1>
               Reincidência na Inadimplência Bate Recorde: Como Proteger seu

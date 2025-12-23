@@ -135,6 +135,7 @@ export function DropdownMenuItem({
   ...props
 }) {
   const Comp = asChild ? Slot : "button";
+    const { setIsOpen } = useDropdownMenu();
 
   return (
     <motion.li variants={itemVariants} transition={{ duration: 0.2 }}>
@@ -144,6 +145,8 @@ export function DropdownMenuItem({
           "hover:bg-gray-50 hover:text-black",
           className
         )}
+        onClick={() => setIsOpen(false)}
+
         {...props}
       >
         {children}
