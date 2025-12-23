@@ -5,6 +5,12 @@ import { HeaderModal } from "./HeaderModal";
 import { NavHeaderComponent } from "./NavHeaderComponent";
 import { IoMenuOutline } from "react-icons/io5";
 import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "../dropdowMenu";
+import {
   FaFacebookF,
   FaTiktok,
   FaInstagram,
@@ -12,8 +18,11 @@ import {
   FaYoutube,
   FaWhatsapp,
 } from "react-icons/fa6";
+import { SearchComponent } from "../SearchComponent";
+import { useLocation } from "react-router";
 export function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const location = useLocation();
 
   const handleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -70,6 +79,32 @@ export function Header() {
           </a>
         </div>
       </header>
+      {(location.pathname === "/teste" || location.pathname === "/blog") && (
+        <section className="w-full fixed top-[90px] bg-white h-20 p-7 shadow-2xl">
+          <div className="h-full flex items-center pt-2 justify-between">
+            <h4 className="text-[#1A1A1A] ml-7  text-xl font-light tracking-widest">
+              NOTÍCIAS
+            </h4>
+            <div className="flex items-center gap-3.5">
+              <DropdownMenu className="z-10">
+                <DropdownMenuTrigger>Categorias</DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem className="w-full">
+                    <option>Cobrança</option>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <option>Crédito</option>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <option>Inadimplência</option>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <SearchComponent />
+            </div>
+          </div>
+        </section>
+      )}
 
       <HeaderModal isModalOpen={isModalOpen} setIsModalOpen={handleModal} />
     </>
