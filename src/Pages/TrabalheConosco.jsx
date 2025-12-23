@@ -4,6 +4,7 @@ import EquipeClever from "../assets/Equipe_Clever.png";
 import TrioClever1 from "../assets/Trio_Clever1.png";
 import TrioClever2 from "../assets/Trio_Clever2.png";
 import { Header } from "../components/Header/Header";
+import { CircleExpandButton } from "../components/button";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { MdPortrait, MdLocationCity, MdOpacity } from "react-icons/md";
 import { IoBriefcaseOutline } from "react-icons/io5";
@@ -11,17 +12,9 @@ import { IoClose } from "react-icons/io5";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
-const handMouseMove = (e) => {
-  const rect = e.currentTarget.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-
-}
-
-
 
 export default function TrabalheConosco() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(null)
 
   return (
     <>
@@ -106,38 +99,61 @@ export default function TrabalheConosco() {
               </div>
             </div>
 
-
             <div className="flex flex-col items-center gap-10 flex-wrap">
-              <div className="bg-[#F1B434] text-center p-4 rounded-4xl">
-                <h3>Supervisor/ <br />coordenador de operações</h3>
-              </div>
+
+              
+              <button onClick={() => setIsOpen('supervisor')}>
+                <CircleExpandButton
+                  bgColor="bg-white"
+                  hoverColor="bg-[#F1B434]"
+                  textColor="#000"
+                  text="Supervisor coordenador de operações"
+                  hoverTextColor="#fff"
+                  className="text-center p-4 rounded-4xl hover:cursor-pointer"
+                  onClick={() => setIsOpen(true)}
+                />
+              </button>
 
               <div className="flex justify-center gap-10">
-                <div className=" bg-[#F1B434] text-center p-4 rounded-4xl">
-                  <h3>Operação de cobrança</h3>
-                </div>
-
-                <div className=" bg-[#F1B434] text-center p-4 rounded-4xl hover:cursor-pointer" onClick={() => setIsOpen(true)}>
-                  <h3>Operador de notificação</h3>
-                </div>
+                <button onClick={() => setIsOpen('operadorCobranca')}>
+                  <CircleExpandButton
+                    bgColor="bg-white"
+                    hoverColor="bg-[#F1B434]"
+                    textColor="#000"
+                    text="Operação de cobrança"
+                    hoverTextColor="#fff"
+                    className="text-center p-4 rounded-4xl hover:cursor-pointer"
+                  />
+                </button>
+                <button onClick={() => setIsOpen('oparadorNotificacao')}>
+                  <CircleExpandButton
+                    bgColor="bg-white"
+                    hoverColor="bg-[#F1B434]"
+                    textColor="#000"
+                    text="Operador de notificação"
+                    hoverTextColor="#fff"
+                    className="text-center p-4 rounded-4xl hover:cursor-pointer"
+                    onClick={() => setIsOpen(true)}
+                  />
+                </button>
               </div>
             </div>
             <AnimatePresence initial={false}>
-              {isOpen && (
+              {isOpen == 'supervisor' && (
                 <div className="flex justify-center items-center fixed inset-0 z-50 rounded-4xl">
                   <motion.div
                     className="absolute -z-10 inset-0 bg-black/30"
                     onClick={() => setIsOpen(false)}
-                    initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    exit={{opacity: 0}}
-                    transition={{duration: 0.2}}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
                   />
                   <motion.div
                     className="bg-[#fff] rounded-4xl p-5 w-1/2 relative"
-                    initial={{opacity: 0, scale: 0.8}}
-                    animate={{opacity: 1, scale: 1}}
-                    exit={{opacity: 0, scale: 0.8}}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
                     transition={{
                       duration: 0.1,
                       ease: "easeOut"
@@ -146,8 +162,8 @@ export default function TrabalheConosco() {
                     <div className="">
                       <div className="w-full flex justify-end">
                         <motion.div
-                          whileHover={{scale: 1.1}}
-                          whileTap={{scale: 0.9}}
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
                         >
                           <IoClose className="hover:cursor-pointer" size={30} color="#f1b434" onClick={() => setIsOpen(false)} />
                         </motion.div>
@@ -185,6 +201,184 @@ export default function TrabalheConosco() {
                         <div>
                           <h4 className="text-2xl font-semibold">Descrição da vaga</h4>
                           <p>A pergunta agora não é 'se', a pergunta é onde ele vai atacar! Porque ele vai atacar! Ele tem pneu para isso, ele tem carro para isso e ele tem o arrojo necessário! É agora ou nunca para Max Verstappen!"</p>
+                        </div>
+
+                        <div>
+                          <h4 className="text-2xl font-semibold">Requisitos</h4>
+                          <ul>
+                            <li>-Possuir 16 ou 17 anos</li>
+                            <li>-Estar Cursando o ensino medio</li>
+                            <li>-Residir na Região</li>
+                          </ul>
+                        </div>
+
+                        <div>
+                          <h4 className="text-2xl font-semibold">Descrição da vaga</h4>
+                          <ol className="ml-4">
+                            <li className="list-disc"><strong>Etapa 1:</strong> Cadastro</li>
+                            <li className="list-disc"><strong>Etapa 2:</strong> Entrevista</li>
+                            <li className="list-disc"><strong>Etapa 3:</strong> Exames</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+              )}
+            </AnimatePresence>
+
+            <AnimatePresence initial={false}>
+              {isOpen == 'operadorCobranca' && (
+                <div className="flex justify-center items-center fixed inset-0 z-50 rounded-4xl">
+                  <motion.div
+                    className="absolute -z-10 inset-0 bg-black/30"
+                    onClick={() => setIsOpen(false)}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                  <motion.div
+                    className="bg-[#fff] rounded-4xl p-5 w-1/2 relative"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{
+                      duration: 0.1,
+                      ease: "easeOut"
+                    }}
+                  >
+                    <div className="">
+                      <div className="w-full flex justify-end">
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                        >
+                          <IoClose className="hover:cursor-pointer" size={30} color="#f1b434" onClick={() => setIsOpen(false)} />
+                        </motion.div>
+                      </div>
+                      <div>
+                        <h4 className="text-6xl font-bold text-center">Estágio Clever<br /><span className="text-[#F1B434]">Clever</span> !</h4>
+                      </div>
+                      <div className="flex gap-16 border-t-2 border-[#D9D9D9] border-b-2 pt-10 pb-10">
+                        <div className="flex flex-col gap-4 items-center flex-wrap">
+                          <div className="flex gap-4 items-center">
+                            <HiOutlineLocationMarker size={30} />
+                            <p>Suzano-SP</p>
+                          </div>
+
+                          <div className="flex gap-4 items-center">
+                            <MdLocationCity size={30} />
+                            <p>Presencial</p>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-col gap-4 justify-center flex-wrap">
+                          <div className="flex gap-4 items-center">
+                            <MdPortrait size={30} />
+                            <p>Estágio</p>
+                          </div>
+
+                          <div className="flex gap-4 items-center">
+                            <IoBriefcaseOutline size={30} />
+                            <p>Bolsa Auxílio</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col gap-2 mt-3">
+                        <div>
+                          <h4 className="text-2xl font-semibold">Descrição da vaga</h4>
+                          <p>tem que ver la com os cara</p>
+                        </div>
+
+                        <div>
+                          <h4 className="text-2xl font-semibold">Requisitos</h4>
+                          <ul>
+                            <li>-Possuir 16 ou 17 anos</li>
+                            <li>-Estar Cursando o ensino medio</li>
+                            <li>-Residir na Região</li>
+                          </ul>
+                        </div>
+
+                        <div>
+                          <h4 className="text-2xl font-semibold">Descrição da vaga</h4>
+                          <ol className="ml-4">
+                            <li className="list-disc"><strong>Etapa 1:</strong> Cadastro</li>
+                            <li className="list-disc"><strong>Etapa 2:</strong> Entrevista</li>
+                            <li className="list-disc"><strong>Etapa 3:</strong> Exames</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+              )}
+            </AnimatePresence>
+
+            <AnimatePresence initial={false}>
+              {isOpen == 'oparadorNotificacao' && (
+                <div className="flex justify-center items-center fixed inset-0 z-50 rounded-4xl">
+                  <motion.div
+                    className="absolute -z-10 inset-0 bg-black/30"
+                    onClick={() => setIsOpen(false)}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                  <motion.div
+                    className="bg-[#fff] rounded-4xl p-5 w-1/2 relative"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{
+                      duration: 0.1,
+                      ease: "easeOut"
+                    }}
+                  >
+                    <div className="">
+                      <div className="w-full flex justify-end">
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                        >
+                          <IoClose className="hover:cursor-pointer" size={30} color="#f1b434" onClick={() => setIsOpen(false)} />
+                        </motion.div>
+                      </div>
+                      <div>
+                        <h4 className="text-6xl font-bold text-center">Estágio Clever<br /><span className="text-[#F1B434]">Clever</span> !</h4>
+                      </div>
+                      <div className="flex gap-16 border-t-2 border-[#D9D9D9] border-b-2 pt-10 pb-10">
+                        <div className="flex flex-col gap-4 items-center flex-wrap">
+                          <div className="flex gap-4 items-center">
+                            <HiOutlineLocationMarker size={30} />
+                            <p>Suzano-SP</p>
+                          </div>
+
+                          <div className="flex gap-4 items-center">
+                            <MdLocationCity size={30} />
+                            <p>Presencial</p>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-col gap-4 justify-center flex-wrap">
+                          <div className="flex gap-4 items-center">
+                            <MdPortrait size={30} />
+                            <p>Estágio</p>
+                          </div>
+
+                          <div className="flex gap-4 items-center">
+                            <IoBriefcaseOutline size={30} />
+                            <p>Bolsa Auxílio</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col gap-2 mt-3">
+                        <div>
+                          <h4 className="text-2xl font-semibold">Descrição da vaga</h4>
+                          <p>pague oque me deve</p>
                         </div>
 
                         <div>
