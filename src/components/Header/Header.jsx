@@ -80,14 +80,14 @@ export function Header() {
         </div>
       </header>
       {(location.pathname === "/teste" || location.pathname === "/blog") && (
-        <section className="w-full fixed top-[90px] bg-white h-20 p-7 shadow-2xl">
-          <div className="h-full flex items-center pt-2 justify-between">
-            <h4 className="text-[#1A1A1A] ml-7  text-xl font-light tracking-widest">
+        <section className="w-full lg:hidden fixed top-[90px] bg-white min-h-20 p-7 shadow-2xl">
+          <div className="h-full flex items-center max-sm:gap-8 flex-wrap pt-2 justify-between">
+            <h4 className="text-[#1A1A1A] sm:ml-7  text-xl font-light tracking-widest">
               NOTÍCIAS
             </h4>
-            <div className="flex items-center gap-3.5">
+            <div className="flex items-center gap-3.5 max-sm:flex-wrap-reverse">
               <DropdownMenu className="z-10">
-                <DropdownMenuTrigger>Categorias</DropdownMenuTrigger>
+                <DropdownMenuTrigger className="p-0">Categorias</DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuItem className="w-full">
                     <option>Cobrança</option>

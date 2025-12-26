@@ -1,5 +1,15 @@
 import styles from "./Blog.module.css";
 
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "../../components/dropdowMenu";
+import { SearchComponent } from "../../components/SearchComponent";
+import { Header } from "../../components/Header/Header";
+
+
 export default function Blog() {
   const post = {
     id: 48,
@@ -12,10 +22,10 @@ export default function Blog() {
 
   return (
     <>
-      {/* <Header/> */}
+      <Header/>
       <main className={styles.main}>
         <img src={post.banner} alt={post.title} />
-        <div>
+        <div className={styles.wrapContainer}>
           <div className={styles.wrap}>
             <div class={styles.heroAlternative}>
               <h1>Linha do Tempo da Inadimplência</h1>
@@ -24,7 +34,7 @@ export default function Blog() {
             <article class="content">
               <div class="year-section">
                 <h2 class="year-title">2025</h2>
-                <div class="event">
+                <div class={styles.event}>
                   <h3>Black Friday (novembro/2025)</h3>
                   <p>
                     O consumo dispara e os devedores priorizam compras ao invés
@@ -32,7 +42,7 @@ export default function Blog() {
                     reduzem a liquidez disponível para pagamentos.
                   </p>
                 </div>
-                <div class="event">
+                <div class={styles.event}>
                   <h3>Natal (dezembro/2025)</h3>
                   <p>
                     Mês de maior consumo do ano. Presentes, confraternizações e
@@ -40,7 +50,7 @@ export default function Blog() {
                     dívidas.
                   </p>
                 </div>
-                <div class="event">
+                <div class={styles.event}>
                   <h3>Ano Novo (dezembro/2025)</h3>
                   <p>
                     Além dos gastos com festas e viagens, muitas famílias entram
@@ -50,7 +60,7 @@ export default function Blog() {
               </div>
               <div class="year-section">
                 <h2 class="year-title">2026</h2>
-                <div class="event">
+                <div class={styles.event}>
                   <h3>Férias Escolares (janeiro/2026)</h3>
                   <p>
                     Período de alto gasto familiar com lazer, viagens e
@@ -58,7 +68,7 @@ export default function Blog() {
                     prioridades familiares.
                   </p>
                 </div>
-                <div class="event">
+                <div class={styles.event}>
                   <h3>Carnaval (fevereiro/2026)</h3>
                   <p>
                     Um dos maiores eventos do país. Viagens, festas e consumo
@@ -66,7 +76,7 @@ export default function Blog() {
                     para quitação de dívidas.
                   </p>
                 </div>
-                <div class="event">
+                <div class={styles.event}>
                   <h3>Festa Junina (junho/2026)</h3>
                   <p>
                     Tradicional em todo o Brasil, especialmente em regiões do
@@ -74,7 +84,7 @@ export default function Blog() {
                     atenção dos devedores.
                   </p>
                 </div>
-                <div class="event">
+                <div class={styles.event}>
                   <h3>Copa do Mundo (11 de junho a 19 de julho de 2026)</h3>
                   <p>
                     O evento esportivo mais assistido do planeta terá impacto
@@ -115,31 +125,31 @@ export default function Blog() {
                         <td>Pessoas físicas inadimplentes</td>
                         <td>71,9 milhões</td>
                         <td>74,6 milhões</td>
-                        <td class="increase">+3,8%</td>
+                        <td class={styles.increase}>+3,8%</td>
                       </tr>
                       <tr>
                         <td>Valor médio da dívida (PF)</td>
                         <td>R$ 4.580</td>
                         <td>R$ 4.762</td>
-                        <td class="increase">+4,0%</td>
+                        <td class={styles.increase}>+4,0%</td>
                       </tr>
                       <tr>
                         <td>Empresas negativadas</td>
                         <td>6,6 milhões</td>
                         <td>6,7 milhões</td>
-                        <td class="increase">+1,5%</td>
+                        <td class={styles.increase}>+1,5%</td>
                       </tr>
                       <tr>
                         <td>Estoque de dívidas (PJ)</td>
                         <td>R$ 126,1 bi</td>
                         <td>R$ 127,8 bi</td>
-                        <td class="increase">+1,3%</td>
+                        <td class={styles.increase}>+1,3%</td>
                       </tr>
                       <tr>
                         <td>Agro no Banco do Brasil {"atraso >90d"}</td>
                         <td>1,32%</td>
                         <td>3,49%</td>
-                        <td class="increase">+164,4%</td>
+                        <td class={styles.increase}>+164,4%</td>
                       </tr>
                     </tbody>
                   </table>
@@ -193,6 +203,23 @@ export default function Blog() {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="bg-[#FBFBFB] mt-14 px-4 mr-8 flex flex-col gap-12 h-[300px] max-lg:hidden ">
+            <SearchComponent />
+            <DropdownMenu className="z-10">
+              <DropdownMenuTrigger>Categorias</DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem className="w-full">
+                  <option>Cobrança</option>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <option>Crédito</option>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <option>Inadimplência</option>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
       </main>

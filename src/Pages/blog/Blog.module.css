@@ -7,7 +7,7 @@
   --dourado: #d4af37;
   --dourado-claro: #fff7e0;
 }
-.wrapContainer{
+.wrapContainer {
   display: flex;
   justify-content: space-between;
 }
@@ -16,15 +16,15 @@
   padding-inline-start: 28px;
 }
 
-.main{
-  padding-top: 155px;
+.main {
+  padding-top: 78px;
 }
 
 .main img {
   padding-block: calc(var(--spacing) * 3);
   margin-inline: auto;
   width: 100%;
-  height: 360px;
+  height: 496px;
   object-fit: cover;
   object-position: 40% 40%;
 }
@@ -35,14 +35,44 @@
   margin-left: auto;
   margin-right: auto;
   overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.main table > th,
+/* .main table > th,
 td {
   width: max-content;
   padding-inline: 14px;
   padding-block: 8px;
   font-size: clamp(0.5rem, 4vw, 0.9rem);
+  vertical-align: baseline;
+} */
+.main table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+.main  table  th {
+  background: linear-gradient(135deg, #000000, #1a1a1a);
+  color: #d4af37;
+  padding: 18px 15px;
+  text-align: left;
+  font-weight: 600;
+  font-size: clamp(0.5rem, 4vw, 0.9rem);
+}
+.main table td {
+  padding: 16px 15px;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: clamp(0.5rem, 4vw, 0.9rem);
+
+  color: #1a1a1a;
+}
+tr:nth-child(even) {
+  background: #fafafa;
+}
+.increase {
+  color: #d4af37;
+  font-weight: 700;
 }
 
 .main h1,
@@ -97,6 +127,16 @@ article {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
 }
 
+.wrap article .event {
+  padding: 12px;
+  border-left: 4px solid #d4af37;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.1);
+  margin-block: 26px;
+}
+.wrap > article > * + * {
+  margin-block: 22px;
+}
 .wrap > article > * + * {
   margin-block: 22px;
 }
@@ -169,7 +209,12 @@ article section > ul {
   margin: 4px 6px 0px 0px;
 }
 
+/* max-w md*/
+
 @media screen and (width < 48rem) {
+  .main {
+    padding-top: 155px;
+  }
   .main img {
     width: 100%;
   }
@@ -199,7 +244,7 @@ article section > ul {
   .toc {
     width: 100%;
     padding: 18px;
-    margin: 0;
+    margin-inline: 12px;
   }
 }
 /* max-w LG*/
@@ -207,7 +252,9 @@ article section > ul {
   h1 {
     text-align: center;
   }
-
+  .main {
+    padding-top: 155px;
+  }
   .wrap {
     width: 100%;
   }

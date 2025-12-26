@@ -11,7 +11,7 @@ import { SearchComponent } from "../../components/SearchComponent";
 export default function Teste() {
   const post = {
     id: 48,
-    banner: "/bigbang-relogio.jpg",
+    banner: "/reincidencia.jpg",
     date: "2025-09-29T00:00",
     slug: "reincidencia-inadimplencia-bate-recorde",
     title:
@@ -426,7 +426,7 @@ export default function Teste() {
             </article>
           </div>
 
-          <div className="bg-[#FBFBFB] mt-14 flex flex-col gap-12 h-[300px] max-lg:hidden ">
+          <div className="bg-[#FBFBFB] mt-14 px-4 mr-8 flex flex-col gap-12 h-[300px] max-lg:hidden ">
             <SearchComponent />
             <DropdownMenu className="z-10">
               <DropdownMenuTrigger>Categorias</DropdownMenuTrigger>
