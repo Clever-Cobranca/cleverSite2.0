@@ -9,12 +9,15 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import { MdPortrait, MdLocationCity, MdOpacity } from "react-icons/md";
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
-import { useState } from "react";
+import {  useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import InteractiveForm from "../components/InteractiveForm";
 
 
 export default function TrabalheConosco() {
   const [isOpen, setIsOpen] = useState(null)
+  const [Aberto, estaAbrindo] = useState(false)
+
 
   return (
     <>
@@ -424,7 +427,49 @@ export default function TrabalheConosco() {
           </div>
           <div className="w-11/12">
             <div className="w-11/12 border-t-3 rounded-2xl border-[#F1B434]" />
+            <div className="w-full h-5">
+              <button onClick={() => estaAbrindo(true)}>Quero me candidatar</button>
+            </div>
           </div>
+            <AnimatePresence initial={false}>
+              {Aberto == true && (
+                <div className="flex justify-center items-center fixed inset-0 z-50 rounded-4xl">
+                  <motion.div
+                    className="absolute -z-10 inset-0 bg-black/30"
+                    onClick={() => setIsOpen(false)}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                  <motion.div
+                    className="bg-[#fff] rounded-4xl p-3 relative"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{
+                      duration: 0.1,
+                      ease: "easeOut"
+                    }}
+                  >
+                    <div className="">
+                      <div className="w-full flex justify-end">
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                        >
+                          <IoClose className="hover:cursor-pointer" size={30} color="#f1b434" onClick={() => estaAbrindo(false)} />
+                        </motion.div>
+                      </div>
+                      <div>
+                        <h4 className="text-4xl font-bold text-center">Candidaturar<br /><span className="text-[#F1B434]">Clever</span> !</h4>
+                      </div>
+                      <InteractiveForm />
+                    </div>
+                  </motion.div>
+                </div>
+              )}
+            </AnimatePresence>
         </section>
       </main>
     </>

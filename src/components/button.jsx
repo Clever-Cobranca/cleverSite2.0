@@ -60,7 +60,7 @@ export function CircleExpandButton({ bgColor, hoverColor, textColor, text, hover
                 animate={{
                     color: isHovered ? hoverTextColor : textColor
                 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.2 }}
             >
                 {text}
             </motion.span>
