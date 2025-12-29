@@ -36,7 +36,7 @@ export default function PostsCarousel() {
 
 
   return (
-    <div className="flex items-center w-full gap-8 py-3.5 md:px-8 lg:px-28">
+    <div className="flex items-center w-full gap-8 py-3.5 md:px-8 lg:px-28 z-0">
       <FaChevronLeft
         color="black"
         size={32}
@@ -48,7 +48,7 @@ export default function PostsCarousel() {
         className="w-full overflow-hidden flex justify-around"
       >
         <div
-          className="flex shrink-0 items-center gap-7 transition-transform duration-500"
+          className="flex shrink-0 max-sm:w-full items-center gap-7 transition-transform duration-500"
           style={{ transform: `translateX(-${axis}px)` }}
         >
           <CardPosts />

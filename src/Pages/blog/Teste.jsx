@@ -1,4 +1,4 @@
-import styles from "./Blog.module.css";
+import "./Blog.css";
 import { Header } from "../../components/Header/Header";
 import {
   DropdownMenu,
@@ -18,14 +18,20 @@ export default function Teste() {
       "Reincidência na Inadimplência Bate Recorde: Como Proteger seu Crédito na Janela Crítica de 74 Dias",
   };
 
+  
+
   return (
     <>
       <Header />
-      <main className={styles.main}>
-        <img src={post.banner} alt={post.title} />
-        <div className={styles.wrapContainer}>
-          <div className={styles.wrap}>
-            <div className={styles.hero}>
+      <div className="displayHtml">
+
+
+
+      </div>
+      <main className="main">
+        <div className="wrapContainer">
+          <div className="wrap">
+            <div className="hero">
               <h1>
                 Reincidência na Inadimplência Bate Recorde: Como Proteger seu
                 Crédito na Janela Crítica de 74 Dias
@@ -34,7 +40,7 @@ export default function Teste() {
                 Estudo CNDL/SPC Brasil revela cenário alarmante e estratégias
                 urgentes para credores
               </p>
-              <div className={styles.cta}>
+              <div className="cta">
                 <a
                   href="https://wa.me/5508000004820?text=Ol%C3%A1%2C%20vim%20do%20Blog%20da%20Clever%20(reincidencia-inadimplencia-bate-recorde-janela-critica-74-dias)%20e%20quero%20reduzir%20a%20inadimpl%C3%AAncia%20na%20minha%20escola.%20source%3Dblog-reincidencia-inadimplencia-bate-recorde-janela-critica-74-dias"
                   rel="noopener"
@@ -46,7 +52,7 @@ export default function Teste() {
                 </a>
               </div>
             </div>
-            <nav aria-label="Sumário do artigo" className={styles.toc}>
+            <nav aria-label="Sumário do artigo" className="toc">
               <strong>Sumário</strong>
               <ul>
                 <li>
@@ -346,7 +352,7 @@ export default function Teste() {
                     contato com a Clever Assessoria e Cobrança. Nossa equipe
                     está preparada para transformar dados em resultados.
                   </p>
-                  <div className={styles.cta}>
+                  <div className="cta">
                     <a
                       href="https://wa.me/5508000004820?text=Quero%20implementar%20as%20estrat%C3%A9gias%20da%20Clever%20para%20a%20janela%20de%2074%2C4%20dias.%20source%3Dblog-reincidencia-inadimplencia-bate-recorde-janela-critica-74-dias"
                       rel="noopener"
@@ -358,7 +364,7 @@ export default function Teste() {
                     </a>
                   </div>
                 </section>
-                <div className={styles.callout}>
+                <div className="callout">
                   <strong>Leituras recomendadas:</strong>
                   <ul>
                     <li>
@@ -388,7 +394,7 @@ export default function Teste() {
                     </li>
                   </ul>
                 </div>
-                <div className={styles.callout}>
+                <div className="callout">
                   <strong>Siga a Clever:</strong>
                   <p>
                     <a
@@ -424,24 +430,6 @@ export default function Teste() {
                 </div>
               </section>
             </article>
-          </div>
-
-          <div className="bg-[#FBFBFB] mt-14 px-4 mr-8 flex flex-col gap-12 h-[300px] max-lg:hidden ">
-            <SearchComponent />
-            <DropdownMenu className="z-10">
-              <DropdownMenuTrigger>Categorias</DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem className="w-full">
-                  <option>Cobrança</option>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <option>Crédito</option>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <option>Inadimplência</option>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
           </div>
         </div>
       </main>
