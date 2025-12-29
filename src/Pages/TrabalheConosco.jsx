@@ -189,7 +189,7 @@ export default function TrabalheConosco() {
                         </motion.div>
                       </div>
                       <div>
-                        <h4 className="text-6xl font-bold text-center">Estágio Clever<br /><span className="text-[#F1B434]">Clever</span> !</h4>
+                        <h4 className="text-6xl font-bold text-center">Supervisor<br /><span className="text-[#F1B434]">Clever</span> !</h4>
                       </div>
                       <div className="flex gap-16 border-t-2 border-[#D9D9D9] border-b-2 pt-10 pb-10">
                         <div className="flex flex-col gap-4 items-center flex-wrap">
@@ -207,37 +207,39 @@ export default function TrabalheConosco() {
                         <div className="flex flex-col gap-4 justify-center flex-wrap">
                           <div className="flex gap-4 items-center">
                             <MdPortrait size={30} />
-                            <p>Estágio</p>
+                            <p>???</p>
                           </div>
 
                           <div className="flex gap-4 items-center">
                             <IoBriefcaseOutline size={30} />
-                            <p>Bolsa Auxílio</p>
+                            <p>Salário competitivo: até R$ 4.500 (fixo + variável)</p>
                           </div>
                         </div>
                       </div>
 
                       <div className="flex flex-col gap-2 mt-3">
-                        <div>
-                          <h4 className="text-2xl font-semibold">Descrição da vaga</h4>
-                          <p>A pergunta agora não é 'se', a pergunta é onde ele vai atacar! Porque ele vai atacar! Ele tem pneu para isso, ele tem carro para isso e ele tem o arrojo necessário! É agora ou nunca para Max Verstappen!"</p>
-                        </div>
+                        
 
                         <div>
                           <h4 className="text-2xl font-semibold">Requisitos</h4>
                           <ul>
-                            <li>-Possuir 16 ou 17 anos</li>
-                            <li>-Estar Cursando o ensino medio</li>
-                            <li>-Residir na Região</li>
+                            <li>-Ensino superior completo em Administração ou áreas correlatas</li>
+                            <li>-Experiência comprovada como Supervisor de Cobrança</li>
+                            <li>-Liderança de equipes</li>
+                            <li>-Domínio de metas, KPIs e análise de performance</li>
+                            <li>-Comunicação assertiva e foco em resultados</li>
                           </ul>
                         </div>
 
                         <div>
-                          <h4 className="text-2xl font-semibold">Descrição da vaga</h4>
+                          <h4 className="text-2xl font-semibold">Beneficios</h4>
                           <ol className="ml-4">
-                            <li className="list-disc"><strong>Etapa 1:</strong> Cadastro</li>
-                            <li className="list-disc"><strong>Etapa 2:</strong> Entrevista</li>
-                            <li className="list-disc"><strong>Etapa 3:</strong> Exames</li>
+                            <li className="list-disc">Ambiente estruturado e profissional</li>
+                            <li className="list-disc">Programas de desenvolvimento contínuo</li>
+                            <li className="list-disc">Cultura de crescimento e meritocracia</li>
+                            <li className="list-disc">Vale Transporte</li>
+                            <li className="list-disc">Vale Refeição</li>
+                            <li className="list-disc">Campanhas de reconhecimento com bônus mensais (podendo adicionar até 5% sobre a variavel além de prêmios)</li>
                           </ol>
                         </div>
                       </div>
@@ -278,7 +280,7 @@ export default function TrabalheConosco() {
                         </motion.div>
                       </div>
                       <div>
-                        <h4 className="text-6xl font-bold text-center">Estágio Clever<br /><span className="text-[#F1B434]">Clever</span> !</h4>
+                        <h4 className="text-6xl font-bold text-center">Operador<br /><span className="text-[#F1B434]">Clever</span> !</h4>
                       </div>
                       <div className="flex gap-16 border-t-2 border-[#D9D9D9] border-b-2 pt-10 pb-10">
                         <div className="flex flex-col gap-4 items-center flex-wrap">
@@ -296,12 +298,12 @@ export default function TrabalheConosco() {
                         <div className="flex flex-col gap-4 justify-center flex-wrap">
                           <div className="flex gap-4 items-center">
                             <MdPortrait size={30} />
-                            <p>Estágio</p>
+                            <p>CLT</p>
                           </div>
 
                           <div className="flex gap-4 items-center">
                             <IoBriefcaseOutline size={30} />
-                            <p>Bolsa Auxílio</p>
+                            <p>Salário até R$ 3.600 (fixo + variável)</p>
                           </div>
                         </div>
                       </div>
@@ -309,24 +311,25 @@ export default function TrabalheConosco() {
                       <div className="flex flex-col gap-2 mt-3">
                         <div>
                           <h4 className="text-2xl font-semibold">Descrição da vaga</h4>
-                          <p>tem que ver la com os cara</p>
+                          <p>Segunda a Sexta | 44h semanais</p>
                         </div>
 
                         <div>
                           <h4 className="text-2xl font-semibold">Requisitos</h4>
                           <ul>
-                            <li>-Possuir 16 ou 17 anos</li>
-                            <li>-Estar Cursando o ensino medio</li>
-                            <li>-Residir na Região</li>
+                            <li>-Experiência em cobrança</li>
+                            <li>-Tem +18 anos</li>
+                            <li>-Ensino médio completo</li>
                           </ul>
                         </div>
 
                         <div>
-                          <h4 className="text-2xl font-semibold">Descrição da vaga</h4>
+                          <h4 className="text-2xl font-semibold">Beneficios</h4>
                           <ol className="ml-4">
-                            <li className="list-disc"><strong>Etapa 1:</strong> Cadastro</li>
-                            <li className="list-disc"><strong>Etapa 2:</strong> Entrevista</li>
-                            <li className="list-disc"><strong>Etapa 3:</strong> Exames</li>
+                            <li className="list-disc">Vale Transporte</li>
+                            <li className="list-disc">Vale Refeição</li>
+                            <li className="list-disc">Prêmios Especiais</li>
+                            <li className="list-disc">Campanhas de reconhecimento com bônus mensais(podendo adicionar até 5% sobre a variavel além de prêmios)</li>
                           </ol>
                         </div>
                       </div>
@@ -367,9 +370,9 @@ export default function TrabalheConosco() {
                         </motion.div>
                       </div>
                       <div>
-                        <h4 className="text-6xl font-bold text-center">Estágio Clever<br /><span className="text-[#F1B434]">Clever</span> !</h4>
+                        <h4 className="text-5xl font-bold text-center">Estágio Clever<br /><span className="text-[#F1B434]">Clever</span> !</h4>
                       </div>
-                      <div className="flex gap-16 border-t-2 border-[#D9D9D9] border-b-2 pt-10 pb-10">
+                      <div className="flex gap-16 border-t-2 border-[#D9D9D9] border-b-2 pt-5 pb-5">
                         <div className="flex flex-col gap-4 items-center flex-wrap">
                           <div className="flex gap-4 items-center">
                             <HiOutlineLocationMarker size={30} />
@@ -397,25 +400,31 @@ export default function TrabalheConosco() {
 
                       <div className="flex flex-col gap-2 mt-3">
                         <div>
-                          <h4 className="text-2xl font-semibold">Descrição da vaga</h4>
-                          <p>pague oque me deve</p>
+                          <h4 className=" font-semibold">Descrição da vaga</h4>
+                          <p>Segunda a Sexta | 8h as 13:20h (20min de almoço)</p>
+                          <p>Sabado | 8h as 13h</p>
                         </div>
 
                         <div>
-                          <h4 className="text-2xl font-semibold">Requisitos</h4>
+                          <h4 className=" font-semibold">Requisitos</h4>
                           <ul>
-                            <li>-Possuir 16 ou 17 anos</li>
-                            <li>-Estar Cursando o ensino medio</li>
-                            <li>-Residir na Região</li>
+                            <li>-Interesse em atuar com teleatendimento</li>
+                            <li>-Boa comunicação</li>
+                            <li>-Vontade de aprender e crescer profissionalmente</li>
+                            <li>-Proatividade e comprometimento</li>
+                            <li>-Estar estudando (nível médio, técnico ou superior)</li>
                           </ul>
                         </div>
 
                         <div>
-                          <h4 className="text-2xl font-semibold">Descrição da vaga</h4>
+                          <h4 className=" font-semibold">Beneficios</h4>
                           <ol className="ml-4">
-                            <li className="list-disc"><strong>Etapa 1:</strong> Cadastro</li>
-                            <li className="list-disc"><strong>Etapa 2:</strong> Entrevista</li>
-                            <li className="list-disc"><strong>Etapa 3:</strong> Exames</li>
+                            <li className="list-disc"> Equipe acolhedora e profissional</li>
+                            <li className="list-disc"> Treinamentos e capacitação contínua</li>
+                            <li className="list-disc"> Possibilidade real de efetivação</li>
+                            <li className="list-disc"> Reconhecimento por desempenho</li>
+                            <li className="list-disc"> Empresa referência nacional em recuperação de crédito</li>
+                            <li className="list-disc"> Vale transporte</li>
                           </ol>
                         </div>
                       </div>

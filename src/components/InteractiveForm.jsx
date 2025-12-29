@@ -1,20 +1,20 @@
 'use client';
 import { label } from 'motion/react-client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // --- CONFIGURAÇÃO DO FLUXO ---
 const formFlow = {
     start: {
         id: 'nome',
         inputType: 'text', // <--- NOVO: Tipo Texto
-        question: "Olá! Primeiro, qual é o seu nome?",
+        question: "Olá!, qual é o seu nome?",
         placeholder: "Frederico Carses",
         next: 'nascimento' // <--- Para texto, o próximo passo é fixo
     },
     nascimento: {
         id: 'nascimento',
-        inputType: 'text', // <--- Tipo Opções (Botões)
-        question: (name) => `Prazer, ${name}! Qual sua data de nascimento`, // <--- Pergunta dinâmica
+        inputType: 'date',
+        question:`Prazer, Qual sua data de nascimento`, // <--- Pergunta dinâmica
         placeholder: '05/08/1984',
         next: 'email'
     },
@@ -122,7 +122,7 @@ const formFlow = {
     },
     dataFim: {
         id: 'dataFim',
-        inputType: 'Text',
+        inputType: 'date',
         question: 'Quando você saiu dessa empresa',
         placeholder: '05/2024',
         next: 'atividades'
@@ -145,7 +145,12 @@ const formFlow = {
         id: 'curriculo',
         inputType: 'file',
         question: 'envie seu curriculo em pdf',
+        next: 'final'
     },
+    final: {
+      id: 'final',
+      type: 'end'
+    }
 };
 // -----------------------------
 
@@ -154,14 +159,23 @@ const InteractiveForm = () => {
   const [answers, setAnswers] = useState({});
   const [history, setHistory] = useState([]);
   
-  // Estado genérico para inputs (texto, date, number)
   const [inputValue, setInputValue] = useState("");
-  // Estado específico para arquivos
   const [selectedFile, setSelectedFile] = useState(null);
+
+  const [fileToSend, setFileToSend] = useState(null)
+  const [emailStatus, setEmailStatus] = useState(null)
+
+  useEffect(() => {
+    if (currentStep === 'final' && !emailStatus) {
+        sendFormData();
+    }
+  }, [currentStep]);
+
+  
 
   const currentQuestion = formFlow[currentStep];
 
-  // Função para avançar (usada por todos os inputs)
+  // Função para avançar
   const handleNext = (value, nextId) => {
     setAnswers({ ...answers, [currentStep]: value });
     setHistory([...history, currentStep]);
@@ -178,8 +192,100 @@ const InteractiveForm = () => {
     const previousStep = newHistory.pop();
     setHistory(newHistory);
     setCurrentStep(previousStep);
-    setInputValue(""); // Limpa ao voltar para evitar confusão visual
+    setInputValue("");
+    setEmailStatus(null)
   };
+
+  const sendFormData = async () => {
+    setEmailStatus('sending');
+    const formData = new FormData();
+
+    // 1. Adiciona os dados de texto
+    Object.entries(answers).forEach(([key, value]) => {
+        formData.append(key, value);
+    });
+
+    // 2. Adiciona o Arquivo Real
+    if (fileToSend) {
+        // Dica: O nome 'attachment' ajuda o FormSubmit a identificar o arquivo
+        formData.append('attachment', fileToSend);
+    }
+
+    // 3. Configurações (SEM TEMPLATE para garantir o anexo)
+    formData.append("_subject", `Nova Candidatura: ${answers.nome || 'Site'}`);
+    // REMOVI O "_template" POIS ELE ESTAVA BLOQUEANDO O ANEXO
+    // REMOVI O "_captcha" PARA EVITAR ERROS DE VALIDAÇÃO
+    
+    // IMPORTANTE: Use seu email que JÁ ESTÁ ATIVADO no FormSubmit
+    const email = "mateus890alves@gmail.com"; 
+
+    try {
+        const response = await fetch(`https://formsubmit.co/ajax/${email}`, {
+            method: "POST",
+            body: formData,
+            headers: { 
+                'Accept': 'application/json' 
+            }
+        });
+
+        if (response.ok) {
+            setEmailStatus('success');
+        } else {
+            const errorData = await response.text();
+            throw new Error(errorData);
+        }
+
+    } catch (error) {
+        console.error("Erro no envio:", error);
+        setEmailStatus('error');
+    }
+  };
+
+  if (currentQuestion.type === 'end') {
+    return (
+        <div className="max-w-md mx-auto mt-10 p-8 bg-white rounded-xl shadow-lg border text-center">
+            
+            {/* 1. ENVIANDO */}
+            {(emailStatus === 'sending' || !emailStatus) && (
+                <div className="flex flex-col items-center py-6">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#F1B434] mb-4"></div>
+                    <h2 className="text-xl font-bold text-gray-700">Enviando candidatura...</h2>
+                    <p className="text-gray-500 text-sm mt-2">Aguarde um momento, estamos processando seu arquivo.</p>
+                </div>
+            )}
+
+            {/* 2. SUCESSO */}
+            {emailStatus === 'success' && (
+                <div className="flex flex-col items-center py-6">
+                    <div className="text-6xl mb-4">✅</div>
+                    <h2 className="text-2xl font-bold text-gray-800">Prontinho!</h2>
+                    <p className="text-gray-600 mt-2">Seus dados foram enviados com sucesso.</p>
+                    <button 
+                        onClick={() => window.location.reload()}
+                        className="mt-8 text-[#F1B434] font-bold hover:underline"
+                    >
+                        Voltar ao início
+                    </button>
+                </div>
+            )}
+
+            {/* 3. ERRO */}
+            {emailStatus === 'error' && (
+                <div className="flex flex-col items-center py-6">
+                    <div className="text-6xl mb-4">❌</div>
+                    <h2 className="text-2xl font-bold text-red-600">Ops, algo deu errado.</h2>
+                    <p className="text-gray-600 mt-2">Verifique sua conexão e tente novamente.</p>
+                    <button 
+                        onClick={() => { setEmailStatus(null); sendFormData(); }}
+                        className="mt-6 px-6 py-2 bg-gray-200 rounded-full font-semibold hover:bg-gray-300 transition-colors"
+                    >
+                        Tentar Novamente
+                    </button>
+                </div>
+            )}
+        </div>
+    );
+  }
 
   // Renderiza o input correto baseado no tipo
   const renderInput = () => {
@@ -250,6 +356,7 @@ const InteractiveForm = () => {
         return (
           <form onSubmit={(e) => { 
             e.preventDefault(); 
+            if(selectedFile) setFileToSend(selectedFile)
             // Salva o nome do arquivo (ou o objeto File real se precisar enviar pro backend)
             handleNext(selectedFile ? selectedFile.name : "Sem arquivo", currentQuestion.next); 
           }}>
@@ -302,23 +409,6 @@ const InteractiveForm = () => {
         );
     }
   };
-
-  // --- TELA FINAL (RESUMO) ---
-  if (currentQuestion.type === 'end') {
-    return (
-      <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-xl shadow-lg border text-center">
-        <h2 className="text-xl font-bold text-gray-800 mb-4">Resumo dos Dados</h2>
-        <div className="bg-gray-50 p-4 rounded text-left space-y-2 text-sm">
-          {Object.entries(answers).map(([key, value]) => (
-            <div key={key} className="flex justify-between border-b pb-1">
-              <span className="font-semibold capitalize">{key}:</span>
-              <span className="text-[#F1B434] truncate max-w-[150px]">{value}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
 
   // --- RENDERIZAÇÃO PRINCIPAL ---
   return (
