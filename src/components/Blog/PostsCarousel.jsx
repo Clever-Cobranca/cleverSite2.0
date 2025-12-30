@@ -2,11 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import CardPosts from "./CardPosts";
+import { posts } from "../../Pages/blog/blogPost";
 
-export default function PostsCarousel() {
+export default function PostsCarousel({ slug, allPosts = posts }) {
   const carousel = useRef(null);
   const [carouselWidth, setCarouselWidth] = useState(0);
   const [axis, setCurrentAxis] = useState(0);
+
+  const postsFilteredBySlug = allPosts
+    .filter((p) => p.slug != slug)
+    .splice(0, 6);
 
   useEffect(() => {
     if (carousel.current) {
@@ -16,31 +21,52 @@ export default function PostsCarousel() {
     }
   }, [carousel]);
 
+  // const scrollHorizontally = (direction) => {
+  //   if (direction === "left") {
+  //     if (axis == 0) {
+  //       return setCurrentAxis(carouselWidth);
+  //     }
+  //     setCurrentAxis((axis) => (axis === carouselWidth / 2 ? 0 : axis / 2));
+  //   } else {
+  //     if (axis < carouselWidth) {
+  //       setCurrentAxis((axis) =>
+  //         axis == carouselWidth / 2 ? axis * 2 : carouselWidth / 2
+  //       );
+  //     }
+  //     if (axis == carouselWidth) {
+  //       setCurrentAxis(0);
+  //     }
+  //   }
+  // };
   const scrollHorizontally = (direction) => {
+    // Verificação de segurança caso o ref ainda não exista
+    if (!carousel.current) return;
+
+    // O tamanho do "pulo" será o tamanho da tela visível
+    const step = carousel.current.offsetWidth;
+
     if (direction === "left") {
-      if (axis == 0) {
-        return setCurrentAxis(carouselWidth);
-      }
-      setCurrentAxis((axis) => (axis === carouselWidth / 2 ? 0 : axis / 2));
+      // Volta um passo. Math.max garante que não fique negativo (menor que 0)
+      setCurrentAxis((prevAxis) => Math.max(prevAxis - step, 0));
     } else {
-      if (axis < carouselWidth) {
-        setCurrentAxis((axis) =>
-          axis == carouselWidth / 2 ? axis * 2 : carouselWidth / 2
-        );
-      }
-      if (axis == carouselWidth) {
+      // Lógica para a DIREITA
+
+      // Se já estamos no fim, volta pro início (Loop)
+      if (axis >= carouselWidth) {
         setCurrentAxis(0);
+      } else {
+        // Avança um passo. Math.min garante que não ultrapasse o limite máximo
+        setCurrentAxis((prevAxis) => Math.min(prevAxis + step, carouselWidth));
       }
     }
   };
 
-
   return (
-    <div className="flex items-center w-full gap-8 py-3.5 md:px-8 lg:px-28 z-0">
+    <div className="flex items-center w-full gap-1 sm:gap-8 py-3.5 md:px-8 lg:px-28 z-0">
       <FaChevronLeft
         color="black"
         size={32}
-        className="hover:cursor-pointer"
+        className="hover:cursor-pointer max-md:hidden"
         onClick={() => scrollHorizontally("left")}
       />
       <div
@@ -48,19 +74,24 @@ export default function PostsCarousel() {
         className="w-full overflow-hidden flex justify-around"
       >
         <div
-          className="flex shrink-0 max-sm:w-full items-center gap-7 transition-transform duration-500"
-          style={{ transform: `translateX(-${axis}px)` }}
+          className="flex max-lg:overflow-x-scroll overflow-y-hidden shrink-0 max-sm:w-full items-center gap-6 transition-transform duration-500"
+          style={{
+            transform: `translateX(-${axis}px)`,
+            willChange: "transform",
+            scrollSnapType: "x mandatory",
+            scrollbarWidth: "thin",
+          }}
         >
-          <CardPosts />
-          <CardPosts />
-          <CardPosts />
+          {postsFilteredBySlug.map((post) => (
+            <CardPosts key={post.id} post={post} />
+          ))}
         </div>
       </div>
       <FaChevronRight
         color="black"
         size={32}
         onClick={scrollHorizontally}
-        className="hover:cursor-pointer"
+        className="hover:cursor-pointer max-md:hidden"
       />
     </div>
   );

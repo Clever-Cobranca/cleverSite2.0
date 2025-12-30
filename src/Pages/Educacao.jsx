@@ -92,7 +92,7 @@ export default function Educacao() {
         </section>
 
         <section className="w-full">
-          <h4 className="text-[clamp(0.8rem,4vw,1.6rem)] font-bold max-w-max mx-auto mb-2">
+          <h4 className="text-[clamp(1.2rem,4vw,1.6rem)] font-bold max-w-max mx-auto mb-2">
             Blog
           </h4>
           <PostsCarousel />

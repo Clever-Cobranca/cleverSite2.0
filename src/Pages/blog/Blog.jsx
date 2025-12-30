@@ -8,7 +8,7 @@ import parse, { domToReact } from "html-react-parser";
 import PostsCarousel from "../../components/Blog/PostsCarousel";
 
 export default function Blog() {
-  const post = posts[1];
+  const post = posts[0];
   const [optionSelected, setOptionSelected] = useState("none");
 
   const options = {
@@ -19,11 +19,11 @@ export default function Blog() {
 
       if (attribs.id === "leituras-recomendadas") {
         return (
-          <section className="w-full py-8 max-sm:px-0">
+          <section  className="w-full py-8 max-sm:px-0">
             <h4 className="text-[clamp(0.8rem,4vw,1.3rem)] font-bold max-w-max mb-2">
               Leituras Recomendadas
             </h4>
-            <PostsCarousel />
+            <PostsCarousel slug={post.slug} allPosts={posts} />
           </section>
         );
       }
@@ -36,7 +36,7 @@ export default function Blog() {
       <img
         src={post.banner}
         alt={post.alt}
-        className="py-3 mx-auto w-full max-lgs:h-[496px] max-h-[550px] max-lg:mt-[157px] mt-[90px] object-cover object-[40%_40%]"
+        className="py-3 mx-auto w-full max-sm:h-[250px] max-lgs:h-[496px] max-h-[550px] max-sm:mt-[257px] max-lg:mt-[157px] mt-[90px] object-cover object-[40%_40%]"
       />
       <section className="w-full flex justify-around mt-14">
         <div id="displayHtml"> {parse(post.body, options)} </div>
