@@ -60,7 +60,7 @@ export default function Sobre() {
           />
         </section>
       </main>
-      <Footer/>
+      <Footer isBgGray={true}/>
     </>
   );
 }

@@ -93,11 +93,11 @@ export default function TrabalheConosco() {
           </div>
         </section>
 
-        <section className="p-10 flex">
+        <section className="p-10 flex max-lgs:flex-col">
           <div className="flex-col flex gap-10">
             <div className="flex">
               <div className="flex-col gap-5 flex">
-                <h2 className="text-7xl font-family-roboto-slab font-bold">Vem fazer Parte da <br /> <span className="text-[#F1B434]">#CleverFamily</span></h2>
+                <h2 className="text-7xl font-family-roboto-slab font-bold text-[clamp(2.5rem,6vw,6.2rem)]">Vem fazer Parte da <br /> <span className="text-[#F1B434]">#CleverFamily</span></h2>
                 <p>Estamos entre as melhores empresas para iniciar a carreira e 85% de nossas vagas administrativas e de liderança são preenchidas internamente! Então, se você sonha em fazer parte de um time que valoriza a carreira e seu desenvolvimento, conheça as novas vagas!</p>
               </div>
             </div>
@@ -120,11 +120,11 @@ export default function TrabalheConosco() {
               </div>
 
               <div className="flex items-center justify-center w-full">
-                <div className="w-62 h-px bg-gray-300"></div>
+                <div className="max-sm:w-42 w-62 h-px bg-gray-300"></div>
                 <div className="w-0 h-px bg-gray-300"></div>
               </div>
 
-              <div className="flex justify-center gap-60">
+              <div className="flex justify-center max-sm:gap-40 gap-60">
                 <div className="flex flex-col items-center">
                   <div className="w-px h-8 bg-gray-300"></div>
                   <div className="w-2 h-2 rounded-full bg-gray-300 -mt-1"></div>
@@ -170,7 +170,7 @@ export default function TrabalheConosco() {
                     transition={{ duration: 0.2 }}
                   />
                   <motion.div
-                    className="bg-[#fff] rounded-4xl p-5 w-1/2 relative"
+                    className="bg-[#fff] rounded-4xl p-5 max-sm:w-5/6 w-1/2 relative"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
@@ -179,7 +179,7 @@ export default function TrabalheConosco() {
                       ease: "easeOut"
                     }}
                   >
-                    <div className="">
+                    <div className="max-sm:max-h-[calc(100dvh-8rem)] max-sm:overflow-y-auto overscroll-contain max-sm:p-4 [-webkit-overflow-scrolling:touch]">
                       <div className="w-full flex justify-end">
                         <motion.div
                           whileHover={{ scale: 1.1 }}
@@ -189,9 +189,9 @@ export default function TrabalheConosco() {
                         </motion.div>
                       </div>
                       <div>
-                        <h4 className="text-6xl font-bold text-center">Supervisor<br /><span className="text-[#F1B434]">Clever</span> !</h4>
+                        <h4 className="text-6xl font-bold text-center max-sm:text-2xl">Supervisor<br /><span className="text-[#F1B434]">Clever</span> !</h4>
                       </div>
-                      <div className="flex gap-16 border-t-2 border-[#D9D9D9] border-b-2 pt-10 pb-10">
+                      <div className="flex max-sm:flex-col max-sm:gap-4 gap-16 border-t-2 border-[#D9D9D9] border-b-2 pt-10 pb-10">
                         <div className="flex flex-col gap-4 items-center flex-wrap">
                           <div className="flex gap-4 items-center">
                             <HiOutlineLocationMarker size={30} />
@@ -204,7 +204,7 @@ export default function TrabalheConosco() {
                           </div>
                         </div>
 
-                        <div className="flex flex-col gap-4 justify-center flex-wrap">
+                        <div className="flex flex-col gap-4 items-center flex-wrap">
                           <div className="flex gap-4 items-center">
                             <MdPortrait size={30} />
                             <p>???</p>
@@ -261,7 +261,7 @@ export default function TrabalheConosco() {
                     transition={{ duration: 0.2 }}
                   />
                   <motion.div
-                    className="bg-[#fff] rounded-4xl p-5 w-1/2 relative"
+                    className="bg-[#fff] rounded-4xl p-5 w-1/2 max-sm:w-5/6 relative"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
@@ -270,7 +270,7 @@ export default function TrabalheConosco() {
                       ease: "easeOut"
                     }}
                   >
-                    <div className="">
+                    <div className="max-sm:max-h-[calc(100dvh-8rem)] max-sm:overflow-y-auto overscroll-contain max-sm:p-4 [-webkit-overflow-scrolling:touch]">
                       <div className="w-full flex justify-end">
                         <motion.div
                           whileHover={{ scale: 1.1 }}
@@ -280,9 +280,9 @@ export default function TrabalheConosco() {
                         </motion.div>
                       </div>
                       <div>
-                        <h4 className="text-6xl font-bold text-center">Operador<br /><span className="text-[#F1B434]">Clever</span> !</h4>
+                        <h4 className="text-6xl font-bold text-center max-sm:text-3xl">Operador<br /><span className="text-[#F1B434]">Clever</span> !</h4>
                       </div>
-                      <div className="flex gap-16 border-t-2 border-[#D9D9D9] border-b-2 pt-10 pb-10">
+                      <div className="flex max-sm:flex-col max-sm:gap-4 gap-16 border-t-2 border-[#D9D9D9] border-b-2 pt-10 pb-10">
                         <div className="flex flex-col gap-4 items-center flex-wrap">
                           <div className="flex gap-4 items-center">
                             <HiOutlineLocationMarker size={30} />
@@ -295,7 +295,7 @@ export default function TrabalheConosco() {
                           </div>
                         </div>
 
-                        <div className="flex flex-col gap-4 justify-center flex-wrap">
+                        <div className="flex flex-col gap-4 items-center flex-wrap">
                           <div className="flex gap-4 items-center">
                             <MdPortrait size={30} />
                             <p>CLT</p>
@@ -315,7 +315,7 @@ export default function TrabalheConosco() {
                         </div>
 
                         <div>
-                          <h4 className="text-2xl font-semibold">Requisitos</h4>
+                          <h4 className="max-sm:tex text-2xl font-semibold">Requisitos</h4>
                           <ul>
                             <li>-Experiência em cobrança</li>
                             <li>-Tem +18 anos</li>
@@ -351,7 +351,7 @@ export default function TrabalheConosco() {
                     transition={{ duration: 0.2 }}
                   />
                   <motion.div
-                    className="bg-[#fff] rounded-4xl p-5 w-1/2 relative"
+                    className="bg-[#fff] rounded-4xl p-5 w-1/2 relative max-sm:w-5/6"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
@@ -360,7 +360,7 @@ export default function TrabalheConosco() {
                       ease: "easeOut"
                     }}
                   >
-                    <div className="">
+                    <div className="max-sm:max-h-[calc(100dvh-8rem)] max-sm:overflow-y-auto overscroll-contain max-sm:p-4 [-webkit-overflow-scrolling:touch">
                       <div className="w-full flex justify-end">
                         <motion.div
                           whileHover={{ scale: 1.1 }}
@@ -370,9 +370,9 @@ export default function TrabalheConosco() {
                         </motion.div>
                       </div>
                       <div>
-                        <h4 className="text-5xl font-bold text-center">Estágio Clever<br /><span className="text-[#F1B434]">Clever</span> !</h4>
+                        <h4 className="text-5xl font-bold text-center max-sm:text-3xl">Estágio<br /><span className="text-[#F1B434]">Clever</span> !</h4>
                       </div>
-                      <div className="flex gap-16 border-t-2 border-[#D9D9D9] border-b-2 pt-5 pb-5">
+                      <div className="flex max-sm:flex-col max-sm:gap-4 gap-16 border-t-2 border-[#D9D9D9] border-b-2 pt-5 pb-5">
                         <div className="flex flex-col gap-4 items-center flex-wrap">
                           <div className="flex gap-4 items-center">
                             <HiOutlineLocationMarker size={30} />
@@ -385,7 +385,7 @@ export default function TrabalheConosco() {
                           </div>
                         </div>
 
-                        <div className="flex flex-col gap-4 justify-center flex-wrap">
+                        <div className="flex flex-col gap-4 items-center flex-wrap">
                           <div className="flex gap-4 items-center">
                             <MdPortrait size={30} />
                             <p>Estágio</p>
@@ -434,10 +434,10 @@ export default function TrabalheConosco() {
               )}
             </AnimatePresence>
           </div>
-          <div className="w-11/12">
-            <div className="w-11/12 border-t-3 rounded-2xl border-[#F1B434]" />
-            <div className="w-full h-5">
-              <button onClick={() => estaAbrindo(true)}>Quero me candidatar</button>
+          <div className="w-11/12 max-lgs:w-full max-lgs:pt-10">
+            <div className="w-11/12 max-lgs:w-full border-t-3 rounded-2xl border-[#F1B434]" />
+            <div className="w-full h-5 max-lgs:text-center">
+              <button onClick={() => estaAbrindo(true)} className="">Quero me candidatar</button>
             </div>
           </div>
             <AnimatePresence initial={false}>
