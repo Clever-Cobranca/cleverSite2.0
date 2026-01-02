@@ -21,32 +21,16 @@ export default function PostsCarousel({ slug, allPosts = posts }) {
     }
   }, [carousel]);
 
-  // const scrollHorizontally = (direction) => {
-  //   if (direction === "left") {
-  //     if (axis == 0) {
-  //       return setCurrentAxis(carouselWidth);
-  //     }
-  //     setCurrentAxis((axis) => (axis === carouselWidth / 2 ? 0 : axis / 2));
-  //   } else {
-  //     if (axis < carouselWidth) {
-  //       setCurrentAxis((axis) =>
-  //         axis == carouselWidth / 2 ? axis * 2 : carouselWidth / 2
-  //       );
-  //     }
-  //     if (axis == carouselWidth) {
-  //       setCurrentAxis(0);
-  //     }
-  //   }
-  // };
+  console.log(carouselWidth);
+  console.log(axis);
   const scrollHorizontally = (direction) => {
-    // Verificação de segurança caso o ref ainda não exista
     if (!carousel.current) return;
 
-    // O tamanho do "pulo" será o tamanho da tela visível
     const step = carousel.current.offsetWidth;
 
     if (direction === "left") {
       // Volta um passo. Math.max garante que não fique negativo (menor que 0)
+      if (axis == 0) return setCurrentAxis(carouselWidth);
       setCurrentAxis((prevAxis) => Math.max(prevAxis - step, 0));
     } else {
       // Lógica para a DIREITA

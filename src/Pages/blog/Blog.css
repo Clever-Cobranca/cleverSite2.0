@@ -186,7 +186,12 @@ p {
     padding-bottom: 24px;
     border-bottom: 3px solid var(--dourado);
   }
-  #carousel-text-container > p {
+  #carouselImg{
+    width: 100%;
+    height: 230px;
+  }
+  #carouselP {
+    font-size: clamp(0.3rem,4vw,0.875rem);
     font-weight: 600;
   }
   .toc {

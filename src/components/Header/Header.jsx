@@ -20,6 +20,7 @@ import {
 } from "react-icons/fa6";
 import { SearchComponent } from "../SearchComponent";
 import { useLocation } from "react-router";
+
 export function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
@@ -27,6 +28,9 @@ export function Header() {
   const handleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
+
+  const result = location.pathname.replace(/(^\/[^\/]+)\/.*$/, "$1");
+
 
   return (
     <>
@@ -79,7 +83,7 @@ export function Header() {
           </a>
         </div>
       </header>
-      {(location.pathname === "/teste" || location.pathname === "/blog") && (
+      {(result === "/teste" || result === "/blog") && (
         <section className="w-full lg:hidden z-20 fixed top-[90px] bg-white min-h-20 p-7 shadow-2xl">
           <div className="h-full flex items-center max-sm:gap-8 flex-wrap pt-2 justify-between">
             <h4 className="text-[#1A1A1A] sm:ml-7  text-xl font-light tracking-widest">
@@ -87,7 +91,9 @@ export function Header() {
             </h4>
             <div className="flex items-center gap-3.5 max-sm:flex-wrap-reverse">
               <DropdownMenu className="z-10">
-                <DropdownMenuTrigger className="p-0">Categorias</DropdownMenuTrigger>
+                <DropdownMenuTrigger className="p-0">
+                  Categorias
+                </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuItem className="w-full">
                     <option>Cobrança</option>
