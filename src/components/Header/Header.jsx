@@ -21,16 +21,23 @@ import {
 import { SearchComponent } from "../SearchComponent";
 import { useLocation } from "react-router";
 
-export function Header() {
+export function Header({
+  post,
+  handleSubmit,
+  handleInputChange,
+  userSearch,
+  setOptionSelected,
+}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
+
+  console.log(post);
 
   const handleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
 
   const result = location.pathname.replace(/(^\/[^\/]+)\/.*$/, "$1");
-
 
   return (
     <>
@@ -89,25 +96,44 @@ export function Header() {
             <h4 className="text-[#1A1A1A] sm:ml-7  text-xl font-light tracking-widest">
               NOTÍCIAS
             </h4>
-            <div className="flex items-center gap-3.5 max-sm:flex-wrap-reverse">
+            <form
+              onSubmit={handleSubmit}
+              aria-label="formulario_de_pesquisa_de_notícias"
+              className="flex items-center gap-3.5 max-sm:flex-wrap-reverse"
+            >
               <DropdownMenu className="z-10">
-                <DropdownMenuTrigger className="p-0">
+                <DropdownMenuTrigger type="button" className="p-0">
                   Categorias
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <DropdownMenuItem className="w-full">
-                    <option>Cobrança</option>
+                  <DropdownMenuItem type="button" className="w-full">
+                    <option onClick={() => setOptionSelected("none")}>
+                      Todas
+                    </option>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <option>Crédito</option>
+                  <DropdownMenuItem type="button" className="w-full">
+                    <option onClick={() => setOptionSelected("cobranca")}>
+                      Cobrança
+                    </option>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <option>Inadimplência</option>
+                  <DropdownMenuItem type="button">
+                    <option onClick={() => setOptionSelected("credito")}>
+                      Crédito
+                    </option>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem type="button" className="w-full">
+                    <option onClick={() => setOptionSelected("inadimplencia")}>
+                      Inadimplência
+                    </option>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <SearchComponent />
-            </div>
+              <SearchComponent
+                slug={post.slug}
+                userSearch={userSearch}
+                handleInputChange={handleInputChange}
+              />
+            </form>
           </div>
         </section>
       )}

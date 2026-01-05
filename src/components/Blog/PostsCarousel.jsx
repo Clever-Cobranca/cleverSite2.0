@@ -21,8 +21,6 @@ export default function PostsCarousel({ slug, allPosts = posts }) {
     }
   }, [carousel]);
 
-  console.log(carouselWidth);
-  console.log(axis);
   const scrollHorizontally = (direction) => {
     if (!carousel.current) return;
 
@@ -46,7 +44,7 @@ export default function PostsCarousel({ slug, allPosts = posts }) {
   };
 
   return (
-    <div className="flex items-center w-full gap-1 sm:gap-8 py-3.5 md:px-8 lg:px-28 z-0">
+    <div className="flex items-center w-full gap-1 sm:gap-8 py-3.5 md:px-8 lgs:px-28 z-0">
       <FaChevronLeft
         color="black"
         size={32}
@@ -58,7 +56,7 @@ export default function PostsCarousel({ slug, allPosts = posts }) {
         className="w-full overflow-hidden flex justify-around"
       >
         <div
-          className="flex max-lg:overflow-x-scroll overflow-y-hidden shrink-0 max-sm:w-full items-center gap-6 transition-transform duration-500"
+          className="flex max-lg:overflow-x-scroll overflow-y-hidden shrink-0 max-sm:w-full gap-6 transition-transform duration-500"
           style={{
             transform: `translateX(-${axis}px)`,
             willChange: "transform",

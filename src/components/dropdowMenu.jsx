@@ -83,6 +83,7 @@ export function DropdownMenuTrigger({
 
   return (
     <Comp
+      type="button"
       className={cn(
         "flex items-center gap-2 rounded-xl px-3 transition-all cursor-pointer",
         "hover:bg-gray-100/50 active:scale-95",
