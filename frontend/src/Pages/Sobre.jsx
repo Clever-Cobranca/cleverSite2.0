@@ -9,7 +9,7 @@ export default function Sobre() {
   return (
     <>
       <Header />
-      <main className="mt-25">
+      <main>
         <img
           alt="clever_referencia"
           src={Banner}

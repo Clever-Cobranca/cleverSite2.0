@@ -19,7 +19,7 @@ export default function Home() {
       <div className="min-h-screen">
         <Header />
         {/* main mantém a altura fixa */}
-        <div className="2xl:pt-25 max-lg:pt-28 max-sm:pt-22">
+        <div>
           <main className="h-full">
             <section className="max-lgs:h-auto lgs:flex justify-around items-center max-sm:pt-0 max-lgs:pt-10 max-lg:flex-col">
               <div id="aside" className="flex max-lgs:items-center max-lgs:justify-around flex-col gap-6 md:px-20 px-10">
@@ -36,12 +36,17 @@ export default function Home() {
                   , com atuação estratégica e alto índice de efetividade
                 </p>
                 <div className="md:mt-12 mt-2 py-5 flex gap-7 items-center">
-                  <button className="h-12 md:h-[87px] max-sm:p-1 w-52 max-md:max-w-36 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(0.8rem,3vw,1.25rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
-                    Negocie suas Dívidas
-                  </button>
-                  <button className="h-12 md:h-[87px] w-52 max-md:max-w-36 max-lgs:w-auto max-sm:p-2 max-lgs:p-5 font-bold text-[clamp(0.8rem,3vw,1.25rem)] rounded-4xl bg-[#ffffff] text-[#707372] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[rgb(247,246,246)]  hover:cursor-pointer">
-                    Fale Conosco
-                  </button>
+                  <a target="_blank" href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0">
+                    <button className="h-12 md:h-[87px] max-sm:p-1 w-52 max-md:max-w-36 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(0.8rem,3vw,1.25rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
+                      Negocie suas Dívidas
+                    </button>
+                  </a>
+
+                  <a target="_blank" href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+saber+mais!&type=phone_number&app_absent=0">
+                    <button className="h-12 md:h-[87px] w-52 max-md:max-w-36 max-lgs:w-auto max-sm:p-2 max-lgs:p-5 font-bold text-[clamp(0.8rem,3vw,1.25rem)] rounded-4xl bg-[#ffffff] text-[#707372] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[rgb(247,246,246)]  hover:cursor-pointer">
+                      Fale Conosco
+                    </button>
+                  </a>
                 </div>
               </div>
 
@@ -180,9 +185,11 @@ export default function Home() {
                   nós em nossa missão de ser parte da solução para pessoas,
                   empresas e comunidades.
                 </p>
-                <button className="my-4 text-[#707372] text-[clamp(0.6rem,3vw,1.2rem)] font-bold h-12 lg:w-2xs w-[170px] rounded-4xl shadow-[0px_4px_4px_rgba(0,0,0,0.75)] hover:cursor-pointer  hover:bg-[rgb(247,246,246)]">
-                  Saiba Mais
-                </button>
+                <a href="/trabalhe-conosco">
+                  <button className="my-4 text-[#707372] text-[clamp(0.6rem,3vw,1.2rem)] font-bold h-12 lg:w-2xs w-[170px] rounded-4xl shadow-[0px_4px_4px_rgba(0,0,0,0.75)] hover:cursor-pointer  hover:bg-[rgb(247,246,246)]">
+                    Saiba Mais
+                  </button>
+                </a>
               </div>
               <img
                 alt="Seja um clever"

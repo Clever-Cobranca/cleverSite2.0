@@ -12,7 +12,7 @@ export default function Cultura() {
   return (
     <>
       <Header />
-      <main className="mt-25">
+      <main className="">
         <div className="flex flex-col items-center w-full md:pr-20 md:pl-20">
           <h1 className="text-[clamp(2.2rem,6vw,5rem)]/tight max-sm:text-center font-family-roboto-slab font-bold">
             Nossa Cultura

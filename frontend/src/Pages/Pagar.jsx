@@ -7,7 +7,7 @@ export default function Pagar() {
   return (
     <>
       <Header />
-      <main className="mt-25 md:mb-0 mb-10">
+      <main className="md:mb-0 mb-10">
         <div className="flex justify-end">
           <img
             src={fundoLaura}

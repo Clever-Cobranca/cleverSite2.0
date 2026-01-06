@@ -2,19 +2,18 @@
 import { label } from 'motion/react-client';
 import React, { useState, useEffect } from 'react';
 
-// --- CONFIGURAÇÃO DO FLUXO ---
 const formFlow = {
   start: {
     id: 'nome',
-    inputType: 'text', // <--- NOVO: Tipo Texto
+    inputType: 'text', 
     question: "Olá!, qual é o seu nome?",
     placeholder: "Frederico Carses",
-    next: 'nascimento' // <--- Para texto, o próximo passo é fixo
+    next: 'nascimento' 
   },
   nascimento: {
     id: 'nascimento',
     inputType: 'date',
-    question: `Prazer, Qual sua data de nascimento`, // <--- Pergunta dinâmica
+    question: `Prazer, Qual sua data de nascimento`, 
     placeholder: '05/08/1984',
     next: 'email'
   },
@@ -164,6 +163,7 @@ const InteractiveForm = () => {
 
   const [fileToSend, setFileToSend] = useState(null)
   const [emailStatus, setEmailStatus] = useState(null)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const [cidadesSP, setCidadesSP] = useState([]);
   const [loadingCidadesSP, setLoadingCidadesSP] = useState(false);
@@ -251,7 +251,9 @@ const InteractiveForm = () => {
 
   // Função para avançar
   const handleNext = (value, nextId) => {
-    setAnswers({ ...answers, [currentStep]: value });
+    // Usa o ID do passo (ex: 'nome', 'email') em vez do currentStep (ex: 'start')
+    const answerKey = currentQuestion.id || currentStep;
+    setAnswers({ ...answers, [answerKey]: value });
     setHistory([...history, currentStep]);
 
     // Limpeza para o próximo passo
@@ -267,11 +269,13 @@ const InteractiveForm = () => {
     setHistory(newHistory);
     setCurrentStep(previousStep);
     setInputValue("");
-    setEmailStatus(null)
+    setEmailStatus(null);
+    setErrorMessage('');
   };
 
   const sendFormData = async () => {
     setEmailStatus('sending');
+    setErrorMessage(''); // Limpa mensagem de erro anterior
     const formData = new FormData();
 
     // 1. Adiciona os dados de texto
@@ -281,43 +285,53 @@ const InteractiveForm = () => {
 
     // 2. Adiciona o Arquivo Real
     if (fileToSend) {
-      // Dica: O nome 'attachment' ajuda o FormSubmit a identificar o arquivo
       formData.append('attachment', fileToSend);
     }
 
-    // 3. Configurações (SEM TEMPLATE para garantir o anexo)
-    formData.append("_subject", `Nova Candidatura: ${answers.nome || 'Site'}`);
-    // REMOVI O "_template" POIS ELE ESTAVA BLOQUEANDO O ANEXO
-    // REMOVI O "_captcha" PARA EVITAR ERROS DE VALIDAÇÃO
-
-    // IMPORTANTE: Use seu email que JÁ ESTÁ ATIVADO no FormSubmit
-    const email = "mateus890alves@gmail.com";
+    // URL do backend - ajuste conforme necessário
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${email}`, {
+      const response = await fetch(`${API_URL}/api/send-email`, {
         method: "POST",
         body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
       });
 
       if (response.ok) {
+        const data = await response.json();
         setEmailStatus('success');
       } else {
-        const errorData = await response.text();
-        throw new Error(errorData);
+        const errorData = await response.json().catch(() => ({ 
+          error: 'Erro desconhecido',
+          details: 'Não foi possível processar a resposta do servidor'
+        }));
+        
+        // Monta mensagem de erro detalhada
+        const message = errorData.details 
+          ? `${errorData.error}: ${errorData.details}`
+          : errorData.error || 'Erro ao enviar formulário';
+        
+        setErrorMessage(message);
+        setEmailStatus('error');
       }
 
     } catch (error) {
       console.error("Erro no envio:", error);
+      
+      // Erro de conexão (servidor não está rodando)
+      if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+        setErrorMessage('Não foi possível conectar ao servidor. Verifique se o backend está rodando na porta 3001.');
+      } else {
+        setErrorMessage(error.message || 'Erro desconhecido ao enviar formulário');
+      }
+      
       setEmailStatus('error');
     }
   };
 
   if (currentQuestion.type === 'end') {
     return (
-      <div className="max-w-md mx-auto mt-10 p-8 bg-white rounded-xl shadow-lg border text-center">
+      <div className="max-w-md mx-auto mt-10 p-8 bg-white rounded-xl text-center">
 
         {/* 1. ENVIANDO */}
         {(emailStatus === 'sending' || !emailStatus) && (
@@ -332,8 +346,8 @@ const InteractiveForm = () => {
         {emailStatus === 'success' && (
           <div className="flex flex-col items-center py-6">
             <div className="text-6xl mb-4">✅</div>
-            <h2 className="text-2xl font-bold text-gray-800">Prontinho!</h2>
-            <p className="text-gray-600 mt-2">Seus dados foram enviados com sucesso.</p>
+            <h2 className="text-2xl font-bold text-gray-800">Candidatura enviada com sucesso!</h2>
+            
             <button
               onClick={() => window.location.reload()}
               className="mt-8 text-[#F1B434] font-bold hover:underline"
@@ -348,9 +362,21 @@ const InteractiveForm = () => {
           <div className="flex flex-col items-center py-6">
             <div className="text-6xl mb-4">❌</div>
             <h2 className="text-2xl font-bold text-red-600">Ops, algo deu errado.</h2>
-            <p className="text-gray-600 mt-2">Verifique sua conexão e tente novamente.</p>
+            {errorMessage && (
+              <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg max-w-md w-full">
+                <p className="text-sm text-red-800 font-semibold mb-2">Detalhes do erro:</p>
+                <p className="text-sm text-red-700">{errorMessage}</p>
+              </div>
+            )}
+            {!errorMessage && (
+              <p className="text-gray-600 mt-2">Verifique sua conexão e tente novamente.</p>
+            )}
             <button
-              onClick={() => { setEmailStatus(null); sendFormData(); }}
+              onClick={() => { 
+                setEmailStatus(null); 
+                setErrorMessage('');
+                sendFormData(); 
+              }}
               className="mt-6 px-6 py-2 bg-gray-200 rounded-full font-semibold hover:bg-gray-300 transition-colors"
             >
               Tentar Novamente

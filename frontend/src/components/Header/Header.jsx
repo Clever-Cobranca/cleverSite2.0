@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Logo from "../../assets/Logo.png";
+import Logo from "../../../public/Logo.png";
 import "../../global.css";
 import { HeaderModal } from "./HeaderModal";
 import { NavHeaderComponent } from "./NavHeaderComponent";
@@ -21,9 +21,11 @@ export function Header() {
 
   return (
     <>
-      <header className="pt-4 z-40 flex items-center-safe justify-between max-sm:justify-between pl-16 pr-16 w-full border border-black/20 fixed bg-white">
+      <header className="pt-4 z-40 flex items-center-safe justify-between max-sm:justify-between pl-16 pr-15 w-full border border-black/20 sticky top-0 bg-white">
         <div className="max-[1056px]:hidden flex items-center gap-10">
-          <img src={Logo} alt="Icon Clever" />
+          <a href="/">
+            <img src={Logo} alt="Icon Clever" />
+          </a>
           <NavHeaderComponent />
         </div>
         <img src={Logo} className="lgs:hidden" alt="Icon Clever" />

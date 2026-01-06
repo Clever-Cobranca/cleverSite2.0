@@ -4,12 +4,13 @@ import EquipeClever from "../assets/Equipe_Clever.png";
 import TrioClever1 from "../assets/Trio_Clever1.png";
 import TrioClever2 from "../assets/Trio_Clever2.png";
 import { Header } from "../components/Header/Header";
+import { Footer } from "../components/Footer/Footer";
 import { CircleExpandButton } from "../components/button";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { MdPortrait, MdLocationCity, MdOpacity } from "react-icons/md";
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
-import {  useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import InteractiveForm from "../components/InteractiveForm";
 
@@ -22,7 +23,7 @@ export default function TrabalheConosco() {
   return (
     <>
       <Header />
-      <main className="pt-24">
+      <main>
         <div className="w-full p-5">
           <div className="relative">
             <img
@@ -93,15 +94,18 @@ export default function TrabalheConosco() {
           </div>
         </section>
 
-        <section className="p-10 flex max-lgs:flex-col">
+        <section className="p-10 flex items-center max-lgs:flex-col">
           <div className="flex-col flex gap-10">
             <div className="flex">
               <div className="flex-col gap-5 flex">
                 <h2 className="text-7xl font-family-roboto-slab font-bold text-[clamp(2.5rem,6vw,6.2rem)]">Vem fazer Parte da <br /> <span className="text-[#F1B434]">#CleverFamily</span></h2>
                 <p>Estamos entre as melhores empresas para iniciar a carreira e 85% de nossas vagas administrativas e de liderança são preenchidas internamente! Então, se você sonha em fazer parte de um time que valoriza a carreira e seu desenvolvimento, conheça as novas vagas!</p>
+                <div className="w-11/12 max-lgs:w-full border-t-3 rounded-2xl border-[#F1B434]" />
               </div>
-            </div>
 
+            </div>
+          </div>
+          <div className="w-11/12 max-lgs:w-full max-lgs:pt-10">
             <div className="flex flex-col items-center flex-wrap">
 
               <button onClick={() => setIsOpen('supervisor')}>
@@ -109,7 +113,7 @@ export default function TrabalheConosco() {
                   bgColor="bg-white"
                   hoverColor="bg-[#F1B434]"
                   textColor="#000"
-                  text="Supervisor coordenador de operações"
+                  text="Supervisor / Coordenador de operações"
                   hoverTextColor="#fff"
                   className="text-center p-4 rounded-4xl hover:cursor-pointer"
                   onClick={() => setIsOpen(true)}
@@ -179,7 +183,7 @@ export default function TrabalheConosco() {
                       ease: "easeOut"
                     }}
                   >
-                    <div className="max-sm:max-h-[calc(100dvh-8rem)] max-sm:overflow-y-auto overscroll-contain max-sm:p-4 [-webkit-overflow-scrolling:touch]">
+                    <div className="max-h-[calc(100dvh-8rem)] overflow-y-auto overscroll-contain max-sm:p-4 [-webkit-overflow-scrolling:touch]">
                       <div className="w-full flex justify-end">
                         <motion.div
                           whileHover={{ scale: 1.1 }}
@@ -189,7 +193,7 @@ export default function TrabalheConosco() {
                         </motion.div>
                       </div>
                       <div>
-                        <h4 className="text-6xl font-bold text-center max-sm:text-2xl">Supervisor<br /><span className="text-[#F1B434]">Clever</span> !</h4>
+                        <h4 className="text-4xl font-bold text-center max-sm:text-2xl">Supervisor/Coordenador<br /><span className="text-[#F1B434]">Clever</span> !</h4>
                       </div>
                       <div className="flex max-sm:flex-col max-sm:gap-4 gap-16 border-t-2 border-[#D9D9D9] border-b-2 pt-10 pb-10">
                         <div className="flex flex-col gap-4 items-center flex-wrap">
@@ -206,11 +210,6 @@ export default function TrabalheConosco() {
 
                         <div className="flex flex-col gap-4 items-center flex-wrap">
                           <div className="flex gap-4 items-center">
-                            <MdPortrait size={30} />
-                            <p>???</p>
-                          </div>
-
-                          <div className="flex gap-4 items-center">
                             <IoBriefcaseOutline size={30} />
                             <p>Salário competitivo: até R$ 4.500 (fixo + variável)</p>
                           </div>
@@ -218,7 +217,7 @@ export default function TrabalheConosco() {
                       </div>
 
                       <div className="flex flex-col gap-2 mt-3">
-                        
+
 
                         <div>
                           <h4 className="text-2xl font-semibold">Requisitos</h4>
@@ -228,6 +227,16 @@ export default function TrabalheConosco() {
                             <li>-Liderança de equipes</li>
                             <li>-Domínio de metas, KPIs e análise de performance</li>
                             <li>-Comunicação assertiva e foco em resultados</li>
+                            <li>-Exemplo de postura (forma de comunicar-se, de lidar e conduta com o time)</li>
+                            <li>-Disciplina e comprometimento</li>
+                            <li>-Atuar com dinamismo</li>
+                            <li>-Foco em resultado, Agir com verdade, ética e transparência</li>
+                            <li>-Controle emocional</li>
+                            <li>-Alinhamento com a cultura Clever</li>
+                            <li>-Proatividade</li>
+                            <li>-Senso de urgência</li>
+                            <li>-Lidar com pressão</li>
+                            <li>-Visão analítica</li>
                           </ul>
                         </div>
 
@@ -270,7 +279,7 @@ export default function TrabalheConosco() {
                       ease: "easeOut"
                     }}
                   >
-                    <div className="max-sm:max-h-[calc(100dvh-8rem)] max-sm:overflow-y-auto overscroll-contain max-sm:p-4 [-webkit-overflow-scrolling:touch]">
+                    <div className="max-h-[calc(100dvh-8rem)] overflow-y-auto overscroll-contain max-sm:p-4 [-webkit-overflow-scrolling:touch]">
                       <div className="w-full flex justify-end">
                         <motion.div
                           whileHover={{ scale: 1.1 }}
@@ -311,7 +320,7 @@ export default function TrabalheConosco() {
                       <div className="flex flex-col gap-2 mt-3">
                         <div>
                           <h4 className="text-2xl font-semibold">Descrição da vaga</h4>
-                          <p>Segunda a Sexta | 44h semanais</p>
+                          <p>Segunda a Sexta | 36h semanais</p>
                         </div>
 
                         <div>
@@ -330,6 +339,19 @@ export default function TrabalheConosco() {
                             <li className="list-disc">Vale Refeição</li>
                             <li className="list-disc">Prêmios Especiais</li>
                             <li className="list-disc">Campanhas de reconhecimento com bônus mensais(podendo adicionar até 5% sobre a variavel além de prêmios)</li>
+                            <li className="list-disc">Exemplo de postura (forma de comunicar-se, de lidar e conduta com o time)</li>
+                            <li className="list-disc">Disciplina e comprometimento</li>
+                            <li className="list-disc">Comunicação clara</li>
+                            <li className="list-disc">direta e assertiva</li>
+                            <li className="list-disc">Atuar com dinamismo</li>
+                            <li className="list-disc">Foco em resultado</li>
+                            <li className="list-disc">Agir com verdade, ética e transparência</li>
+                            <li className="list-disc">Controle emocional</li>
+                            <li className="list-disc">Alinhamento com a cultura Clever</li>
+                            <li className="list-disc">Proatividade</li>
+                            <li className="list-disc">Senso de urgência</li>
+                            <li className="list-disc">Lidar com pressão.</li>
+                      
                           </ol>
                         </div>
                       </div>
@@ -434,53 +456,52 @@ export default function TrabalheConosco() {
               )}
             </AnimatePresence>
           </div>
-          <div className="w-11/12 max-lgs:w-full max-lgs:pt-10">
-            <div className="w-11/12 max-lgs:w-full border-t-3 rounded-2xl border-[#F1B434]" />
-            <div className="w-full h-5 max-lgs:text-center">
-              <button onClick={() => estaAbrindo(true)} className="">Quero me candidatar</button>
-            </div>
-          </div>
-            <AnimatePresence initial={false}>
-              {Aberto == true && (
-                <div className="flex justify-center items-center fixed inset-0 z-50 rounded-4xl">
-                  <motion.div
-                    className="absolute -z-10 inset-0 bg-black/30"
-                    onClick={() => setIsOpen(false)}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  />
-                  <motion.div
-                    className="bg-[#fff] rounded-4xl p-3 relative"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{
-                      duration: 0.1,
-                      ease: "easeOut"
-                    }}
-                  >
-                    <div className="">
-                      <div className="w-full flex justify-end">
-                        <motion.div
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                        >
-                          <IoClose className="hover:cursor-pointer" size={30} color="#f1b434" onClick={() => estaAbrindo(false)} />
-                        </motion.div>
-                      </div>
-                      <div>
-                        <h4 className="text-4xl font-bold text-center">Candidaturar<br /><span className="text-[#F1B434]">Clever</span> !</h4>
-                      </div>
-                      <InteractiveForm />
+          <AnimatePresence initial={false}>
+            {Aberto == true && (
+              <div className="flex justify-center items-center fixed inset-0 z-50 rounded-4xl">
+                <motion.div
+                  className="absolute -z-10 inset-0 bg-black/30"
+                  onClick={() => setIsOpen(false)}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                />
+                <motion.div
+                  className="bg-[#fff] rounded-4xl p-3 relative"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{
+                    duration: 0.1,
+                    ease: "easeOut"
+                  }}
+                >
+                  <div className="">
+                    <div className="w-full flex justify-end">
+                      <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <IoClose className="hover:cursor-pointer" size={30} color="#f1b434" onClick={() => estaAbrindo(false)} />
+                      </motion.div>
                     </div>
-                  </motion.div>
-                </div>
-              )}
-            </AnimatePresence>
+                    <div>
+                      <h4 className="text-4xl font-bold text-center">Candidaturar<br /><span className="text-[#F1B434]">Clever</span> !</h4>
+                    </div>
+                    <InteractiveForm />
+                  </div>
+                </motion.div>
+              </div>
+            )}
+          </AnimatePresence>
         </section>
+        <div className="w-full h-5 max-lgs:text-center justify-center items-center flex mt-10 mb-10">
+          <button onClick={() => estaAbrindo(true)} className="pl-10 pr-10 pt-3 pb-3 border-2 border-[#F1B434] rounded-4xl text-2xl text-[#F1B434] uppercase font-bold hover:bg-[#F1B434] hover:text-white transition-all duration-300 hover:cursor-pointer">Candidatar-se</button>
+        </div>
       </main>
+      
+      <Footer isBgGray={true}/>
     </>
   );
 }
