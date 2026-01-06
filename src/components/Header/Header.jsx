@@ -27,11 +27,11 @@ export function Header({
   handleInputChange,
   userSearch,
   setOptionSelected,
+  bttnRef
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
 
-  console.log(post);
 
   const handleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -91,48 +91,52 @@ export function Header({
         </div>
       </header>
       {(result === "/teste" || result === "/blog") && (
-        <section className="w-full lg:hidden z-20 fixed top-[90px] bg-white min-h-20 p-7 shadow-2xl">
-          <div className="h-full flex items-center max-sm:gap-8 flex-wrap pt-2 justify-between">
-            <h4 className="text-[#1A1A1A] sm:ml-7  text-xl font-light tracking-widest">
+        <section className="w-full lg:hidden z-20 fixed top-[90px] bg-white min-h-20 py-7 shadow-2xl">
+          <div className="h-full w-full flex gap-2 flex-wrap pt-2 sm:justify-around sm:items-center">
+            <h4 className="text-[#1A1A1A] text-xl max-sm:text-lg font-light tracking-widest">
               NOTÍCIAS
             </h4>
             <form
               onSubmit={handleSubmit}
               aria-label="formulario_de_pesquisa_de_notícias"
-              className="flex items-center gap-3.5 max-sm:flex-wrap-reverse"
+              className="flex items-center gap-3.5 mx-2 max-sm:flex-wrap-reverse"
             >
-              <DropdownMenu className="z-10">
-                <DropdownMenuTrigger type="button" className="p-0">
-                  Categorias
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem type="button" className="w-full">
-                    <option onClick={() => setOptionSelected("none")}>
-                      Todas
-                    </option>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem type="button" className="w-full">
-                    <option onClick={() => setOptionSelected("cobranca")}>
-                      Cobrança
-                    </option>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem type="button">
-                    <option onClick={() => setOptionSelected("credito")}>
-                      Crédito
-                    </option>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem type="button" className="w-full">
-                    <option onClick={() => setOptionSelected("inadimplencia")}>
-                      Inadimplência
-                    </option>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
               <SearchComponent
                 slug={post.slug}
                 userSearch={userSearch}
                 handleInputChange={handleInputChange}
-              />
+                bttnRef={bttnRef}
+              >
+                <DropdownMenu className="z-10 text-xs">
+                  <DropdownMenuTrigger type="button" className="p-0">
+                    Categorias
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent onClick={() => bttnRef.current.click()}>
+                    <DropdownMenuItem type="button" className="w-full">
+                      <option onClick={() => {setOptionSelected("Todas")}}>
+                        Todas
+                      </option>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem type="button" className="w-full">
+                      <option onClick={() => setOptionSelected("cobranca")}>
+                        Cobrança
+                      </option>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem type="button">
+                      <option onClick={() => setOptionSelected("credito")}>
+                        Crédito
+                      </option>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem type="button" className="w-full">
+                      <option
+                        onClick={() => setOptionSelected("inadimplencia")}
+                      >
+                        Inadimplência
+                      </option>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </SearchComponent>
             </form>
           </div>
         </section>

@@ -26,6 +26,8 @@ export default function PostsCarousel({ slug, allPosts = posts }) {
 
     const step = carousel.current.offsetWidth;
 
+    console.log(step);
+
     if (direction === "left") {
       // Volta um passo. Math.max garante que não fique negativo (menor que 0)
       if (axis == 0) return setCurrentAxis(carouselWidth);
@@ -44,7 +46,7 @@ export default function PostsCarousel({ slug, allPosts = posts }) {
   };
 
   return (
-    <div className="flex items-center w-full gap-1 sm:gap-8 py-3.5 md:px-8 lgs:px-28 z-0">
+    <div className="flex items-center w-full max-sm:min-w-full gap-1 sm:gap-8 py-3.5 md:px-8 lgs:px-28 z-0">
       <FaChevronLeft
         color="black"
         size={32}
@@ -53,10 +55,10 @@ export default function PostsCarousel({ slug, allPosts = posts }) {
       />
       <div
         ref={carousel}
-        className="w-full overflow-hidden flex justify-around"
+        className="w-full overflow-x-scroll max-h-[510px] max-lg:px-1 flex justify-around"
       >
         <div
-          className="flex max-lg:overflow-x-scroll overflow-y-hidden shrink-0 max-sm:w-full gap-6 transition-transform duration-500"
+          className="flex max-h-[510px] overflow-y-hidden shrink-0 gap-6 transition-transform duration-500"
           style={{
             transform: `translateX(-${axis}px)`,
             willChange: "transform",

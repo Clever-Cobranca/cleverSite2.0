@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 export default function CardPosts({ post, setShowPosts }) {
   return (
-    <div className="w-[340px] md:max-h-[510px] mb-4 flex flex-col items-center">
+    <div className="w-[340px] max-h-[510px] mb-4 flex flex-col items-center">
       <Link
         to={`/blog/${post.slug}?category=${post.category}`}
         className="w-full"
@@ -12,7 +12,7 @@ export default function CardPosts({ post, setShowPosts }) {
           id="carouselImg"
           src={post.banner}
           alt={post.title}
-          className="md:h-[230px] w-full"
+          className="h-[230px] max-sm:h-[160px] w-full"
         />
       </Link>
       <div>

@@ -1,7 +1,7 @@
 import "./Blog.css";
 import { Header } from "../../components/Header/Header";
 import { Footer } from "../../components/Footer/Footer";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { posts } from "./blogPost";
 import { useParams } from "react-router";
 import { BlogSkeleton } from "../../components/Blog/skeletons/BlogSkeleton";
@@ -13,13 +13,14 @@ import { SearchComponent } from "../../components/SearchComponent";
 import PostsCarousel from "../../components/Blog/PostsCarousel";
 
 export default function Blog() {
+  const bttnRef = useRef(null);
   const [isPageLoading, setIsPageLoading] = useState(true);
   const [cardPosts, setCardPosts] = useState([]);
   const [showPosts, setShowPosts] = useState(false);
   const [userSearch, setUserSearch] = useState("");
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
-  const [optionSelected, setOptionSelected] = useState("none");
+  const [optionSelected, setOptionSelected] = useState("Todas");
   const { postSlug } = useParams();
   const post = posts.find((p) => p.slug === postSlug);
 
@@ -41,6 +42,7 @@ export default function Blog() {
   //função submit do Form do componente de pesquisa
   function handleSubmit(e) {
     e.preventDefault();
+
     handleDebouncedSubmit();
   }
 
@@ -50,7 +52,7 @@ export default function Blog() {
     setLoading(true); //Loading do skeleton
     const queryFormated = userSearch.toLocaleLowerCase().trim();
 
-    if (optionSelected == "none") {
+    if (optionSelected == "Todas") {
       //Se for none pesquisa independente da categoria
       cardPostsFiltered = posts.filter((post) => {
         return post.title.toLocaleLowerCase().includes(queryFormated);
@@ -58,7 +60,10 @@ export default function Blog() {
     } else {
       // Se não, filtra primeiro a categoria e dentro do array da categoria especifica pesquisa a query
       cardPostsFiltered = posts
-        .filter((p) => p.category === optionSelected)
+        .filter(
+          (p) =>
+            p.category === (optionSelected == "Todas" ? "none" : optionSelected)
+        )
         .filter((post) => {
           return post.title.toLocaleLowerCase().includes(queryFormated);
         });
@@ -67,14 +72,12 @@ export default function Blog() {
     setTimeout(() => {
       setCardPosts(cardPostsFiltered);
       setShowPosts(true);
-      setQuery(queryFormated);
+      setQuery(queryFormated ? queryFormated : optionSelected);
       setLoading(false);
-    }, 1200);
+    }, 1000);
   }
 
   const handleDebouncedSubmit = useDebounce(handleSubmitFunctionalities, 1000);
-
-  console.log(optionSelected);
 
   const options = {
     replace({ attribs, children }) {
@@ -84,7 +87,7 @@ export default function Blog() {
 
       if (attribs.id === "leituras-recomendadas") {
         return (
-          <section className="w-full py-8 max-sm:px-0">
+          <section className="w-full py-8 ">
             <h4 className="text-[clamp(0.8rem,4vw,1.3rem)] font-bold max-w-max mb-2">
               Leituras Recomendadas
             </h4>
@@ -114,6 +117,7 @@ export default function Blog() {
         post={post}
         handleSubmit={handleSubmit}
         userSearch={userSearch}
+        bttnRef={bttnRef}
         handleInputChange={handleInputChange}
         setOptionSelected={setOptionSelected}
       />
@@ -122,18 +126,26 @@ export default function Blog() {
           <img
             src={post.banner}
             alt={post.alt}
-            className="py-3 mx-auto w-full max-sm:h-[250px] max-lgs:h-[496px] max-h-[550px] max-sm:mt-[257px] max-lg:mt-[157px] mt-[90px] object-cover object-[40%_40%]"
+            className="py-3 mx-auto w-full max-sm:h-[250px] max-lgs:h-[496px] max-h-[550px] max-sm:mt-[190px] max-lg:mt-[157px] mt-[90px] object-cover object-[40%_40%]"
           />
         )}
         <section className="w-full flex justify-around mt-14">
           {loading && (
-            <div className="lg:w-3/4 max-lg:justify-center py-9 flex flex-wrap">
-              <CardPostSkeleton />
-              <CardPostSkeleton />
-              <CardPostSkeleton />
-              <CardPostSkeleton />
-              <CardPostSkeleton />
-              <CardPostSkeleton />
+            <div className="lg:w-3/4 max-sm:mt-60 max-lg:mt-48 mt-26 flex flex-col">
+              <div
+                class="block sm:w-[400px] ml-2 w-[250px] shadow-md bg-clip-border h-2 mb-4 font-sans text-base antialiased font-light leading-relaxed bg-gray-300 text-gray-600 rounded-full animate-pulse
+              "
+              >
+                &nbsp;
+              </div>
+              <div className=" flex flex-wrap pb-9 ">
+                <CardPostSkeleton />
+                <CardPostSkeleton />
+                <CardPostSkeleton />
+                <CardPostSkeleton />
+                <CardPostSkeleton />
+                <CardPostSkeleton />
+              </div>
             </div>
           )}
           {!loading && !showPosts ? (
@@ -141,7 +153,7 @@ export default function Blog() {
           ) : (
             !loading &&
             showPosts && (
-              <section className="flex max-sm:mt-54 max-sm:px-0 max-lg:mt-36 max-lg:px-4 mt-16 lg:w-3/4 max-lg:justify-center py-9 flex-col gap-4">
+              <section className="flex max-sm:mt-56 max-lg:mt-36 max-lg:px-4 mt-16 lg:w-3/4 max-lg:justify-center py-9 flex-col gap-4">
                 <h1 className="font-family-roboto-slab max-sm:px-2 text-[clamp(1rem,4vw,1.2rem)]">
                   Resultados da pesquisa: <strong>{query}</strong>
                 </h1>
@@ -157,7 +169,7 @@ export default function Blog() {
               </section>
             )
           )}
-
+          {/* Componente de pesquisa  */}
           <form
             aria-label="formulario_de_pesquisa_de_notícias"
             onSubmit={handleSubmit}
@@ -165,8 +177,8 @@ export default function Blog() {
           >
             <SearchComponent
               slug={post.slug}
-              userSearch={userSearch}
               handleInputChange={handleInputChange}
+              bttnRef={bttnRef}
             />
             <div className="border-t-2 w-full border-orange-primary" />
             <div className="h-full">
@@ -176,6 +188,7 @@ export default function Blog() {
               <optgroup
                 id="categories"
                 className="flex h-max flex-col gap-3 [&>option]:bg-gray-200 [&>option]:p-2 [&>option]:w-full [&>option]:text-[#707372] [&>option]:hover:cursor-pointer [&>option]:hover:opacity-85"
+                onClick={() => bttnRef.current.click()}
               >
                 <option
                   value="cobranca"
@@ -211,9 +224,9 @@ export default function Blog() {
                   Inadimplência
                 </option>
                 <option
-                  value="none"
+                  value="Todas"
                   className={
-                    optionSelected === "none"
+                    optionSelected === "Todas"
                       ? "border-l-4 border-orange-primary"
                       : ""
                   }

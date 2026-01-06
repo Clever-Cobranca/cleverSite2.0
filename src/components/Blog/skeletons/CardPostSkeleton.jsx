@@ -1,6 +1,6 @@
 export function CardPostSkeleton() {
   return (
-    <div class="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-80 animate-pulse">
+    <div class="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-80 animate-pulse">
       <div class="relative grid h-56 mx-4 mt-4 overflow-hidden text-gray-700 bg-gray-300 bg-clip-border rounded-xl place-items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -92,7 +92,7 @@ export function DropdownMenuTrigger({
       onClick={() => setIsOpen((prev) => !prev)}
       {...props}
     >
-      <span className="text-[18px] font-medium">{children}</span>
+      <span className="sm:text-[18px] text-sm font-medium">{children}</span>
       <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
         <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

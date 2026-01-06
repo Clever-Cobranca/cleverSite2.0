@@ -1,14 +1,14 @@
 export function BlogSkeleton() {
   return (
-    <div class="flex flex-col mt-24 max-sm:mt-[250px] text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-full animate-pulse">
+    <div class="flex flex-col mt-24 max-sm:mt-[222px] text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-full animate-pulse">
       <div class="grid mt-2 overflow-hidden text-gray-700 bg-gray-300 bg-clip-border rounded-xl place-items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="2"
+          stroke-width="2" 
           stroke="currentColor"
-          class="w-full md:h-[530px] text-gray-500"
+          class="w-full md:h-[530px] h-48 text-gray-500"
         >
           <path
             stroke-linecap="round"
@@ -17,7 +17,7 @@ export function BlogSkeleton() {
           ></path>
         </svg>
       </div>
-      <div class="py-6 pl-24 mt-11 flex justify-between items-center">
+      <div class="py-6 pl-24 mt-11 flex max-md:flex-col max-md:pl-6 max-md:mt-24 justify-between items-center">
         <div className="w-full h-max">
           <div class="block w-[90%] h-3 mb-4 font-sans text-5xl antialiased font-semibold leading-tight tracking-normal bg-gray-300 rounded-full text-inherit">
             &nbsp;
