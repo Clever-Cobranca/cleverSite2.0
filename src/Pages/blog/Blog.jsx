@@ -11,6 +11,7 @@ import { useDebounce } from "../../hooks/useDebounce";
 import { CardPostSkeleton } from "../../components/Blog/skeletons/CardPostSkeleton";
 import { SearchComponent } from "../../components/SearchComponent";
 import PostsCarousel from "../../components/Blog/PostsCarousel";
+import PaginationPage from "../../components/Blog/pagination/PaginationPage";
 
 export default function Blog() {
   const bttnRef = useRef(null);
@@ -77,6 +78,7 @@ export default function Blog() {
     }, 1000);
   }
 
+  console.log(optionSelected);
   const handleDebouncedSubmit = useDebounce(handleSubmitFunctionalities, 1000);
 
   const options = {
@@ -153,18 +155,15 @@ export default function Blog() {
           ) : (
             !loading &&
             showPosts && (
-              <section className="flex max-sm:mt-56 max-lg:mt-36 max-lg:px-4 mt-16 lg:w-3/4 max-lg:justify-center py-9 flex-col gap-4">
-                <h1 className="font-family-roboto-slab max-sm:px-2 text-[clamp(1rem,4vw,1.2rem)]">
+              <section className="flex max-sm:mt-56 max-lg:mt-36 sm:px-4 mt-16 lg:w-3/4 max-lg:justify-center py-9 flex-col gap-4">
+                <h1 className="font-family-roboto-slab px-2 lg:px-28 text-[clamp(1rem,4vw,1.2rem)]">
                   Resultados da pesquisa: <strong>{query}</strong>
                 </h1>
-                <div id="cardPostsContainer" className="flex flex-wrap  gap-3">
-                  {cardPosts.map((post) => (
-                    <CardPosts
-                      key={post.id}
-                      post={post}
-                      setShowPosts={setShowPosts}
-                    />
-                  ))}
+                <div id="cardPostsContainer" className="max-md:w-full">
+                  <PaginationPage
+                    posts={cardPosts}
+                    setShowPosts={setShowPosts}
+                  />
                 </div>
               </section>
             )

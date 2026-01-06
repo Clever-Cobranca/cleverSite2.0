@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 export default function CardPosts({ post, setShowPosts }) {
   return (
-    <div className="w-[340px] max-h-[510px] mb-4 flex flex-col items-center">
+    <div className="@max-xs:w-full w-[340px] max-h-[510px] mb-4 flex flex-col items-center">
       <Link
         to={`/blog/${post.slug}?category=${post.category}`}
         className="w-full"
