@@ -9,6 +9,7 @@ import Educacao from "./Pages/Educacao";
 import Pagar from "./Pages/Pagar";
 import "./global.css";
 import TrabalheConosco from "./Pages/TrabalheConosco";
+import Blog from "./Pages/blog/Blog";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -21,6 +22,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
         <Route path="/educacao" element={<Educacao />} />
         <Route path="/pagar" element={<Pagar />} />
+        <Route path="/blog/:postSlug" element={<Blog />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
