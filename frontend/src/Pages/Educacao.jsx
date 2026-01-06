@@ -61,11 +61,7 @@ export default function Educacao() {
         setError(null);
         
         try {
-            const apiUrl = "https://agenda.clevercobranca.com.br/ebook";
-            console.log("Enviando dados para:", apiUrl);
-            console.log("Dados:", formData);
-            
-            const response = await fetch(apiUrl, {
+            const response = await fetch("https://agenda.clevercobranca.com.br/ebook", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -73,11 +69,7 @@ export default function Educacao() {
                 body: JSON.stringify(formData),
             });
             
-            console.log("Resposta recebida:", response.status, response.statusText);
-            
             if (response.ok) {
-                const data = await response.json().catch(() => ({}));
-                console.log("Sucesso:", data);
                 setStatus("success");
                 // Limpa o formulário após sucesso
                 setFormData({
@@ -89,30 +81,13 @@ export default function Educacao() {
                     form_proibido: "",
                 });
             } else {
-                // Tenta obter mensagem de erro do servidor
-                let errorMessage = "Erro ao enviar. Tente novamente.";
-                try {
-                    const errorData = await response.json();
-                    errorMessage = errorData.error || errorData.message || errorMessage;
-                } catch (e) {
-                    errorMessage = `Erro ${response.status}: ${response.statusText}`;
-                }
-                console.error("Erro na resposta:", response.status, errorMessage);
                 setStatus("error");
-                setError(errorMessage);
+                setError("Erro ao enviar. Tente novamente.");
             }
         } catch (err) {
             console.error("Erro ao enviar:", err);
             setStatus("error");
-            
-            // Mensagens de erro mais específicas
-            if (err.message.includes("Failed to fetch") || err.message.includes("NetworkError")) {
-                setError("Erro de conexão. Verifique sua internet ou se o servidor está acessível.");
-            } else if (err.message.includes("CORS")) {
-                setError("Erro de CORS. O servidor não está permitindo requisições deste domínio.");
-            } else {
-                setError(`Erro ao enviar: ${err.message || "Erro desconhecido"}`);
-            }
+            setError("Erro ao enviar. Verifique sua conexão e tente novamente.");
         }
     };
     return (

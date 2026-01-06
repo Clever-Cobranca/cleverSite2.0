@@ -83,6 +83,7 @@ export function DropdownMenuTrigger({
 
   return (
     <Comp
+      type="button"
       className={cn(
         "flex items-center gap-2 rounded-xl px-3 transition-all cursor-pointer",
         "hover:bg-gray-100/50 active:scale-95",
@@ -91,7 +92,7 @@ export function DropdownMenuTrigger({
       onClick={() => setIsOpen((prev) => !prev)}
       {...props}
     >
-      <span className="text-[18px] font-medium">{children}</span>
+      <span className="sm:text-[18px] text-sm font-medium">{children}</span>
       <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
         <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -135,6 +136,7 @@ export function DropdownMenuItem({
   ...props
 }) {
   const Comp = asChild ? Slot : "button";
+    const { setIsOpen } = useDropdownMenu();
 
   return (
     <motion.li variants={itemVariants} transition={{ duration: 0.2 }}>
@@ -144,6 +146,8 @@ export function DropdownMenuItem({
           "hover:bg-gray-50 hover:text-black",
           className
         )}
+        onClick={() => setIsOpen(false)}
+
         {...props}
       >
         {children}
