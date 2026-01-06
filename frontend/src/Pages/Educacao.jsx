@@ -4,6 +4,7 @@ import EbookIMG from "../assets/EbookIMG.jpg"
 import EbookCapa from "../assets/svgs/cobranca-sem-medo.svg"
 import { Footer } from "../components/Footer/Footer"
 import { useState } from "react"
+import PostsCarousel from "../components/Blog/PostsCarousel"
 
 export default function Educacao() {
     const [formData, setFormData] = useState({
@@ -46,20 +47,20 @@ export default function Educacao() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         // Honeypot - se preenchido, é provável bot
         if (formData.form_proibido.trim() !== "") {
             console.warn("Honeypot preenchido: provável bot.");
             return;
         }
-        
+
         if (!validateForm()) {
             return;
         }
-        
+
         setStatus("loading");
         setError(null);
-        
+
         try {
             const response = await fetch("https://agenda.clevercobranca.com.br/ebook", {
                 method: "POST",
@@ -68,7 +69,7 @@ export default function Educacao() {
                 },
                 body: JSON.stringify(formData),
             });
-            
+
             if (response.ok) {
                 setStatus("success");
                 // Limpa o formulário após sucesso
@@ -139,11 +140,12 @@ export default function Educacao() {
                         </div>
                     </div>
                 </section>
-
-                <section>
-                    <h3 className="">Blog</h3>
+                <section className="w-full">
+                    <h4 className="text-[clamp(1.2rem,4vw,1.6rem)] font-bold max-w-max mx-auto mb-2">
+                        Blog
+                    </h4>
+                    <PostsCarousel />
                 </section>
-
                 <section className="bg-gray-primary">
                     {/* Container */}
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 py-10 lg:py-14">
@@ -188,28 +190,28 @@ export default function Educacao() {
                                         {/* Grid de inputs */}
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 lg:gap-x-10 gap-y-4 sm:gap-y-5">
 
-                                        {/* Nome */}
-                                        <div className="relative w-full">
-                                            <input
-                                                id="nome"
-                                                name="nome"
-                                                type="text"
-                                                placeholder="Nome"
-                                                value={formData.nome}
-                                                onChange={handleInputChange}
-                                                required
-                                                className="
+                                            {/* Nome */}
+                                            <div className="relative w-full">
+                                                <input
+                                                    id="nome"
+                                                    name="nome"
+                                                    type="text"
+                                                    placeholder="Nome"
+                                                    value={formData.nome}
+                                                    onChange={handleInputChange}
+                                                    required
+                                                    className="
                                                 peer h-12 w-full rounded-full bg-white px-6 text-base text-gray-700
                                                 border border-gray-300 outline-none focus:outline-none focus:ring-0
                                                 focus:border-[#F1B434]
                                                 placeholder:text-gray-400
                                                 lg:placeholder-transparent
                                                 "
-                                            />
+                                                />
 
-                                            <label
-                                                htmlFor="nome"
-                                                className="
+                                                <label
+                                                    htmlFor="nome"
+                                                    className="
                                                 sr-only lg:not-sr-only
 
                                                 lg:pointer-events-none lg:absolute lg:left-6 lg:top-1/2 lg:-translate-y-1/2
@@ -221,33 +223,33 @@ export default function Educacao() {
                                                 lg:peer-[:not(:placeholder-shown)]:text-xs
                                                 lg:peer-[:not(:placeholder-shown)]:text-gray-700
                                                 "
-                                            >
-                                                Nome
-                                            </label>
-                                        </div>
+                                                >
+                                                    Nome
+                                                </label>
+                                            </div>
 
-                                        {/* E-mail */}
-                                        <div className="relative w-full">
-                                            <input
-                                                id="email"
-                                                name="email"
-                                                type="email"
-                                                placeholder="Seu melhor e-mail"
-                                                value={formData.email}
-                                                onChange={handleInputChange}
-                                                required
-                                                className="
+                                            {/* E-mail */}
+                                            <div className="relative w-full">
+                                                <input
+                                                    id="email"
+                                                    name="email"
+                                                    type="email"
+                                                    placeholder="Seu melhor e-mail"
+                                                    value={formData.email}
+                                                    onChange={handleInputChange}
+                                                    required
+                                                    className="
                                                 peer h-12 w-full rounded-full bg-white px-6 text-base text-gray-700
                                                 border border-gray-300 outline-none focus:outline-none focus:ring-0
                                                 focus:border-[#F1B434]
                                                 placeholder:text-gray-400
                                                 lg:placeholder-transparent
                                                 "
-                                            />
+                                                />
 
-                                            <label
-                                                htmlFor="email"
-                                                className="
+                                                <label
+                                                    htmlFor="email"
+                                                    className="
                                                 sr-only lg:not-sr-only
 
                                                 lg:pointer-events-none lg:absolute lg:left-6 lg:top-1/2 lg:-translate-y-1/2
@@ -259,32 +261,32 @@ export default function Educacao() {
                                                 lg:peer-[:not(:placeholder-shown)]:text-xs
                                                 lg:peer-[:not(:placeholder-shown)]:text-gray-700
                                                 "
-                                            >
-                                                Seu melhor e-mail
-                                            </label>
-                                        </div>
+                                                >
+                                                    Seu melhor e-mail
+                                                </label>
+                                            </div>
 
-                                        {/* WhatsApp */}
-                                        <div className="relative w-full mt-4">
-                                            <input
-                                                id="whatsapp"
-                                                name="whatsapp"
-                                                type="tel"
-                                                placeholder="WhatsApp com DDD"
-                                                value={formData.whatsapp}
-                                                onChange={handleInputChange}
-                                                className="
+                                            {/* WhatsApp */}
+                                            <div className="relative w-full mt-4">
+                                                <input
+                                                    id="whatsapp"
+                                                    name="whatsapp"
+                                                    type="tel"
+                                                    placeholder="WhatsApp com DDD"
+                                                    value={formData.whatsapp}
+                                                    onChange={handleInputChange}
+                                                    className="
                                                 peer h-12 w-full rounded-full bg-white px-6 text-base text-gray-700
                                                 border border-gray-300 outline-none focus:outline-none focus:ring-0
                                                 focus:border-[#F1B434]
                                                 placeholder:text-gray-400
                                                 lg:placeholder-transparent
                                                 "
-                                            />
+                                                />
 
-                                            <label
-                                                htmlFor="whatsapp"
-                                                className="
+                                                <label
+                                                    htmlFor="whatsapp"
+                                                    className="
                                                 sr-only lg:not-sr-only
 
                                                 lg:pointer-events-none lg:absolute lg:left-6 lg:top-1/2 lg:-translate-y-1/2
@@ -296,32 +298,32 @@ export default function Educacao() {
                                                 lg:peer-[:not(:placeholder-shown)]:text-xs
                                                 lg:peer-[:not(:placeholder-shown)]:text-gray-700
                                                 "
-                                            >
-                                                WhatsApp com DDD
-                                            </label>
-                                        </div>
+                                                >
+                                                    WhatsApp com DDD
+                                                </label>
+                                            </div>
 
-                                        {/* Empresa */}
-                                        <div className="relative w-full mt-4">
-                                            <input
-                                                id="empresa"
-                                                name="empresa"
-                                                type="text"
-                                                placeholder="Sua empresa"
-                                                value={formData.empresa}
-                                                onChange={handleInputChange}
-                                                className="
+                                            {/* Empresa */}
+                                            <div className="relative w-full mt-4">
+                                                <input
+                                                    id="empresa"
+                                                    name="empresa"
+                                                    type="text"
+                                                    placeholder="Sua empresa"
+                                                    value={formData.empresa}
+                                                    onChange={handleInputChange}
+                                                    className="
                                                 peer h-12 w-full rounded-full bg-white px-6 text-base text-gray-700
                                                 border border-gray-300 outline-none focus:outline-none focus:ring-0
                                                 focus:border-[#F1B434]
                                                 placeholder:text-gray-400
                                                 lg:placeholder-transparent
                                                 "
-                                            />
+                                                />
 
-                                            <label
-                                                htmlFor="empresa"
-                                                className="
+                                                <label
+                                                    htmlFor="empresa"
+                                                    className="
                                                 sr-only lg:not-sr-only
 
                                                 lg:pointer-events-none lg:absolute lg:left-6 lg:top-1/2 lg:-translate-y-1/2
@@ -333,10 +335,10 @@ export default function Educacao() {
                                                 lg:peer-[:not(:placeholder-shown)]:text-xs
                                                 lg:peer-[:not(:placeholder-shown)]:text-gray-700
                                                 "
-                                            >
-                                                Sua empresa
-                                            </label>
-                                        </div>
+                                                >
+                                                    Sua empresa
+                                                </label>
+                                            </div>
                                         </div>
 
                                         {/* CHECK + BOTÃO (responsivo) */}

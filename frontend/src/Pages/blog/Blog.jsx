@@ -126,10 +126,10 @@ export default function Blog() {
           <img
             src={post.banner}
             alt={post.alt}
-            className="py-3 mx-auto w-full max-sm:h-[250px] max-lgs:h-[496px] max-h-[550px] max-sm:mt-[190px] max-lg:mt-[157px] mt-[90px] object-cover object-[40%_40%]"
+            className="mx-auto w-full max-sm:h-[250px] max-lgs:h-[496px] max-h-[550px] max-sm:mt-[190px] max-lg:mt-[157px]  object-cover object-[40%_40%]"
           />
         )}
-        <section className="w-full flex justify-around mt-14">
+        <section className="w-full flex justify-around">
           {loading && (
             <div className="lg:w-3/4 max-sm:mt-60 max-lg:mt-48 mt-26 flex flex-col">
               <div
