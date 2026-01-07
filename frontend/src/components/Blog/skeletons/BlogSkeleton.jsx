@@ -1,7 +1,7 @@
 export function BlogSkeleton() {
   return (
-    <div className="flex flex-col mt-24 max-sm:mt-[222px] text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-full animate-pulse">
-      <div className="grid mt-2 overflow-hidden text-gray-700 bg-gray-300 bg-clip-border rounded-xl place-items-center">
+    <div className="flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-full animate-pulse">
+      <div className="grid overflow-hidden text-gray-700 bg-gray-300 bg-clip-border rounded-xl place-items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -17,7 +17,7 @@ export function BlogSkeleton() {
           ></path>
         </svg>
       </div>
-      <div className="py-6 pl-24 mt-11 flex max-md:flex-col max-md:pl-6 max-md:mt-24 justify-between items-center">
+      <div className="py-6 pl-24 mt-11 flex max-md:flex-col max-md:pl-6 max-md:mt-24 justify-between">
         <div className="w-full h-max">
           <div className="block w-[90%] h-3 mb-4 font-sans text-5xl antialiased font-semibold leading-tight tracking-normal bg-gray-300 rounded-full text-inherit">
             &nbsp;
@@ -33,7 +33,7 @@ export function BlogSkeleton() {
             &nbsp;
           </div>
         </div>
-        <div className="block w-[380px] h-[340px] text-inherit mr-4 bg-gray-300">
+        <div className="block w-[380px] h-[340px] text-inherit mr-10 bg-gray-300">
           &nbsp;
         </div>
       </div>

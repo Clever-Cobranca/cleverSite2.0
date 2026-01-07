@@ -115,25 +115,100 @@ export default function Blog() {
   if (loading) {
     return (
       <>
-        <Header />
-        <section className="w-full flex justify-around mt-14">
-          {loading && (
-            <div className="lg:w-3/4 max-sm:mt-60 max-lg:mt-48 mt-26 flex flex-col">
-              <div
-                class="block sm:w-[400px] ml-2 w-[250px] shadow-md bg-clip-border h-2 mb-4 font-sans text-base antialiased font-light leading-relaxed bg-gray-300 text-gray-600 rounded-full animate-pulse
-              "
+        <Header>
+          <div className="w-full lg:hidden z-20 sticky bg-white min-h-20 py-7 shadow-2xl">
+            <div className="h-full w-full flex gap-2 flex-wrap pt-2 sm:justify-around sm:items-center">
+              <h4 className="text-[#1A1A1A] text-xl max-sm:text-lg  max-sm:ml-3 font-light tracking-widest">
+                NOTÍCIAS
+              </h4>
+              <form
+                onSubmit={handleSubmit}
+                aria-label="formulario_de_pesquisa_de_notícias"
+                className="flex items-center gap-3.5 mx-2 max-sm:flex-wrap-reverse"
               >
+                <SearchComponent
+                  slug={post.slug}
+                  userSearch={userSearch}
+                  handleInputChange={handleInputChange}
+                  bttnRef={bttnRef}
+                >
+                  <DropdownMenu className="z-10 text-xs">
+                    <DropdownMenuTrigger type="button" className="p-0">
+                      {optionValue || "Categorias"}
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
+                      onClick={() => bttnRef.current.click()}
+                    >
+                      <DropdownMenuItem type="button" className="w-full">
+                        <option
+                          onClick={() => {
+                            setOptionSelected("Todas");
+                            setOptionValue("Todas");
+                          }}
+                        >
+                          Todas
+                        </option>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem type="button" className="w-full">
+                        <option
+                          onClick={() => {
+                            setOptionSelected("cobranca");
+                            setOptionValue("Cobrança");
+                          }}
+                        >
+                          Cobrança
+                        </option>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem type="button">
+                        <option
+                          onClick={() => {
+                            setOptionSelected("credito");
+                            setOptionValue("Crédito");
+                          }}
+                        >
+                          Crédito
+                        </option>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem type="button" className="w-full">
+                        <option
+                          onClick={() => {
+                            setOptionSelected("inadimplencia");
+                            setOptionValue("Inadimplência");
+                          }}
+                        >
+                          Inadimplência
+                        </option>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </SearchComponent>
+              </form>
+            </div>
+          </div>
+        </Header>
+        <section className="w-full py-9 flex justify-around">
+          {loading && (
+            <>
+              <div className="lg:w-3/4 flex flex-col max-sm:items-center">
+                <div
+                  class="block sm:w-[400px] sm:ml-16 w-[250px] shadow-md bg-clip-border h-2 mb-8 font-sans text-base antialiased font-light leading-relaxed bg-gray-300 text-gray-600 rounded-full animate-pulse
+              "
+                >
+                  &nbsp;
+                </div>
+                <div className="flex flex-wrap pb-9 justify-center">
+                  <CardPostSkeleton />
+                  <CardPostSkeleton />
+                  <CardPostSkeleton />
+                  <CardPostSkeleton />
+                  <CardPostSkeleton />
+                  <CardPostSkeleton />
+                </div>
+              </div>
+              <div className="max-lg:hidden block w-[300px] h-[340px] mt-5 text-gray-700 mr-10 bg-gray-300 animate-pulse">
                 &nbsp;
               </div>
-              <div className=" flex flex-wrap pb-9 ">
-                <CardPostSkeleton />
-                <CardPostSkeleton />
-                <CardPostSkeleton />
-                <CardPostSkeleton />
-                <CardPostSkeleton />
-                <CardPostSkeleton />
-              </div>
-            </div>
+            </>
           )}
         </section>
       </>
@@ -143,9 +218,9 @@ export default function Blog() {
   return (
     <>
       <Header>
-        <div className="w-full lg:hidden z-20 fixed top-[90px] bg-white min-h-20 py-7 shadow-2xl">
-          <div className="h-full w-full flex gap-2 flex-wrap pt-2 sm:justify-around sm:items-center">
-            <h4 className="text-[#1A1A1A] text-xl max-sm:text-lg font-light tracking-widest">
+        <div className="w-full lg:hidden z-20 sticky bg-white min-h-20 py-7 shadow-2xl">
+          <div id="postsContainer" className="h-full w-full flex gap-2 flex-wrap pt-2 sm:justify-around sm:items-center">
+            <h4 className="text-[#1A1A1A] text-xl max-sm:text-lg  max-sm:ml-3 font-light tracking-widest">
               NOTÍCIAS
             </h4>
             <form
@@ -216,20 +291,20 @@ export default function Blog() {
           <img
             src={post.banner}
             alt={post.alt}
-            className="py-3 mx-auto w-full max-sm:h-[250px] max-lgs:h-[496px] max-h-[550px] max-sm:mt-[190px] max-lg:mt-[157px] mt-[90px] object-cover object-[40%_40%]"
+            className="mx-auto w-full max-sm:h-[250px] max-lgs:h-[496px] max-h-[550px] object-cover object-[40%_40%]"
           />
         )}
-        <section className="flex items-baseline">
+        <section className="flex sm:justify-center max-sm:w-full">
           {!loading && !showPosts ? (
             <div id="displayHtml"> {parse(post.body, options)} </div>
           ) : (
             !loading &&
             showPosts && (
-              <section className="flex max-sm:mt-56 max-lg:mt-36 sm:px-4 mt-16 lg:w-3/4 max-lg:justify-center py-9 flex-col gap-4">
+              <section className="flex lg:w-3/4 w-full max-lg:justify-center py-9 px-2 flex-col gap-4">
                 <h1 className="font-family-roboto-slab px-2 text-[clamp(1rem,4vw,1.2rem)]">
                   Resultados da pesquisa: <strong>{query}</strong>
                 </h1>
-                <div id="cardPostsContainer" className="max-md:w-full">
+                <div className="max-md:w-full">
                   <PaginationPage
                     posts={cardPosts}
                     setShowPosts={setShowPosts}

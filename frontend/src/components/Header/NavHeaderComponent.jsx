@@ -77,7 +77,7 @@ export function NavHeaderComponent() {
               </DropdownMenuContent>
             </DropdownMenu>
           </li>
-        </ul> 
+        </ul>
       </div>
     </nav>
   );

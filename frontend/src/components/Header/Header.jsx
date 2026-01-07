@@ -23,7 +23,7 @@ export function Header({ children }) {
 
   return (
     <>
-      <header className="pt-4 z-40 flex items-center-safe justify-between max-sm:justify-between pl-16 pr-15 w-full border border-black/20 sticky top-0 bg-white">
+      <header className="pt-4 z-40 flex items-center-safe justify-between max-sm:justify-between pl-16 pr-15 w-full border-b border-t border-black/20 sticky  bg-white">
         <div className="max-[1056px]:hidden flex items-center gap-10">
           <a href="/">
             <img src={Logo} alt="Icon Clever" />
