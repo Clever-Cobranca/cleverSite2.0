@@ -31,7 +31,6 @@ export default function Blog() {
   const { postSlug } = useParams();
   const post = posts.find((p) => p.slug === postSlug);
 
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsPageLoading(false);
@@ -220,14 +219,14 @@ export default function Blog() {
             className="py-3 mx-auto w-full max-sm:h-[250px] max-lgs:h-[496px] max-h-[550px] max-sm:mt-[190px] max-lg:mt-[157px] mt-[90px] object-cover object-[40%_40%]"
           />
         )}
-        <section>
+        <section className="flex items-baseline">
           {!loading && !showPosts ? (
             <div id="displayHtml"> {parse(post.body, options)} </div>
           ) : (
             !loading &&
             showPosts && (
               <section className="flex max-sm:mt-56 max-lg:mt-36 sm:px-4 mt-16 lg:w-3/4 max-lg:justify-center py-9 flex-col gap-4">
-                <h1 className="font-family-roboto-slab px-2 lg:px-28 text-[clamp(1rem,4vw,1.2rem)]">
+                <h1 className="font-family-roboto-slab px-2 text-[clamp(1rem,4vw,1.2rem)]">
                   Resultados da pesquisa: <strong>{query}</strong>
                 </h1>
                 <div id="cardPostsContainer" className="max-md:w-full">
@@ -243,7 +242,7 @@ export default function Blog() {
           <form
             aria-label="formulario_de_pesquisa_de_notícias"
             onSubmit={handleSubmit}
-            className="bg-[#FBFBFB] mt-16 px-4 mr-8 flex flex-col gap-16 h-[500px] max-lg:hidden "
+            className="bg-[#FBFBFB] mt-16 pt-6 px-4 mr-8 flex flex-col gap-16 h-[500px] max-lg:hidden "
           >
             <SearchComponent
               slug={post.slug}
@@ -262,7 +261,10 @@ export default function Blog() {
               >
                 <option
                   value="cobranca"
-                  onClick={(e) => setOptionSelected(e.target.value)}
+                  onClick={(e) => {
+                    setOptionSelected(e.target.value);
+                    setOptionValue("Cobrança");
+                  }}
                   className={
                     optionSelected === "cobranca"
                       ? "border-l-4 border-orange-primary"
@@ -273,7 +275,10 @@ export default function Blog() {
                 </option>
                 <option
                   value="credito"
-                  onClick={(e) => setOptionSelected(e.target.value)}
+                  onClick={(e) => {
+                    setOptionSelected(e.target.value);
+                    setOptionValue("Crédito");
+                  }}
                   className={
                     optionSelected === "credito"
                       ? "border-l-4 border-orange-primary"
@@ -289,18 +294,24 @@ export default function Blog() {
                       ? "border-l-4 border-orange-primary"
                       : ""
                   }
-                  onClick={(e) => setOptionSelected(e.target.value)}
+                  onClick={(e) => {
+                    setOptionSelected(e.target.value);
+                    setOptionValue("Inadimplência");
+                  }}
                 >
                   Inadimplência
                 </option>
                 <option
                   value="Todas"
                   className={
-                    optionSelected === "Todas"
+                    optionSelected === "none"
                       ? "border-l-4 border-orange-primary"
                       : ""
                   }
-                  onClick={(e) => setOptionSelected(e.target.value)}
+                  onClick={(e) => {
+                    setOptionSelected("none");
+                    setOptionValue(e.target.value);
+                  }}
                 >
                   Sem Categoria
                 </option>
