@@ -62,12 +62,23 @@ export default function Educacao() {
         setError(null);
 
         try {
-            const response = await fetch("https://agenda.clevercobranca.com.br/ebook", {
+            // Usa FormData para ser consistente com a rota do backend
+            const formDataToSend = new FormData();
+            formDataToSend.append('nome', formData.nome);
+            formDataToSend.append('email', formData.email);
+            if (formData.whatsapp) formDataToSend.append('whatsapp', formData.whatsapp);
+            if (formData.empresa) formDataToSend.append('empresa', formData.empresa);
+            formDataToSend.append('novidades', formData.novidades ? 'sim' : 'não');
+            // Adiciona um campo para identificar que é do ebook
+            formDataToSend.append('tipoFormulario', 'ebook');
+
+            // URL do backend - mesma rota do RH
+            const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+            const apiEndpoint = `${API_URL}/api/send-email`;
+
+            const response = await fetch(apiEndpoint, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
+                body: formDataToSend,
             });
 
             if (response.ok) {
@@ -82,8 +93,13 @@ export default function Educacao() {
                     form_proibido: "",
                 });
             } else {
+                const errorData = await response.json().catch(() => ({ 
+                    error: `Erro HTTP ${response.status}`,
+                    details: 'Não foi possível processar a resposta do servidor'
+                }));
+                
                 setStatus("error");
-                setError("Erro ao enviar. Tente novamente.");
+                setError(errorData.details || errorData.error || "Erro ao enviar. Tente novamente.");
             }
         } catch (err) {
             console.error("Erro ao enviar:", err);

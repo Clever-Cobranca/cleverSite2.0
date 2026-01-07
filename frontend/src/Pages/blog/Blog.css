@@ -8,28 +8,7 @@
   --dourado-claro: #fff7e0;
 }
 
-#displayHtml > h1 {
-  font-size: clamp(2.1rem, 4vw, 5rem);
-  font-weight: 700;
-  font-family: "Roboto Slab";
-  line-height: 1;
-}
-#displayHtml > ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  max-width: 860px;
-  margin-block: 16px;
-}
-#displayHtml > p {
-  font-size: clamp(1rem, 4vw, 1.2rem);
-  font-weight: 300;
-}
 
-#displayHtml > h1,
-h2,
-p {
-  margin-block: 22px;
-}
 
 #displayHtml {
   width: 80%;
@@ -41,6 +20,28 @@ p {
   }
   .wrap {
     width: 90%;
+  }
+
+  #displayHtml > h1 {
+    font-size: clamp(2.1rem, 4vw, 5rem);
+    font-weight: 700;
+    font-family: "Roboto Slab";
+    line-height: 1;
+  }
+  #displayHtml > ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    max-width: 860px;
+    margin-block: 16px;
+  }
+  #displayHtml > p {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    font-weight: 300;
+  }
+  
+  #displayHtml > h1,
+  h2, p {
+    margin-block: 22px;
   }
 
   .main img {
@@ -315,26 +316,27 @@ p {
       text-align: center;
     }
   }
-}
-@media screen and (width < 48rem) {
-  #displayHtml {
-    width: 100%;
-    padding-inline-start: 0px;
+  @media screen and (width < 48rem) {
+    #displayHtml {
+      width: 100%;
+      padding-inline-start: 0px;
+    }
+  }
+  @media screen and (width < 40rem) {
+    #displayHtml > h1,
+    h2,
+    h3,
+    h4,
+    p {
+      padding-inline: 12px;
+    }
+    #displayHtml > ul {
+      padding-left: 24px;
+    }
+  
+    #displayHtml > h1 {
+      text-align: center;
+    }
   }
 }
-@media screen and (width < 40rem) {
-  #displayHtml > h1,
-  h2,
-  h3,
-  h4,
-  p {
-    padding-inline: 12px;
-  }
-  #displayHtml > ul {
-    padding-left: 24px;
-  }
 
-  #displayHtml > h1 {
-    text-align: center;
-  }
-}

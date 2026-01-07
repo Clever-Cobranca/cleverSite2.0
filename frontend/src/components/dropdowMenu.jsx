@@ -142,7 +142,7 @@ export function DropdownMenuItem({
     <motion.li variants={itemVariants} transition={{ duration: 0.2 }}>
       <Comp
         className={cn(
-          "w-full flex items-center gap-2 rounded-lg px-3 py-1 text-sm text-gray-600 transition-colors text-left",
+          "w-full flex items-center gap-2 rounded-lg px-3 py-1 text-md text-gray-600 transition-colors text-left",
           "hover:bg-gray-50 hover:text-black",
           className
         )}

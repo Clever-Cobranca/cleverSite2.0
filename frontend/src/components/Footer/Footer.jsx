@@ -61,7 +61,7 @@ export function Footer({ isBgGray }) {
               color="#FF6600"
               className="max-sm:w-[20px] max-sm:h-[20px]"
             />
-            <p className="text-orange-primary font-medium text-base max-sm:text-xs">
+            <p className="text-orange-primary font-medium text-base max-sm:text-[16px]">
               0800 000 4820
             </p>
           </div>
@@ -71,7 +71,7 @@ export function Footer({ isBgGray }) {
               color="#FF6600"
               className="max-sm:w-[20px] max-sm:h-[20px]"
             />
-            <p className="text-orange-primary font-medium max-sm:text-xs text-base">
+            <p className="text-orange-primary font-medium max-sm:text-[16px] text-base">
               contato@clevercobranca.com.br
             </p>
           </div>

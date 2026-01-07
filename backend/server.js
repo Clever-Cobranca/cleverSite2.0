@@ -36,31 +36,32 @@ const upload = multer({
 
 // Configuração do transporter do nodemailer
 const createTransporter = () => {
-  const port = parseInt(process.env.SMTP_PORT || '587');
-  const secure = port === 465 || process.env.SMTP_SECURE === 'true';
-  
   return nodemailer.createTransport({
     host: process.env.SMTP_HOST || 'smtp.gmail.com',
-    port: port,
-    secure: secure, // true para 465, false para 587
+    port: parseInt(process.env.SMTP_PORT || '587'),
+    secure: process.env.SMTP_SECURE === 'true', // true para 465, false para outras portas
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS, // App Password do Gmail ou senha do servidor SMTP
     },
-    // Timeouts padrão (suficientes para Railway)
-    connectionTimeout: 30000,
-    greetingTimeout: 30000,
-    socketTimeout: 30000,
+    connectionTimeout: 60000, // 30 segundos
+    greetingTimeout: 60000,
+    socketTimeout: 60000,
   });
 };
 
 // Função para formatar os dados do formulário em HTML
 const formatEmailHTML = (answers, fileName = null) => {
+  const isEbook = answers.tipoFormulario === 'ebook';
+  
   const fields = {
     nome: 'Nome',
     nascimento: 'Data de Nascimento',
     email: 'E-mail',
     telefone: 'Telefone',
+    whatsapp: 'WhatsApp',
+    empresa: 'Empresa',
+    novidades: 'Deseja receber novidades',
     formacao: 'Formação',
     fimEscola: 'Previsão de Conclusão da Escola',
     fimTecnico: 'Previsão de Conclusão do Curso Técnico',
@@ -76,6 +77,9 @@ const formatEmailHTML = (answers, fileName = null) => {
     atividades: 'Responsabilidades',
     comoConheceu: 'Como Conheceu a Clever',
   };
+
+  const title = isEbook ? 'Nova Solicitação de E-book' : 'Nova Candidatura Recebida';
+  const subtitle = isEbook ? '📚 Dados do Interessado:' : '📋 Dados do Candidato:';
 
   let html = `
     <!DOCTYPE html>
@@ -94,13 +98,16 @@ const formatEmailHTML = (answers, fileName = null) => {
     </head>
     <body>
       <div class="container">
-        <h2>Nova Candidatura Recebida</h2>
+        <h2>${title}</h2>
         <div class="field">
-          <div class="label">📋 Dados do Candidato:</div>
+          <div class="label">${subtitle}</div>
         </div>
   `;
 
   Object.entries(answers).forEach(([key, value]) => {
+    // Ignora campos internos
+    if (key === 'tipoFormulario' || key === 'form_proibido') return;
+    
     const label = fields[key] || key;
     if (value && value !== 'Sem arquivo') {
       html += `
@@ -132,11 +139,16 @@ const formatEmailHTML = (answers, fileName = null) => {
 
 // Função para formatar texto simples (fallback)
 const formatEmailText = (answers, fileName = null) => {
+  const isEbook = answers.tipoFormulario === 'ebook';
+  
   const fields = {
     nome: 'Nome',
     nascimento: 'Data de Nascimento',
     email: 'E-mail',
     telefone: 'Telefone',
+    whatsapp: 'WhatsApp',
+    empresa: 'Empresa',
+    novidades: 'Deseja receber novidades',
     formacao: 'Formação',
     fimEscola: 'Previsão de Conclusão da Escola',
     fimTecnico: 'Previsão de Conclusão do Curso Técnico',
@@ -153,11 +165,17 @@ const formatEmailText = (answers, fileName = null) => {
     comoConheceu: 'Como Conheceu a Clever',
   };
 
-  let text = 'Nova Candidatura Recebida\n\n';
-  text += 'Dados do Candidato:\n';
+  const title = isEbook ? 'Nova Solicitação de E-book' : 'Nova Candidatura Recebida';
+  const subtitle = isEbook ? 'Dados do Interessado:' : 'Dados do Candidato:';
+
+  let text = `${title}\n\n`;
+  text += `${subtitle}\n`;
   text += '='.repeat(50) + '\n\n';
 
   Object.entries(answers).forEach(([key, value]) => {
+    // Ignora campos internos
+    if (key === 'tipoFormulario' || key === 'form_proibido') return;
+    
     const label = fields[key] || key;
     if (value && value !== 'Sem arquivo') {
       text += `${label}: ${value}\n`;
@@ -228,12 +246,18 @@ app.post('/api/send-email', upload.single('attachment'), async (req, res) => {
     const file = req.file;
     const fileName = file ? file.originalname : null;
 
+    // Identifica o tipo de formulário
+    const isEbook = answers.tipoFormulario === 'ebook';
+    const subject = isEbook 
+      ? `Nova Solicitação de E-book: ${answers.nome || 'Site'}`
+      : `Nova Candidatura: ${answers.cargoPretendido || 'Site'}`;
+
     // Configuração do email
     const mailOptions = {
       from: `"Site Clever" <${process.env.SMTP_USER}>`,
       to: process.env.RECIPIENT_EMAIL || process.env.SMTP_USER,
       replyTo: answers.email || process.env.SMTP_USER,
-      subject: `Nova Candidatura: ${answers.cargoPretendido || 'Site'}`,
+      subject: subject,
       text: formatEmailText(answers, fileName),
       html: formatEmailHTML(answers, fileName),
     };

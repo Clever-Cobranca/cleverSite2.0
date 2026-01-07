@@ -43,9 +43,9 @@ export default function TrabalheConosco() {
             </div>
           </div>
         </div>
-        <section className="px-6 py-14">
+        <section className="px-6 py-10">
           <div>
-            <h1 className="text-[clamp(2.5rem,6vw,6.2rem)]  leading-tight font-family-roboto-slab font-bold py-2 pl-2 md:max-lgs:pl-16">
+            <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] max-sm:text-4xl max-sm:pl-0 leading-tight font-family-roboto-slab font-bold py-2 pl-2 md:max-lgs:pl-16">
               Quem Somos?
             </h1>
             <div className="flex justify-around items-center wrap-break-word flex-wrap gap-4">
@@ -193,7 +193,7 @@ export default function TrabalheConosco() {
                         </motion.div>
                       </div>
                       <div>
-                        <h4 className="text-4xl font-bold text-center max-sm:text-2xl">Supervisor/Coordenador<br /><span className="text-[#F1B434]">Clever</span> !</h4>
+                        <h4 className="text-4xl font-bold text-center max-[320px]:text-[15px] max-sm:text-[19px]">Supervisor/Coordenador<br/><span className="text-[#F1B434]">Clever</span> !</h4>
                       </div>
                       <div className="flex max-sm:flex-col max-sm:gap-4 gap-16 border-t-2 border-[#D9D9D9] border-b-2 pt-10 pb-10">
                         <div className="flex flex-col gap-4 items-center flex-wrap">

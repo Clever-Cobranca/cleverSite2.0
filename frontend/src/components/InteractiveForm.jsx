@@ -290,20 +290,34 @@ const InteractiveForm = () => {
 
     // URL do backend - ajuste conforme necessário
     const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+    const apiEndpoint = `${API_URL}/api/send-email`;
+    
+    // Debug: log da URL (pode remover depois)
+    console.log('Enviando para:', apiEndpoint);
+    console.log('API_URL configurada:', API_URL);
 
     try {
-      const response = await fetch(`${API_URL}/api/send-email`, {
+      const response = await fetch(apiEndpoint, {
         method: "POST",
         body: formData,
       });
 
+      // Debug: log da resposta
+      console.log('Status da resposta:', response.status, response.statusText);
+      
       if (response.ok) {
         const data = await response.json();
+        console.log('Resposta do servidor:', data);
         setEmailStatus('success');
       } else {
+        // Log do erro para debug
+        console.error('Erro HTTP:', response.status, response.statusText);
+        
         const errorData = await response.json().catch(() => ({ 
-          error: 'Erro desconhecido',
-          details: 'Não foi possível processar a resposta do servidor'
+          error: `Erro HTTP ${response.status}`,
+          details: response.status === 405 
+            ? 'Método não permitido. Verifique se a URL do backend está correta na Vercel (variável VITE_API_URL).'
+            : 'Não foi possível processar a resposta do servidor'
         }));
         
         // Monta mensagem de erro detalhada

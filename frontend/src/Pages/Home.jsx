@@ -35,15 +35,15 @@ export default function Home() {
                   </strong>
                   , com atuação estratégica e alto índice de efetividade
                 </p>
-                <div className="md:mt-12 mt-2 py-5 flex gap-7 items-center">
+                <div className="md:mt-12 mt-2 py-4 flex gap-7 items-center">
                   <a target="_blank" href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0">
-                    <button className="h-12 md:h-[87px] max-sm:p-1 w-52 max-md:max-w-36 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(0.8rem,3vw,1.25rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
+                    <button className="h-12 md:h-[87px] max-sm:p-1 w-52 max-md:max-w-36 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(0.8rem,2vw,1.25rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
                       Negocie suas Dívidas
                     </button>
                   </a>
 
                   <a target="_blank" href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+saber+mais!&type=phone_number&app_absent=0">
-                    <button className="h-12 md:h-[87px] w-52 max-md:max-w-36 max-lgs:w-auto max-sm:p-2 max-lgs:p-5 font-bold text-[clamp(0.8rem,3vw,1.25rem)] rounded-4xl bg-[#ffffff] text-[#707372] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[rgb(247,246,246)]  hover:cursor-pointer">
+                    <button className="h-12 md:h-[87px] w-52 max-md:max-w-36 max-lgs:w-auto max-sm:p-2 max-lgs:p-5 font-bold text-[clamp(0.8rem,2vw,1.25rem)] rounded-4xl bg-[#ffffff] text-[#707372] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[rgb(247,246,246)]  hover:cursor-pointer">
                       Fale Conosco
                     </button>
                   </a>
@@ -175,7 +175,7 @@ export default function Home() {
               </div>
             </section>
             {/* Container vem ser Um Clever */}
-            <section className="lg:max-h-[580px]  flex justify-around max-md:justify-center items-center flex-wrap">
+            <section className="flex justify-around max-md:justify-center items-center flex-wrap">
               <div className="flex flex-col md:gap-11 gap-7 items-start max-md:pl-2 max-md:items-center">
                 <h1 className="text-[clamp(3rem,4vw,4.25rem)] leading-tight w-[500px] max-sm:w-max max-md:text-center font-family-roboto-slab font-bold">
                   Vem ser <p className="text-orange-primary">um Clever!</p>
@@ -194,7 +194,7 @@ export default function Home() {
               <img
                 alt="Seja um clever"
                 src={SejaClever}
-                className="max-w-[654px] max-h-[446px] object-contain max-md:h-80 max-sm:w-full"
+                className="max-w-[654px] max-h-[446px] object-contain max-md:h-80 max-[1332px]:hidden max-sm:w-full"
               />
             </section>
 
