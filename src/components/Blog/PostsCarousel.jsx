@@ -26,7 +26,6 @@ export default function PostsCarousel({ slug, allPosts = posts }) {
 
     const step = carousel.current.offsetWidth;
 
-    console.log(step);
 
     if (direction === "left") {
       // Volta um passo. Math.max garante que não fique negativo (menor que 0)

@@ -5,7 +5,12 @@ import { useEffect, useRef, useState } from "react";
 import { posts } from "./blogPost";
 import { useParams } from "react-router";
 import { BlogSkeleton } from "../../components/Blog/skeletons/BlogSkeleton";
-import CardPosts from "../../components/Blog/CardPosts";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "../../components/dropdowMenu";
 import parse, { domToReact } from "html-react-parser";
 import { useDebounce } from "../../hooks/useDebounce";
 import { CardPostSkeleton } from "../../components/Blog/skeletons/CardPostSkeleton";
@@ -22,10 +27,10 @@ export default function Blog() {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [optionSelected, setOptionSelected] = useState("Todas");
+  const [optionValue, setOptionValue] = useState("");
   const { postSlug } = useParams();
   const post = posts.find((p) => p.slug === postSlug);
 
-  console.log(post);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -73,12 +78,11 @@ export default function Blog() {
     setTimeout(() => {
       setCardPosts(cardPostsFiltered);
       setShowPosts(true);
-      setQuery(queryFormated ? queryFormated : optionSelected);
+      setQuery(queryFormated ? queryFormated : optionValue);
       setLoading(false);
     }, 1000);
   }
 
-  console.log(optionSelected);
   const handleDebouncedSubmit = useDebounce(handleSubmitFunctionalities, 1000);
 
   const options = {
@@ -103,34 +107,16 @@ export default function Blog() {
   if (isPageLoading || !post) {
     return (
       <>
-        <Header
-          post={post}
-          handleSubmit={handleSubmit}
-          handleInputChange={handleInputChange}
-        />
+        <Header />
         <BlogSkeleton />
       </>
     );
   }
 
-  return (
-    <>
-      <Header
-        post={post}
-        handleSubmit={handleSubmit}
-        userSearch={userSearch}
-        bttnRef={bttnRef}
-        handleInputChange={handleInputChange}
-        setOptionSelected={setOptionSelected}
-      />
-      <div key={postSlug}>
-        {!loading && !showPosts && (
-          <img
-            src={post.banner}
-            alt={post.alt}
-            className="py-3 mx-auto w-full max-sm:h-[250px] max-lgs:h-[496px] max-h-[550px] max-sm:mt-[190px] max-lg:mt-[157px] mt-[90px] object-cover object-[40%_40%]"
-          />
-        )}
+  if (loading) {
+    return (
+      <>
+        <Header />
         <section className="w-full flex justify-around mt-14">
           {loading && (
             <div className="lg:w-3/4 max-sm:mt-60 max-lg:mt-48 mt-26 flex flex-col">
@@ -150,6 +136,91 @@ export default function Blog() {
               </div>
             </div>
           )}
+        </section>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <Header>
+        <div className="w-full lg:hidden z-20 fixed top-[90px] bg-white min-h-20 py-7 shadow-2xl">
+          <div className="h-full w-full flex gap-2 flex-wrap pt-2 sm:justify-around sm:items-center">
+            <h4 className="text-[#1A1A1A] text-xl max-sm:text-lg font-light tracking-widest">
+              NOTÍCIAS
+            </h4>
+            <form
+              onSubmit={handleSubmit}
+              aria-label="formulario_de_pesquisa_de_notícias"
+              className="flex items-center gap-3.5 mx-2 max-sm:flex-wrap-reverse"
+            >
+              <SearchComponent
+                slug={post.slug}
+                userSearch={userSearch}
+                handleInputChange={handleInputChange}
+                bttnRef={bttnRef}
+              >
+                <DropdownMenu className="z-10 text-xs">
+                  <DropdownMenuTrigger type="button" className="p-0">
+                    {optionValue || "Categorias"}
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent onClick={() => bttnRef.current.click()}>
+                    <DropdownMenuItem type="button" className="w-full">
+                      <option
+                        onClick={() => {
+                          setOptionSelected("Todas");
+                          setOptionValue("Todas");
+                        }}
+                      >
+                        Todas
+                      </option>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem type="button" className="w-full">
+                      <option
+                        onClick={() => {
+                          setOptionSelected("cobranca");
+                          setOptionValue("Cobrança");
+                        }}
+                      >
+                        Cobrança
+                      </option>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem type="button">
+                      <option
+                        onClick={() => {
+                          setOptionSelected("credito");
+                          setOptionValue("Crédito");
+                        }}
+                      >
+                        Crédito
+                      </option>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem type="button" className="w-full">
+                      <option
+                        onClick={() => {
+                          setOptionSelected("inadimplencia");
+                          setOptionValue("Inadimplência");
+                        }}
+                      >
+                        Inadimplência
+                      </option>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </SearchComponent>
+            </form>
+          </div>
+        </div>
+      </Header>
+      <div key={postSlug}>
+        {!loading && !showPosts && (
+          <img
+            src={post.banner}
+            alt={post.alt}
+            className="py-3 mx-auto w-full max-sm:h-[250px] max-lgs:h-[496px] max-h-[550px] max-sm:mt-[190px] max-lg:mt-[157px] mt-[90px] object-cover object-[40%_40%]"
+          />
+        )}
+        <section>
           {!loading && !showPosts ? (
             <div id="displayHtml"> {parse(post.body, options)} </div>
           ) : (

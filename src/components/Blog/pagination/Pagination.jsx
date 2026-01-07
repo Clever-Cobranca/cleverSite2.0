@@ -13,7 +13,6 @@ const Pagination = ({
 
   if (totalPages <= 1) return null;
 
-  console.log(currentPage);
 
   return (
     <nav className="flex items-center justify-center space-x-2 my-8">
