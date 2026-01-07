@@ -4,6 +4,7 @@
 
 @theme {
   --breakpoint-lgs: 66rem;
+  --breakpoing-xs: 20rem;
   --font-family-roboto-slab: "Roboto Slab", "Monteserrat", sans-serif;
   --color-orange-primary: #f1b434;
   --color-gray-primary: #f2f2f2;

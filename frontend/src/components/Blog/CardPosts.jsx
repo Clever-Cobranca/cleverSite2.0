@@ -2,9 +2,9 @@ import { Link } from "react-router";
 
 export default function CardPosts({ post, setShowPosts }) {
   return (
-    <div className="w-[340px] max-h-[510px] mb-4 flex flex-col items-center">
+    <div className="@max-xs:w-full w-[340px] max-h-[510px] mb-4 flex flex-col items-center">
       <Link
-        to={`/blog/${post.slug}?category=${post.category}`}
+        to={{ "pathname": `/blog/${post.slug}` }}
         className="w-full"
         onClick={() => setShowPosts(false)}
       >
@@ -17,7 +17,7 @@ export default function CardPosts({ post, setShowPosts }) {
       </Link>
       <div>
         <Link
-          to={`/blog/${post.slug}?category=${post.category}`}
+          to={`/blog/${post.slug}`}
           onClick={() => setShowPosts(false)}
         >
           <p id="carouselTitle">{post.title}</p>

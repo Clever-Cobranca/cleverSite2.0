@@ -5,12 +5,18 @@ import { useEffect, useRef, useState } from "react";
 import { posts } from "./blogPost";
 import { useParams } from "react-router";
 import { BlogSkeleton } from "../../components/Blog/skeletons/BlogSkeleton";
-import CardPosts from "../../components/Blog/CardPosts";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "../../components/dropdowMenu";
 import parse, { domToReact } from "html-react-parser";
 import { useDebounce } from "../../hooks/useDebounce";
 import { CardPostSkeleton } from "../../components/Blog/skeletons/CardPostSkeleton";
 import { SearchComponent } from "../../components/SearchComponent";
 import PostsCarousel from "../../components/Blog/PostsCarousel";
+import PaginationPage from "../../components/Blog/pagination/PaginationPage";
 
 export default function Blog() {
   const bttnRef = useRef(null);
@@ -21,10 +27,9 @@ export default function Blog() {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [optionSelected, setOptionSelected] = useState("Todas");
+  const [optionValue, setOptionValue] = useState("");
   const { postSlug } = useParams();
   const post = posts.find((p) => p.slug === postSlug);
-
-  console.log(post);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -72,7 +77,7 @@ export default function Blog() {
     setTimeout(() => {
       setCardPosts(cardPostsFiltered);
       setShowPosts(true);
-      setQuery(queryFormated ? queryFormated : optionSelected);
+      setQuery(queryFormated ? queryFormated : optionValue);
       setLoading(false);
     }, 1000);
   }
@@ -101,70 +106,209 @@ export default function Blog() {
   if (isPageLoading || !post) {
     return (
       <>
-        <Header
-          post={post}
-          handleSubmit={handleSubmit}
-          handleInputChange={handleInputChange}
-        />
+        <Header />
         <BlogSkeleton />
+      </>
+    );
+  }
+
+  if (loading) {
+    return (
+      <>
+        <Header>
+          <div className="w-full lg:hidden z-20 sticky bg-white min-h-20 py-7 shadow-2xl">
+            <div className="h-full w-full flex gap-2 flex-wrap pt-2 sm:justify-around sm:items-center">
+              <h4 className="text-[#1A1A1A] text-xl max-sm:text-lg  max-sm:ml-3 font-light tracking-widest">
+                NOTÍCIAS
+              </h4>
+              <form
+                onSubmit={handleSubmit}
+                aria-label="formulario_de_pesquisa_de_notícias"
+                className="flex items-center gap-3.5 mx-2 max-sm:flex-wrap-reverse"
+              >
+                <SearchComponent
+                  slug={post.slug}
+                  userSearch={userSearch}
+                  handleInputChange={handleInputChange}
+                  bttnRef={bttnRef}
+                >
+                  <DropdownMenu className="z-10 text-xs">
+                    <DropdownMenuTrigger type="button" className="p-0">
+                      {optionValue || "Categorias"}
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
+                      onClick={() => bttnRef.current.click()}
+                    >
+                      <DropdownMenuItem type="button" className="w-full">
+                        <option
+                          onClick={() => {
+                            setOptionSelected("Todas");
+                            setOptionValue("Todas");
+                          }}
+                        >
+                          Todas
+                        </option>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem type="button" className="w-full">
+                        <option
+                          onClick={() => {
+                            setOptionSelected("cobranca");
+                            setOptionValue("Cobrança");
+                          }}
+                        >
+                          Cobrança
+                        </option>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem type="button">
+                        <option
+                          onClick={() => {
+                            setOptionSelected("credito");
+                            setOptionValue("Crédito");
+                          }}
+                        >
+                          Crédito
+                        </option>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem type="button" className="w-full">
+                        <option
+                          onClick={() => {
+                            setOptionSelected("inadimplencia");
+                            setOptionValue("Inadimplência");
+                          }}
+                        >
+                          Inadimplência
+                        </option>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </SearchComponent>
+              </form>
+            </div>
+          </div>
+        </Header>
+        <section className="w-full py-9 flex justify-around">
+          {loading && (
+            <>
+              <div className="lg:w-3/4 flex flex-col max-sm:items-center">
+                <div
+                  class="block sm:w-[400px] sm:ml-16 w-[250px] shadow-md bg-clip-border h-2 mb-8 font-sans text-base antialiased font-light leading-relaxed bg-gray-300 text-gray-600 rounded-full animate-pulse
+              "
+                >
+                  &nbsp;
+                </div>
+                <div className="flex flex-wrap pb-9 justify-center">
+                  <CardPostSkeleton />
+                  <CardPostSkeleton />
+                  <CardPostSkeleton />
+                  <CardPostSkeleton />
+                  <CardPostSkeleton />
+                  <CardPostSkeleton />
+                </div>
+              </div>
+              <div className="max-lg:hidden block w-[300px] h-[340px] mt-5 text-gray-700 mr-10 bg-gray-300 animate-pulse">
+                &nbsp;
+              </div>
+            </>
+          )}
+        </section>
       </>
     );
   }
 
   return (
     <>
-      <Header
-        post={post}
-        handleSubmit={handleSubmit}
-        userSearch={userSearch}
-        bttnRef={bttnRef}
-        handleInputChange={handleInputChange}
-        setOptionSelected={setOptionSelected}
-      />
+      <Header>
+        <div className="w-full lg:hidden z-20 sticky bg-white min-h-20 py-7 shadow-2xl">
+          <div id="postsContainer" className="h-full w-full flex gap-2 flex-wrap pt-2 sm:justify-around sm:items-center">
+            <h4 className="text-[#1A1A1A] text-xl max-sm:text-lg  max-sm:ml-3 font-light tracking-widest">
+              NOTÍCIAS
+            </h4>
+            <form
+              onSubmit={handleSubmit}
+              aria-label="formulario_de_pesquisa_de_notícias"
+              className="flex items-center gap-3.5 mx-2 max-sm:flex-wrap-reverse"
+            >
+              <SearchComponent
+                slug={post.slug}
+                userSearch={userSearch}
+                handleInputChange={handleInputChange}
+                bttnRef={bttnRef}
+              >
+                <DropdownMenu className="z-10 text-xs">
+                  <DropdownMenuTrigger type="button" className="p-0">
+                    {optionValue || "Categorias"}
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent onClick={() => bttnRef.current.click()}>
+                    <DropdownMenuItem type="button" className="w-full">
+                      <option
+                        onClick={() => {
+                          setOptionSelected("Todas");
+                          setOptionValue("Todas");
+                        }}
+                      >
+                        Todas
+                      </option>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem type="button" className="w-full">
+                      <option
+                        onClick={() => {
+                          setOptionSelected("cobranca");
+                          setOptionValue("Cobrança");
+                        }}
+                      >
+                        Cobrança
+                      </option>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem type="button">
+                      <option
+                        onClick={() => {
+                          setOptionSelected("credito");
+                          setOptionValue("Crédito");
+                        }}
+                      >
+                        Crédito
+                      </option>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem type="button" className="w-full">
+                      <option
+                        onClick={() => {
+                          setOptionSelected("inadimplencia");
+                          setOptionValue("Inadimplência");
+                        }}
+                      >
+                        Inadimplência
+                      </option>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </SearchComponent>
+            </form>
+          </div>
+        </div>
+      </Header>
       <div key={postSlug}>
         {!loading && !showPosts && (
           <img
             src={post.banner}
             alt={post.alt}
-            className="mx-auto w-full max-sm:h-[250px] max-lgs:h-[496px] max-h-[550px] max-sm:mt-[190px] max-lg:mt-[157px]  object-cover object-[40%_40%]"
+            className="mx-auto w-full max-sm:h-[250px] max-lgs:h-[496px] max-h-[550px] object-cover object-[40%_40%]"
           />
         )}
-        <section className="w-full flex justify-around">
-          {loading && (
-            <div className="lg:w-3/4 max-sm:mt-60 max-lg:mt-48 mt-26 flex flex-col">
-              <div
-                class="block sm:w-[400px] ml-2 w-[250px] shadow-md bg-clip-border h-2 mb-4 font-sans text-base antialiased font-light leading-relaxed bg-gray-300 text-gray-600 rounded-full animate-pulse
-              "
-              >
-                &nbsp;
-              </div>
-              <div className=" flex flex-wrap pb-9 ">
-                <CardPostSkeleton />
-                <CardPostSkeleton />
-                <CardPostSkeleton />
-                <CardPostSkeleton />
-                <CardPostSkeleton />
-                <CardPostSkeleton />
-              </div>
-            </div>
-          )}
+        <section className="flex sm:justify-center max-sm:w-full">
           {!loading && !showPosts ? (
             <div id="displayHtml"> {parse(post.body, options)} </div>
           ) : (
             !loading &&
             showPosts && (
-              <section className="flex max-sm:mt-56 max-lg:mt-36 max-lg:px-4 mt-16 lg:w-3/4 max-lg:justify-center py-9 flex-col gap-4">
-                <h1 className="font-family-roboto-slab max-sm:px-2 text-[clamp(1rem,4vw,1.2rem)]">
+              <section className="flex lg:w-3/4 w-full max-lg:justify-center py-9 px-2 flex-col gap-4">
+                <h1 className="font-family-roboto-slab px-2 text-[clamp(1rem,4vw,1.2rem)]">
                   Resultados da pesquisa: <strong>{query}</strong>
                 </h1>
-                <div id="cardPostsContainer" className="flex flex-wrap  gap-3">
-                  {cardPosts.map((post) => (
-                    <CardPosts
-                      key={post.id}
-                      post={post}
-                      setShowPosts={setShowPosts}
-                    />
-                  ))}
+                <div className="max-md:w-full">
+                  <PaginationPage
+                    posts={cardPosts}
+                    setShowPosts={setShowPosts}
+                  />
                 </div>
               </section>
             )
@@ -173,7 +317,7 @@ export default function Blog() {
           <form
             aria-label="formulario_de_pesquisa_de_notícias"
             onSubmit={handleSubmit}
-            className="bg-[#FBFBFB] mt-16 px-4 mr-8 flex flex-col gap-16 h-[500px] max-lg:hidden "
+            className="bg-[#FBFBFB] mt-16 pt-6 px-4 mr-8 flex flex-col gap-16 h-[500px] max-lg:hidden "
           >
             <SearchComponent
               slug={post.slug}
@@ -192,7 +336,10 @@ export default function Blog() {
               >
                 <option
                   value="cobranca"
-                  onClick={(e) => setOptionSelected(e.target.value)}
+                  onClick={(e) => {
+                    setOptionSelected(e.target.value);
+                    setOptionValue("Cobrança");
+                  }}
                   className={
                     optionSelected === "cobranca"
                       ? "border-l-4 border-orange-primary"
@@ -203,7 +350,10 @@ export default function Blog() {
                 </option>
                 <option
                   value="credito"
-                  onClick={(e) => setOptionSelected(e.target.value)}
+                  onClick={(e) => {
+                    setOptionSelected(e.target.value);
+                    setOptionValue("Crédito");
+                  }}
                   className={
                     optionSelected === "credito"
                       ? "border-l-4 border-orange-primary"
@@ -219,18 +369,24 @@ export default function Blog() {
                       ? "border-l-4 border-orange-primary"
                       : ""
                   }
-                  onClick={(e) => setOptionSelected(e.target.value)}
+                  onClick={(e) => {
+                    setOptionSelected(e.target.value);
+                    setOptionValue("Inadimplência");
+                  }}
                 >
                   Inadimplência
                 </option>
                 <option
                   value="Todas"
                   className={
-                    optionSelected === "Todas"
+                    optionSelected === "none"
                       ? "border-l-4 border-orange-primary"
                       : ""
                   }
-                  onClick={(e) => setOptionSelected(e.target.value)}
+                  onClick={(e) => {
+                    setOptionSelected("none");
+                    setOptionValue(e.target.value);
+                  }}
                 >
                   Sem Categoria
                 </option>

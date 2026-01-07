@@ -8,20 +8,10 @@
   --dourado-claro: #fff7e0;
 }
 
-
-
 #displayHtml {
   width: 80%;
   padding-inline-start: 28px;
   margin-top: 28px;
-  .wrapContainer {
-    display: flex;
-    justify-content: space-between;
-  }
-  .wrap {
-    width: 90%;
-  }
-
   #displayHtml > h1 {
     font-size: clamp(2.1rem, 4vw, 5rem);
     font-weight: 700;
@@ -38,10 +28,19 @@
     font-size: clamp(1rem, 4vw, 1.2rem);
     font-weight: 300;
   }
-  
+
   #displayHtml > h1,
-  h2, p {
+  h2,
+  p {
     margin-block: 22px;
+  }
+
+  .wrapContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+  .wrap {
+    width: 90%;
   }
 
   .main img {
@@ -63,14 +62,6 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   }
 
-  /* .main table > th,
-  td {
-    width: max-content;
-    padding-inline: 14px;
-    padding-block: 8px;
-    font-size: clamp(0.5rem, 4vw, 0.9rem);
-    vertical-align: baseline;
-  } */
   .main table {
     width: 100%;
     border-collapse: collapse;
@@ -113,8 +104,8 @@
   h3 {
     font-family: "Roboto Slab";
   }
-  .main p {
-    font-size: clamp(1rem, 4vw, 1.2rem);
+  .main p, blockquote {
+    font-size: clamp(0.8rem, 4vw, 1.2rem);
     font-weight: 300;
   }
 
@@ -278,7 +269,6 @@
     .toc {
       width: 100%;
       padding: 18px;
-      margin-inline: 12px;
     }
   }
   /* max-w LG*/
@@ -316,27 +306,39 @@
       text-align: center;
     }
   }
-  @media screen and (width < 48rem) {
-    #displayHtml {
-      width: 100%;
-      padding-inline-start: 0px;
-    }
+}
+@media screen and (width < 48rem) {
+  #displayHtml {
+    width: 100%;
+    padding-inline-start: 0px;
+
   }
-  @media screen and (width < 40rem) {
-    #displayHtml > h1,
-    h2,
-    h3,
-    h4,
-    p {
+}
+@media screen and (width < 40rem) {
+  #displayHtml {
+    & h2 {
+      padding-inline: 12px;
+      text-align: center;
+    }
+    & p {
       padding-inline: 12px;
     }
-    #displayHtml > ul {
-      padding-left: 24px;
+
+    & h3 {
+      padding-inline: 12px;
+      text-align: center;
     }
-  
-    #displayHtml > h1 {
+    & h4 {
+      padding-inline: 12px;
       text-align: center;
     }
   }
-}
+  #displayHtml > ul {
+    padding-left: 24px;
+    list-style: disc;
+  }
 
+  #displayHtml > h1 {
+    text-align: center;
+  }
+}

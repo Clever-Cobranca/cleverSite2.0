@@ -26,7 +26,7 @@ export function HeaderModal({ isModalOpen, setIsModalOpen }) {
       <div
         aria-modal={true}
         aria-label="Modal de Navegação"
-        className="lgs:invisible flex bg-white justify-around fixed right-0 z-50 w-2/4 max-sm:w-full h-full transition-all ease-in-out duration-700"
+        className="lgs:invisible flex bg-white justify-around fixed right-0 z-50 w-2/4 top-0 max-sm:w-full h-full transition-all ease-in-out duration-700"
         style={{
           transform: isModalOpen ? `translate(0px)` : `translate(100%)`,
         }}
