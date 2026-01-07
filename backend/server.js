@@ -36,17 +36,21 @@ const upload = multer({
 
 // Configuração do transporter do nodemailer
 const createTransporter = () => {
+  const port = parseInt(process.env.SMTP_PORT || '587');
+  const secure = port === 465 || process.env.SMTP_SECURE === 'true';
+  
   return nodemailer.createTransport({
     host: process.env.SMTP_HOST || 'smtp.gmail.com',
-    port: parseInt(process.env.SMTP_PORT || '587'),
-    secure: process.env.SMTP_SECURE === 'true', // true para 465, false para outras portas
+    port: port,
+    secure: secure, // true para 465, false para 587
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS, // App Password do Gmail ou senha do servidor SMTP
     },
-    connectionTimeout: 60000, // 30 segundos
-    greetingTimeout: 60000,
-    socketTimeout: 60000,
+    // Timeouts padrão (suficientes para Railway)
+    connectionTimeout: 30000,
+    greetingTimeout: 30000,
+    socketTimeout: 30000,
   });
 };
 
