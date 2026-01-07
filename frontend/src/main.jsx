@@ -9,11 +9,13 @@ import Educacao from "./Pages/Educacao";
 import Pagar from "./Pages/Pagar";
 import "./global.css";
 import TrabalheConosco from "./Pages/TrabalheConosco";
+import ScrollToTop from "./components/ScrollToTop";
 import Blog from "./Pages/blog/Blog";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sobre" element={<Sobre />} />

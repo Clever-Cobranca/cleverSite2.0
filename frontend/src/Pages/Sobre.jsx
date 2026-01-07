@@ -9,7 +9,7 @@ export default function Sobre() {
   return (
     <>
       <Header />
-      <main className="mt-25">
+      <main>
         <img
           alt="clever_referencia"
           src={Banner}
@@ -18,7 +18,7 @@ export default function Sobre() {
         <div className="flex justify-between max-xl:justify-center w-full mt-5 flex-wrap">
           <img className="size-2/4 md:size-auto" src={LauraManifesto} alt="Laurinha da Clever"/>
           <div className="lg:w-1/2 p-5">
-            <h1 className="text-[clamp(2.5rem,6vw,6.2rem)]  leading-tight font-family-roboto-slab font-bold py-2">
+            <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] leading-tight font-family-roboto-slab font-bold py-2">
               Nosso Manifesto
             </h1>
             <p className="text-[clamp(0.8rem,4vw,1.3rem)] max-h-[320px] text-wrap max-sm:tracking-tighter max-sm:text-justify max-w-[480px] max-md:max-w-[340px] max-md:wrap-break-word">
@@ -60,7 +60,7 @@ export default function Sobre() {
           />
         </section>
       </main>
-      <Footer/>
+      <Footer isBgGray={true}/>
     </>
   );
 }

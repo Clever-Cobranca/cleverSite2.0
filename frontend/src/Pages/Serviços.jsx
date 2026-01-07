@@ -13,7 +13,7 @@ export default function Serviços() {
   return (
     <>
       <Header />
-      <main className="mt-36">
+      <main>
         <h1 className="text-center text-[clamp(2.5rem,5vw,4.5rem)] font-family-roboto-slab font-bold">
           Nossos Serviços
         </h1>
@@ -41,7 +41,7 @@ export default function Serviços() {
           </div>
         </section>
 
-        <section className="bg-[#E2E2E2] flex sm:p-12 p-8 items-center justify-between">
+        <section className="bg-[#E2E2E2] flex sm:p-12 max-lgs:flex-col p-8 items-center justify-between">
           <div className="flex flex-col gap-8">
             <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
               Realizamos a cobrança no local que o devedor adquiriu o produto ou
@@ -69,7 +69,7 @@ export default function Serviços() {
           <img
             src={nossaHistoria}
             alt="Nossa História - Clever"
-            className="max-lg:hidden"
+            className="max-lg:hidden lgs:"
           />
         </section>
 
@@ -146,10 +146,10 @@ export default function Serviços() {
           ></div>
           <div class="bg-gradient-to-t absolute inset-0 from-black/50 to-transparent flex">
             <div className="flex sm:max-lg:items-baseline items-center   gap-5 flex-col px-10 mb-3.5 justify-center w-full">
-              <h4 className="text-[clamp(2.2rem,6vw,5.5rem)] text-center font-bold min-w-1/2 ">
+              <h4 className="text-[clamp(2.2rem,6vw,5.5rem)] text-white text-center font-bold min-w-1/2 ">
                 SAC
               </h4>
-              <p className="text-[clamp(0.8rem,4vw,1rem)] font-black text-left leading-5 max-w-[900px]">
+              <p className="text-[clamp(0.8rem,4vw,1rem)] text-white  text-left leading-5 max-w-[900px]">
                 SAC significa Serviço de Atendimento ao Consumidor, um canal
                 direto que empresas oferecem para clientes tirarem dúvidas,
                 fazerem reclamações, solicitações ou darem sugestões, usando
