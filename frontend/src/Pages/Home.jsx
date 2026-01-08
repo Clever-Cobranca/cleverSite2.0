@@ -2,16 +2,15 @@ import { Header } from "../components/Header/Header";
 import Homepage from "../assets/Homepage_Image.png";
 import Vector from "../assets/svgs/Vector.svg";
 import Fi_Mountains from "../assets/svgs/Fi_Mountains.svg";
-import Fi_Microphone from "../assets/svgs/Fi_Microphone.svg";
 import Chart_Histogram from "../assets/svgs/Chart_Histogram.svg";
 import Signal_Alt from "../assets/svgs/Signal_Alt.svg";
 import SejaClever from "../assets/Seja_Clever.png";
 import DollarSign from "../assets/svgs/Dollar_sign.svg";
 import Calendar from "../assets/svgs/Calendar.svg";
-import Trophy from "../assets/svgs/Trophy.svg";
 import Accordion from "../components/ComponentsHome/Accordion";
 import { Footer } from "../components/Footer/Footer";
-import mic from "../assets/svgs/mic.svg"
+import mic from "../assets/svgs/mic.svg";
+import { FaBalanceScale } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -22,29 +21,30 @@ export default function Home() {
         <div>
           <main className="h-full">
             <section className="max-lgs:h-auto lgs:flex justify-around items-center max-sm:pt-0 max-lgs:pt-10 max-lg:flex-col">
-              <div id="aside" className="flex max-lgs:items-center max-lgs:justify-around flex-col gap-6 md:px-20 px-10">
+              <div
+                id="aside"
+                className="flex max-lgs:items-center max-lgs:justify-around flex-col gap-6 md:px-20 px-10"
+              >
                 <p className="text-xl max-lgs:text-3xl max-lgs:text-center pt-20 ">
                   Há 7 anos desenvolvendo excelência em recuperação de crédito
-                  educacional
+                  
                 </p>
                 <p className="min-h-9 font-light text-[clamp(1.4rem,4vw,2rem)] leading-tight">
                   A <strong>Clever</strong> é referência em
                   <strong>
                     {" "}
-                    recuperação de crédito para redes de ensino franqueadas
+                    recuperação de crédito 
                   </strong>
                   , com atuação estratégica e alto índice de efetividade
                 </p>
                 <div className="md:mt-12 mt-2 py-4 flex gap-7 items-center">
-                  <a target="_blank" href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0">
+                  <a
+                    
+                    target="_blank"
+                    href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0"
+                  >
                     <button className="h-12 md:h-[87px] max-sm:p-1 w-52 max-md:max-w-36 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(0.8rem,2vw,1.25rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
                       Negocie suas Dívidas
-                    </button>
-                  </a>
-
-                  <a target="_blank" href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+saber+mais!&type=phone_number&app_absent=0">
-                    <button className="h-12 md:h-[87px] w-52 max-md:max-w-36 max-lgs:w-auto max-sm:p-2 max-lgs:p-5 font-bold text-[clamp(0.8rem,2vw,1.25rem)] rounded-4xl bg-[#ffffff] text-[#707372] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[rgb(247,246,246)]  hover:cursor-pointer">
-                      Fale Conosco
                     </button>
                   </a>
                 </div>
@@ -76,7 +76,7 @@ export default function Home() {
                   />
                   <p className=" font-family-roboto-slab font-bold">149</p>
                   <p className="text-base max-w-[194px] text-center">
-                    Unidades franqueadas atendidas em todo o Brasil
+                    Clientes atendidos em todo o Brasil
                   </p>
                 </div>
                 <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
@@ -112,17 +112,6 @@ export default function Home() {
                     Estados com clientes atendidos nos últimos 90 dias
                   </p>
                 </div>
-                <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
-                  <img
-                    className="sm:w-[50px] sm:h-[50px] h-[30px] w-[30px]"
-                    src={Fi_Microphone}
-                    alt="Ícone de microfone"
-                  />
-                  <p className=" font-family-roboto-slab font-bold">R$0,00</p>
-                  <p className="text-base max-w-[194px] text-center">
-                    Custo com cobrança para nossos clientes
-                  </p>
-                </div>
               </div>
             </section>
 
@@ -153,11 +142,12 @@ export default function Home() {
                   </h2>
                 </div>
                 <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
-                  <img
+                  {/* <img
                     src={Trophy}
                     alt="Ícone de trofeu"
                     className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
-                  />
+                  /> */}
+                  <FaBalanceScale size={60} color="#f1b434" className="max-sm:h-[30px] max-sm:w-[30px]" />
                   <h2 className=" text-[var(--font-title)] ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
                     Assessoria Jurídica
                   </h2>
@@ -168,8 +158,8 @@ export default function Home() {
                     alt="Ícone de trofeu"
                     className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
                   />
-                  <h2 className=" text-[var(--font-title)] ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
-                    Assessoria Jurídica
+                  <h2 className=" text-[var(--font-title)] min-w-[150px] text-center ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
+                    SAC
                   </h2>
                 </div>
               </div>
@@ -186,15 +176,15 @@ export default function Home() {
                   empresas e comunidades.
                 </p>
                 <a href="/trabalhe-conosco">
-                  <button className="my-4 text-[#707372] text-[clamp(0.6rem,3vw,1.2rem)] font-bold h-12 lg:w-2xs w-[170px] rounded-4xl shadow-[0px_4px_4px_rgba(0,0,0,0.75)] hover:cursor-pointer  hover:bg-[rgb(247,246,246)]">
-                    Saiba Mais
+                  <button className="my-4 text-[#707372] text-[clamp(0.8rem,4vw,1.2rem)] font-bold h-12 lg:w-2xs w-[170px] rounded-4xl shadow-[0px_4px_4px_rgba(0,0,0,0.75)] hover:cursor-pointer  hover:bg-[rgb(247,246,246)]">
+                    Trabalhe Conosco
                   </button>
                 </a>
               </div>
               <img
                 alt="Seja um clever"
                 src={SejaClever}
-                className="max-w-[654px] max-h-[446px] object-contain max-md:h-80 max-[1332px]:hidden max-sm:w-full"
+                className="max-w-[654px] max-h-[446px] object-contain py-8 max-[1332px]:hidden max-sm:w-full"
               />
             </section>
 
