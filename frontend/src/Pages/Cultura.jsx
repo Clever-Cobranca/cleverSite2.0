@@ -1,8 +1,9 @@
-import LauraeEstagiario from "../assets/LauraeEstagiario.png";
+import Logo3D from "../assets/Logo3D.png";
 import { Header } from "../components/Header/Header";
-import { HiOutlineDocumentCheck, HiPaperClip } from "react-icons/hi2";
+import { HiOutlineDocumentCheck,  } from "react-icons/hi2";
 import { LiaHandHoldingHeartSolid } from "react-icons/lia";
-import { FaRegChartBar, FaRegStar } from "react-icons/fa";
+import { FaRegChartBar, FaRegStar, FaHandshake } from "react-icons/fa";
+import { LuHandshake } from "react-icons/lu"; 
 import { BsCurrencyDollar } from "react-icons/bs";
 import { FiUserPlus } from "react-icons/fi";
 import { PiBank } from "react-icons/pi";
@@ -38,7 +39,7 @@ export default function Cultura() {
 
           <img
             alt="Laurinha e Estagiário"
-            src={LauraeEstagiario}
+            src={Logo3D}
             className="md:max-w-[500px]"
           />
         </section>
@@ -73,7 +74,7 @@ export default function Cultura() {
               </div>
 
               <div className="flex items-center w-full  gap-2 sm:gap-10 justify-center md:justify-start">
-                <HiPaperClip size={30} color="#F1B434" />
+                <LuHandshake size={30} color="#F1B434" />
                 <p className="max-sm:w-60">Compromisso</p>
               </div>
 

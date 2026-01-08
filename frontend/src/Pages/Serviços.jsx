@@ -21,8 +21,8 @@ export default function Serviços() {
         <section className="">
           <div className="flex items-center justify-center flex-wrap">
             <img
-              className="max-md:hidden md:w-[400px]"
-              src={LauraRecuperacao}
+              className="max-md:hidden"
+              src={LauraRecuperacao}              
               alt="Laura recuperação de dinheiro"
             />
 
@@ -72,7 +72,6 @@ export default function Serviços() {
             className="max-lg:hidden lgs:"
           />
         </section>
-
         <section>
           <div className="flex p-8 sm:p-10">
             <div className="flex flex-col gap-5 xl:mt-24">

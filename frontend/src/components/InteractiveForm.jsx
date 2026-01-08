@@ -290,7 +290,7 @@ const InteractiveForm = () => {
 
     // URL do backend - ajuste conforme necessário
     const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
-    const apiEndpoint = `${API_URL}/api/send-email`;
+    const apiEndpoint = "https://agenda.clevercobranca.com.br/careers/applications/";
     
     // Debug: log da URL (pode remover depois)
     console.log('Enviando para:', apiEndpoint);

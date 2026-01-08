@@ -1,4 +1,4 @@
-import CleverLogo from "../../assets/Clever_Logo_Escrita.png";
+import logoFooter from "../../assets/logoFooter.png";
 import { BsTelephone } from "react-icons/bs";
 import { CiMail } from "react-icons/ci";
 import {
@@ -10,20 +10,18 @@ import {
 } from "react-icons/fa6";
 import { Link } from "react-router";
 
-export function Footer({ isBgGray }) {
+export function Footer() {
   return (
     <footer
-      className={`sm:min-h-[352px] sm:p-7 p-3 flex justify-around max-md:flex-col max-md:gap-8  max-md:flex-wrap ${
-        isBgGray ? "bg-gray-primary" : "bg-white"
-      }`}
+      className={`sm:min-h-[352px] sm:p-7 p-3 flex justify-around max-md:flex-col max-md:gap-8  max-md:flex-wrap bg-[#292929]`}
     >
-      <div className="flex flex-col justify-between max-md:items-center max-lgs:w-1/3 max-sm:items-stretch">
+      <div className="flex flex-col justify-around max-md:items-center max-lgs:w-1/3 max-sm:items-stretch">
         <img
           alt="Clever_Logo_Escrita"
-          src={CleverLogo}
-          className="md:max-w-[340px] w-52 max-h-[143px]"
+          src={logoFooter}
+          className="w-3/5 h-auto"
         />
-        <p className="text-base max-md:hidden max-lgs:text-sm">
+        <p className="text-base max-md:hidden text-white max-lgs:text-sm">
           Copyright © 2025 - Clever Assessoria e Cobrança - CNPJ
           33.331.482/0001-11
         </p>
