@@ -52,16 +52,11 @@ const createTransporter = () => {
 
 // Função para formatar os dados do formulário em HTML
 const formatEmailHTML = (answers, fileName = null) => {
-  const isEbook = answers.tipoFormulario === 'ebook';
-  
   const fields = {
     nome: 'Nome',
     nascimento: 'Data de Nascimento',
     email: 'E-mail',
     telefone: 'Telefone',
-    whatsapp: 'WhatsApp',
-    empresa: 'Empresa',
-    novidades: 'Deseja receber novidades',
     formacao: 'Formação',
     fimEscola: 'Previsão de Conclusão da Escola',
     fimTecnico: 'Previsão de Conclusão do Curso Técnico',
@@ -77,9 +72,6 @@ const formatEmailHTML = (answers, fileName = null) => {
     atividades: 'Responsabilidades',
     comoConheceu: 'Como Conheceu a Clever',
   };
-
-  const title = isEbook ? 'Nova Solicitação de E-book' : 'Nova Candidatura Recebida';
-  const subtitle = isEbook ? '📚 Dados do Interessado:' : '📋 Dados do Candidato:';
 
   let html = `
     <!DOCTYPE html>
@@ -98,16 +90,13 @@ const formatEmailHTML = (answers, fileName = null) => {
     </head>
     <body>
       <div class="container">
-        <h2>${title}</h2>
+        <h2>Nova Candidatura Recebida</h2>
         <div class="field">
-          <div class="label">${subtitle}</div>
+          <div class="label">📋 Dados do Candidato:</div>
         </div>
   `;
 
   Object.entries(answers).forEach(([key, value]) => {
-    // Ignora campos internos
-    if (key === 'tipoFormulario' || key === 'form_proibido') return;
-    
     const label = fields[key] || key;
     if (value && value !== 'Sem arquivo') {
       html += `
@@ -139,16 +128,11 @@ const formatEmailHTML = (answers, fileName = null) => {
 
 // Função para formatar texto simples (fallback)
 const formatEmailText = (answers, fileName = null) => {
-  const isEbook = answers.tipoFormulario === 'ebook';
-  
   const fields = {
     nome: 'Nome',
     nascimento: 'Data de Nascimento',
     email: 'E-mail',
     telefone: 'Telefone',
-    whatsapp: 'WhatsApp',
-    empresa: 'Empresa',
-    novidades: 'Deseja receber novidades',
     formacao: 'Formação',
     fimEscola: 'Previsão de Conclusão da Escola',
     fimTecnico: 'Previsão de Conclusão do Curso Técnico',
@@ -165,17 +149,11 @@ const formatEmailText = (answers, fileName = null) => {
     comoConheceu: 'Como Conheceu a Clever',
   };
 
-  const title = isEbook ? 'Nova Solicitação de E-book' : 'Nova Candidatura Recebida';
-  const subtitle = isEbook ? 'Dados do Interessado:' : 'Dados do Candidato:';
-
-  let text = `${title}\n\n`;
-  text += `${subtitle}\n`;
+  let text = 'Nova Candidatura Recebida\n\n';
+  text += 'Dados do Candidato:\n';
   text += '='.repeat(50) + '\n\n';
 
   Object.entries(answers).forEach(([key, value]) => {
-    // Ignora campos internos
-    if (key === 'tipoFormulario' || key === 'form_proibido') return;
-    
     const label = fields[key] || key;
     if (value && value !== 'Sem arquivo') {
       text += `${label}: ${value}\n`;
@@ -246,18 +224,12 @@ app.post('/api/send-email', upload.single('attachment'), async (req, res) => {
     const file = req.file;
     const fileName = file ? file.originalname : null;
 
-    // Identifica o tipo de formulário
-    const isEbook = answers.tipoFormulario === 'ebook';
-    const subject = isEbook 
-      ? `Nova Solicitação de E-book: ${answers.nome || 'Site'}`
-      : `Nova Candidatura: ${answers.cargoPretendido || 'Site'}`;
-
     // Configuração do email
     const mailOptions = {
       from: `"Site Clever" <${process.env.SMTP_USER}>`,
       to: process.env.RECIPIENT_EMAIL || process.env.SMTP_USER,
       replyTo: answers.email || process.env.SMTP_USER,
-      subject: subject,
+      subject: `Nova Candidatura: ${answers.cargoPretendido || 'Site'}`,
       text: formatEmailText(answers, fileName),
       html: formatEmailHTML(answers, fileName),
     };

@@ -13,6 +13,8 @@ import { IoClose } from "react-icons/io5";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import InteractiveForm from "../components/InteractiveForm";
+import LauraSeusAmigos from "../assets/LauraSeusAmigos.png";
+import lauraAtendendo from "../assets/lauraAtendendo.png";
 
 
 export default function TrabalheConosco() {
@@ -45,123 +47,117 @@ export default function TrabalheConosco() {
         </div>
         <section className="px-6 py-10">
           <div>
-            <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] max-sm:text-4xl max-sm:pl-0 leading-tight font-family-roboto-slab font-bold py-2 pl-2 md:max-lgs:pl-16">
+            <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] max-sm:text-4xl max-sm:pl-0 leading-tight font-family-roboto-slab font-bold py-2 md:max-lgs:pl-16">
               Quem Somos?
             </h1>
-            <div className="flex justify-around items-center wrap-break-word flex-wrap gap-4">
-              <p className="text-[clamp(0.8rem,4vw,1.3rem)] max-w-[645px]">
-                Somos a Clever Assessoria Jurídica e Cobrança, uma empresa
-                especializada em recuperação de crédito com atuação firme,
-                transparente e totalmente orientada ao credor. Nascemos para
-                preencher uma lacuna do mercado: entregar resultado real, sem
-                promessas vazias e sem favorecer manobras que afastem o devedor
-                de sua obrigação legal.
-              </p>
-              <p className="text-[clamp(0.8rem,4vw,1.3rem)] max-w-[645px] max-lgs:hidden">
-                Trabalhamos em todo o ciclo da cobrança, da fase extrajudicial
-                às medidas mais severas quando necessárias, sempre com base
-                jurídica sólida, estratégia e foco absoluto em eficiência. Nosso
-                compromisso é simples: garantir que o credor receba o que lhe é
-                devido, preservando direitos, fortalecendo relações e elevando o
-                padrão de cobrança no Brasil.
-              </p>
-              <img
-                className="max-w-[540px] w-full h-full md:mb-48"
-                src={EquipeClever}
-                alt="Equipe clever fantasiada"
-              />
-              <div className="flex flex-col max-md:pt-20 gap-6">
-                <img
-                  className="max-w-[540px] w-full"
-                  src={TrioClever1}
-                  alt="Trio 1 fantasiado"
-                />
-                <p className="text-[clamp(0.8rem,4vw,1.3rem)] max-w-[540px] lgs:hidden">
-                  Trabalhamos em todo o ciclo da cobrança, da fase extrajudicial
-                  às medidas mais severas quando necessárias, sempre com base
-                  jurídica sólida, estratégia e foco absoluto em eficiência.
-                  Nosso compromisso é simples: garantir que o credor receba o
-                  que lhe é devido, preservando direitos, fortalecendo relações
-                  e elevando o padrão de cobrança no Brasil.
+            <div className="flex justify-between items-start wrap-break-word flex-wrap gap-4">
+              <div className="flex flex-col items-center">
+                <p className="text-[clamp(0.8rem,4vw,1.3rem)] max-w-[645px]">
+                  Somos a Clever Assessoria Jurídica e Cobrança, uma empresa
+                  especializada em recuperação de crédito com atuação firme,
+                  transparente e totalmente orientada ao credor. Nascemos para
+                  preencher uma lacuna do mercado: entregar resultado real, sem
+                  promessas vazias e sem favorecer manobras que afastem o devedor
+                  de sua obrigação legal.
                 </p>
                 <img
-                  className="max-w-[540px] w-full"
-                  src={TrioClever2}
-                  alt="Trio 2 fantasiado"
+                  className="max-w-[540px] w-full h-full md:mb-48"
+                  src={LauraSeusAmigos}
+                  alt="Equipe clever fantasiada"
                 />
               </div>
-            </div>{" "}
+              <div className="flex flex-col items-center">
+                <p className="text-[clamp(0.8rem,4vw,1.3rem)] max-w-[645px] max-lgs:hidden">
+                  Trabalhamos em todo o ciclo da cobrança, da fase extrajudicial
+                  às medidas mais severas quando necessárias, sempre com base
+                  jurídica sólida, estratégia e foco absoluto em eficiência. Nosso
+                  compromisso é simples: garantir que o credor receba o que lhe é
+                  devido, preservando direitos, fortalecendo relações e elevando o
+                  padrão de cobrança no Brasil.
+                </p>
+
+                <img
+                  className="max-w-[540px] w-full h-full md:mb-48"
+                  src={lauraAtendendo}
+                  alt="Trio 1 fantasiado"
+                />
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className="p-10 flex items-center max-lgs:flex-col">
+        <section className="pl-10 pr-10 flex justify-between items-center max-lgs:flex-col">
           <div className="flex-col flex gap-10">
-            <div className="flex">
+            <div className="flex w-10/12">
               <div className="flex-col gap-5 flex">
-                <h2 className="text-7xl font-family-roboto-slab font-bold text-[clamp(2.5rem,6vw,6.2rem)]">Vem fazer Parte da <br /> <span className="text-[#F1B434]">#CleverFamily</span></h2>
-                <p>Estamos entre as melhores empresas para iniciar a carreira e 85% de nossas vagas administrativas e de liderança são preenchidas internamente! Então, se você sonha em fazer parte de um time que valoriza a carreira e seu desenvolvimento, conheça as novas vagas!</p>
+                <h2 className="text-4xl font-family-roboto-slab font-bold text-[clamp(2.5rem,6vw,6.2rem)]">Vem fazer Parte da <br /> <span className="text-[#F1B434]">#CleverFamily</span></h2>
                 <div className="w-11/12 max-lgs:w-full border-t-3 rounded-2xl border-[#F1B434]" />
-              </div>
+                <p>Conheça nossos cargos clicando em qualquer um abaixo:</p>
+                <div className="flex flex-col items-center flex-wrap">
 
+                  <button onClick={() => setIsOpen('supervisor')}>
+                    <CircleExpandButton
+                      bgColor="bg-white"
+                      hoverColor="bg-[#F1B434]"
+                      textColor="#000"
+                      text="Supervisor / Coordenador de operações"
+                      hoverTextColor="#fff"
+                      className="text-center p-4 rounded-4xl hover:cursor-pointer"
+                      onClick={() => setIsOpen(true)}
+                    />
+                  </button>
+                  <div className="flex items-center w-full justify-center">
+                    <div className="w-px h-6 bg-gray-300"></div>
+                  </div>
+
+                  <div className="flex items-center justify-center w-full">
+                    <div className="max-sm:w-42 w-62 h-px bg-gray-300"></div>
+                    <div className="w-0 h-px bg-gray-300"></div>
+                  </div>
+
+                  <div className="flex justify-center max-sm:gap-40 gap-60">
+                    <div className="flex flex-col items-center">
+                      <div className="w-px h-8 bg-gray-300"></div>
+                      <div className="w-2 h-2 rounded-full bg-gray-300 -mt-1"></div>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <div className="w-px h-8 bg-gray-300"></div>
+                      <div className="w-2 h-2 rounded-full bg-gray-300 -mt-1"></div>
+                    </div>
+                  </div>
+                  <div className="flex justify-center gap-10">
+                    <button onClick={() => setIsOpen('operadorCobranca')}>
+                      <CircleExpandButton
+                        bgColor="bg-white"
+                        hoverColor="bg-[#F1B434]"
+                        textColor="#000"
+                        text="Operação de cobrança"
+                        hoverTextColor="#fff"
+                        className="text-center p-4 rounded-4xl hover:cursor-pointer"
+                      />
+                    </button>
+                    <button onClick={() => setIsOpen('oparadorNotificacao')}>
+                      <CircleExpandButton
+                        bgColor="bg-white"
+                        hoverColor="bg-[#F1B434]"
+                        textColor="#000"
+                        text="Operador de notificação"
+                        hoverTextColor="#fff"
+                        className="text-center p-4 rounded-4xl hover:cursor-pointer"
+                        onClick={() => setIsOpen(true)}
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="w-11/12 max-lgs:w-full max-lgs:pt-10">
-            <div className="flex flex-col items-center flex-wrap">
-
-              <button onClick={() => setIsOpen('supervisor')}>
-                <CircleExpandButton
-                  bgColor="bg-white"
-                  hoverColor="bg-[#F1B434]"
-                  textColor="#000"
-                  text="Supervisor / Coordenador de operações"
-                  hoverTextColor="#fff"
-                  className="text-center p-4 rounded-4xl hover:cursor-pointer"
-                  onClick={() => setIsOpen(true)}
-                />
-              </button>
-              <div className="flex items-center w-full justify-center">
-                <div className="w-px h-6 bg-gray-300"></div>
-              </div>
-
-              <div className="flex items-center justify-center w-full">
-                <div className="max-sm:w-42 w-62 h-px bg-gray-300"></div>
-                <div className="w-0 h-px bg-gray-300"></div>
-              </div>
-
-              <div className="flex justify-center max-sm:gap-40 gap-60">
-                <div className="flex flex-col items-center">
-                  <div className="w-px h-8 bg-gray-300"></div>
-                  <div className="w-2 h-2 rounded-full bg-gray-300 -mt-1"></div>
-                </div>
-                <div className="flex flex-col items-center">
-                  <div className="w-px h-8 bg-gray-300"></div>
-                  <div className="w-2 h-2 rounded-full bg-gray-300 -mt-1"></div>
-                </div>
-              </div>
-              <div className="flex justify-center gap-10">
-                <button onClick={() => setIsOpen('operadorCobranca')}>
-                  <CircleExpandButton
-                    bgColor="bg-white"
-                    hoverColor="bg-[#F1B434]"
-                    textColor="#000"
-                    text="Operação de cobrança"
-                    hoverTextColor="#fff"
-                    className="text-center p-4 rounded-4xl hover:cursor-pointer"
-                  />
-                </button>
-                <button onClick={() => setIsOpen('oparadorNotificacao')}>
-                  <CircleExpandButton
-                    bgColor="bg-white"
-                    hoverColor="bg-[#F1B434]"
-                    textColor="#000"
-                    text="Operador de notificação"
-                    hoverTextColor="#fff"
-                    className="text-center p-4 rounded-4xl hover:cursor-pointer"
-                    onClick={() => setIsOpen(true)}
-                  />
-                </button>
-              </div>
+          <div className="w-5/12 max-lgs:w-full max-lgs:pt-10 flex flex-col gap-30">
+            <p>Estamos entre as melhores empresas para iniciar a carreira e 85% de nossas vagas administrativas e de liderança são preenchidas internamente! Então, se você sonha em fazer parte de um time que valoriza a carreira e seu desenvolvimento, conheça as novas vagas!</p>
+            <div className="w-full h-5 max-lgs:text-center justify-center items-center flex mt-10 mb-10">
+              <button onClick={() => estaAbrindo(true)} className="pl-10 pr-10 pt-3 pb-3 border-2 border-[#F1B434] rounded-4xl text-2xl text-[#F1B434] uppercase font-bold hover:bg-[#F1B434] hover:text-white transition-all duration-300 hover:cursor-pointer">Candidatar-se</button>
             </div>
+          </div>
             <AnimatePresence initial={false}>
               {isOpen == 'supervisor' && (
                 <div className="flex justify-center items-center fixed inset-0 z-50 rounded-4xl">
@@ -193,7 +189,7 @@ export default function TrabalheConosco() {
                         </motion.div>
                       </div>
                       <div>
-                        <h4 className="text-4xl font-bold text-center max-[320px]:text-[15px] max-sm:text-[19px]">Supervisor/Coordenador<br/><span className="text-[#F1B434]">Clever</span> !</h4>
+                        <h4 className="text-4xl font-bold text-center max-[320px]:text-[15px] max-sm:text-[19px]">Supervisor/Coordenador<br /><span className="text-[#F1B434]">Clever</span> !</h4>
                       </div>
                       <div className="flex max-sm:flex-col max-sm:gap-4 gap-16 border-t-2 border-[#D9D9D9] border-b-2 pt-10 pb-10">
                         <div className="flex flex-col gap-4 items-center flex-wrap">
@@ -211,7 +207,7 @@ export default function TrabalheConosco() {
                         <div className="flex flex-col gap-4 items-center flex-wrap">
                           <div className="flex gap-4 items-center">
                             <IoBriefcaseOutline size={30} />
-                            <p>Salário competitivo: até R$ 4.500 (fixo + variável)</p>
+                            <p>Salário competitivo: fixo + variável</p>
                           </div>
                         </div>
                       </div>
@@ -312,7 +308,7 @@ export default function TrabalheConosco() {
 
                           <div className="flex gap-4 items-center">
                             <IoBriefcaseOutline size={30} />
-                            <p>Salário até R$ 3.600 (fixo + variável)</p>
+                            <p>Salário competitivo: fixo + variável</p>
                           </div>
                         </div>
                       </div>
@@ -327,7 +323,7 @@ export default function TrabalheConosco() {
                           <h4 className="max-sm:tex text-2xl font-semibold">Requisitos</h4>
                           <ul>
                             <li>-Experiência em cobrança</li>
-                            <li>-Tem +18 anos</li>
+                            <li>-Ter +18 anos</li>
                             <li>-Ensino médio completo</li>
                           </ul>
                         </div>
@@ -351,7 +347,7 @@ export default function TrabalheConosco() {
                             <li className="list-disc">Proatividade</li>
                             <li className="list-disc">Senso de urgência</li>
                             <li className="list-disc">Lidar com pressão.</li>
-                      
+
                           </ol>
                         </div>
                       </div>
@@ -423,8 +419,8 @@ export default function TrabalheConosco() {
                       <div className="flex flex-col gap-2 mt-3">
                         <div>
                           <h4 className=" font-semibold">Descrição da vaga</h4>
-                          <p>Segunda a Sexta | 8h as 13:20h (20min de almoço)</p>
-                          <p>Sabado | 8h as 13h</p>
+                          <p>Segunda a Sexta | 9h as 15:20h (20min de almoço)</p>
+                          <p>Segunda a Sabado | 13:30h as 18:50h (20min de almoço)</p>
                         </div>
 
                         <div>
@@ -455,7 +451,6 @@ export default function TrabalheConosco() {
                 </div>
               )}
             </AnimatePresence>
-          </div>
           <AnimatePresence initial={false}>
             {Aberto == true && (
               <div className="flex justify-center items-center fixed inset-0 z-50 rounded-4xl">
@@ -496,12 +491,10 @@ export default function TrabalheConosco() {
             )}
           </AnimatePresence>
         </section>
-        <div className="w-full h-5 max-lgs:text-center justify-center items-center flex mt-10 mb-10">
-          <button onClick={() => estaAbrindo(true)} className="pl-10 pr-10 pt-3 pb-3 border-2 border-[#F1B434] rounded-4xl text-2xl text-[#F1B434] uppercase font-bold hover:bg-[#F1B434] hover:text-white transition-all duration-300 hover:cursor-pointer">Candidatar-se</button>
-        </div>
+
       </main>
-      
-      <Footer isBgGray={true}/>
+
+      <Footer isBgGray={true} />
     </>
   );
 }
