@@ -317,7 +317,7 @@ export default function Blog() {
           <form
             aria-label="formulario_de_pesquisa_de_notícias"
             onSubmit={handleSubmit}
-            className="bg-[#FBFBFB] mt-16 pt-6 px-4 mr-8 flex flex-col gap-16 h-[500px] max-lg:hidden "
+            className="bg-[#FBFBFB] float-end right-0  mt-16 pt-6 px-4 mr-8 flex flex-col gap-16 h-[500px] max-lg:hidden "
           >
             <SearchComponent
               slug={post.slug}

@@ -26,7 +26,6 @@ export default function PostsCarousel({ slug, allPosts = posts }) {
 
     const step = carousel.current.offsetWidth;
 
-
     if (direction === "left") {
       // Volta um passo. Math.max garante que não fique negativo (menor que 0)
       if (axis == 0) return setCurrentAxis(carouselWidth);
@@ -45,12 +44,19 @@ export default function PostsCarousel({ slug, allPosts = posts }) {
   };
 
   return (
-    <div className="flex items-center w-full max-sm:min-w-full gap-1 sm:gap-8 py-3.5 md:px-8 lgs:px-28 z-0">
+    <div className="group w-full py-3.5 z-50">
       <FaChevronLeft
-        color="black"
+        color="#364153"
         size={32}
-        className="hover:cursor-pointer max-md:hidden"
+        className="relative invisible group-hover:visible transition-all duration-300 top-44  z-10 hover:cursor-pointer max-md:hidden"
         onClick={() => scrollHorizontally("left")}
+      />
+
+      <FaChevronRight
+        color="#364153"
+        size={32}
+        onClick={scrollHorizontally}
+        className="relative invisible group-hover:visible transition-all duration-300 left-[95%] inset-y-[135px] z-10 hover:cursor-pointer max-md:hidden"
       />
       <div
         ref={carousel}
@@ -70,12 +76,6 @@ export default function PostsCarousel({ slug, allPosts = posts }) {
           ))}
         </div>
       </div>
-      <FaChevronRight
-        color="black"
-        size={32}
-        onClick={scrollHorizontally}
-        className="hover:cursor-pointer max-md:hidden"
-      />
     </div>
   );
 }

@@ -43,7 +43,7 @@ export default function Home() {
                     target="_blank"
                     href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0"
                   >
-                    <button className="h-12 md:h-[87px] max-sm:p-1 w-52 max-md:max-w-36 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(0.8rem,2vw,1.25rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
+                    <button className="h-12 md:h-[87px] max-sm:p-1 w-52 max-md:max-w-36 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(1rem,3vw,1.25rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
                       Negocie suas Dívidas
                     </button>
                   </a>
@@ -62,12 +62,12 @@ export default function Home() {
 
             {/* Container Nossos Números */}
 
-            <section className="bg-orange-primary flex flex-col items-center py-10 gap-10">
-              <h2 className="text-[clamp(1rem,9vw,3.0rem)] font-family-roboto-slab font-bold">
+            <section className="bg-orange-primary flex max-lgs:flex-col justify-center items-center py-10 gap-10 lgs:gap-16">
+              <h2 className="text-[clamp(2.2rem,4vw,5.25rem)]  font-family-roboto-slab font-bold">
                 Nossos Números
               </h2>
 
-              <div className="flex items-center max-md:flex-col max-lgs:justify-center gap-10 flex-wrap">
+              <div className="flex items-center max-md:flex-col max-lgs:justify-center gap-10 max-lgs:flex-wrap">
                 <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
                   <img
                     className="sm:w-[50px] sm:h-[50px] h-[30px] w-[30px]"
@@ -101,17 +101,7 @@ export default function Home() {
                     Devedores recuperados por ano (média)
                   </p>
                 </div>
-                <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
-                  <img
-                    className="sm:w-[50px] sm:h-[50px] h-[30px] w-[30px]"
-                    src={Fi_Mountains}
-                    alt="Ícone de montanhas"
-                  />
-                  <p className=" font-family-roboto-slab font-bold">23</p>
-                  <p className="text-base max-w-[194px] text-center ">
-                    Estados com clientes atendidos nos últimos 90 dias
-                  </p>
-                </div>
+                
               </div>
             </section>
 
@@ -142,11 +132,6 @@ export default function Home() {
                   </h2>
                 </div>
                 <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
-                  {/* <img
-                    src={Trophy}
-                    alt="Ícone de trofeu"
-                    className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
-                  /> */}
                   <FaBalanceScale size={60} color="#f1b434" className="max-sm:h-[30px] max-sm:w-[30px]" />
                   <h2 className=" text-[var(--font-title)] ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
                     Assessoria Jurídica
@@ -189,8 +174,8 @@ export default function Home() {
             </section>
 
             {/* Sessão de perguntas frequentes */}
-            <section className="min-h-[600px] w-full sm:px-20 px-1 bg-gray-primary flex flex-wrap pt-14 pb-3 justify-around items-baseline">
-              <h2 className="text-[clamp(1.8rem,4vw,2.5rem)] leading-tight max-w-80 mb-2 font-bold">
+            <section className="min-h-[600px] w-full sm:px-20 px-1 bg-gray-primary flex flex-wrap justify-center pt-14 pb-3 items-baseline">
+              <h2 className="text-[clamp(2.2rem,4vw,5.625rem)] max-sm:text-center leading-tight lgs:max-w-80 mb-2 font-bold">
                 Perguntas Frequentes
               </h2>
               <Accordion />

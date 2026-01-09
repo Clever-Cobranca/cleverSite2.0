@@ -16,12 +16,12 @@ export function NavHeaderComponent() {
       path: "/",
     },
     {
-      name: "Educação",
-      path: "/educacao",
-    },
-    {
       name: "Quero Pagar",
       path: "/pagar",
+    },
+    {
+      name: "Educação",
+      path: "/educacao",
     },
     {
       name: "Trabalhe Conosco",
