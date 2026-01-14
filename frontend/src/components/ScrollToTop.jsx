@@ -18,6 +18,7 @@ function ScrollToTop() {
       document.body.scrollTop = 0;
       document.body.scrollLeft = 0;
     }
+
     
     // Rola o elemento #root se ele tiver scroll
     const rootElement = document.getElementById('root');

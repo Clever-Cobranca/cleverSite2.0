@@ -156,7 +156,7 @@ export default function Educacao() {
                         </div>
                     </div>
                 </section>
-                <section className="w-full">
+                <section className="max-w-full">
                     <h4 className="text-[clamp(1.2rem,4vw,1.6rem)] font-bold max-w-max mx-auto mb-2">
                         Blog
                     </h4>

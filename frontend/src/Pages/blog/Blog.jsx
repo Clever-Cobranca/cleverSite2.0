@@ -34,7 +34,7 @@ export default function Blog() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsPageLoading(false);
-    }, 1000);
+    }, 700);
 
     return () => clearTimeout(timer);
   }, [postSlug]);
@@ -91,14 +91,7 @@ export default function Blog() {
       }
 
       if (attribs.id === "leituras-recomendadas") {
-        return (
-          <section className="w-full py-8 ">
-            <h4 className="text-[clamp(0.8rem,4vw,1.3rem)] font-bold max-w-max mb-2">
-              Leituras Recomendadas
-            </h4>
-            <PostsCarousel slug={post.slug} allPosts={posts} />
-          </section>
-        );
+        return <></>;
       }
     },
   };
@@ -205,7 +198,7 @@ export default function Blog() {
                   <CardPostSkeleton />
                 </div>
               </div>
-              <div className="max-lg:hidden block w-[300px] h-[340px] mt-5 text-gray-700 mr-10 bg-gray-300 animate-pulse">
+              <div className="max-lg:hidden block w-[200px] h-[380px] mt-5 text-gray-700 mr-10 bg-gray-300 animate-pulse">
                 &nbsp;
               </div>
             </>
@@ -219,7 +212,10 @@ export default function Blog() {
     <>
       <Header>
         <div className="w-full lg:hidden z-20 sticky bg-white min-h-20 py-7 shadow-2xl">
-          <div id="postsContainer" className="h-full w-full flex gap-2 flex-wrap pt-2 sm:justify-around sm:items-center">
+          <div
+            id="postsContainer"
+            className="h-full w-full flex gap-2 flex-wrap pt-2 sm:justify-around sm:items-center"
+          >
             <h4 className="text-[#1A1A1A] text-xl max-sm:text-lg  max-sm:ml-3 font-light tracking-widest">
               NOTÍCIAS
             </h4>
@@ -287,16 +283,14 @@ export default function Blog() {
         </div>
       </Header>
       <div key={postSlug}>
-        {!loading && !showPosts && (
-          <img
-            src={post.banner}
-            alt={post.alt}
-            className="mx-auto w-full max-sm:h-[250px] max-lgs:h-[496px] max-h-[550px] object-cover object-[40%_40%]"
-          />
-        )}
         <section className="flex sm:justify-center max-sm:w-full">
           {!loading && !showPosts ? (
-            <div id="displayHtml"> {parse(post.body, options)} </div>
+            <div id="displayHtml"> {parse(post.body, options)} <section className="w-full sm:px-8 py-8 ">
+            <h4 className="text-[clamp(0.8rem,4vw,1.3rem)] font-bold max-w-max mb-2">
+              Leituras Recomendadas
+            </h4>
+            <PostsCarousel slug={post.slug} allPosts={posts} />
+          </section> </div>
           ) : (
             !loading &&
             showPosts && (
@@ -314,85 +308,92 @@ export default function Blog() {
             )
           )}
           {/* Componente de pesquisa  */}
-          <form
-            aria-label="formulario_de_pesquisa_de_notícias"
-            onSubmit={handleSubmit}
-            className="bg-[#FBFBFB] float-end right-0  mt-16 pt-6 px-4 mr-8 flex flex-col gap-16 h-[500px] max-lg:hidden "
-          >
-            <SearchComponent
-              slug={post.slug}
-              handleInputChange={handleInputChange}
-              bttnRef={bttnRef}
-            />
-            <div className="border-t-2 w-full border-orange-primary" />
-            <div className="h-full">
-              <label htmlFor="#categories" className="font-semibold text-xl">
-                CATEGORIAS
-              </label>
-              <optgroup
-                id="categories"
-                className="flex h-max flex-col gap-3 [&>option]:bg-gray-200 [&>option]:p-2 [&>option]:w-full [&>option]:text-[#707372] [&>option]:hover:cursor-pointer [&>option]:hover:opacity-85"
-                onClick={() => bttnRef.current.click()}
-              >
-                <option
-                  value="cobranca"
-                  onClick={(e) => {
-                    setOptionSelected(e.target.value);
-                    setOptionValue("Cobrança");
-                  }}
-                  className={
-                    optionSelected === "cobranca"
-                      ? "border-l-4 border-orange-primary"
-                      : ""
-                  }
-                >
-                  Cobrança
-                </option>
-                <option
-                  value="credito"
-                  onClick={(e) => {
-                    setOptionSelected(e.target.value);
-                    setOptionValue("Crédito");
-                  }}
-                  className={
-                    optionSelected === "credito"
-                      ? "border-l-4 border-orange-primary"
-                      : ""
-                  }
-                >
-                  Crédito
-                </option>
-                <option
-                  value="inadimplencia"
-                  className={
-                    optionSelected === "inadimplencia"
-                      ? "border-l-4 border-orange-primary"
-                      : ""
-                  }
-                  onClick={(e) => {
-                    setOptionSelected(e.target.value);
-                    setOptionValue("Inadimplência");
-                  }}
-                >
-                  Inadimplência
-                </option>
-                <option
-                  value="Todas"
-                  className={
-                    optionSelected === "none"
-                      ? "border-l-4 border-orange-primary"
-                      : ""
-                  }
-                  onClick={(e) => {
-                    setOptionSelected("none");
-                    setOptionValue(e.target.value);
-                  }}
-                >
-                  Sem Categoria
-                </option>
-              </optgroup>
+
+          {/* <aside className="w-64 self-start sticky top-44">
+            <div className="bg-blue-500 text-white p-6 rounded-lg shadow-lg">
+              <h2 className="font-bold">Sticky Floater</h2>
+              <p>I stay at the top while you scroll!</p>
             </div>
-          </form>
+          </aside> */}
+          <form
+              aria-label="formulario_de_pesquisa_de_notícias"
+              onSubmit={handleSubmit}
+              className="bg-transparent self-start sticky top-28 max-lg:hidden  px-6 mb-1.5 mr-3 flex flex-col gap-16 "
+            >
+              <SearchComponent
+                slug={post.slug}
+                handleInputChange={handleInputChange}
+                bttnRef={bttnRef}
+              />
+              <div className="border-t-2 w-full border-orange-primary" />
+              <div className="h-full">
+                <label htmlFor="#categories" className="font-semibold text-xl">
+                  CATEGORIAS
+                </label>
+                <optgroup
+                  id="categories"
+                  className="flex h-max flex-col gap-3 [&>option]:bg-gray-200 [&>option]:p-2 [&>option]:w-full [&>option]:text-[#707372] [&>option]:hover:cursor-pointer [&>option]:hover:opacity-85"
+                  onClick={() => bttnRef.current.click()}
+                >
+                  <option
+                    value="cobranca"
+                    onClick={(e) => {
+                      setOptionSelected(e.target.value);
+                      setOptionValue("Cobrança");
+                    }}
+                    className={
+                      optionSelected === "cobranca"
+                        ? "border-l-4 border-orange-primary"
+                        : ""
+                    }
+                  >
+                    Cobrança
+                  </option>
+                  <option
+                    value="credito"
+                    onClick={(e) => {
+                      setOptionSelected(e.target.value);
+                      setOptionValue("Crédito");
+                    }}
+                    className={
+                      optionSelected === "credito"
+                        ? "border-l-4 border-orange-primary"
+                        : ""
+                    }
+                  >
+                    Crédito
+                  </option>
+                  <option
+                    value="inadimplencia"
+                    className={
+                      optionSelected === "inadimplencia"
+                        ? "border-l-4 border-orange-primary"
+                        : ""
+                    }
+                    onClick={(e) => {
+                      setOptionSelected(e.target.value);
+                      setOptionValue("Inadimplência");
+                    }}
+                  >
+                    Inadimplência
+                  </option>
+                  <option
+                    value="Todas"
+                    className={
+                      optionSelected === "none"
+                        ? "border-l-4 border-orange-primary"
+                        : ""
+                    }
+                    onClick={(e) => {
+                      setOptionSelected("none");
+                      setOptionValue(e.target.value);
+                    }}
+                  >
+                    Sem Categoria
+                  </option>
+                </optgroup>
+              </div>
+            </form>
         </section>
       </div>
       <Footer isBgGray />
