@@ -20,7 +20,7 @@ export default function Cultura() {
           </h1>
           <h4 className="mt-5 text-3xl text-[clamp(1.5rem,4vw,2rem)] text-center font-light">
             A cultura organizacional é um conjunto de valores, crenças e
-            ações que definem como a organização conduz o negócio.
+            ações que definem como a organização conduz o negócio.
           </h4>
         </div>
 

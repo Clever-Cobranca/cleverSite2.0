@@ -1,8 +1,6 @@
 import SejaClever from "../assets/SejaUmClever.png";
 import LogoCleverTrabalhe from "../assets/Logo_Clever_Trabalhe.png";
-import EquipeClever from "../assets/Equipe_Clever.png";
-import TrioClever1 from "../assets/Trio_Clever1.png";
-import TrioClever2 from "../assets/Trio_Clever2.png";
+import lauraTrabalheConosco from "../assets/lauraTrabalheConosco.png";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import { CircleExpandButton } from "../components/button";
@@ -61,7 +59,7 @@ export default function TrabalheConosco() {
                   de sua obrigação legal.
                 </p>
                 <img
-                  className="max-w-[540px] w-full h-full md:mb-48"
+                  className="max-w-[540px] w-full h-full"
                   src={LauraSeusAmigos}
                   alt="Equipe clever fantasiada"
                 />
@@ -77,8 +75,8 @@ export default function TrabalheConosco() {
                 </p>
 
                 <img
-                  className="max-w-[540px] w-full h-full md:mb-48"
-                  src={lauraAtendendo}
+                  className="max-w-[540px] w-full h-full"
+                  src={lauraTrabalheConosco}
                   alt="Trio 1 fantasiado"
                 />
               </div>
@@ -86,9 +84,9 @@ export default function TrabalheConosco() {
           </div>
         </section>
 
-        <section className="pl-10 pr-10 flex justify-between items-center max-lgs:flex-col">
-          <div className="flex-col flex gap-10">
-            <div className="flex w-10/12">
+        <section className="pl-6 pb-10 pr-6 flex justify-between max-lgs:flex-col">
+          <div className="flex-col flex gap-10 w-4/5">
+            <div className="flex">
               <div className="flex-col gap-5 flex">
                 <h2 className="text-4xl font-family-roboto-slab font-bold text-[clamp(2.5rem,6vw,6.2rem)]">Vem fazer Parte da <br /> <span className="text-[#F1B434]">#CleverFamily</span></h2>
                 <div className="w-11/12 max-lgs:w-full border-t-3 rounded-2xl border-[#F1B434]" />
@@ -152,9 +150,9 @@ export default function TrabalheConosco() {
               </div>
             </div>
           </div>
-          <div className="w-5/12 max-lgs:w-full max-lgs:pt-10 flex flex-col gap-30">
+          <div className="w-5/12 max-lgs:w-full max-lgs:pt-10 flex flex-col gap-30 h-full">
             <p>Estamos entre as melhores empresas para iniciar a carreira e 85% de nossas vagas administrativas e de liderança são preenchidas internamente! Então, se você sonha em fazer parte de um time que valoriza a carreira e seu desenvolvimento, conheça as novas vagas!</p>
-            <div className="w-full h-5 max-lgs:text-center justify-center items-center flex mt-10 mb-10">
+            <div className="h-5 max-lgs:text-center justify-center items-center flex mt-10 mb-10">
               <button onClick={() => estaAbrindo(true)} className="pl-10 pr-10 pt-3 pb-3 border-2 border-[#F1B434] rounded-4xl text-2xl text-[#F1B434] uppercase font-bold hover:bg-[#F1B434] hover:text-white transition-all duration-300 hover:cursor-pointer">Candidatar-se</button>
             </div>
           </div>

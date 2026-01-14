@@ -1,5 +1,4 @@
 'use client';
-import { label } from 'motion/react-client';
 import React, { useState, useEffect } from 'react';
 
 const formFlow = {
@@ -36,11 +35,11 @@ const formFlow = {
     inputType: 'options',
     question: "Qual é sua formação",
     options: [
-      { label: 'Ensino Medio(finalizado)', value: 'medio finalizado', next: 'comoConheceu' },
+      { label: 'Ensino Medio(finalizado)', value: 'medio finalizado', next: 'cargoEnsinoMedioCompleto' },
       { label: 'Ensino Medio(cursando)', value: 'medio cursando', next: 'fimEscola' },
-      { label: 'Ensino Tecnico(finalizado)', value: 'tecnico finalizado', next: 'cursoTecnico' },
+      { label: 'Ensino Tecnico(finalizado)', value: 'tecnico finalizado', next: 'cursoTecnicoFinalizado' },
       { label: 'Ensino tecnico(cursando)', value: 'tecnico cursando', next: 'fimTecnico' },
-      { label: 'Ensino superior(finalizado)', value: 'superior finalizado', next: 'cursoSuperior' },
+      { label: 'Ensino superior(finalizado)', value: 'superior finalizado', next: 'cargoCompleto' },
       { label: 'Ensino superior(cursando)', value: 'superior cursando', next: 'fimSuperior' }
     ],
   },
@@ -49,7 +48,7 @@ const formFlow = {
     inputType: 'date',
     question: 'Quando esta previsto a conclusão da escola?',
     placeholder: '31/12/2027',
-    next: 'cidadeResidente'
+    next: 'cargoEnsinoMedio'
   },
   fimTecnico: {
     id: 'fimTecnico',
@@ -68,14 +67,21 @@ const formFlow = {
   cursoTecnico: {
     id: 'cursoTecnico',
     inputType: 'text',
-    question: 'Qual é o nome do curso tecnico que você fez ou esta fazendo?',
+    question: 'Qual é o nome do curso tecnico que você esta fazendo?',
     placeholder: 'Administração',
     next: 'cidadeResidente'
+  },
+  cursoTecnicoFinalizado: {
+    id: 'cursoTecnico',
+    inputType: 'text',
+    question: 'Qual é o nome do curso tecnico que você fez?',
+    placeholder: 'Administração',
+    next: 'cargoTecnicoCompleto'
   },
   cursoSuperior: {
     id: 'cursoSuperior',
     inputType: 'text',
-    question: 'Qual curso Superior você fez ou esta fazendo?',
+    question: 'Qual curso Superior você esta fazendo?',
     placeholder: 'Ads',
     next: 'cidadeResidente'
   },
@@ -87,13 +93,47 @@ const formFlow = {
     next: 'cargoPretendido'
   },
   cargoPretendido: {
-    id: 'cargoPretendido',
+    id: 'cargoPretendido1',
     inputType: 'options',
     question: 'Você tem interesse em qual cargo?',
     options: [
       { label: 'Supervisor/Coordenador', value: 'supervisor', next: 'experiencia' },
       { label: 'Operador de cobrança', value: 'cobranca', next: 'experiencia' },
       { label: 'Operador de Notificação', value: 'notificacao', next: 'experiencia' }
+    ]
+  },
+  cargoTecnicoCompleto: {
+    id: 'cargoTecnicoCompleto',
+    inputType: 'options',
+    question: 'Você tem interesse em qual cargo?',
+    options: [
+      { label: 'Supervisor/Coordenador', value: 'supervisor', next: 'experiencia' },
+      { label: 'Operador de cobrança', value: 'cobranca', next: 'experiencia' }
+    ]
+  },
+  cargoEnsinoMedio: {
+    id: 'cargoEnsinoMedio',
+    inputType: 'options',
+    question: 'Você tem interesse em qual cargo?',
+    options: [
+      { label: 'Operador de Notificação', value: 'notificacao', next: 'experiencia' }
+    ]
+  },
+  cargoEnsinoMedioCompleto: {
+    id: 'cargoEnsinoMedioCompleto',
+    inputType: 'options',
+    question: 'Você tem interesse em qual cargo?',
+    options: [
+      { label: 'Operador de cobrança', value: 'cobranca', next: 'experiencia' },
+    ]
+  },
+  cargoCompleto: {
+    id: 'cargoCompleto',
+    inputType: 'options',
+    question: 'Você tem interesse em qual cargo?',
+    options: [
+      { label: 'Supervisor/Coordenador', value: 'supervisor', next: 'experiencia' },
+      { label: 'Operador de cobrança', value: 'cobranca', next: 'experiencia' }
     ]
   },
   experiencia: {
