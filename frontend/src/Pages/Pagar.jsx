@@ -20,7 +20,7 @@ export default function Pagar() {
         </h1>
 
         <div className="md:flex mt-10 mb:mt-0 max-sm:w-full w-2/4 items-center flex-col h-full md:z-10 md: lgs:p-35">
-          <h2 className="text-2xl md:text-4xl font-bold">
+          <h2 className="text-2xl md:text-4xl max-sm:text-center font-bold">
             Entre em contato com nossa assistente, a{" "}
             <span className="text-[#f1b534]">Laura</span>!
           </h2>

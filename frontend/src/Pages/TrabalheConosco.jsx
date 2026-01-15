@@ -84,10 +84,10 @@ export default function TrabalheConosco() {
           </div>
         </section>
 
-        <section className="pl-6 pb-10 pr-6 flex justify-between max-lgs:flex-col">
-          <div className="flex-col flex gap-10 w-4/5">
-            <div className="flex">
-              <div className="flex-col gap-5 flex">
+        <section className="pl-6 pb-10 pr-6 flex justify-between max-sm:text-center max-sm:justify-center max-lgs:flex-col">
+          <div className="flex-col flex gap-10 w-4/5 max-sm:w-full max-sm:items-center">
+            <div className="flex max-sm:justify-center">
+              <div className="flex-col gap-5 flex max-sm:items-center max-sm:text-center">
                 <h2 className="text-4xl font-family-roboto-slab font-bold text-[clamp(2.5rem,6vw,6.2rem)]">Vem fazer Parte da <br /> <span className="text-[#F1B434]">#CleverFamily</span></h2>
                 <div className="w-11/12 max-lgs:w-full border-t-3 rounded-2xl border-[#F1B434]" />
                 <p>Conheça nossos cargos clicando em qualquer um abaixo:</p>

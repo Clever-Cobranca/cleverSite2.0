@@ -8,6 +8,7 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { FiUserPlus } from "react-icons/fi";
 import { PiBank } from "react-icons/pi";
 import { Footer } from '../components/Footer/Footer'
+import ButtonWhats from "../components/ButtonWhats"
 
 export default function Cultura() {
   return (
@@ -106,6 +107,7 @@ export default function Cultura() {
           </div>
         </section>
       </main>
+      <ButtonWhats />
       <Footer isBgGray/>
     </>
   )

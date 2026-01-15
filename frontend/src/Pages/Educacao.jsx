@@ -94,7 +94,7 @@ export default function Educacao() {
     return (
         <>
             <Header />
-            <main className="mb-25">
+            <main className="">
                 <section className="max-md:flex md:justify-items-center lgs:flex max-sm:flex-col md:justify-between">
                     <div className="md:m-10 lgs:m-0 lgs:w-2/5 md:h-full bg-[#F1B434]">
                         <img className="lgs:ml-27" src={Alan} />
@@ -103,11 +103,10 @@ export default function Educacao() {
                     <div className="lgs:w-1/2 md:p-10 lgs:p-0 md:flex md:flex-col md:items-center mt-5 text-center lgs:text-start">
                         <h1 className="font-family-roboto-slab max-sm:text-3xl md:text-5xl lgs:text-8xl">Quem é <span className="text-[#707372]">Alan Clever?</span></h1>
                         <div className="flex flex-col items-center md:items-center gap-10">
-                            <p>Fundador da Clever Assessoria e Cobrança, <a target="_blank" href="https://www.instagram.com/oalanclever/">@Alanclever</a> é especialista em recuperação de crédito educacional, com formação em Engenharia e pós-graduação em Direito Contratual e Processo Civil.</p>
+                            <p>Fundador da Clever Assessoria e Cobrança, <a target="_blank" className="underline underline-offset-2" href="https://www.instagram.com/oalanclever/">Alan clever</a> é especialista em recuperação de crédito educacional, com formação em Engenharia e pós-graduação em Direito Contratual e Processo Civil.</p>
                             <p>Após anos como gestor de unidades escolares e enfrentar na prática os desafios da inadimplência, decidiu transformar o problema em solução, criando um método de cobrança estruturado, firme e ético, que já recuperou milhares de contratos em todo o Brasil.</p>
                             <p>Hoje, Alan lidera a Clever com foco absoluto em resultados, legalidade e transformação do setor educacional por meio da cobrança inteligente.</p>
                             <div className="border-t-4 border-[#F1B434] w-2/6 rounded-b-full" />
-                            <p>CONHEÇA MELHOR QUEM CRIOU O CONTEÚDO</p>
                         </div>
                     </div>
                 </section>

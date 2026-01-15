@@ -4,6 +4,7 @@ import LauraTocandoSino from "../assets/LauraTocandoSino.png"
 import LinhadoTempo from "../assets/svgs/linhadoTempo.svg"
 import { Header } from "../components/Header/Header"
 import { Footer } from "../components/Footer/Footer"
+import ButtonWhats from "../components/ButtonWhats"
 
 export default function Sobre() {
   return (
@@ -60,6 +61,7 @@ export default function Sobre() {
           />
         </section>
       </main>
+      <ButtonWhats />
       <Footer isBgGray={true} />
     </>
   );

@@ -3,6 +3,7 @@ import lauraAtendendo from "../assets/lauraAtendendo.png";
 import nossaHistoriaFull from "../assets/nossaHistoriaFullScreen.png";
 import lauraFechandoContrato from "../assets/lauraFechandoContrato.png";
 import Group12 from "../assets/Group12.png"
+import ButtonWhats from "../components/ButtonWhats";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import { 
@@ -308,10 +309,11 @@ export default function Serviços() {
             <img
               src={Group12}
               alt="Laura Clever - SAC"
-              className="-z-10 w-1/2"
+              className="-z-10 w-1/2 max-sm:hidden"
             />
         </section>
       </main>
+      <ButtonWhats />
       <Footer />
     </>
   );
