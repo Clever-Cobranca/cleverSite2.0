@@ -62,23 +62,12 @@ export default function Educacao() {
         setError(null);
 
         try {
-            // Usa FormData para ser consistente com a rota do backend
-            const formDataToSend = new FormData();
-            formDataToSend.append('nome', formData.nome);
-            formDataToSend.append('email', formData.email);
-            if (formData.whatsapp) formDataToSend.append('whatsapp', formData.whatsapp);
-            if (formData.empresa) formDataToSend.append('empresa', formData.empresa);
-            formDataToSend.append('novidades', formData.novidades ? 'sim' : 'não');
-            // Adiciona um campo para identificar que é do ebook
-            formDataToSend.append('tipoFormulario', 'ebook');
-
-            // URL do backend - mesma rota do RH
-            const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
-            const apiEndpoint = `${API_URL}/api/send-email`;
-
-            const response = await fetch(apiEndpoint, {
+            const response = await fetch("https://agenda.clevercobranca.com.br/ebook", {
                 method: "POST",
-                body: formDataToSend,
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
             });
 
             if (response.ok) {
@@ -93,13 +82,8 @@ export default function Educacao() {
                     form_proibido: "",
                 });
             } else {
-                const errorData = await response.json().catch(() => ({ 
-                    error: `Erro HTTP ${response.status}`,
-                    details: 'Não foi possível processar a resposta do servidor'
-                }));
-                
                 setStatus("error");
-                setError(errorData.details || errorData.error || "Erro ao enviar. Tente novamente.");
+                setError("Erro ao enviar. Tente novamente.");
             }
         } catch (err) {
             console.error("Erro ao enviar:", err);
@@ -110,7 +94,7 @@ export default function Educacao() {
     return (
         <>
             <Header />
-            <main className="mb-25">
+            <main className="">
                 <section className="max-md:flex md:justify-items-center lgs:flex max-sm:flex-col md:justify-between">
                     <div className="md:m-10 lgs:m-0 lgs:w-2/5 md:h-full bg-[#F1B434]">
                         <img className="lgs:ml-27" src={Alan} />
@@ -119,11 +103,10 @@ export default function Educacao() {
                     <div className="lgs:w-1/2 md:p-10 lgs:p-0 md:flex md:flex-col md:items-center mt-5 text-center lgs:text-start">
                         <h1 className="font-family-roboto-slab max-sm:text-3xl md:text-5xl lgs:text-8xl">Quem é <span className="text-[#707372]">Alan Clever?</span></h1>
                         <div className="flex flex-col items-center md:items-center gap-10">
-                            <p>Fundador da Clever Assessoria e Cobrança, @Alanclever é especialista em recuperação de crédito educacional, com formação em Engenharia e pós-graduação em Direito Contratual e Processo Civil.</p>
+                            <p>Fundador da Clever Assessoria e Cobrança, <a target="_blank" className="underline underline-offset-2" href="https://www.instagram.com/oalanclever/">Alan clever</a> é especialista em recuperação de crédito educacional, com formação em Engenharia e pós-graduação em Direito Contratual e Processo Civil.</p>
                             <p>Após anos como gestor de unidades escolares e enfrentar na prática os desafios da inadimplência, decidiu transformar o problema em solução, criando um método de cobrança estruturado, firme e ético, que já recuperou milhares de contratos em todo o Brasil.</p>
                             <p>Hoje, Alan lidera a Clever com foco absoluto em resultados, legalidade e transformação do setor educacional por meio da cobrança inteligente.</p>
                             <div className="border-t-4 border-[#F1B434] w-2/6 rounded-b-full" />
-                            <p>CONHEÇA MELHOR QUEM CRIOU O CONTEÚDO</p>
                         </div>
                     </div>
                 </section>

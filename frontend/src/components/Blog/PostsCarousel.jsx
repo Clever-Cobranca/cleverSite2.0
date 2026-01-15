@@ -6,28 +6,20 @@ import { posts } from "../../Pages/blog/blogPost";
 
 export default function PostsCarousel({ slug, allPosts = posts }) {
   const carousel = useRef(null);
-  const [carouselWidth, setCarouselWidth] = useState(0);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
-  const [axis, setCurrentAxis] = useState(0);
 
   const postsFilteredBySlug = allPosts
     .filter((p) => p.slug != slug)
     .splice(0, 6);
 
-  // useEffect(() => {
-  //   if (carousel.current) {
-  //     console.log(carousel.current.scrollWidth);
-  //     setCarouselWidth(
-  //       carousel.current.scrollWidth - carousel.current.offsetWidth
-  //     );
-  //   }
-  // }, [carousel]);
+  
 
   // 1. Função para verificar a posição e atualizar os botões
   const updateScrollButtons = () => {
     if (carousel.current) {
       const { scrollLeft, scrollWidth, clientWidth } = carousel.current;
+
 
       // Margem de erro pequena (1px) para arredondamentos de float
       setCanScrollLeft(scrollLeft > 0);
@@ -46,33 +38,6 @@ export default function PostsCarousel({ slug, allPosts = posts }) {
       carouselRef?.removeEventListener("scroll", updateScrollButtons);
   }, []);
 
-  // const scrollHorizontally = (direction) => {
-  //   if (!carousel.current) return;
-
-  //   const step = carousel.current.offsetWidth;
-
-  //   console.log("ScrollX: ", scrollX);
-
-  //   if (direction === "left") {
-  //     // Volta um passo. Math.max garante que não fique negativo (menor que 0)
-  //     if (axis == 0) return setCurrentAxis(carouselWidth);
-  //     setCurrentAxis((prevAxis) => Math.max(prevAxis - step, 0));
-  //   } else {
-  //     // Lógica para a DIREITA
-
-  //     // Se já estamos no fim, volta pro início (Loop)
-  //     if ((axis + scrollX) >= carouselWidth) {
-  //       setScrollX(0);
-  //       setCurrentAxis(0);
-  //     } else {
-  //       // Avança um passo. Math.min garante que não ultrapasse o limite máximo
-  //       setCurrentAxis(
-  //         (prevAxis) => Math.min(prevAxis + step, carouselWidth) - scrollX
-  //       );
-  //       carousel.current.scrollLeft = scrollX + step
-  //     }
-  //   }
-  // };
 
   const scrollHorizontally = (direction) => {
     if (carousel.current) {
