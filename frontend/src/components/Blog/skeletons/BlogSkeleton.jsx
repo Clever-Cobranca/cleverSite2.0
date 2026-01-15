@@ -56,7 +56,7 @@ export function BlogSkeleton() {
           </div>
         </div>
 
-        <div className="max-[770px]:hidden block w-[200px] h-[380px] text-inherit mr-10 pb-6 bg-gray-300">
+        <div className="max-lg:hidden block w-[200px] h-[380px] text-inherit mr-10 pb-6 bg-gray-300">
           &nbsp;
         </div>
       </div>
