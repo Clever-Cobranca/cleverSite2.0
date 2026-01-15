@@ -12,7 +12,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import InteractiveForm from "../components/InteractiveForm";
 import LauraSeusAmigos from "../assets/LauraSeusAmigos.png";
-import lauraAtendendo from "../assets/lauraAtendendo.png";
 
 
 export default function TrabalheConosco() {
@@ -37,19 +36,19 @@ export default function TrabalheConosco() {
                 <img
                   src={LogoCleverTrabalhe}
                   alt="Logo Clever Assessoria Escrita"
-                  className="lg:w-[55%] max-md:w-1/3 max-sm:w-2/12 w-1/3 object-contain"
+                  className="lg:w-[75%] max-md:w-1/3 max-sm:w-2/12 w-1/3 object-contain"
                 />
               </span>
             </div>
           </div>
         </div>
-        <section className="px-6 py-10">
-          <div>
-            <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] max-sm:text-4xl max-sm:pl-0 leading-tight font-family-roboto-slab font-bold py-2 md:max-lgs:pl-16">
+        <section className="px-6 pt-10 pb-20 lg:mb-10">
+          <div className="lg:pl-12 flex flex-col">
+            <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] max-lgs:max-w-[645px]   max-sm:text-4xl max-sm:pl-0 md:max-lg:pl-12 lg:max-xl:pl-6 lg:max-xl:text-center leading-tight font-family-roboto-slab font-bold py-2">
               Quem Somos?
             </h1>
-            <div className="flex justify-between items-start wrap-break-word flex-wrap gap-4">
-              <div className="flex flex-col items-center">
+            <div className="flex justify-between max-lgs:justify-center items-start wrap-break-word flex-wrap gap-4">
+              <div className="flex flex-col items-center gap-3">
                 <p className="text-[clamp(0.8rem,4vw,1.3rem)] max-w-[645px]">
                   Somos a Clever Assessoria Jurídica e Cobrança, uma empresa
                   especializada em recuperação de crédito com atuação firme,
@@ -64,7 +63,7 @@ export default function TrabalheConosco() {
                   alt="Equipe clever fantasiada"
                 />
               </div>
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center gap-3">
                 <p className="text-[clamp(0.8rem,4vw,1.3rem)] max-w-[645px] max-lgs:hidden">
                   Trabalhamos em todo o ciclo da cobrança, da fase extrajudicial
                   às medidas mais severas quando necessárias, sempre com base
@@ -87,7 +86,7 @@ export default function TrabalheConosco() {
         <section className="pl-6 pb-10 pr-6 flex justify-between max-sm:text-center max-sm:justify-center max-lgs:flex-col">
           <div className="flex-col flex gap-10 w-4/5 max-sm:w-full max-sm:items-center">
             <div className="flex max-sm:justify-center">
-              <div className="flex-col gap-5 flex max-sm:items-center max-sm:text-center">
+              <div className="flex-col lg:pl-12 gap-5 flex max-sm:items-center max-sm:text-center">
                 <h2 className="text-4xl font-family-roboto-slab font-bold text-[clamp(2.5rem,6vw,6.2rem)]">Vem fazer Parte da <br /> <span className="text-[#F1B434]">#CleverFamily</span></h2>
                 <div className="w-11/12 max-lgs:w-full border-t-3 rounded-2xl border-[#F1B434]" />
                 <p>Conheça nossos cargos clicando em qualquer um abaixo:</p>
@@ -150,7 +149,7 @@ export default function TrabalheConosco() {
               </div>
             </div>
           </div>
-          <div className="w-5/12 max-lgs:w-full max-lgs:pt-10 flex flex-col gap-30 h-full">
+          <div className="w-5/12 max-lgs:w-full max-lgs:pt-10 pt-6 flex flex-col gap-30 h-full">
             <p>Estamos entre as melhores empresas para iniciar a carreira e 85% de nossas vagas administrativas e de liderança são preenchidas internamente! Então, se você sonha em fazer parte de um time que valoriza a carreira e seu desenvolvimento, conheça as novas vagas!</p>
             <div className="h-5 max-lgs:text-center justify-center items-center flex mt-10 mb-10">
               <button onClick={() => estaAbrindo(true)} className="pl-10 pr-10 pt-3 pb-3 border-2 border-[#F1B434] rounded-4xl text-2xl text-[#F1B434] uppercase font-bold hover:bg-[#F1B434] hover:text-white transition-all duration-300 hover:cursor-pointer">Candidatar-se</button>

@@ -1,6 +1,5 @@
 import LauraRecuperacao from "../assets/LauraRecuperacao.png";
 import lauraAtendendo from "../assets/lauraAtendendo.png";
-import nossaHistoriaFull from "../assets/nossaHistoriaFullScreen.png";
 import lauraFechandoContrato from "../assets/lauraFechandoContrato.png";
 import Group12 from "../assets/Group12.png"
 import ButtonWhats from "../components/ButtonWhats";
@@ -22,7 +21,7 @@ export default function Serviços() {
     <>
       <Header />
       <main>
-        <section className="">
+        <section>
           <div className="flex items-center">
             <img
               className="max-md:hidden h-[80vh] max-lgs:hidden"
@@ -30,7 +29,7 @@ export default function Serviços() {
               alt="Laura recuperação de dinheiro"
             />
 
-            <div className="max-sm:w-1/2   max-md:p-8 flex flex-col max-lgs:items-center gap-5 md:mb-30 mb-20">
+            <div className="max-sm:w-full   sm:max-md:p-8 flex flex-col max-lgs:items-center gap-5 md:mb-30 mb-20">
               <h1 className="max-sm:text-center max-lgs:mt-2 font-family-roboto-slab text-[clamp(2rem,4vw,5rem)]/tight font-bold">
                 Recuperação de <span className="text-[#F1B434]">Crédito</span>
               </h1>
@@ -41,9 +40,9 @@ export default function Serviços() {
           </div>
         </section>
 
-        <section className="bg-[#f4f4f4] flex flex-col gap-7 sm:p-12 max-lgs:flex-col p-8 max-sm:items-center justify-between">
-          <h2 className="max-sm:text-center text-start font-family-roboto-slab text-[clamp(2rem,4vw,5rem)]/tight font-bold">
-            Negociação<span className="text-[#F1B434]">Presencial</span>
+        <section className="bg-[#f4f4f4] flex flex-col gap-7 max-sm:gap-4 sm:pl-18 sm:pr-12 sm:py-12 max-lgs:flex-col p-8 max-sm:items-center justify-between">
+          <h2 className="max-lgs:text-center flex max-sm:flex-col md:max-xl:justify-center text-start font-family-roboto-slab text-[clamp(2rem,4vw,5rem)]/tight font-bold">
+            Negociação<span className="text-[#F1B434] ml-1">Presencial</span>
           </h2>
           <div className="flex gap-35 max-lgs:gap-10 max-sm:flex-col max-lgs:flex-col max-sm:gap-4">
             <div className="flex flex-col gap-7">

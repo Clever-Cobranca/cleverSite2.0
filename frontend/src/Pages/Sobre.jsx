@@ -12,12 +12,12 @@ export default function Sobre() {
       <Header />
       <main>
         <div className="flex flex-col items-center justify-between max-xl:justify-center w-full mt-5 flex-wrap">
-          <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] leading-tight font-family-roboto-slab font-bold py-2">
+          <h1 className="text-[clamp(2.2rem,6vw,6.2rem)] max-sm:px-3 leading-tight font-family-roboto-slab font-bold py-2">
             Nosso Manifesto
           </h1>
           <div className="flex justify-center text-center">
 
-            <p className="text-[clamp(0.8rem,4vw,1.3rem)] w-11/12 max-h-[320px] text-wrap max-sm:tracking-tighter max-sm:text-justify max-md:max-w-[340px] max-md:wrap-break-word">
+            <p className="text-[clamp(0.8rem,4vw,1.3rem)] w-11/12 max-h-[320px] text-wrap max-sm:tracking-tighter max-sm:text-justify max-md:max-w-[340px] text-left max-md:wrap-break-word">
               Negociaremos e você recebe! Sem dor de cabeça e sem arranhar a
               imagem do seu business ante o cliente! Todo o processo de Cobrança
               será acompanhado pelo nosso setor Jurídico, tanto na cobrança
