@@ -6,51 +6,70 @@ import { posts } from "../../Pages/blog/blogPost";
 
 export default function PostsCarousel({ slug, allPosts = posts }) {
   const carousel = useRef(null);
-  const [carouselWidth, setCarouselWidth] = useState(0);
-  const [axis, setCurrentAxis] = useState(0);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
   const postsFilteredBySlug = allPosts
     .filter((p) => p.slug != slug)
     .splice(0, 6);
 
-  useEffect(() => {
+  
+
+  // 1. Função para verificar a posição e atualizar os botões
+  const updateScrollButtons = () => {
     if (carousel.current) {
-      setCarouselWidth(
-        carousel.current.scrollWidth - carousel.current.offsetWidth
-      );
+      const { scrollLeft, scrollWidth, clientWidth } = carousel.current;
+
+
+      // Margem de erro pequena (1px) para arredondamentos de float
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 1);
     }
-  }, [carousel]);
+  };
+
+  useEffect(() => {
+    const carouselRef = carousel.current;
+    if (carouselRef) {
+      carouselRef.addEventListener("scroll", updateScrollButtons);
+      // Chama uma vez para garantir estado inicial correto
+      updateScrollButtons();
+    }
+    return () =>
+      carouselRef?.removeEventListener("scroll", updateScrollButtons);
+  }, []);
+
 
   const scrollHorizontally = (direction) => {
-    if (!carousel.current) return;
+    if (carousel.current) {
+      const { offsetWidth } = carousel.current;
+      // Define o passo (uma tela inteira ou metade, como pref  erir)
+      const scrollAmount = offsetWidth;
 
-    const step = carousel.current.offsetWidth;
-
-
-    if (direction === "left") {
-      // Volta um passo. Math.max garante que não fique negativo (menor que 0)
-      if (axis == 0) return setCurrentAxis(carouselWidth);
-      setCurrentAxis((prevAxis) => Math.max(prevAxis - step, 0));
-    } else {
-      // Lógica para a DIREITA
-
-      // Se já estamos no fim, volta pro início (Loop)
-      if (axis >= carouselWidth) {
-        setCurrentAxis(0);
-      } else {
-        // Avança um passo. Math.min garante que não ultrapasse o limite máximo
-        setCurrentAxis((prevAxis) => Math.min(prevAxis + step, carouselWidth));
-      }
+      carousel.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth", // A mágica da animação suave nativa
+      });
     }
   };
 
   return (
-    <div className="flex items-center w-full max-sm:min-w-full gap-1 sm:gap-8 py-3.5 md:px-8 lgs:px-28 z-0">
+    <div className="group pl-2 w-full py-3.5 z-50">
       <FaChevronLeft
-        color="black"
+        color="#364153"
+        disabled={!canScrollLeft}
+        style={{ opacity: canScrollLeft ? 1 : 0.5 }}
         size={32}
-        className="hover:cursor-pointer max-md:hidden"
+        className="relative invisible group-hover:visible  top-44  z-10 hover:cursor-pointer max-md:hidden"
         onClick={() => scrollHorizontally("left")}
+      />
+
+      <FaChevronRight
+        color="#364153"
+        size={32}
+        disabled={!canScrollRight}
+        style={{ opacity: canScrollRight ? 1 : 0.5 }}
+        onClick={scrollHorizontally}
+        className="relative invisible group-hover:visible  left-[95%] inset-y-[135px] z-10 hover:cursor-pointer max-md:hidden"
       />
       <div
         ref={carousel}
@@ -58,24 +77,13 @@ export default function PostsCarousel({ slug, allPosts = posts }) {
       >
         <div
           className="flex max-h-[510px] overflow-y-hidden shrink-0 gap-6 transition-transform duration-500"
-          style={{
-            transform: `translateX(-${axis}px)`,
-            willChange: "transform",
-            scrollSnapType: "x mandatory",
-            scrollbarWidth: "thin",
-          }}
+          style={{ scrollSnapType: "x mandatory", scrollbarWidth: "thin" }}
         >
           {postsFilteredBySlug.map((post) => (
             <CardPosts key={post.id} post={post} />
           ))}
         </div>
       </div>
-      <FaChevronRight
-        color="black"
-        size={32}
-        onClick={scrollHorizontally}
-        className="hover:cursor-pointer max-md:hidden"
-      />
     </div>
   );
 }

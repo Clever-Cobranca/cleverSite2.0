@@ -1,27 +1,23 @@
-import Banner from "../assets/svgs/Banner.svg" 
-import LauraManifesto from "../assets/lauraManifesto.png"
-import NossaHistoria from "../assets/nossaHistoria.png"
+import Banner from "../assets/svgs/Banner.svg"
+import LauraeCompanhia from "../assets/LauraeCompanhia.png"
+import LauraTocandoSino from "../assets/LauraTocandoSino.png"
 import LinhadoTempo from "../assets/svgs/linhadoTempo.svg"
 import { Header } from "../components/Header/Header"
 import { Footer } from "../components/Footer/Footer"
+import ButtonWhats from "../components/ButtonWhats"
 
 export default function Sobre() {
   return (
     <>
       <Header />
       <main>
-        <img
-          alt="clever_referencia"
-          src={Banner}
-          className="object-scale-down w-full "
-        />
-        <div className="flex justify-between max-xl:justify-center w-full mt-5 flex-wrap">
-          <img className="size-2/4 md:size-auto" src={LauraManifesto} alt="Laurinha da Clever"/>
-          <div className="lg:w-1/2 p-5">
-            <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] leading-tight font-family-roboto-slab font-bold py-2">
-              Nosso Manifesto
-            </h1>
-            <p className="text-[clamp(0.8rem,4vw,1.3rem)] max-h-[320px] text-wrap max-sm:tracking-tighter max-sm:text-justify max-w-[480px] max-md:max-w-[340px] max-md:wrap-break-word">
+        <div className="flex flex-col items-center justify-between max-xl:justify-center w-full mt-5 flex-wrap">
+          <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] leading-tight font-family-roboto-slab font-bold py-2">
+            Nosso Manifesto
+          </h1>
+          <div className="flex justify-center text-center">
+
+            <p className="text-[clamp(0.8rem,4vw,1.3rem)] w-11/12 max-h-[320px] text-wrap max-sm:tracking-tighter max-sm:text-justify max-md:max-w-[340px] max-md:wrap-break-word">
               Negociaremos e você recebe! Sem dor de cabeça e sem arranhar a
               imagem do seu business ante o cliente! Todo o processo de Cobrança
               será acompanhado pelo nosso setor Jurídico, tanto na cobrança
@@ -29,6 +25,11 @@ export default function Sobre() {
               necessárias.
             </p>
           </div>
+          <img
+            src={LauraeCompanhia}
+            alt="Laurinha da Clever"
+            className="max-w-[654px] max-h-[446px] object-contain max-md:h-80 max-sm:w-full"
+          />
         </div>
 
         <section className="flex mt-10 bg-[#F2F2F2] justify-around  max-md:gap-2 w-full flex-wrap">
@@ -44,7 +45,7 @@ export default function Sobre() {
             </p>
           </div>
           <img
-            src={NossaHistoria}
+            src={LauraTocandoSino}
             alt="Imagem dos funcionários Clever"
             className="max-w-[654px] max-h-[446px] object-contain max-md:h-80 max-sm:w-full"
           />
@@ -60,7 +61,8 @@ export default function Sobre() {
           />
         </section>
       </main>
-      <Footer isBgGray={true}/>
+      <ButtonWhats />
+      <Footer isBgGray={true} />
     </>
   );
 }

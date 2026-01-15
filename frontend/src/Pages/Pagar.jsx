@@ -1,7 +1,6 @@
 import { Header } from "../components/Header/Header";
 import fundoLaura from "../assets/fundoLaura.png";
 import { Footer } from "../components/Footer/Footer";
-import fundoPagar from "../assets/fundoPagar.jpg"
 
 export default function Pagar() {
   return (
@@ -12,7 +11,7 @@ export default function Pagar() {
           <img
             src={fundoLaura}
             alt="Laura Clever feliz"
-            className="-z-10 fixed h-full max-sm:hidden md:hidden max-md:hidden lgs:block "
+            className="-z-10 fixed max-sm:hidden md:hidden max-md:hidden lgs:block "
           />
         </div>
 
@@ -20,32 +19,22 @@ export default function Pagar() {
           Quer quitar suas <span className="text-[#F1B434]">dívidas</span>?
         </h1>
 
-        <div className="md:flex md:justify-center mt-10 mb:mt-0 text-center items-center flex-col h-full md:z-10 md: lgs:p-35">
-          <h2 className="text-2xl md:text-4xl">
+        <div className="md:flex mt-10 mb:mt-0 max-sm:w-full w-2/4 items-center flex-col h-full md:z-10 md: lgs:p-35">
+          <h2 className="text-2xl md:text-4xl max-sm:text-center font-bold">
             Entre em contato com nossa assistente, a{" "}
             <span className="text-[#f1b534]">Laura</span>!
           </h2>
-          <div className="flex mb:justify-between justify-center max-sm:px-2 gap-8 w-full mt-26">
-            <a
-              target="_blank"
-              className="bg-[#f1b434] py-2 px-1  md:px-8 rounded-2xl text-[#fff] border-b-2 border-l-2 border-r-2 border-black/10 hover:bg-[#f1b734]/90 transition-all duration-300 cursor-pointer"
-              href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+saber+mais!&type=phone_number&app_absent=0"
-            >
-              Fale com a Laura
-            </a>
-            <a
-              className=" py-2 px-1 md:px-8 rounded-2xl border-b-4 border-r-1 border-l-1 border-black/20 hover:bg-[#000]/5 transition-all duration-300 cursor-pointer"
-              target="_blank"
-              href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+segunda+via+do+boleto!&type=phone_number&app_absent=0"
-            >
-              Pedir a 2° via do boleto
-            </a>
+          <div className="flex mb:justify-between max-sm:justify-center max-sm:px-2 gap-8 w-full">
+            <div className="h-5 max-lgs:text-center items-center flex mt-10 mb-10">
+              <a href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Vim+pelo+site+e+Quero+segunda+via+do+boleto!&type=phone_number&app_absent=0" target="_blank">
+                <button className="pl-5 pr-5 pt-3 pb-3 border-2 border-[#F1B434] rounded-2xl text-[#707372] uppercase font-bold hover:bg-[#F1B434] hover:text-white transition-all duration-300 hover:cursor-pointer">Quero Segunda Via do Boleto</button>
+              </a>
+            </div>
           </div>
         </div>
-        <img src={fundoPagar} className="max-sm:hidden hidden max-lgs:block"/>
       </main>
 
-      <Footer isBgGray />
+      <Footer />
     </>
   );
 }
