@@ -25,13 +25,13 @@ export default function Serviços() {
         <section className="">
           <div className="flex items-center">
             <img
-              className="max-md:hidden h-[80vh]"
+              className="max-md:hidden h-[80vh] max-lgs:hidden"
               src={LauraRecuperacao}
               alt="Laura recuperação de dinheiro"
             />
 
-            <div className="sm:w-1/2 max-md:p-8 flex flex-col gap-5 md:mb-30 mb-20">
-              <h1 className="max-sm:text-center font-family-roboto-slab text-[clamp(2rem,4vw,5rem)]/tight font-bold">
+            <div className="max-sm:w-1/2   max-md:p-8 flex flex-col max-lgs:items-center gap-5 md:mb-30 mb-20">
+              <h1 className="max-sm:text-center max-lgs:mt-2 font-family-roboto-slab text-[clamp(2rem,4vw,5rem)]/tight font-bold">
                 Recuperação de <span className="text-[#F1B434]">Crédito</span>
               </h1>
               <p className="text-[clamp(0.8rem,4vw,1.5rem)] text-left leading-7 w-5/6 font-light">
@@ -45,7 +45,7 @@ export default function Serviços() {
           <h2 className="max-sm:text-center text-start font-family-roboto-slab text-[clamp(2rem,4vw,5rem)]/tight font-bold">
             Negociação<span className="text-[#F1B434]">Presencial</span>
           </h2>
-          <div className="flex gap-35 max-sm:flex-col max-sm:gap-4">
+          <div className="flex gap-35 max-lgs:gap-10 max-sm:flex-col max-lgs:flex-col max-sm:gap-4">
             <div className="flex flex-col gap-7">
               <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
                 Realizamos a cobrança no local que o devedor adquiriu o produto ou
@@ -73,10 +73,10 @@ export default function Serviços() {
           </div>
         </section>
         <section className=" flex flex-col gap-7 sm:p-12 max-lgs:flex-col p-8 max-sm:items-center justify-between">
-          <h2 className="max-sm:text-center text-end font-family-roboto-slab text-[clamp(2rem,4vw,5rem)]/tight font-bold">
+          <h2 className="max-sm:text-center max-lgs:text-center text-end font-family-roboto-slab text-[clamp(2rem,4vw,5rem)]/tight font-bold">
             Negociação<span className="text-[#F1B434]">Preventiva</span>
           </h2>
-          <div className="flex gap-15 max-sm:flex-col max-sm:gap-4">
+          <div className="flex gap-15 max-sm:flex-col max-lgs:flex-col max-sm:gap-4">
           <img
               src={lauraAtendendo}
               alt="Nossa História - Clever"
@@ -309,7 +309,7 @@ export default function Serviços() {
             <img
               src={Group12}
               alt="Laura Clever - SAC"
-              className="-z-10 w-1/2 max-sm:hidden"
+              className="-z-10 w-1/2 max-sm:hidden max-lgs:hidden"
             />
         </section>
       </main>
