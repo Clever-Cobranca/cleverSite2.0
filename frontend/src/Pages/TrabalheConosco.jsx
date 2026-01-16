@@ -23,12 +23,12 @@ export default function TrabalheConosco() {
     <>
       <Header />
       <main>
-        <div className="w-full p-5">
+        <div className="w-full max-sm:h-full sm:p-5">
           <div className="relative">
             <img
               src={SejaClever}
               alt="Trabalhe Conosco - Seja um Clever"
-              className="block w-full h-auto object-cover"
+              className="block w-full h-[100px] sm:h-auto object-cover"
             />
 
             <div className="absolute inset-0 w-full h-[115%] flex justify-center items-end">
@@ -42,9 +42,9 @@ export default function TrabalheConosco() {
             </div>
           </div>
         </div>
-        <section className="px-6 pt-10 pb-20 lg:mb-10">
+        <section className="px-6 sm:pt-10 pt-6 pb-20 lg:mb-10">
           <div className="lg:pl-12 flex flex-col">
-            <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] max-lgs:max-w-[645px]   max-sm:text-4xl max-sm:pl-0 md:max-lg:pl-12 lg:max-xl:pl-6 lg:max-xl:text-center leading-tight font-family-roboto-slab font-bold py-2">
+            <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] max-lgs:max-w-[645px]   max-sm:text-4xl max-sm:pl-0 md:max-lg:pl-8 lg:max-xl:pl-6 lg:max-xl:text-center leading-tight font-family-roboto-slab font-bold py-2">
               Quem Somos?
             </h1>
             <div className="flex justify-between max-lgs:justify-center items-start wrap-break-word flex-wrap gap-4">
