@@ -1,23 +1,22 @@
 import LauraRecuperacao from "../assets/LauraRecuperacao.png";
 import lauraAtendendo from "../assets/lauraAtendendo.png";
 import lauraFechandoContrato from "../assets/lauraFechandoContrato.png";
-import Group12 from "../assets/Group12.png"
+import Group12 from "../assets/Group12.png";
 import ButtonWhats from "../components/ButtonWhats";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
-import { 
-  FaBalanceScale, 
-  FaFileContract, 
+import {
+  FaBalanceScale,
+  FaFileContract,
   FaShieldAlt,
   FaChartLine,
   FaHandHolding,
-  FaClock
+  FaClock,
 } from "react-icons/fa";
 import { motion } from "motion/react";
 import ScrollReveal from "../components/scrollView";
 
 export default function Serviços() {
-
   return (
     <>
       <Header />
@@ -31,14 +30,19 @@ export default function Serviços() {
                 alt="Laura recuperação de dinheiro"
               />
 
-              <div className="max-sm:w-full   sm:max-md:p-8 flex flex-col max-lgs:items-center gap-5 md:mb-30 mb-20">
-                <h1 className="max-sm:text-center max-lgs:mt-2 font-family-roboto-slab text-[clamp(2rem,4vw,5rem)]/tight font-bold">
-                  Recuperação de <span className="text-[#F1B434]">Crédito</span>
-                </h1>
-                <p className="text-[clamp(0.8rem,4vw,1.5rem)] text-left leading-7 w-5/6 font-light">
-                  É a recuperação daqueles Títulos, Contratos, Mensalidades, Notas Promissórias, Cheques, Dívidas que estão em atraso e você já tentou negociar ou já fez restrições nos Órgãos de Proteção ao Crédito, tentou fazer de tudo e mesmo assim o devedor insiste em não querer pagar.
-                </p>
-              </div>
+<div className="max-sm:w-full   sm:max-md:p-8 flex flex-col max-lgs:items-center gap-5 md:mb-30 mb-20">
+              <h1 className="max-sm:text-left flex max-sm:flex-col max-lgs:mt-2 font-family-roboto-slab text-[clamp(1.8rem,4vw,5rem)]/tight font-bold">
+                Recuperação de{" "}
+                <span className="text-[#F1B434] sm:ml-2">Crédito</span>
+              </h1>
+              <p className="text-[clamp(0.8rem,4vw,1.5rem)] text-left leading-7 w-5/6 font-light">
+                É a recuperação daqueles Títulos, Contratos, Mensalidades, Notas
+                Promissórias, Cheques, Dívidas que estão em atraso e você já
+                tentou negociar ou já fez restrições nos Órgãos de Proteção ao
+                Crédito, tentou fazer de tudo e mesmo assim o devedor insiste em
+                não querer pagar.
+              </p>
+            </div>
             </div>
           </section>
         </ScrollReveal>
