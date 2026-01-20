@@ -11,6 +11,7 @@ import Accordion from "../components/ComponentsHome/Accordion";
 import { Footer } from "../components/Footer/Footer";
 import mic from "../assets/svgs/mic.svg";
 import { FaBalanceScale } from "react-icons/fa";
+import { Link } from "react-router";
 
 export default function Home() {
   return (
@@ -76,20 +77,9 @@ export default function Home() {
                     src={Vector}
                     alt="Ícone de unidades"
                   />
-                  <p className=" font-family-roboto-slab font-bold">149</p>
+                  <p className=" font-family-roboto-slab font-bold">+ 200</p>
                   <p className="text-base max-w-[194px] text-center">
                     Clientes atendidos em todo o Brasil
-                  </p>
-                </div>
-                <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
-                  <img
-                    src={Signal_Alt}
-                    alt="Ícone de sinal de crescimento"
-                    className="sm:w-[50px] sm:h-[50px] h-[30px] w-[30px]"
-                  />
-                  <p className=" font-family-roboto-slab font-bold">R$25,2 M</p>
-                  <p className="text-base max-w-[194px] text-center">
-                    Negociado por ano (média)
                   </p>
                 </div>
                 <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
@@ -98,11 +88,22 @@ export default function Home() {
                     src={Chart_Histogram}
                     alt="Ícone de gráfico de barras"
                   />
-                  <p className=" font-family-roboto-slab font-bold">23.700</p>
+                  <p className="font-family-roboto-slab font-bold">+255 MIL</p>
                   <p className="text-base max-w-[194px] text-center">
-                    Devedores recuperados por ano (média)
+                    Interações com Clientes em 2025
                   </p>
                 </div>         
+                <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
+                  <img
+                    src={Signal_Alt}
+                    alt="Ícone de sinal de crescimento"
+                    className="sm:w-[50px] sm:h-[50px] h-[30px] w-[30px]"
+                  />
+                  <p className=" font-family-roboto-slab font-bold">23</p>
+                  <p className="text-base max-w-[194px] text-center">
+                    Estados com clientes atendidos em todo o Brasil
+                  </p>
+                </div>
               </div>
             </ScrollReveal>
             </section>
@@ -113,42 +114,52 @@ export default function Home() {
                     Serviços Clever
                   </h1>
                   <div className="w-full flex justify-around flex-wrap">
-                    <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
-                      <img
-                        src={DollarSign}
-                        alt="Ícone de cifrão"
-                        className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
-                      />
-                      <h2 className=" ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
-                        Recuperação de Dívidas
-                      </h2>
-                    </div>
-                    <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
-                      <img
-                        src={Calendar}
-                        alt="Ícone de calendario"
-                        className="sm:ml-3 max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
-                      />
-                      <h2 className="text-fluid-lg ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px]  border-orange-primary">
-                        Cobrança Preventina
-                      </h2>
-                    </div>
-                    <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
-                      <FaBalanceScale size={60} color="#f1b434" className="max-sm:h-[30px] max-sm:w-[30px]" />
-                      <h2 className=" text-[var(--font-title)] ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
-                        Assessoria Jurídica
-                      </h2>
-                    </div>
-                    <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
-                      <img
-                        src={mic}
-                        alt="Ícone de trofeu"
-                        className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
-                      />
-                      <h2 className=" text-[var(--font-title)] min-w-[150px] text-center ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
-                        SAC
-                      </h2>
-                    </div>
+                    <Link to="/servicos">
+                      <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
+                        <img
+                          src={DollarSign}
+                          alt="Ícone de cifrão"
+                          className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
+                        />
+                        <h2 className=" ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
+                          Recuperação de Dívidas
+                        </h2>
+                      </div>
+                    </Link>
+
+                    <Link to="/servicos#Preventiva">
+                      <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
+                        <img
+                          src={Calendar}
+                          alt="Ícone de calendario"
+                          className="sm:ml-3 max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
+                        />
+                        <h2 className="text-fluid-lg ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px]  border-orange-primary">
+                          Negociação Preventina
+                        </h2>
+                      </div>
+                    </Link>
+                    <Link to="/servicos#Assessoria">
+                      <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
+                        <FaBalanceScale size={60} color="#f1b434" className="max-sm:h-[30px] max-sm:w-[30px]" />
+                        <h2 className=" text-[var(--font-title)] ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
+                          Assessoria Jurídica
+                        </h2>
+                      </div>
+                    </Link>
+                    <Link to="/servicos#SAC">                    
+                      <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
+                        <img
+                          src={mic}
+                          alt="Ícone de trofeu"
+                          className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
+                        />
+                        <h2 className=" text-[var(--font-title)] min-w-[150px] text-center ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
+                          SAC
+                        </h2>
+                      </div>
+                    </Link>
+                    
                   </div>
                 </section>
               </ScrollReveal>

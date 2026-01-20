@@ -27,7 +27,7 @@ export default function Pagar() {
           <div className="flex mb:justify-between max-sm:justify-center max-sm:px-2 gap-8 w-full">
             <div className="h-5 max-lgs:text-center items-center flex mt-10 mb-10">
               <a href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Vim+pelo+site+e+Quero+segunda+via+do+boleto!&type=phone_number&app_absent=0" target="_blank">
-                <button className="pl-5 pr-5 pt-3 pb-3 border-2 border-[#F1B434] rounded-2xl text-[#707372] uppercase font-bold hover:bg-[#F1B434] hover:text-white transition-all duration-300 hover:cursor-pointer">Quero Segunda Via do Boleto</button>
+                <button className="pl-5 pr-5 pt-3 pb-3 border-2 border-[#F1B434] rounded-4xl text-[#F1B434] uppercase font-bold hover:bg-[#F1B434] hover:text-white transition-all duration-300 hover:cursor-pointer">Negociar sua dívida</button>
               </a>
             </div>
           </div>

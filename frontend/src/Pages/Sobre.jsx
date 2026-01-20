@@ -19,12 +19,8 @@ export default function Sobre() {
             </h1>
               <div className="flex justify-center text-center">
 
-                <p className="text-[clamp(0.8rem,4vw,1.3rem)] w-11/12 max-h-[320px] text-wrap max-sm:tracking-tighter max-sm:text-justify max-md:max-w-[340px] text-left max-md:wrap-break-word">
-                  Negociaremos e você recebe! Sem dor de cabeça e sem arranhar a
-                  imagem do seu business ante o cliente! Todo o processo de Cobrança
-                  será acompanhado pelo nosso setor Jurídico, tanto na cobrança
-                  extrajudicial quanto nas cobranças judiciais que se fizerem
-                  necessárias.
+                <p className="text-[clamp(0.8rem,4vw,1.3rem)] w-11/12 max-h-[320px] text-wrap max-sm:tracking-tighter max-sm:text-justify max-md:max-w-[340px] text-center max-md:wrap-break-word">
+                A Clever surgiu em 2019 quando Alan Clever identificou que as assessorias do mercado não entregavam resultados reais na recuperação de crédito. Criou então uma empresa transparente, voltada ao credor e focada em resultado.
                 </p>
               </div>
               <img
