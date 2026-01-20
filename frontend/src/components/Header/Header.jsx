@@ -56,7 +56,7 @@ export function Header({ children }) {
           </a>
           <a
             target="blank"
-            href="https://www.youtube.com/@cleverassessoriaecobranca7043"
+            href="https://www.youtube.com/@clevercobranca"
           >
             <FaYoutube size={20} />
           </a>
