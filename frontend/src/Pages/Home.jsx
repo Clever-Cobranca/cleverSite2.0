@@ -110,7 +110,7 @@ export default function Home() {
             </section>
 
             <ScrollReveal>
-              <section className="h-[540px] bg-gray-primary flex flex-col items-center pt-20 gap-10">
+              <section className="h-full bg-gray-primary flex flex-col items-center p-10 gap-10">
                 <h1 className="font-family-roboto-slab font-bold text-[clamp(1.5rem,4vw,4.25rem)]">
                   Serviços Clever
                 </h1>

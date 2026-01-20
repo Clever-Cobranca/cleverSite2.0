@@ -61,7 +61,7 @@ export function Footer() {
               color="#f1b434"
               className="max-sm:w-[20px] max-sm:h-[20px]"
             />
-            <a href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0" className="text-orange-primary font-medium text-base max-sm:text-[14px]">
+            <a target="_blank" href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0" className="text-orange-primary font-medium text-base max-sm:text-[14px]">
               0800 000 4820
             </a>
           </div>

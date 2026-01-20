@@ -104,7 +104,7 @@ export default function Educacao() {
 
                         <div className="lgs:w-1/2 md:p-10 lgs:p-0 md:flex md:flex-col md:items-center mt-5 text-center lgs:text-start">
                             <h1 className="font-family-roboto-slab max-sm:text-3xl md:text-5xl lgs:text-8xl">Quem é <span className="text-[#707372]">Alan Clever?</span></h1>
-                            <div className="flex flex-col items-center md:items-center gap-10">
+                            <div className="flex flex-col items-center md:items-center gap-5">
                                 <p>Fundador da Clever Assessoria e Cobrança, <a target="_blank" className="underline underline-offset-2" href="https://www.instagram.com/oalanclever/">Alan clever</a> é especialista em recuperação de crédito educacional, com formação em Engenharia e pós-graduação em Direito Contratual e Processo Civil.</p>
                                 <p>Após anos como gestor de unidades escolares e enfrentar na prática os desafios da inadimplência, decidiu transformar o problema em solução, criando um método de cobrança estruturado, firme e ético, que já recuperou milhares de contratos em todo o Brasil.</p>
                                 <p>Hoje, Alan lidera a Clever com foco absoluto em resultados, legalidade e transformação do setor educacional por meio da cobrança inteligente.</p>
@@ -162,7 +162,7 @@ export default function Educacao() {
                                 {/* LADO ESQUERDO */}
                                 <div className="flex-1 flex flex-col gap-6 sm:gap-8">
                                     <h1 className="font-family-roboto-slab font-bold text-4xl sm:text-6xl lg:text-7xl leading-tight">
-                                        E-Book
+                                        E-Book Grátis
                                     </h1>
 
                                     <h3 className="font-family-roboto-slab font-bold text-xl sm:text-2xl lg:text-3xl uppercase m-0">

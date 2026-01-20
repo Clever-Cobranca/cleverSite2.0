@@ -21,8 +21,7 @@ export default function Cultura() {
             Nossa Cultura
           </h1>
           <h4 className="mt-5 text-[clamp(1.2rem,4vw,2rem)]/tight max-sm:text-left max-sm:px-6 text-center font-light">
-            A cultura organizacional é um conjunto de valores, crenças e
-            ações que definem como a organização conduz o negócio.
+          A Nossa Cultura organizacional é um conjunto de valores, crenças e ações que definem como decidimos, como cobramos, como negociamos e como sustentamos resultados, todos os dias.
           </h4>
         </div>
 
@@ -32,7 +31,7 @@ export default function Cultura() {
               <h2 className="text-[clamp(2.8rem,5vw,6rem)]/tight max-sm:text-center font-bold font-family-roboto-slab">
                 Nossa <span className="text-[#F1B434]">Missão</span>
               </h2>
-              <p className="text-[clamp(0.8rem,3vw,1.5rem)] max-w-[900px] text-wrap">
+              <p className="text-[clamp(0.8rem,3vw,1.5rem)] max-w-[900px] text-wrap font-light">
                 Defender os direitos dos credores com assertividade, eficiência e
                 compromisso, garantindo a recuperação de crédito por meio de
                 soluções práticas, firmes e alinhadas à legislação vigente, sempre
