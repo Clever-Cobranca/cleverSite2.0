@@ -28,19 +28,19 @@ export default function Home() {
               >
                 <p className="text-xl max-lgs:text-3xl max-lgs:text-center pt-20 ">
                   Há 7 anos desenvolvendo excelência em recuperação de crédito
-                  
+
                 </p>
                 <p className="min-h-9 font-light text-[clamp(1.4rem,4vw,2rem)] leading-tight">
                   A <strong>Clever</strong> é referência em
                   <strong>
                     {" "}
-                    recuperação de crédito 
+                    recuperação de crédito
                   </strong>
                   , com atuação estratégica e alto índice de efetividade
                 </p>
                 <div className="md:mt-12 mt-2 py-4 flex gap-7 items-center">
                   <a
-                    
+
                     target="_blank"
                     href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0"
                   >
@@ -64,105 +64,105 @@ export default function Home() {
             {/* Container Nossos Números */}
 
             <section className="bg-orange-primary flex max-lgs:flex-col justify-center items-center py-10 gap-10 lgs:gap-16">
-              
-            <ScrollReveal className="flex gap-20 max-sm:flex-col" variant="fadeRight" delay={0.2}>
-              <h2 className="text-[clamp(2.2rem,4vw,5.25rem)]  font-family-roboto-slab font-bold">
-                Nossos Números
-              </h2>
 
-              <div className="flex items-center max-md:flex-col max-lgs:justify-center gap-10 max-lgs:flex-wrap">
-                <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
-                  <img
-                    className="sm:w-[50px] sm:h-[50px] h-[30px] w-[30px]"
-                    src={Vector}
-                    alt="Ícone de unidades"
-                  />
-                  <p className=" font-family-roboto-slab font-bold">+ 200</p>
-                  <p className="text-base max-w-[194px] text-center">
-                    Clientes atendidos em todo o Brasil
-                  </p>
+              <ScrollReveal className="flex gap-20 max-lgs:gap-10 max-lgs:flex-col" variant="fadeRight" delay={0.2}>
+                <h2 className="text-[clamp(2.2rem,4vw,5.25rem)] text-center font-family-roboto-slab font-bold">
+                  Nossos Números
+                </h2>
+
+                <div className="flex items-center max-md:flex-col max-lgs:justify-center gap-10 max-lgs:flex-wrap">
+                  <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
+                    <img
+                      className="sm:w-[50px] sm:h-[50px] h-[30px] w-[30px]"
+                      src={Vector}
+                      alt="Ícone de unidades"
+                    />
+                    <p className=" font-family-roboto-slab font-bold">+ 200</p>
+                    <p className="text-base max-w-[194px] text-center">
+                      Clientes atendidos em todo o Brasil
+                    </p>
+                  </div>
+                  <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
+                    <img
+                      className="sm:w-[50px] sm:h-[50px] h-[30px] w-[30px]"
+                      src={Chart_Histogram}
+                      alt="Ícone de gráfico de barras"
+                    />
+                    <p className="font-family-roboto-slab font-bold">+255 MIL</p>
+                    <p className="text-base max-w-[194px] text-center">
+                      Interações com Clientes em 2025
+                    </p>
+                  </div>
+                  <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
+                    <img
+                      src={Signal_Alt}
+                      alt="Ícone de sinal de crescimento"
+                      className="sm:w-[50px] sm:h-[50px] h-[30px] w-[30px]"
+                    />
+                    <p className=" font-family-roboto-slab font-bold">23</p>
+                    <p className="text-base max-w-[194px] text-center">
+                      Estados com clientes atendidos em todo o Brasil
+                    </p>
+                  </div>
                 </div>
-                <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
-                  <img
-                    className="sm:w-[50px] sm:h-[50px] h-[30px] w-[30px]"
-                    src={Chart_Histogram}
-                    alt="Ícone de gráfico de barras"
-                  />
-                  <p className="font-family-roboto-slab font-bold">+255 MIL</p>
-                  <p className="text-base max-w-[194px] text-center">
-                    Interações com Clientes em 2025
-                  </p>
-                </div>         
-                <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
-                  <img
-                    src={Signal_Alt}
-                    alt="Ícone de sinal de crescimento"
-                    className="sm:w-[50px] sm:h-[50px] h-[30px] w-[30px]"
-                  />
-                  <p className=" font-family-roboto-slab font-bold">23</p>
-                  <p className="text-base max-w-[194px] text-center">
-                    Estados com clientes atendidos em todo o Brasil
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
+              </ScrollReveal>
             </section>
 
-              <ScrollReveal>                
-                <section className="h-[540px] bg-gray-primary flex flex-col items-center pt-20 gap-10">
-                  <h1 className="font-family-roboto-slab font-bold text-[clamp(1.5rem,4vw,4.25rem)]">
-                    Serviços Clever
-                  </h1>
-                  <div className="w-full flex justify-around flex-wrap">
-                    <Link to="/servicos">
-                      <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
-                        <img
-                          src={DollarSign}
-                          alt="Ícone de cifrão"
-                          className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
-                        />
-                        <h2 className=" ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
-                          Recuperação de Dívidas
-                        </h2>
-                      </div>
-                    </Link>
+            <ScrollReveal>
+              <section className="h-full bg-gray-primary flex flex-col items-center p-10 gap-10">
+                <h1 className="font-family-roboto-slab font-bold text-[clamp(1.5rem,4vw,4.25rem)]">
+                  Serviços Clever
+                </h1>
+                <div className="w-full flex justify-around flex-wrap">
+                  <Link to="/servicos">
+                    <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
+                      <img
+                        src={DollarSign}
+                        alt="Ícone de cifrão"
+                        className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
+                      />
+                      <h2 className=" ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
+                        Recuperação de Dívidas
+                      </h2>
+                    </div>
+                  </Link>
 
-                    <Link to="/servicos#Preventiva">
-                      <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
-                        <img
-                          src={Calendar}
-                          alt="Ícone de calendario"
-                          className="sm:ml-3 max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
-                        />
-                        <h2 className="text-fluid-lg ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px]  border-orange-primary">
-                          Negociação Preventina
-                        </h2>
-                      </div>
-                    </Link>
-                    <Link to="/servicos#Assessoria">
-                      <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
-                        <FaBalanceScale size={60} color="#f1b434" className="max-sm:h-[30px] max-sm:w-[30px]" />
-                        <h2 className=" text-[var(--font-title)] ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
-                          Assessoria Jurídica
-                        </h2>
-                      </div>
-                    </Link>
-                    <Link to="/servicos#SAC">                    
-                      <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
-                        <img
-                          src={mic}
-                          alt="Ícone de trofeu"
-                          className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
-                        />
-                        <h2 className=" text-[var(--font-title)] min-w-[150px] text-center ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
-                          SAC
-                        </h2>
-                      </div>
-                    </Link>
-                    
-                  </div>
-                </section>
-              </ScrollReveal>
+                  <Link to="/servicos#Preventiva">
+                    <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
+                      <img
+                        src={Calendar}
+                        alt="Ícone de calendario"
+                        className="sm:ml-3 max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
+                      />
+                      <h2 className="text-fluid-lg ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px]  border-orange-primary">
+                        Negociação Preventina
+                      </h2>
+                    </div>
+                  </Link>
+                  <Link to="/servicos#Assessoria">
+                    <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
+                      <FaBalanceScale size={60} color="#f1b434" className="max-sm:h-[30px] max-sm:w-[30px]" />
+                      <h2 className=" text-[var(--font-title)] ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
+                        Assessoria Jurídica
+                      </h2>
+                    </div>
+                  </Link>
+                  <Link to="/servicos#SAC">
+                    <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
+                      <img
+                        src={mic}
+                        alt="Ícone de trofeu"
+                        className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
+                      />
+                      <h2 className=" text-[var(--font-title)] min-w-[150px] text-center ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
+                        SAC
+                      </h2>
+                    </div>
+                  </Link>
+
+                </div>
+              </section>
+            </ScrollReveal>
             {/* Container vem ser Um Clever */}
             <ScrollReveal>
               <section className="flex justify-around max-md:justify-center items-center flex-wrap">

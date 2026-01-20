@@ -69,12 +69,12 @@ export default function Serviços() {
         </ScrollReveal>
 
         <ScrollReveal variant="fadeRight" duration={0.4}>
-          <section className="bg-[#f4f4f4] flex flex-col gap-7 max-sm:gap-4 sm:pl-18 sm:pr-12 sm:py-12 max-lgs:flex-col p-8 max-sm:items-center justify-between">
+          <section className="bg-[#f4f4f4] flex flex-col gap-7 max-sm:gap-4 sm:pl-18 sm:pr-12 sm:py-12 max-lgs:flex-col  lgs:p-4 max-sm:items-center justify-between">
+            <div className="flex gap-35 max-lgs:gap-10 max-sm:flex-col max-lgs:flex-col max-sm:gap-4">
+              <div className="flex flex-col gap-7">
             <h2 className="max-lgs:text-center flex max-sm:flex-col md:max-xl:justify-center text-start font-family-roboto-slab text-[clamp(2rem,4vw,5rem)]/tight font-bold">
               Negociação<span className="text-[#F1B434] ml-1">Presencial</span>
             </h2>
-            <div className="flex gap-35 max-lgs:gap-10 max-sm:flex-col max-lgs:flex-col max-sm:gap-4">
-              <div className="flex flex-col gap-7">
                 <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
                   Realizamos a cobrança no local que o devedor adquiriu o produto ou
                   serviço. Enviamos um de nossos representantes em qualquer lugar do
@@ -102,17 +102,17 @@ export default function Serviços() {
           </section>
         </ScrollReveal>
         <ScrollReveal variant="fadeLeft" duration={0.5}>
-          <section id='Preventiva' className=" flex flex-col gap-7 sm:p-12 max-lgs:flex-col p-8 max-sm:items-center justify-between">
-            <h2 className="max-sm:text-center max-lgs:text-center text-end font-family-roboto-slab text-[clamp(2rem,4vw,5rem)]/tight font-bold">
-              Negociação<span className="text-[#F1B434]">Preventiva</span>
-            </h2>
-            <div className="flex gap-15 max-sm:flex-col max-lgs:flex-col max-sm:gap-4">
+          <section id='Preventiva' className=" flex flex-col gap-7 sm:p-12 max-lgs:flex-col p-8 lgs:p-4  max-sm:items-center justify-between">
+            <div className="flex gap-30 max-sm:flex-col max-lgs:flex-col max-sm:gap-4">
               <img
                 src={lauraAtendendo}
                 alt="Nossa História - Clever"
                 className=""
               />
               <div className="flex flex-col gap-7">
+            <h2 className="max-sm:text-center max-lgs:text-center text-end font-family-roboto-slab text-[clamp(2rem,4vw,5rem)]/tight font-bold">
+              Negociação<span className="text-[#F1B434]">Preventiva</span>
+            </h2>
                 <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
                   Nosso consiste em lembretes de vencimento, envio de boletos e cobranças, incluindo renegociação de atrasos. Atuamos em plataforma Omni-Channel (call center, e-mail, SMS, WhatsApp, redes sociais e boleto impresso) para reduzir até 95% dos atrasos recorrentes.
                 </p>
