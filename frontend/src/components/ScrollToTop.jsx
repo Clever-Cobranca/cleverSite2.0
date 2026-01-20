@@ -8,7 +8,6 @@ function ScrollToTop() {
     // useLayoutEffect executa antes da pintura do navegador
     // Rola a janela
     window.scrollTo(0, 0);
-    
     // Força o scroll em todos os elementos possíveis
     if (document.documentElement) {
       document.documentElement.scrollTop = 0;

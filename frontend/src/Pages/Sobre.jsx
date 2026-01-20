@@ -15,7 +15,7 @@ export default function Sobre() {
         <ScrollReveal variant="fadeDown">
           <div className="flex flex-col items-center justify-between max-xl:justify-center w-full mt-5 flex-wrap">
             <h1 className="text-[clamp(2.2rem,6vw,6.2rem)] max-sm:px-3 leading-tight font-family-roboto-slab font-bold py-2">
-              Nosso Historía
+              Nossa História
             </h1>
               <div className="flex justify-center text-center">
 

@@ -51,7 +51,7 @@ export default function WhatsAppButton() {
         />
       </a>
 
-      <style jsx>{`
+      <style jsx="true">{`
         @keyframes pulse {
           0%, 100% {
             opacity: 0.3;
