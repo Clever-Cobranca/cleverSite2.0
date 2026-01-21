@@ -46,14 +46,14 @@ export default function TrabalheConosco() {
           </div>
         </ScrollReveal>
         <ScrollReveal variant="fadeUp">
-          <section className="px-6 sm:pt-10 pt-6 pb-20 lg:mb-10">
-            <div className="lg:pl-12 flex flex-col">
+          <section className="sm:pt-10 pt-6 pb-20 lg:mb-10">
+            <div className="flex flex-col justify-center items-center">
               <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] max-lgs:max-w-[645px]   max-sm:text-4xl max-sm:pl-0 md:max-lg:pl-8 lg:max-xl:pl-6 lg:max-xl:text-center leading-tight font-family-roboto-slab font-bold py-2">
                 Quem Somos?
               </h1>
-              <div className="flex justify-between max-lgs:justify-center items-start wrap-break-word flex-wrap gap-4">
-                <div className="flex flex-col items-center gap-3">
-                  <p className="text-[clamp(0.8rem,4vw,1.3rem)] max-w-[645px]">
+              <div className="flex justify-between flex-col wrap-break-word flex-wrap gap-4">
+                <div className="flex flex-col items-center  gap-3">
+                  <p className="text-[clamp(0.8rem,4vw,1.3rem)] max-w-[1200px] max-lgs:px-3">
                     Somos a Clever Assessoria Jurídica e Cobrança, uma empresa
                     especializada em recuperação de crédito com atuação firme,
                     transparente e totalmente orientada ao credor. Nascemos para
@@ -68,7 +68,7 @@ export default function TrabalheConosco() {
                   />
                 </div>
                 <div className="flex flex-col items-center gap-3">
-                  <p className="text-[clamp(0.8rem,4vw,1.3rem)] max-w-[645px]">
+                  <p className="text-[clamp(0.8rem,4vw,1.3rem)] max-w-[1200px] max-lgs:px-3">
                     Trabalhamos em todo o ciclo da cobrança, da fase extrajudicial
                     às medidas mais severas quando necessárias, sempre com base
                     jurídica sólida, estratégia e foco absoluto em eficiência. Nosso
@@ -76,12 +76,6 @@ export default function TrabalheConosco() {
                     devido, preservando direitos, fortalecendo relações e elevando o
                     padrão de cobrança no Brasil.
                   </p>
-
-                  <img
-                    className="max-w-[540px] w-full h-full"
-                    src={lauraTrabalheConosco}
-                    alt="Trio 1 fantasiado"
-                  />
                 </div>
               </div>
             </div>

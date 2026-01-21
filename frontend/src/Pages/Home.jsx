@@ -40,7 +40,7 @@ export default function Home() {
                     target="_blank"
                     href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0"
                   >
-                    <button className="h-12 md:h-[87px] max-sm:p-1 w-52 max-md:max-w-36 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(1rem,3vw,1.25rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
+                    <button className="h-[50px] md:h-[87px] max-sm:p-1 w-52 max-md:max-w-38 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(1rem,3vw,1.25rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
                       Negocie suas Dívidas
                     </button>
                   </a>
@@ -61,7 +61,7 @@ export default function Home() {
 
             <section className="bg-orange-primary flex max-lgs:flex-col justify-center items-center py-10 gap-10 lgs:gap-16">
               <ScrollReveal
-                className="flex gap-20 max-lgs:flex-col"
+                className="flex gap-20 max-lgs:flex-col max-lgs:items-center"
                 variant="fadeRight"
                 delay={0.2}
               >
@@ -180,7 +180,7 @@ export default function Home() {
                     empresas e comunidades.
                   </p>
                   <a href="/trabalhe-conosco">
-                    <button className="my-4 text-[#707372] text-[clamp(0.8rem,4vw,1.2rem)] font-bold h-12 lg:w-2xs w-[170px] rounded-4xl shadow-[0px_2px_2px_rgba(0,0,0,0.75)] hover:cursor-pointer  hover:bg-[rgb(247,246,246)]">
+                    <button className="my-4 text-[#707372] text-[clamp(0.8rem,4vw,1.2rem)] font-bold h-12 lg:w-2xs w-[200px] rounded-4xl shadow-[0px_2px_2px_rgba(0,0,0,0.75)] hover:cursor-pointer  hover:bg-[rgb(247,246,246)]">
                       Trabalhe Conosco
                     </button>
                   </a>
