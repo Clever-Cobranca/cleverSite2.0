@@ -51,11 +51,11 @@ export default function Serviços() {
               />
 
               <div className="max-sm:w-full   sm:max-md:p-8 flex flex-col max-lgs:items-center gap-5 md:mb-30 mb-20">
-                <h1 className="max-sm:text-left flex max-sm:flex-col max-lgs:mt-2 font-family-roboto-slab text-[clamp(1.8rem,4vw,5rem)]/tight font-bold">
+                <h1 className="max-sm:text-left flex max-sm:flex-col max-lgs:mt-12 font-family-roboto-slab text-[clamp(1.8rem,4vw,5rem)]/tight font-bold">
                   Recuperação de{" "}
                   <span className="text-[#F1B434] sm:ml-2">Crédito</span>
                 </h1>
-                <p className="text-[clamp(0.8rem,4vw,1.5rem)] text-left leading-7 w-5/6 font-light">
+                <p className="text-[clamp(0.8rem,4vw,1.3rem)]  text-left leading-7 w-5/6">
                   É a recuperação daqueles Títulos, Contratos, Mensalidades,
                   Notas Promissórias, Cheques, Dívidas que estão em atraso e
                   você já tentou negociar ou já fez restrições nos Órgãos de
@@ -75,7 +75,7 @@ export default function Serviços() {
                   Negociação
                   <span className="text-[#F1B434] sm:ml-3">Presencial</span>
                 </h2>
-                <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
+                <p className="text-[clamp(0.8rem,4vw,1.3rem)]  text-left leading-7">
                   Realizamos a cobrança no local que o devedor adquiriu o
                   produto ou serviço. Enviamos um de nossos representantes em
                   qualquer lugar do Brasil. Este irá realizar atendimentos
@@ -84,7 +84,7 @@ export default function Serviços() {
                   reservada, impressora e acesso à internet.
                 </p>
 
-                <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
+                <p className="text-[clamp(0.8rem,4vw,1.3rem)]  text-left leading-7">
                   Nosso trabalho consiste em localizar, notificar e levar o
                   devedor até o dia do atendimento. Um de nossos representantes
                   realiza o acordo e você recebe. Como resultado, nossa
@@ -107,18 +107,18 @@ export default function Serviços() {
             id="Preventiva"
             className=" flex flex-col gap-7 sm:p-12 max-lgs:flex-col p-8 lgs:p-4  max-sm:items-center justify-between"
           >
-            <div className="flex gap-30 max-sm:flex-col max-lgs:flex-col max-sm:gap-4">
+            <div className="flex gap-10 max-sm:flex-col max-lgs:flex-col-reverse max-sm:gap-4">
               <img
                 src={lauraAtendendo}
                 alt="Nossa História - Clever"
                 className=""
               />
-              <div className="flex flex-col gap-7">
+              <div className="flex flex-col max-lgs:items-center gap-7">
                 <h2 className="flex max-sm:text-center max-sm:flex-col max-lgs:text-center text-end font-family-roboto-slab text-[clamp(2rem,4vw,5rem)]/tight font-bold">
                   Negociação
                   <span className="text-[#F1B434] sm:ml-3">Preventiva</span>
                 </h2>
-                <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
+                <p className="text-[clamp(0.8rem,4vw,1.3rem)] text-left leading-7">
                   Nosso consiste em lembretes de vencimento, envio de boletos e
                   cobranças, incluindo renegociação de atrasos. Atuamos em
                   plataforma Omni-Channel (call center, e-mail, SMS, WhatsApp,
@@ -126,7 +126,7 @@ export default function Serviços() {
                   atrasos recorrentes.
                 </p>
 
-                <p className="text-[clamp(0.8rem,4vw,1rem)] text-left leading-5">
+                <p className="text-[clamp(0.8rem,4vw,1.3rem)] text-left leading-7">
                   A cobrança preventiva elimina custos de manter um setor
                   interno, garante que o credor receba o que é devido e reduz
                   vínculos empregatícios. A Clever estrutura toda a operação de
@@ -145,7 +145,7 @@ export default function Serviços() {
               </h2>
 
               {/* Parágrafo introdutório */}
-              <p className="text-[clamp(0.9rem,2vw,1.2rem)] text-center text-gray-700 mb-12 max-w-4xl mx-auto">
+              <p className="text-[clamp(0.8rem,4vw,1.3rem)] text-center text-gray-700 mb-12 max-w-4xl mx-auto">
                 Contamos com equipe jurídica altamente qualificada que assegura
                 conformidade legal em todas as etapas do processo.
               </p>
@@ -242,12 +242,12 @@ export default function Serviços() {
 
               {/* Parágrafos */}
               <div className="flex flex-col gap-6 mb-8">
-                <p className="text-[clamp(0.9rem,2vw,1.1rem)] text-gray-800 leading-7">
+                <p className="text-[clamp(0.8rem,4vw,1.3rem)] text-gray-800 leading-7">
                   Nosso Serviço de Atendimento ao Cliente vai além do
                   convencional. Utilizamos abordagem humanizada e respeitosa,
                   transformando cada contato em uma oportunidade de solução.
                 </p>
-                <p className="text-[clamp(0.9rem,2vw,1.1rem)] text-gray-800 leading-7">
+                <p className="text-[clamp(0.8rem,4vw,1.3rem)] text-gray-800 leading-7">
                   Entendemos que por trás de cada atendimento existe uma
                   história, e nosso time está preparado para encontrar a melhor
                   solução para ambas as partes.
@@ -275,7 +275,7 @@ export default function Serviços() {
                       }}
                     />
                     <motion.p
-                      className="text-[clamp(0.9rem,2vw,1.1rem)] text-gray-800 relative z-10 px-3 py-2"
+                      className="text-[clamp(0.8rem,4vw,1.3rem)] text-gray-800 relative z-10 px-3 py-2"
                       variants={{
                         initial: { color: "#1f2937" },
                         hover: {
@@ -308,7 +308,7 @@ export default function Serviços() {
                       }}
                     />
                     <motion.p
-                      className="text-[clamp(0.9rem,2vw,1.1rem)] text-gray-800 relative z-10 px-3 py-2"
+                      className="text-[clamp(0.8rem,4vw,1.3rem)] text-gray-800 relative z-10 px-3 py-2"
                       variants={{
                         initial: { color: "#1f2937" },
                         hover: {
@@ -341,7 +341,7 @@ export default function Serviços() {
                       }}
                     />
                     <motion.p
-                      className="text-[clamp(0.9rem,2vw,1.1rem)] text-gray-800 relative z-10 px-3 py-2"
+                      className="text-[clamp(0.8rem,4vw,1.3rem)] text-gray-800 relative z-10 px-3 py-2"
                       variants={{
                         initial: { color: "#1f2937" },
                         hover: {
@@ -374,7 +374,7 @@ export default function Serviços() {
                       }}
                     />
                     <motion.p
-                      className="text-[clamp(0.9rem,2vw,1.1rem)] text-gray-800 relative z-10 px-3 py-2"
+                      className="text-[clamp(0.8rem,4vw,1.3rem)] text-gray-800 relative z-10 px-3 py-2"
                       variants={{
                         initial: { color: "#1f2937" },
                         hover: {

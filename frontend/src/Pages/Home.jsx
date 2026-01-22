@@ -21,26 +21,25 @@ export default function Home() {
         {/* main mantém a altura fixa */}
         <div>
           <main className="h-full">
-            <section className="max-lgs:h-auto lgs:flex justify-around items-center max-sm:pt-0 max-lgs:pt-10 max-lg:flex-col">
+            <section className="max-lgs:h-auto lgs:flex justify-around items-center max-lgs:py-10 max-lg:flex-col">
               <div
                 id="aside"
-                className="flex max-lgs:items-center max-lgs:justify-around flex-col gap-6 md:px-20 px-10"
+                className="flex max-lgs:items-center max-lgs:justify-around flex-col gap-6 md:px-20 px-10 pb-20 "
               >
-                <p className="text-xl max-lgs:text-3xl max-lgs:text-center pt-20 ">
+                <p className="text-[clamp(1.4rem,4vw,2rem)]/tight max-lgs:text-center ">
                   Com expertise consolidada, atuamos continuamente no
                   desenvolvimento da excelência em recuperação de crédito.
                 </p>
-                <p className="min-h-9 font-light text-[clamp(1.4rem,4vw,2rem)] leading-tight">
-                  A <strong>Clever</strong> é referência em
-                  <strong> recuperação de crédito</strong>, com atuação
+                <p className="min-h-9 text-[clamp(1.4rem,4vw,2rem)] max-lg:text-center leading-tight">
+                  A Clever é referência em recuperação de crédito, com atuação
                   estratégica e alto índice de efetividade
                 </p>
-                <div className="md:mt-12 mt-2 py-4 flex gap-7 items-center">
+                <div className="md:mt-2 2xl:mt-20 py-4 flex gap-7 items-center">
                   <a
                     target="_blank"
                     href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0"
                   >
-                    <button className="h-[50px] md:h-[87px] max-sm:p-1 w-52 max-md:max-w-38 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(1rem,3vw,1.25rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
+                    <button className="h-[50px] md:h-[87px] max-sm:p-1 w-[380px] max-sm:w-64 max-md:w-38 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(1rem,4vw,1.5rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
                       Negocie suas Dívidas
                     </button>
                   </a>
@@ -61,18 +60,18 @@ export default function Home() {
 
             <section className="bg-orange-primary flex max-lgs:flex-col justify-center items-center py-10 gap-10 lgs:gap-16">
               <ScrollReveal
-                className="flex gap-20 max-lgs:flex-col max-lgs:items-center"
+                className="flex max-lg:gap-20 max-2xl:gap-8 gap-24 justify-around max-lgs:flex-col items-center"
                 variant="fadeRight"
                 delay={0.2}
               >
-                <h2 className="text-[clamp(2.2rem,4vw,5.25rem)]  font-family-roboto-slab font-bold">
+                <h2 className="text-[clamp(2.2rem,5vw,5.8rem)]  font-family-roboto-slab font-bold">
                   Nossos Números
                 </h2>
 
                 <div className="flex items-center max-md:flex-col max-lgs:justify-center gap-10 max-lgs:flex-wrap">
                   <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
                     <img
-                      className="sm:w-[50px] sm:h-[50px] h-[30px] w-[30px]"
+                      className="md:w-[50px] md:h-[50px] h-[30px] w-[30px]"
                       src={Vector}
                       alt="Ícone de unidades"
                     />
@@ -83,7 +82,7 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
                     <img
-                      className="sm:w-[50px] sm:h-[50px] h-[30px] w-[30px]"
+                      className="md:w-[50px] md:h-[50px] h-[30px] w-[30px]"
                       src={Chart_Histogram}
                       alt="Ícone de gráfico de barras"
                     />
@@ -98,7 +97,7 @@ export default function Home() {
                     <img
                       src={Signal_Alt}
                       alt="Ícone de sinal de crescimento"
-                      className="sm:w-[50px] sm:h-[50px] h-[30px] w-[30px]"
+                      className="md:w-[50px] md:h-[50px] h-[30px] w-[30px]"
                     />
                     <p className=" font-family-roboto-slab font-bold">23</p>
                     <p className="text-base max-w-[194px] text-center">
@@ -111,7 +110,7 @@ export default function Home() {
 
             <ScrollReveal>
               <section className="h-full bg-gray-primary flex flex-col items-center p-10 gap-10">
-                <h1 className="font-family-roboto-slab font-bold text-[clamp(1.5rem,4vw,4.25rem)]">
+                <h1 className="font-family-roboto-slab font-bold text-[clamp(2.2rem,5vw,5.8rem)]">
                   Serviços Clever
                 </h1>
                 <div className="w-full flex justify-around flex-wrap">
@@ -120,11 +119,11 @@ export default function Home() {
                       <img
                         src={DollarSign}
                         alt="Ícone de cifrão"
-                        className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
+                        className="max-sm:w-[30px] max-lg:w-[45px] max-lg:h-[45px] max-sm:h-[30px] w-[60px] h-[60px]"
                       />
-                      <h2 className=" ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
+                      <p className="text-base ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
                         Recuperação de Dívidas
-                      </h2>
+                      </p>
                     </div>
                   </Link>
 
@@ -133,11 +132,11 @@ export default function Home() {
                       <img
                         src={Calendar}
                         alt="Ícone de calendario"
-                        className="sm:ml-3 max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
+                        className="sm:ml-3 max-sm:w-[30px] max-lg:w-[45px] max-lg:h-[45px] max-sm:h-[30px] w-[60px] h-[60px]"
                       />
-                      <h2 className="text-fluid-lg ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px]  border-orange-primary">
+                      <p className="text-base ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px]  border-orange-primary">
                         Negociação Preventina
-                      </h2>
+                      </p>
                     </div>
                   </Link>
                   <Link to="/servicos#Assessoria">
@@ -145,23 +144,23 @@ export default function Home() {
                       <FaBalanceScale
                         size={60}
                         color="#f1b434"
-                        className="max-sm:h-[30px] max-sm:w-[30px]"
+                        className="max-sm:h-[30px] max-sm:w-[30px] max-lg:w-[45px] max-lg:h-[45px]"
                       />
-                      <h2 className=" text-[var(--font-title)] ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
+                      <p className="text-base ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
                         Assessoria Jurídica
-                      </h2>
+                      </p>
                     </div>
                   </Link>
                   <Link to="/servicos#SAC">
                     <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
                       <img
                         src={mic}
-                        alt="Ícone de trofeu"
-                        className="max-sm:w-[30px] max-sm:h-[30px] w-[60px] h-[60px]"
+                        alt="Ícone de mic"
+                        className="max-sm:w-[30px] max-sm:h-[30px] max-lg:w-[45px] max-lg:h-[45px]  w-[60px] h-[60px]"
                       />
-                      <h2 className=" text-[var(--font-title)] min-w-[150px] text-center ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
+                      <p className="text-base min-w-[150px] text-center ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
                         SAC
-                      </h2>
+                      </p>
                     </div>
                   </Link>
                 </div>
@@ -169,18 +168,18 @@ export default function Home() {
             </ScrollReveal>
             {/* Container vem ser Um Clever */}
             <ScrollReveal>
-              <section className="flex justify-around max-md:justify-center items-center flex-wrap">
-                <div className="flex flex-col md:gap-11 gap-7 items-start max-md:pl-2 max-md:items-center">
-                  <h1 className="text-[clamp(3rem,4vw,4.25rem)] leading-tight w-[500px] max-sm:w-max max-md:text-center font-family-roboto-slab font-bold">
-                    Vem ser <p className="text-orange-primaTry">Clever!</p>
+              <section className="flex justify-around max-md:justify-center items-center flex-wrap py-8">
+                <div className="flex flex-col md:gap-11 gap-7 items-start max-md:pl-2 max-lgs:items-center">
+                  <h1 className="text-[clamp(2.2rem,5vw,5.8rem)] leading-tight max-sm:w-max max-md:text-center font-family-roboto-slab font-bold">
+                    Vem ser <span className="text-orange-primary">Clever!</span>
                   </h1>
-                  <p className="text-[clamp(0.8rem,4vw, 1.5rem)] h-[90px] max-w-[678px] max-md:w-[340px] max-sm:w-[260px] ">
+                  <p className="text-[clamp(1.4rem,3vw,2rem)]/tight max-w-[778px] max-lg:w-[700px] max-md:w-[340px] max-sm:w-[260px] max-sm:text-center ">
                     Conheça as oportunidades de carreira na Clever e junte-se a
                     nós em nossa missão de ser parte da solução para pessoas,
                     empresas e comunidades.
                   </p>
                   <a href="/trabalhe-conosco">
-                    <button className="my-4 text-[#707372] text-[clamp(0.8rem,4vw,1.2rem)] font-bold h-12 lg:w-2xs w-[200px] rounded-4xl shadow-[0px_2px_2px_rgba(0,0,0,0.75)] hover:cursor-pointer  hover:bg-[rgb(247,246,246)]">
+                    <button className="h-[50px] md:h-[87px] max-sm:p-1 w-[380px] max-sm:w-64 max-md:w-38 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(1rem,4vw,1.5rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
                       Trabalhe Conosco
                     </button>
                   </a>
@@ -195,8 +194,8 @@ export default function Home() {
 
             {/* Sessão de perguntas frequentes */}
             <ScrollReveal>
-              <section className="min-h-[600px] w-full sm:px-20 px-1 bg-gray-primary flex flex-wrap justify-center pt-14 pb-3 items-baseline">
-                <h2 className="text-[clamp(2.2rem,4vw,5.625rem)] max-sm:text-center leading-tight lgs:max-w-80 mb-2 font-bold">
+              <section className="min-h-[600px] w-full sm:px-20 px-1 bg-gray-primary flex flex-wrap max-lgs:gap-3 justify-center py-14 items-baseline">
+                <h2 className="text-[clamp(2.2rem,5vw,5.8rem)] font-family-roboto-slab max-sm:text-center leading-tight lgs:max-w-80 mb-2 font-bold">
                   Perguntas Frequentes
                 </h2>
                 <Accordion />
