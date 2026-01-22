@@ -26,7 +26,7 @@ export function CircleExpandButton({ bgColor, hoverColor, textColor, text, hover
 
     return (
         <motion.button
-            className={`relative overflow-hidden ${bgColor} ${textColor} hover:cursor-pointer text-center p-4 rounded-4xl border-2 border-[#F1B434]`}
+            className={`relative overflow-hidden ${bgColor} ${textColor} text-[clamp(0.8rem,4vw,1.3rem)] hover:cursor-pointer text-center p-4 rounded-4xl border-2 border-[#F1B434]`}
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -93,7 +93,7 @@ function BorderCircleButton() {
 
     return (
         <motion.button
-            className="relative overflow-hidden text-center p-4 rounded-4xl"
+            className="relative overflow-hidden text-center  p-4 rounded-4xl"
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
