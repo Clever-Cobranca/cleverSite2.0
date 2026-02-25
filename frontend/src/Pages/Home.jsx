@@ -75,7 +75,7 @@ export default function Home() {
                       src={Vector}
                       alt="Ícone de unidades"
                     />
-                    <p className=" font-family-roboto-slab font-bold">+ 200</p>
+                    <p className=" font-family-roboto-slab font-bold">+200</p>
                     <p className="text-base max-w-[194px] text-center">
                       Clientes atendidos em todo o Brasil
                     </p>
@@ -122,7 +122,7 @@ export default function Home() {
                         className="max-sm:w-[30px] max-lg:w-[45px] max-lg:h-[45px] max-sm:h-[30px] w-[60px] h-[60px]"
                       />
                       <p className="text-base ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
-                        Recuperação de Dívidas
+                        Recuperação de Crédito
                       </p>
                     </div>
                   </Link>
