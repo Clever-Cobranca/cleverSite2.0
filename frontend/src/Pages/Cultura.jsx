@@ -1,12 +1,13 @@
 import Logo3D from "../assets/Logo3D.png";
 import { Header } from "../components/Header/Header";
-import { HiOutlineDocumentCheck } from "react-icons/hi2";
 import { LiaHandHoldingHeartSolid } from "react-icons/lia";
-import { FaRegChartBar, FaRegStar, FaHandshake } from "react-icons/fa";
+import { GoTrophy, GoGraph } from "react-icons/go";
+import { AiOutlineTeam } from "react-icons/ai";
+
 import { LuHandshake } from "react-icons/lu";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { FiUserPlus } from "react-icons/fi";
-import { PiBank } from "react-icons/pi";
+import { PiBank, PiHandHeartBold } from "react-icons/pi";
 import { Footer } from "../components/Footer/Footer";
 import ButtonWhats from "../components/ButtonWhats";
 import ScrollReveal from "../components/scrollView";
@@ -16,12 +17,12 @@ export default function Cultura() {
     {
       title: "Foco em Resultados",
       text: "Cada ação do colaborador deve ter um propósito claro: gerar recuperação efetiva ao credor. Todas as atividades devem ser executadas com objetividade, prioridade no que realmente entrega resultado e comprometimento total com a solução da inadimplência.",
-      icone: <FaRegStar size={30} color="#F1B434" />,
+      icone: <GoTrophy size={30} color="#F1B434" />,
     },
     {
       title: "Ética e Transparência",
       text: "Todas nossas ações, desde a negociação até a interação entre colaboradores, devem ser claras, íntegras e verdadeiras. Não há espaço para omissões ou informações falsas. O credor deve ter ciência do que está sendo feito em todas as etapas.",
-      icone: <HiOutlineDocumentCheck size={30} color="#F1B434" />,
+      icone: <PiHandHeartBold size={30} color="#F1B434" />,
     },
     {
       title: "Compromisso",
@@ -36,7 +37,7 @@ export default function Cultura() {
     {
       title: "Desenvolvimento Contínuo",
       text: "Promovemos a evolução constante de métodos, pessoas e tecnologia. Investimos em capacitação para aumentar a eficiência da recuperação de crédito, valorizando colaboradores que demonstram comprometimento, aprendizado contínuo e vontade real de evoluir.",
-      icone: <FaRegChartBar size={30} color="#F1B434" />,
+      icone: <GoGraph size={30} color="#F1B434" />,
     },
     {
       title: "Responsabilidade Financeira",
@@ -46,7 +47,7 @@ export default function Cultura() {
     {
       title: "Trabalho em Equipe",
       text: "Colaboração entre setores para garantir que as metas sejam atingidas.",
-      icone: <FiUserPlus size={30} color="#F1B434" />,
+      icone: <AiOutlineTeam size={30} color="#F1B434" />,
     },
     {
       title: "Legalidade",
@@ -76,11 +77,13 @@ export default function Cultura() {
               <h2 className="text-[clamp(2.8rem,5vw,6rem)]/tight max-sm:text-center font-bold font-family-roboto-slab">
                 Nossa <span className="text-[#F1B434]">Missão</span>
               </h2>
-              <p className="text-[clamp(0.8rem,3vw,1.5rem)] max-w-[900px] text-wrap font-light">
-                Defender os direitos dos credores com assertividade, eficiência
-                e compromisso, garantindo a recuperação de crédito por meio de
-                soluções práticas, firmes e alinhadas à legislação vigente,
-                sempre priorizando resultados para os credores.
+              <p className="text-[clamp(1.2rem,4vw,2rem)]/tight max-w-[900px] text-wrap font-light">
+                Transformar inadimplência em resultado real para clientes e
+                colaboradores.
+              </p>
+              <p className="text-[clamp(1.2rem,4vw,2rem)]/tight max-w-[900px] text-wrap font-light">
+                Desenvolver crescimento nas pessoas que constroem e participam
+                da MISSÃO.
               </p>
             </div>
 
