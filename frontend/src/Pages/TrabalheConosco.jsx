@@ -202,7 +202,7 @@ export default function TrabalheConosco() {
                         </motion.div>
                       </div>
                       <div>
-                        <h4 className="text-4xl font-bold text-center">
+                        <h4 className="text-4xl max-lgs:md:text-xl font-bold text-center">
                           Supervisor/Coordenador
                           <br />
                           <span className="text-[#F1B434]">Clever</span> !
@@ -391,27 +391,6 @@ export default function TrabalheConosco() {
                               mensais(podendo adicionar até 5% sobre a variavel
                               além de prêmios)
                             </li>
-                            <li className="list-disc">
-                              Exemplo de postura (forma de comunicar-se, de
-                              lidar e conduta com o time)
-                            </li>
-                            <li className="list-disc">
-                              Disciplina e comprometimento
-                            </li>
-                            <li className="list-disc">Comunicação clara</li>
-                            <li className="list-disc">direta e assertiva</li>
-                            <li className="list-disc">Atuar com dinamismo</li>
-                            <li className="list-disc">Foco em resultado</li>
-                            <li className="list-disc">
-                              Agir com verdade, ética e transparência
-                            </li>
-                            <li className="list-disc">Controle emocional</li>
-                            <li className="list-disc">
-                              Alinhamento com a cultura Clever
-                            </li>
-                            <li className="list-disc">Proatividade</li>
-                            <li className="list-disc">Senso de urgência</li>
-                            <li className="list-disc">Lidar com pressão.</li>
                           </ol>
                         </div>
                       </div>
