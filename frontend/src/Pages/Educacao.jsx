@@ -1,7 +1,9 @@
 import { Header } from "../components/Header/Header"
 import Alan from "../assets/Alan.png"
 import EbookIMG from "../assets/EbookIMG.jpg"
-import EbookCapa from "../assets/svgs/cobranca-sem-medo.svg"
+import capaEbook1 from "../assets/capaEbook1.jpeg"
+import capaEbook2 from "../assets/capaEbook2.jpeg"
+import capaEbook3 from "../assets/capaEbook3.jpg"
 import { Footer } from "../components/Footer/Footer"
 import { useState } from "react"
 import PostsCarousel from "../components/Blog/PostsCarousel"
@@ -113,32 +115,110 @@ export default function Educacao() {
                         </div>
                     </section>
                 </ScrollReveal>
-                
+
                 <ScrollReveal variant="fadeUp">
                     <section>
                         <h2 className="text-center font-family-roboto-slab font-bold text-4xl mb:text-8xl p-7">Produtos Pagos</h2>
 
-                        <div className="flex flex-col max-sm:flex-col max-md:flex-row p-10 md:p-10 justify-center gap-5 md:gap-15 md:items-center max-sm:items-center lgs:flex-row">
+                        <div className="flex flex-col md:flex-row md:flex-wrap p-4 md:p-8 justify-center md:justify-around gap-6 md:gap-8 items-stretch">
 
-                            <div className="flex flex-col md:flex-row max-sm:min-w-11/12 max-sm:justify-center max-md:w-1/2 lgs:w-1/3 md:text-center h-4/12 gap-5 justify-around bg-[#E2E2E2] items-center p-3 rounded-4xl">
-                                <img className="rounded-2xl md:h-full md:w-1/2" src={EbookCapa} />
-                                <div className="flex flex-col mb:w-1/2 items-center justify-center gap-7">
-                                    <h3 className="font-bold text-2xl">Cobrança Sem medo, Escola Sem prejuízo</h3>
-                                    <p>Reduza a inadimplência, estruture processos eficazes e profissionalize a cobrança em sua escola. </p>
-                                    <a target="_blank" href="https://pay.hotmart.com/F99606678F?bid=1765816975227" className="bg-[#F1B434] w-full text-center rounded-3xl text-white p-3 hover:bg-black/70 transition-all duration-500 cursor-pointer">
-                                        <button className="">Comprar</button>
-                                    </a>
+                            {/* Card 1 */}
+                            <div className="flex flex-col w-full sm:w-10/12 md:w-[48%] lg:w-[32%] xl:w-1/4 max-w-sm mx-auto md:mx-0 bg-[#E2E2E2] rounded-4xl overflow-hidden">
+                                <img
+                                    className="w-full object-contain"
+                                    src={capaEbook1}
+                                    alt="Capa do e-book Pare de Cobrar Errado"
+                                />
+                                <div className="flex flex-col justify-between gap-5 text-left px-5 pb-5 pt-4 h-full">
+                                    <div className="flex flex-col gap-4">
+                                        <h3 className="font-bold text-2xl">Pare de Cobrar Errado</h3>
+                                        <p>A inadimplência não precisa ser um prejuízo permanente. Com método, estratégia e comunicação correta, ela pode se transformar em resultado.</p>
+                                        <p>Ao longo do material, você entenderá por que muitos credores deixam de recuperar valores ao usar abordagens equivocadas, agir tarde ou negociar sem estratégia. Cobrança eficiente não depende apenas de insistência, mas de técnica, timing e posicionamento.</p>
+                                        <p>Este eBook é o primeiro passo para isso.</p>
+                                    </div>
+                                    <div className="flex md:justify-end">
+                                        <a
+                                            target="_blank"
+                                            href="https://pay.hotmart.com/P104818326U"
+                                            className="bg-[#F1B434] px-8 py-3 rounded-3xl text-white font-semibold hover:bg-black/70 transition-all duration-500 cursor-pointer"
+                                        >
+                                            Comprar
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="flex flex-col md:flex-row max-sm:min-w-11/12 max-sm:justify-center max-md:w-1/2 lgs:w-1/3 md:text-center h-4/12 gap-5 justify-around bg-[#E2E2E2] items-center p-3 rounded-4xl">
-                                <img className="rounded-2xl md:h-full md:w-1/2" src={EbookCapa} />
-                                <div className="flex flex-col mb:w-1/2 items-center justify-center gap-7">
-                                    <h3 className="font-bold text-2xl">Cobrança Sem medo, Escola Sem prejuízo</h3>
-                                    <p>Reduza a inadimplência, estruture processos eficazes e profissionalize a cobrança em sua escola. </p>
-                                    <a target="_blank" href="https://pay.hotmart.com/F99606678F?bid=1765816975227" className="bg-[#F1B434] w-full text-center rounded-3xl text-white p-3 hover:bg-black/70 transition-all duration-500 cursor-pointer">
-                                        <button className="">Comprar</button>
-                                    </a>
+
+                            {/* Card 2 */}
+                            <div className="flex flex-col w-full sm:w-10/12 md:w-[48%] lg:w-[32%] xl:w-1/4 max-w-sm mx-auto md:mx-0 bg-[#E2E2E2] rounded-4xl overflow-hidden">
+                                <img
+                                    className="w-full object-contain"
+                                    src={capaEbook3}
+                                    alt="Capa do e-book Cobrança de Alta Performance"
+                                />
+                                <div className="flex flex-col h-full w-full justify-between gap-5 text-left px-5 pb-5 pt-4">
+                                    <div className="flex flex-col gap-4">
+                                        <h3 className="font-bold text-2xl">Cobrança de Alta Performace</h3>
+                                        <p>Se sua empresa depende de receber o que vende, entender a dinâmica da cobrança de alta performance não é uma opção. É uma necessidade.</p>
+                                        <p>Este eBook foi desenvolvido para ajudar empresas, escritórios, assessorias e profissionais da área a estruturarem operações mais eficientes, estratégicas e orientadas a resultado.</p>
+                                    </div>
+                                    <div className="flex md:justify-end">
+                                        <a
+                                            target="_blank"
+                                            href="https://pay.hotmart.com/W104818365W"
+                                            className="bg-[#F1B434] px-8 py-3 rounded-3xl text-white font-semibold hover:bg-black/70 transition-all duration-500 cursor-pointer"
+                                        >
+                                            Comprar
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* Card 4 */}
+                            <div className="flex flex-col w-full sm:w-10/12 md:w-[48%] lg:w-[32%] xl:w-1/4 max-w-sm mx-auto md:mx-0 bg-[#E2E2E2] rounded-4xl overflow-hidden">
+                                <img
+                                    className="w-full object-contain"
+                                    src={capaEbook2}
+                                    alt="Capa do e-book O Código da Cobrança"
+                                />
+                                <div className="flex flex-col h-full w-full justify-between gap-5 text-left px-5 pb-5 pt-4">
+                                    <div className="flex flex-col gap-4">
+                                        <h3 className="font-bold text-2xl">O Código da Cobrança</h3>
+                                        <p>Se sua empresa vende, entrega e precisa receber, dominar os princípios da cobrança inteligente não é apenas uma vantagem competitiva. É uma necessidade para proteger o faturamento, manter a saúde financeira do negócio e garantir que compromissos assumidos sejam cumpridos.</p>
+                                        <p>Este eBook foi desenvolvido para profissionais, empresas e equipes que desejam transformar a cobrança em um processo mais estratégico, eficiente e orientado a resultados.</p>
+                                    </div>
+                                    <div className="flex md:justify-end">
+                                        <a
+                                            target="_blank"
+                                            href="https://pay.hotmart.com/X104818397W"
+                                            className="bg-[#F1B434] px-8 py-3 rounded-3xl text-white font-semibold hover:bg-black/70 transition-all duration-500 cursor-pointer"
+                                        >
+                                            Comprar
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col w-full sm:w-10/12 md:w-[48%] lg:w-[32%] xl:w-1/4 max-w-sm mx-auto md:mx-0 bg-[#E2E2E2] rounded-4xl overflow-hidden">
+                                <img
+                                    className="w-full object-contain"
+                                    src={EbookIMG}
+                                    alt="Capa do e-book O Código da Cobrança"
+                                />
+                                <div className="flex flex-col h-full w-full justify-between gap-5 text-left px-5 pb-5 pt-4">
+                                    <div className="flex flex-col gap-4">
+                                        <h3 className="font-bold text-2xl">O Código da Cobrança</h3>
+                                        <p>Se sua empresa vende, entrega e precisa receber, dominar os princípios da cobrança inteligente não é apenas uma vantagem competitiva. É uma necessidade para proteger o faturamento, manter a saúde financeira do negócio e garantir que compromissos assumidos sejam cumpridos.</p>
+                                        <p>Este eBook foi desenvolvido para profissionais, empresas e equipes que desejam transformar a cobrança em um processo mais estratégico, eficiente e orientado a resultados.</p>
+                                    </div>
+                                    <div className="flex md:justify-end">
+                                        <a
+                                            target="_blank"
+                                            href="https://pay.hotmart.com/F99606678F?bid=1765816975227"
+                                            className="bg-[#F1B434] px-8 py-3 rounded-3xl text-white font-semibold hover:bg-black/70 transition-all duration-500 cursor-pointer"
+                                        >
+                                            Comprar
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
