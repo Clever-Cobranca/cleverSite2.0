@@ -12,6 +12,12 @@
   width: 80%;
   padding-inline-start: 38px;
   margin-top: 28px;
+
+  .link-artigo {
+    font-style: italic;
+    text-decoration: underline;
+    color: var(--dourado);
+  }
   > h1 {
     font-size: clamp(2.1rem, 4vw, 5rem);
     font-weight: 700;
