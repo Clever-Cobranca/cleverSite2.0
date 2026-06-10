@@ -12,6 +12,7 @@ import TrabalheConosco from "./Pages/TrabalheConosco";
 import ScrollToTop from "./components/ScrollToTop";
 import Blog from "./Pages/blog/Blog";
 import Links from "./Pages/Links";
+import KathCNPJ from "./Pages/KathCPNJ";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -26,6 +27,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/educacao" element={<Educacao />} />
         <Route path="/pagar" element={<Pagar />} />
         <Route path="/blog/:postSlug" element={<Blog />} />
+        <Route path="/kath" element={<KathCNPJ />} />
         <Route path="/links" element={<Links />} />
       </Routes>
     </BrowserRouter>
