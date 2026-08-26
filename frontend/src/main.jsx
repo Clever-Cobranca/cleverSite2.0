@@ -5,7 +5,7 @@ import Home from "./Pages/Home";
 import Sobre from "./Pages/Sobre";
 import Cultura from "./Pages/Cultura";
 import Serviços from "./Pages/Serviços";
-import Educacao from "./Pages/Educacao";
+import Educacao from "./Pages/Educacao/Educacao";
 import Pagar from "./Pages/Pagar";
 import "./global.css";
 import TrabalheConosco from "./Pages/TrabalheConosco";
