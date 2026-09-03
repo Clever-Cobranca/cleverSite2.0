@@ -8,6 +8,7 @@ import PareCobrarErrado from "../../assets/pare-de-cobrar-errado.jpeg";
 import { useState } from "react";
 import PostsCarousel from "../../components/Blog/PostsCarousel";
 import ScrollReveal from "../../components/scrollView";
+import { Link } from "react-router";
 
 export default function Educacao() {
   const [formData, setFormData] = useState({
@@ -26,11 +27,10 @@ export default function Educacao() {
   }); // Default selected ebook
   const [successMessage, setSuccessMessage] = useState("");
 
-
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-
 
     //Formatação campo de telefone
     if (name === "whatsapp") {
@@ -63,8 +63,6 @@ export default function Educacao() {
       }));
     }
   };
-
-  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const validateForm = () => {
     const keys = Object.keys(formData);
@@ -221,92 +219,98 @@ export default function Educacao() {
                       {ebookSelected?.title}" no seu e-mail. Sem custo, direto
                       ao ponto.
                     </p>
-                    <a className={`${styles.btn} ${styles.tealb}`} href="#">
+                    <Link
+                      className={`${styles.btn} ${styles.tealb}`}
+                      to="/diagnostico"
+                    >
                       Fazer o diagnóstico gratuito
-                    </a>
+                    </Link>
                   </div>
 
-                  <form
-                    type="submit"
-                    className={`${styles.card} ${styles.form}`}
-                    onSubmit={handleSubmit}
-                  >
-                    <b className={styles.inkText}>
-                      Receba o e-book "{ebookSelected?.title}" no seu e-mail
-                    </b>
-                    {/* Honeypot - Campo oculto para prevenir bots */}
-                    <div style={{ display: "none" }}>
-                      <label htmlFor="form_proibido">
-                        Não preencher este campo
-                      </label>
-                      <input
-                        type="text"
-                        name="form_proibido"
-                        id="form_proibido"
-                        autoComplete="off"
-                        value={formData.form_proibido}
-                        onChange={handleInputChange}
-                        tabIndex={-1}
-                      />
-                    </div>
-                    <label htmlFor="nome">Nome</label>
-                    <input
-                      name="nome"
-                      type="text"
-                      id="nome"
-                      value={formData.nome}
-                      placeholder="Seu nome"
-                      onChange={handleInputChange}
-                    />
-                    <label htmlFor="email">Seu melhor e-mail</label>
-                    <input
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      id="email"
-                      placeholder="voce@escola.com.br"
-                      onChange={handleInputChange}
-                    />
-                    <label htmlFor="whatsapp">WhatsApp com DDD</label>
-                    <input
-                      name="whatsapp"
-                      type="tel"
-                      value={formData.whatsapp}
-                      id="whatsapp"
-                      placeholder="(11) 90000-0000"
-                      onChange={handleInputChange}
-                    />
-                    <label htmlFor="empresa">Sua empresa</label>
-                    <input
-                      name="empresa"
-                      type="text"
-                      value={formData.empresa}
-                      id="empresa"
-                      placeholder="Nome da empresa"
-                      onChange={handleInputChange}
-                    />
-                    <label className={styles.chk} htmlFor="conteudos">
-                      <input
-                        name="conteudos"
-                        id="conteudos"
-                        value={formData.conteudos}
-                        type="checkbox"
-                        defaultChecked
-                        onChange={handleInputChange}
-                      />
-                      <span>
-                        Quero receber conteúdos educacionais da Clever.
-                      </span>
-                    </label>
-                    <span className={styles.error}>{error}</span>
-                    <span className={styles.success}>{successMessage}</span>
-                    <button
-                      className={`${styles.btn} ${styles.gold} ${styles.fullButton}`}
+                  <div className={`${styles.card}`}>
+                    <form
                       type="submit"
+                      className={`${styles.form}`}
+                      onSubmit={handleSubmit}
                     >
-                      Quero o e-book
-                    </button>
-                  </form>
+                      <b className={styles.inkText}>
+                        Receba o e-book "{ebookSelected?.title}" no seu e-mail
+                      </b>
+                      {/* Honeypot - Campo oculto para prevenir bots */}
+                      <div style={{ display: "none" }}>
+                        <label htmlFor="form_proibido">
+                          Não preencher este campo
+                        </label>
+                        <input
+                          type="text"
+                          name="form_proibido"
+                          id="form_proibido"
+                          autoComplete="off"
+                          value={formData.form_proibido}
+                          onChange={handleInputChange}
+                          tabIndex={-1}
+                        />
+                      </div>
+                      <label htmlFor="nome">Nome</label>
+                      <input
+                        name="nome"
+                        type="text"
+                        id="nome"
+                        value={formData.nome}
+                        placeholder="Seu nome"
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="email">Seu melhor e-mail</label>
+                      <input
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        id="email"
+                        placeholder="voce@escola.com.br"
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="whatsapp">WhatsApp com DDD</label>
+                      <input
+                        name="whatsapp"
+                        type="tel"
+                        value={formData.whatsapp}
+                        id="whatsapp"
+                        placeholder="(11) 90000-0000"
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="empresa">Sua empresa</label>
+                      <input
+                        name="empresa"
+                        type="text"
+                        value={formData.empresa}
+                        id="empresa"
+                        placeholder="Nome da empresa"
+                        onChange={handleInputChange}
+                      />
+                      <label className={styles.chk} htmlFor="conteudos">
+                        <input
+                          name="conteudos"
+                          id="conteudos"
+                          value={formData.conteudos}
+                          type="checkbox"
+                          defaultChecked
+                          onChange={handleInputChange}
+                        />
+                        <span>
+                          Quero receber conteúdos educacionais da Clever.
+                        </span>
+                      </label>
+                      <span className={styles.error}>{error}</span>
+                      <span className={styles.success}>{successMessage}</span>
+                      <button
+                        disabled={status === "loading"}
+                        className={`${styles.btn} ${styles.gold} ${styles.fullButton}`}
+                        type="submit"
+                      >
+                        Quero o e-book
+                      </button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
@@ -407,12 +411,12 @@ export default function Educacao() {
                       E-book grátis → Curso Cobrança Educacional na Prática →
                       Mentoria Escola sem Inadimplência
                     </div>
-                    <a
+                    <Link
                       className={`${styles.btn} ${styles.tealb}`}
-                      href="#curso"
+                      to="/diagnostico"
                     >
                       Ver o caminho da escola
-                    </a>
+                    </Link>
                   </div>
 
                   <div className={`${styles.tr} ${styles.trGold}`}>
@@ -428,9 +432,12 @@ export default function Educacao() {
                       E-book O Código da Cobrança → Curso Cobrança Inteligente →
                       Imersão Monte sua Assessoria
                     </div>
-                    <a className={`${styles.btn} ${styles.dark}`} href="#">
+                    <Link
+                      className={`${styles.btn} ${styles.dark}`}
+                      to="/diagnostico"
+                    >
                       Ver o caminho do cobrador
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -593,9 +600,12 @@ export default function Educacao() {
                 Comece pelo diagnóstico gratuito e veja o tamanho real da
                 inadimplência da sua escola.
               </p>
-              <a className={`${styles.btn} ${styles.gold}`} href="#isca">
+              <Link
+                className={`${styles.btn} ${styles.gold}`}
+                to="/diagnostico"
+              >
                 Fazer o diagnóstico gratuito
-              </a>
+              </Link>
             </div>
           </div>
         </section>
