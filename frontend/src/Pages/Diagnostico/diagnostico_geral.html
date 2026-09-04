@@ -1,0 +1,1422 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagnóstico Clever de Inadimplência</title>
+    <meta name="author" content="Alan Clever · Clever Assessoria e Cobrança" />
+    <meta
+      name="copyright"
+      content="Alan Clever · Clever Assessoria e Cobrança"
+    />
+    <!-- Material do Curso de Cobrança Educacional. Autor: Alan Clever · Clever Assessoria e Cobrança. -->
+    <!-- Assinatura de autoria embutida. Não remover. Alan Clever · Clever Assessoria e Cobrança. -->
+    <style>
+      :root {
+        --ink: #0e2f3c;
+        --teal: #15697b;
+        --amber: #c9821f;
+        --amber2: #e2a33c;
+        --tint: #eef4f5;
+        --line: #d6e2e5;
+        --bg: #f4f8f9;
+        --text: #1a2a30;
+        --grey: #5a6b72;
+        --red: #b23b3b;
+        --green: #1f9d55;
+        --tint-amber: #fbf1df;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+      .wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 18px 60px;
+      }
+      header {
+        background: var(--ink);
+        color: #fff;
+        border-bottom: 4px solid var(--amber);
+      }
+      .head-in {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 18px;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .brand {
+        font-weight: 800;
+        font-size: 22px;
+        letter-spacing: 0.5px;
+      }
+      .brand small {
+        font-weight: 400;
+        font-size: 13px;
+        color: #bfd3d8;
+        margin-left: 8px;
+      }
+      .head-sub {
+        font-size: 13px;
+        color: #bfd3d8;
+      }
+      h1 {
+        font-size: 24px;
+        margin: 24px 0 2px;
+      }
+      .lead {
+        color: var(--grey);
+        margin: 0 0 12px;
+        font-size: 14px;
+      }
+      .tabs {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 16px 0;
+      }
+      .tab {
+        flex: 1;
+        min-width: 150px;
+        border: 1px solid var(--line);
+        background: #fff;
+        border-radius: 10px;
+        padding: 12px 14px;
+        cursor: pointer;
+        text-align: left;
+        transition: 0.15s;
+      }
+      .tab .tn {
+        font-size: 11px;
+        font-weight: 800;
+        color: var(--teal);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .tab .tt {
+        font-size: 14.5px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-top: 2px;
+      }
+      .tab.active {
+        background: var(--ink);
+        border-color: var(--ink);
+      }
+      .tab.active .tn {
+        color: var(--amber2);
+      }
+      .tab.active .tt {
+        color: #fff;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 18px;
+        margin: 16px 0;
+        box-shadow: 0 1px 3px rgba(14, 47, 60, 0.05);
+      }
+      .card.alert {
+        background: var(--tint-amber);
+        border-color: #ead6ae;
+      }
+      .card.alert h3 {
+        margin: 0 0 6px;
+        color: var(--amber);
+        font-size: 15px;
+      }
+      .card.alert p {
+        margin: 0;
+        font-size: 14px;
+        color: #6b5327;
+      }
+      .hint {
+        color: var(--grey);
+        font-size: 13px;
+        margin: 4px 0 14px;
+      }
+      .sec {
+        display: none;
+      }
+      .sec.on {
+        display: block;
+      }
+      .step-h {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 4px;
+      }
+      .step-n {
+        background: var(--ink);
+        color: var(--amber2);
+        font-weight: 800;
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        flex: 0 0 auto;
+      }
+      .step-h h2 {
+        font-size: 17px;
+        margin: 0;
+      }
+      .step-tag {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--teal);
+        background: var(--tint);
+        padding: 2px 9px;
+        border-radius: 10px;
+        margin-left: auto;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .field {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 11px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .field:last-child {
+        border-bottom: none;
+      }
+      .field .lab {
+        flex: 1;
+        min-width: 0;
+      }
+      .field .lab b {
+        display: block;
+        font-size: 14.5px;
+        font-weight: 600;
+      }
+      .field .lab span {
+        display: block;
+        font-size: 12.5px;
+        color: var(--grey);
+        margin-top: 2px;
+      }
+      .field .inp {
+        flex: 0 0 150px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .field .inp .pre {
+        color: var(--grey);
+        font-size: 14px;
+      }
+      input[type="number"] {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 10px;
+        font-family: inherit;
+        font-size: 15px;
+        text-align: right;
+        background: #fffdf8;
+      }
+      input[type="number"]:focus {
+        outline: none;
+        border-color: var(--amber);
+        box-shadow: 0 0 0 3px rgba(201, 130, 31, 0.12);
+      }
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+      .derived {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--tint);
+        border-radius: 8px;
+        padding: 10px 14px;
+        margin-top: 12px;
+      }
+      .derived .dl {
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .derived .dv {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--teal);
+      }
+      .q {
+        padding: 13px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .q:last-child {
+        border-bottom: none;
+      }
+      .q .qt {
+        font-size: 14.5px;
+        font-weight: 600;
+        margin-bottom: 9px;
+      }
+      .q .qt .num {
+        display: inline-flex;
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        background: var(--tint);
+        color: var(--teal);
+        font-size: 12px;
+        font-weight: 800;
+        align-items: center;
+        justify-content: center;
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+      .opts {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .opts label {
+        flex: 1;
+        min-width: 110px;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        padding: 9px 12px;
+        font-size: 13.5px;
+        cursor: pointer;
+        text-align: center;
+        background: #fff;
+        transition: 0.15s;
+      }
+      .opts input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .opts label:hover {
+        border-color: var(--amber);
+      }
+      .opts label.sel-0 {
+        border-color: var(--green);
+        background: #eaf7ef;
+        color: #177a43;
+      }
+      .opts label.sel-1 {
+        border-color: var(--amber);
+        background: var(--tint-amber);
+        color: #8a5a12;
+      }
+      .opts label.sel-2 {
+        border-color: var(--red);
+        background: #f7ecec;
+        color: #8f2f2f;
+      }
+      .result-card {
+        background: var(--ink);
+        color: #fff;
+        border-radius: 14px;
+        padding: 22px;
+        margin: 16px 0;
+      }
+      .result-card h2 {
+        margin: 0 0 10px;
+        font-size: 20px;
+        color: #fff;
+      }
+      .cmp {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .cmp .box {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        padding: 16px;
+      }
+      .cmp .box .t {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #bfd3d8;
+        font-weight: 700;
+      }
+      .cmp .box .n {
+        font-size: 32px;
+        font-weight: 800;
+        margin: 6px 0 2px;
+      }
+      .cmp .box.foto .n {
+        color: #9fd0da;
+      }
+      .cmp .box.real .n {
+        color: var(--amber2);
+      }
+      .cmp .box .d {
+        font-size: 12.5px;
+        color: #cfe0e4;
+      }
+      .punch {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .punch .p {
+        flex: 1;
+        min-width: 140px;
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        padding: 14px 16px;
+      }
+      .punch .p .pn {
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--amber2);
+      }
+      .punch .p .pt {
+        font-size: 12.5px;
+        color: #cfe0e4;
+        margin-top: 2px;
+      }
+      .level {
+        font-size: 28px;
+        font-weight: 800;
+      }
+      .level.baixo {
+        color: #7fdca6;
+      }
+      .level.medio {
+        color: var(--amber2);
+      }
+      .level.alto {
+        color: #ef8f8f;
+      }
+      .meter {
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 8px;
+        height: 14px;
+        overflow: hidden;
+        margin: 8px 0;
+      }
+      .meter-fill {
+        height: 100%;
+        border-radius: 8px;
+        width: 0%;
+        transition:
+          width 0.4s,
+          background 0.3s;
+      }
+      .recs .rec {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        font-size: 13.5px;
+        color: #e7eef0;
+        margin: 8px 0;
+      }
+      .recs .rec .dot {
+        flex: 0 0 auto;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-top: 6px;
+      }
+      .recs .rec .dot.a {
+        background: var(--amber);
+      }
+      .recs .rec .dot.r {
+        background: #ef8f8f;
+      }
+      .recs .mod {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        color: #0e2f3c;
+        background: #cfe0e4;
+        padding: 0 7px;
+        border-radius: 9px;
+        margin-left: 6px;
+      }
+      .navbtns {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 16px;
+      }
+      .btn {
+        border: none;
+        border-radius: 10px;
+        padding: 12px 20px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .btn.primary {
+        background: var(--amber);
+        color: #fff;
+      }
+      .btn.ghost {
+        background: #fff;
+        border: 1px solid var(--line);
+        color: var(--ink);
+      }
+      .cta {
+        background: var(--tint);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 16px;
+        text-align: center;
+      }
+      .cta h3 {
+        margin: 0 0 6px;
+        color: var(--ink);
+        font-size: 17px;
+      }
+      .cta p {
+        margin: 0 0 10px;
+        font-size: 14px;
+        color: #40525a;
+      }
+      .cta .contact {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--teal);
+      }
+      .cta .contact a {
+        color: var(--teal);
+        text-decoration: none;
+      }
+      .cta-btn {
+        display: inline-block;
+        background: var(--amber);
+        color: #fff;
+        font-weight: 800;
+        text-decoration: none;
+        padding: 12px 22px;
+        border-radius: 10px;
+        margin: 2px 0 12px;
+        font-size: 14.5px;
+      }
+      .capture {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 22px;
+        margin: 16px 0;
+        box-shadow: 0 2px 10px rgba(14, 47, 60, 0.07);
+      }
+      .capture .cap-eyebrow {
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--amber);
+      }
+      .capture h2 {
+        font-size: 20px;
+        color: var(--ink);
+        margin: 6px 0 6px;
+      }
+      .capture .cap-p {
+        font-size: 14px;
+        color: #40525a;
+        margin: 0 0 14px;
+      }
+      .row2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 14px;
+      }
+      .capture .fld {
+        margin-bottom: 2px;
+      }
+      .capture label.lb {
+        display: block;
+        font-size: 12.5px;
+        font-weight: 700;
+        color: var(--ink);
+        margin: 8px 0 3px;
+      }
+      .capture input[type="text"],
+      .capture input[type="email"] {
+        width: 100%;
+        padding: 11px 12px;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        font-family: inherit;
+        font-size: 14px;
+        background: #fff;
+        text-align: left;
+      }
+      .capture input:focus {
+        outline: none;
+        border-color: var(--teal);
+        box-shadow: 0 0 0 3px rgba(21, 105, 123, 0.12);
+      }
+      .capture .chk {
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+        font-size: 12.5px;
+        color: var(--grey);
+        margin: 12px 0;
+      }
+      .capture .err {
+        color: var(--red);
+        font-size: 12.5px;
+        font-weight: 700;
+        min-height: 16px;
+        margin: 4px 0;
+      }
+      .capture .priv {
+        font-size: 11.5px;
+        color: var(--grey);
+        text-align: center;
+        margin-top: 10px;
+      }
+      .lgpd {
+        font-size: 12px;
+        color: var(--grey);
+        text-align: center;
+        margin-top: 14px;
+      }
+      .foot {
+        color: var(--grey);
+        font-size: 12px;
+        text-align: center;
+        margin-top: 28px;
+        border-top: 1px solid var(--line);
+        padding-top: 16px;
+      }
+      .clv-sig {
+        font-weight: 800;
+        color: var(--ink);
+      }
+      .clv-sig b {
+        color: var(--amber);
+      }
+      .clv-badge {
+        position: fixed;
+        right: 12px;
+        bottom: 12px;
+        z-index: 9999;
+        background: rgba(14, 47, 60, 0.9);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 6px 11px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
+        pointer-events: none;
+        max-width: 78vw;
+      }
+      .clv-badge b {
+        color: var(--amber2);
+        font-weight: 800;
+      }
+      .clv-watermark {
+        display: none;
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9998;
+      }
+      .clv-print-foot {
+        display: none;
+      }
+      @media print {
+        .tabs,
+        .navbtns,
+        .lgpd {
+          display: none;
+        }
+        .sec {
+          display: block !important;
+        }
+        .clv-badge {
+          display: none;
+        }
+        .clv-watermark {
+          display: block;
+        }
+        .clv-print-foot {
+          display: block;
+          position: fixed;
+          left: 0;
+          right: 0;
+          bottom: 4px;
+          text-align: center;
+          font-size: 10px;
+          color: #33505a;
+        }
+      }
+      @media (max-width: 600px) {
+        .cmp {
+          grid-template-columns: 1fr;
+        }
+        .opts label {
+          min-width: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Diagnóstico Clever de Inadimplência</h1>
+      <p class="lead">
+        Em poucos minutos, a sua empresa descobre a inadimplência real, o valor
+        em aberto e os hábitos que alimentam o problema. No fim, um plano de
+        prioridades.
+      </p>
+
+      <div class="tabs">
+        <div class="tab active" data-tab="0" onclick="showTab(0)">
+          <div class="tn">Etapa 1</div>
+          <div class="tt">Inadimplência</div>
+        </div>
+        <div class="tab" data-tab="1" onclick="showTab(1)">
+          <div class="tn">Etapa 2</div>
+          <div class="tt">Cultura</div>
+        </div>
+        <div class="tab" data-tab="2" onclick="showTab(2)">
+          <div class="tn">Etapa 3</div>
+          <div class="tt">Resultado</div>
+        </div>
+      </div>
+
+      <!-- ETAPA 1 -->
+      <div class="sec on" id="sec0">
+        <div class="card alert">
+          <h3>Onde a conta costuma errar</h3>
+          <p>
+            Olhar só a inadimplência do mês esconde os clientes que saíram
+            devendo. Somando esses casos, a inadimplência real aparece, e
+            costuma ser bem maior.
+          </p>
+        </div>
+        <div class="card">
+          <div class="step-h">
+            <div class="step-n">1</div>
+            <h2>Inadimplência do mês</h2>
+            <span class="step-tag">o que você vê hoje</span>
+          </div>
+          <div class="field">
+            <div class="lab">
+              <b>Parcelas que já venceram neste mês</b
+              ><span>Some só as parcelas com vencimento até hoje.</span>
+            </div>
+            <div class="inp">
+              <span class="pre">R$</span
+              ><input type="number" id="i_venc_mes" value="10000" />
+            </div>
+          </div>
+          <div class="field">
+            <div class="lab">
+              <b>Valor vencido e não pago neste mês</b
+              ><span>Do que já venceu, quanto não entrou.</span>
+            </div>
+            <div class="inp">
+              <span class="pre">R$</span
+              ><input type="number" id="i_naopago_mes" value="2000" />
+            </div>
+          </div>
+          <div class="derived">
+            <span class="dl">Inadimplência do mês</span
+            ><span class="dv" id="o_foto">-</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="step-h">
+            <div class="step-n">2</div>
+            <h2>Inadimplência real</h2>
+            <span class="step-tag">últimos 12 meses</span>
+          </div>
+          <div class="field">
+            <div class="lab"><b>Total de clientes nos últimos 12 meses</b></div>
+            <div class="inp">
+              <input type="number" id="i_total" value="1000" />
+            </div>
+          </div>
+          <div class="field">
+            <div class="lab">
+              <b>Clientes que saíram devendo</b
+              ><span>Cancelados e encerrados com débito.</span>
+            </div>
+            <div class="inp">
+              <input type="number" id="i_inativos" value="300" />
+            </div>
+          </div>
+          <div class="field">
+            <div class="lab">
+              <b>Clientes ativos hoje com parcela em atraso</b>
+            </div>
+            <div class="inp">
+              <input type="number" id="i_ativos" value="150" />
+            </div>
+          </div>
+          <div class="derived">
+            <span class="dl">Total de devedores no período</span
+            ><span class="dv" id="o_devreais">-</span>
+          </div>
+          <div class="derived" style="margin-top: 8px">
+            <span class="dl">Inadimplência real (12 meses)</span
+            ><span class="dv" id="o_real">-</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="step-h">
+            <div class="step-n">3</div>
+            <h2>Valor em aberto</h2>
+          </div>
+          <div class="field">
+            <div class="lab">
+              <b>Valor médio em aberto por devedor</b
+              ><span>Parcelas em aberto mais a multa contratual.</span>
+            </div>
+            <div class="inp">
+              <span class="pre">R$</span
+              ><input type="number" id="i_medio" value="1200" />
+            </div>
+          </div>
+          <div class="derived">
+            <span class="dl">Valor total em aberto (estimado)</span
+            ><span class="dv" id="o_prejuizo">-</span>
+          </div>
+        </div>
+        <div class="navbtns">
+          <span></span
+          ><button class="btn primary" onclick="showTab(1)">
+            Próxima etapa: Cultura
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 2 -->
+      <div class="sec" id="sec1">
+        <div class="card alert">
+          <h3>A inadimplência também é cultural</h3>
+          <p>
+            Cada exceção aberta e cada atraso sem contato ensina o cliente a
+            pagar quando quiser. Responda com sinceridade.
+          </p>
+        </div>
+        <p class="hint">
+          Para cada item, marque com que frequência isso acontece na sua empresa
+          hoje.
+        </p>
+        <div class="card"><div id="quiz"></div></div>
+        <div class="navbtns">
+          <button class="btn ghost" onclick="showTab(0)">Voltar</button
+          ><button class="btn primary" onclick="showTab(2)">
+            Ver o resultado
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 3 -->
+      <div class="sec" id="sec2">
+        <!-- CAPTURA (mesmo método do e-book grátis) -->
+        <div class="capture" id="capture">
+          <div class="cap-eyebrow">Seu diagnóstico está pronto</div>
+          <h2>Para onde enviamos o seu resultado e o e-book grátis?</h2>
+          <p class="cap-p">
+            Preencha para ver o resultado completo agora e receber o e-book "O
+            Código da Cobrança" no seu e-mail.
+          </p>
+          <form id="capForm" novalidate>
+            <div class="row2">
+              <div class="fld">
+                <label class="lb">Nome</label
+                ><input type="text" id="cap_nome" placeholder="Seu nome" />
+              </div>
+              <div class="fld">
+                <label class="lb">Seu melhor e-mail</label
+                ><input
+                  type="email"
+                  id="cap_email"
+                  placeholder="voce@empresa.com.br"
+                />
+              </div>
+            </div>
+            <div class="row2">
+              <div class="fld">
+                <label class="lb">WhatsApp com DDD</label
+                ><input
+                  type="text"
+                  id="cap_wpp"
+                  placeholder="(11) 90000-0000"
+                />
+              </div>
+              <div class="fld">
+                <label class="lb">Sua empresa</label
+                ><input
+                  type="text"
+                  id="cap_escola"
+                  placeholder="Nome da empresa"
+                />
+              </div>
+            </div>
+            <label class="chk"
+              ><input type="checkbox" id="cap_ok" checked /><span
+                >Quero receber conteúdos educacionais da Clever.</span
+              ></label
+            >
+            <div class="err" id="capErr"></div>
+            <button type="submit" class="btn primary" style="width: 100%">
+              Ver meu resultado e receber o e-book
+            </button>
+            <div class="priv">
+              Seus dados são usados só para enviar o material e o contato da
+              Clever, conforme a LGPD.
+            </div>
+          </form>
+          <div class="navbtns">
+            <button class="btn ghost" type="button" onclick="showTab(1)">
+              Voltar</button
+            ><span></span>
+          </div>
+        </div>
+
+        <!-- RESULTADO (liberado após a captura) -->
+        <div id="resultContent" style="display: none">
+          <div class="result-card">
+            <h2>Sua inadimplência real</h2>
+            <div class="cmp">
+              <div class="box foto">
+                <div class="t">Inadimplência do mês</div>
+                <div class="n" id="r_foto">-</div>
+                <div class="d">O que você vê olhando só o mês.</div>
+              </div>
+              <div class="box real">
+                <div class="t">Inadimplência real (12 meses)</div>
+                <div class="n" id="r_real">-</div>
+                <div class="d">Inclui quem saiu devendo no ano.</div>
+              </div>
+            </div>
+            <div class="punch">
+              <div class="p">
+                <div class="pn" id="r_vezes">-</div>
+                <div class="pt">vezes maior que a conta do mês</div>
+              </div>
+              <div class="p">
+                <div class="pn" id="r_invis">-</div>
+                <div class="pt">devedores fora da conta do mês</div>
+              </div>
+              <div class="p">
+                <div class="pn" id="r_prej">-</div>
+                <div class="pt">em aberto (estimado)</div>
+              </div>
+            </div>
+          </div>
+          <div class="result-card">
+            <h2>Sua cultura de inadimplência</h2>
+            <div class="level" id="c_level">Responda a Etapa 2</div>
+            <div class="meter"><div class="meter-fill" id="c_meter"></div></div>
+            <div class="recs" id="c_recs" style="margin-top: 8px"></div>
+          </div>
+          <div class="cta">
+            <h3>
+              O diagnóstico é o primeiro passo. O plano é o que muda o número.
+            </h3>
+            <p>
+              Você viu o tamanho real da inadimplência e os hábitos que a
+              alimentam. Reverter isso de forma consistente pede um plano sob
+              medida: régua de cobrança, política clara, contrato blindado e
+              equipe preparada. A Clever conduz esse processo com a sua empresa,
+              do diagnóstico à recuperação.
+            </p>
+            <a
+              class="cta-btn"
+              href="https://wa.me/5511958461450"
+              target="_blank"
+              rel="noopener"
+              >Falar com a Clever no WhatsApp</a
+            >
+            <div class="contact">
+              <a
+                href="https://www.clevercobranca.com.br"
+                target="_blank"
+                rel="noopener"
+                >clevercobranca.com.br</a
+              >
+              ·
+              <a
+                href="https://instagram.com/clevercobranca"
+                target="_blank"
+                rel="noopener"
+                >@clevercobranca</a
+              >
+              ·
+              <a
+                href="https://wa.me/5511958461450"
+                target="_blank"
+                rel="noopener"
+                >(11) 95846-1450</a
+              >
+            </div>
+          </div>
+          <div class="navbtns">
+            <button class="btn ghost" onclick="showTab(1)">Voltar</button
+            ><button class="btn primary" onclick="window.print()">
+              Imprimir / Salvar em PDF
+            </button>
+          </div>
+        </div>
+        <!-- /resultContent -->
+      </div>
+
+      <p class="lgpd">
+        Os cálculos do diagnóstico rodam no seu navegador. Seus dados de contato
+        só são enviados quando você preenche o formulário, com o seu aceite,
+        para receber o material (LGPD).
+      </p>
+      <div class="foot">
+        <span class="clv-sig"
+          ><b>Alan Clever</b> · Clever Assessoria e Cobrança</span
+        ><br />Método Clever
+      </div>
+    </div>
+    <script>
+      // ===== Captura de lead (usar o MESMO destino do formulário do e-book grátis) =====
+      // Cole aqui o endereço para onde o formulário do e-book já envia os contatos.
+      // Deixando em branco, o formulário funciona e libera o resultado (para testar / hospedar
+      // com o mesmo bloco de formulário do site). Com o endereço preenchido, ele envia por POST.
+      const FORM_ENDPOINT = "";
+      let CAPTURED = false;
+
+      function showTab(n) {
+        document
+          .querySelectorAll(".sec")
+          .forEach((s, i) => s.classList.toggle("on", i === n));
+        document
+          .querySelectorAll(".tab")
+          .forEach((t, i) => t.classList.toggle("active", i === n));
+        if (n === 2) aplicarGate();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      function aplicarGate() {
+        document.getElementById("capture").style.display = CAPTURED
+          ? "none"
+          : "block";
+        document.getElementById("resultContent").style.display = CAPTURED
+          ? "block"
+          : "none";
+        if (CAPTURED) renderResumo();
+      }
+      function liberarResultado() {
+        CAPTURED = true;
+        aplicarGate();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      document
+        .getElementById("capForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const nome = document.getElementById("cap_nome").value.trim();
+          const email = document.getElementById("cap_email").value.trim();
+          const wpp = document.getElementById("cap_wpp").value.trim();
+          const escola = document.getElementById("cap_escola").value.trim();
+          const ok = document.getElementById("cap_ok").checked;
+          const err = document.getElementById("capErr");
+          if (!nome || !email || !wpp) {
+            err.textContent =
+              "Preencha nome, e-mail e WhatsApp para ver o resultado.";
+            return;
+          }
+          if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+            err.textContent = "Confira o seu e-mail.";
+            return;
+          }
+          err.textContent = "";
+          calc();
+          const q = quizState();
+          const nivel =
+            q.ans === 0
+              ? "não respondida"
+              : q.score <= 4
+                ? "Sob controle"
+                : q.score <= 10
+                  ? "Atenção"
+                  : "Alto risco";
+          const prioridades =
+            q.recs
+              .slice()
+              .sort((a, b) => b.sev - a.sev)
+              .slice(0, 3)
+              .map((r) => r.rec)
+              .join(" · ") || "rotina saudável";
+          // Estes campos vão para a mesma ferramenta de e-mail do e-book.
+          // Mapeie-os como campos personalizados e use as tags de mesclagem no e-mail (ver modelo entregue).
+          const lead = {
+            primeiro_nome: nome.split(" ")[0],
+            nome: nome,
+            email: email,
+            whatsapp: wpp,
+            empresa: escola,
+            aceite: ok,
+            origem: "diagnostico-inadimplencia",
+            inadimplencia_mes:
+              S.foto > 0 ? (S.foto * 100).toFixed(1) + "%" : "-",
+            inadimplencia_real:
+              S.real > 0 ? (S.real * 100).toFixed(1) + "%" : "-",
+            quantas_vezes_maior:
+              S.foto > 0 && S.real > 0
+                ? S.vezes.toLocaleString("pt-BR", {
+                    maximumFractionDigits: 1,
+                  }) + "x"
+                : "-",
+            devedores_fora_da_conta: S.invis,
+            valor_em_aberto: brl(S.prej),
+            nivel_cultura: nivel,
+            prioridades: prioridades,
+          };
+          if (FORM_ENDPOINT) {
+            const btn = this.querySelector("button[type=submit]");
+            const t = btn.textContent;
+            btn.textContent = "Enviando...";
+            fetch(FORM_ENDPOINT, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(lead),
+            })
+              .then(() => liberarResultado())
+              .catch(() => liberarResultado())
+              .finally(() => {
+                btn.textContent = t;
+              });
+          } else {
+            liberarResultado();
+          }
+        });
+      const brl = (n) =>
+        n.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+          maximumFractionDigits: 0,
+        });
+      const pct = (n) =>
+        (n * 100).toLocaleString("pt-BR", {
+          minimumFractionDigits: 1,
+          maximumFractionDigits: 1,
+        }) + "%";
+      const val = (id) => {
+        const v = parseFloat(document.getElementById(id).value);
+        return isNaN(v) ? 0 : v;
+      };
+      const iIds = [
+        "i_venc_mes",
+        "i_naopago_mes",
+        "i_total",
+        "i_inativos",
+        "i_ativos",
+        "i_medio",
+      ];
+      let S = { foto: 0, real: 0, prej: 0, vezes: 0, invis: 0 };
+      function calc() {
+        const vm = val("i_venc_mes"),
+          np = val("i_naopago_mes"),
+          tt = val("i_total"),
+          ina = val("i_inativos"),
+          at = val("i_ativos"),
+          md = val("i_medio");
+        const foto = vm > 0 ? np / vm : 0,
+          dev = ina + at,
+          real = tt > 0 ? dev / tt : 0,
+          prej = dev * md,
+          vezes = foto > 0 ? real / foto : 0;
+        S = { foto, real, prej, vezes, invis: ina };
+        document.getElementById("o_foto").textContent =
+          vm > 0 ? pct(foto) : "-";
+        document.getElementById("o_devreais").textContent =
+          dev.toLocaleString("pt-BR");
+        document.getElementById("o_real").textContent =
+          tt > 0 ? pct(real) : "-";
+        document.getElementById("o_prejuizo").textContent = brl(prej);
+      }
+      iIds.forEach((id) =>
+        document.getElementById(id).addEventListener("input", calc),
+      );
+
+      const QUESTIONS = [
+        {
+          t: "Quando um cliente atrasa, ele nem sempre sabe com quem falar ou o que vai acontecer.",
+          rec: "Defina um canal e um responsável claros para quem atrasa.",
+          mod: "Régua · Módulos 05 e 06",
+        },
+        {
+          t: "Não enviamos lembrete antes do vencimento nem contato nos primeiros dias de atraso.",
+          rec: "Crie lembrete antes do vencimento e contato nos primeiros dias.",
+          mod: "Régua · Módulos 05 e 06",
+        },
+        {
+          t: "Deixamos de cobrar os juros e a multa previstos no contrato.",
+          rec: "Cobre os juros e a multa do contrato, sempre.",
+          mod: "Política · Módulo 04",
+        },
+        {
+          t: "Damos desconto para quem atrasa, mas não temos benefício para quem paga em dia.",
+          rec: "Reconheça o bom pagador. Não recompense o atraso.",
+          mod: "Cultura e Política · Módulos 02 e 04",
+        },
+        {
+          t: "O dono ou a diretoria abre descontos e exceções direto com o cliente, fora do financeiro.",
+          rec: "Exceções passam pelo financeiro, com critério escrito.",
+          mod: "Política · Módulo 04",
+        },
+        {
+          t: "Fechamos acordos “de boca”, sem registro nem assinatura.",
+          rec: "Todo acordo com registro e assinatura.",
+          mod: "Prevenção e Política · Módulos 03 e 04",
+        },
+        {
+          t: "Mantemos clientes meses sem pagar só para não perder o contrato.",
+          rec: "Defina até quando insistir antes de encaminhar.",
+          mod: "Política e Dicas · Módulos 04 e 08",
+        },
+        {
+          t: "Prorrogamos prazos ou mudamos as regras caso a caso.",
+          rec: "Aplique o contrato igual para todos.",
+          mod: "Prevenção · Módulo 03",
+        },
+        {
+          t: "Não temos uma régua de cobrança escrita. Agimos no improviso.",
+          rec: "Escreva a sua régua de cobrança.",
+          mod: "Régua · Módulos 05 e 06",
+        },
+        {
+          t: "As regras de pagamento não ficam claras para o cliente já no fechamento do contrato.",
+          rec: "Deixe as regras claras desde o fechamento do contrato.",
+          mod: "Prevenção",
+        },
+      ];
+      const OPTS = [
+        { v: 0, l: "Nunca" },
+        { v: 1, l: "Às vezes" },
+        { v: 2, l: "Com frequência" },
+      ];
+      const quiz = document.getElementById("quiz");
+      QUESTIONS.forEach((q, i) => {
+        const w = document.createElement("div");
+        w.className = "q";
+        w.innerHTML =
+          '<div class="qt"><span class="num">' +
+          (i + 1) +
+          "</span>" +
+          q.t +
+          "</div>";
+        const o = document.createElement("div");
+        o.className = "opts";
+        OPTS.forEach((op) => {
+          const l = document.createElement("label");
+          l.dataset.q = i;
+          l.innerHTML =
+            '<input type="radio" name="q' +
+            i +
+            '" value="' +
+            op.v +
+            '"><span>' +
+            op.l +
+            "</span>";
+          l.querySelector("input").addEventListener("change", () => {
+            document
+              .querySelectorAll('.opts label[data-q="' + i + '"]')
+              .forEach((x) => x.classList.remove("sel-0", "sel-1", "sel-2"));
+            l.classList.add("sel-" + op.v);
+          });
+          o.appendChild(l);
+        });
+        w.appendChild(o);
+        quiz.appendChild(w);
+      });
+      function quizState() {
+        let score = 0,
+          ans = 0;
+        const recs = [];
+        QUESTIONS.forEach((q, i) => {
+          const s = document.querySelector('input[name="q' + i + '"]:checked');
+          if (!s) return;
+          ans++;
+          const v = +s.value;
+          score += v;
+          if (v >= 1) recs.push({ rec: q.rec, mod: q.mod, sev: v });
+        });
+        return { score, ans, recs, max: QUESTIONS.length * 2 };
+      }
+
+      function renderResumo() {
+        calc();
+        document.getElementById("r_foto").textContent =
+          S.foto > 0 ? pct(S.foto) : "-";
+        document.getElementById("r_real").textContent =
+          S.real > 0 ? pct(S.real) : "-";
+        document.getElementById("r_vezes").textContent =
+          S.foto > 0 && S.real > 0
+            ? S.vezes.toLocaleString("pt-BR", { maximumFractionDigits: 1 }) +
+              "×"
+            : "-";
+        document.getElementById("r_invis").textContent =
+          S.invis.toLocaleString("pt-BR");
+        document.getElementById("r_prej").textContent = brl(S.prej);
+        const q = quizState();
+        const lvl = document.getElementById("c_level"),
+          mt = document.getElementById("c_meter");
+        if (q.ans === 0) {
+          lvl.textContent = "Responda a Etapa 2";
+          lvl.className = "level";
+          mt.style.width = "0%";
+          mt.style.background = "#4d8996";
+        } else {
+          let cls, txt, col;
+          if (q.score <= 4) {
+            cls = "baixo";
+            txt = "Sob controle";
+            col = "#1f9d55";
+          } else if (q.score <= 10) {
+            cls = "medio";
+            txt = "Atenção";
+            col = "#C9821F";
+          } else {
+            cls = "alto";
+            txt = "Alto risco";
+            col = "#B23B3B";
+          }
+          lvl.textContent = txt;
+          lvl.className = "level " + cls;
+          mt.style.width = (q.score / q.max) * 100 + "%";
+          mt.style.background = col;
+        }
+        const box = document.getElementById("c_recs");
+        if (q.recs.length === 0) {
+          box.innerHTML =
+            '<p style="font-size:13.5px;color:#cfe0e4;margin:0">' +
+            (q.ans === 0
+              ? "As prioridades aparecem aqui depois da Etapa 2."
+              : "Nenhuma brecha marcada. Rotina saudável.") +
+            "</p>";
+        } else {
+          q.recs.sort((a, b) => b.sev - a.sev);
+          box.innerHTML =
+            '<h3 style="font-size:14px;margin:6px 0 8px;color:#fff">Por onde começar</h3>' +
+            q.recs
+              .slice(0, 3)
+              .map(
+                (r) =>
+                  '<div class="rec"><span class="dot ' +
+                  (r.sev === 2 ? "r" : "a") +
+                  '"></span><div>' +
+                  r.rec +
+                  "</div></div>",
+              )
+              .join("") +
+            '<p style="font-size:12.5px;color:#9fb4bb;margin:9px 0 0">Estes são os primeiros passos. O plano completo trata todos os pontos, de ponta a ponta.</p>';
+        }
+      }
+      calc();
+    </script>
+    <noscript
+      ><div
+        style="
+          position: fixed;
+          right: 12px;
+          bottom: 12px;
+          background: #0e2f3c;
+          color: #fff;
+          font-size: 11px;
+          padding: 6px 11px;
+          border-radius: 8px;
+          z-index: 9999;
+        "
+      >
+        Alan Clever · Clever Assessoria e Cobrança
+      </div></noscript
+    >
+    <script>
+      (function () {
+        var SIG = "Alan Clever · Clever Assessoria e Cobrança";
+        function mk(tag, id, cls) {
+          var e = document.createElement(tag);
+          e.id = id;
+          if (cls) e.className = cls;
+          return e;
+        }
+        function ensure() {
+          try {
+            var body = document.body;
+            if (!body) return;
+            if (!document.getElementById("clvWm")) {
+              body.insertBefore(
+                mk("div", "clvWm", "clv-watermark"),
+                body.firstChild,
+              );
+            }
+            var wm = document.getElementById("clvWm");
+            if (wm && !wm.style.backgroundImage) {
+              var svg =
+                "<svg xmlns='http://www.w3.org/2000/svg' width='440' height='300'><text x='18' y='165' transform='rotate(-30 220 150)' fill='#0E2F3C' fill-opacity='0.06' font-family='Arial, sans-serif' font-size='19' font-weight='700'>" +
+                SIG +
+                "</text></svg>";
+              wm.style.backgroundImage =
+                'url("data:image/svg+xml;utf8,' +
+                encodeURIComponent(svg) +
+                '")';
+              wm.style.backgroundRepeat = "repeat";
+            }
+            if (!document.getElementById("clvBadge")) {
+              body.appendChild(mk("div", "clvBadge", "clv-badge"));
+            }
+            var bg = document.getElementById("clvBadge");
+            if (bg && bg.textContent.indexOf("Alan Clever") < 0) {
+              bg.innerHTML =
+                "<b>Alan Clever</b> · Clever Assessoria e Cobrança";
+            }
+            if (!document.getElementById("clvPrintFoot")) {
+              body.appendChild(mk("div", "clvPrintFoot", "clv-print-foot"));
+            }
+            var pff = document.getElementById("clvPrintFoot");
+            if (pff && pff.textContent.indexOf("Alan Clever") < 0) {
+              pff.textContent = SIG;
+            }
+            var foot = document.querySelector(".foot");
+            if (foot && foot.textContent.indexOf("Alan Clever") < 0) {
+              foot.innerHTML =
+                '<span class="clv-sig"><b>Alan Clever</b> · Clever Assessoria e Cobrança</span><br>Método Clever';
+            }
+          } catch (e) {}
+        }
+        ensure();
+        try {
+          new MutationObserver(ensure).observe(document.documentElement, {
+            childList: true,
+            subtree: true,
+            characterData: true,
+          });
+        } catch (e) {}
+        setInterval(ensure, 1000);
+      })();
+    </script>
+  </body>
+</html>

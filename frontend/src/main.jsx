@@ -5,7 +5,7 @@ import Home from "./Pages/Home";
 import Sobre from "./Pages/Sobre";
 import Cultura from "./Pages/Cultura";
 import Serviços from "./Pages/Serviços";
-import Educacao from "./Pages/Educacao";
+import Educacao from "./Pages/Educacao/Educacao";
 import Pagar from "./Pages/Pagar";
 import "./global.css";
 import TrabalheConosco from "./Pages/TrabalheConosco";
@@ -15,6 +15,7 @@ import Links from "./Pages/Links";
 import KathCNPJ from "./Pages/KathCPNJ";
 import TermosDeServico from "./Pages/TermosDeServico";
 import PoliticaDePrivacidade from "./Pages/PoliticaDePrivacidade";
+import Diagnostico from "./Pages/Diagnostico/Diagnostico";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -23,6 +24,7 @@ createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sobre" element={<Sobre />} />
+        <Route path="/diagnostico" element={<Diagnostico />} />
         <Route path="/cultura" element={<Cultura />} />
         <Route path="/servicos" element={<Serviços />} />
         <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
