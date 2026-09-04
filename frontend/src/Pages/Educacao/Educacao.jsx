@@ -9,6 +9,13 @@ import { useState } from "react";
 import PostsCarousel from "../../components/Blog/PostsCarousel";
 import ScrollReveal from "../../components/scrollView";
 import { Link } from "react-router";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTiktok,
+  FaYoutube,
+} from "react-icons/fa";
 
 export default function Educacao() {
   const [formData, setFormData] = useState({
@@ -26,7 +33,6 @@ export default function Educacao() {
     title: "Cobrança Sem Medo, Escola Sem Prejuízo",
   }); // Default selected ebook
   const [successMessage, setSuccessMessage] = useState("");
-
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleInputChange = (e) => {
@@ -117,7 +123,7 @@ export default function Educacao() {
     setError(null);
 
     try {
-      const response = await fetch("http://localhost:5050/ebook", {
+      const response = await fetch("https://agenda.clevercobranca.com.br/ebook", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -181,7 +187,7 @@ export default function Educacao() {
                       className={`${styles.btn} ${styles.ghost}`}
                       href="#curso"
                     >
-                      Conhecer o curso
+                      Conhecer o Método
                     </a>
                   </div>
                   <div className={styles.trust}>
@@ -189,10 +195,10 @@ export default function Educacao() {
                       <b>+R$ 180 mi</b>em dívida gerida
                     </div>
                     <div>
-                      <b>Milhares</b>de contratos recuperados
+                      <b>+350 Empresas</b>validaram nosso método
                     </div>
                     <div>
-                      <b>Método</b>firme, ético e legal
+                      <b>+22 Estados</b>em todo o Brasil
                     </div>
                   </div>
                 </div>
@@ -203,120 +209,212 @@ export default function Educacao() {
             </div>
           </section>
         </ScrollReveal>
-        {/* 2. ISCA */}
+
+        {/* 2. DIAGNÓSTICO */}
         <ScrollReveal variant="fadeUp">
-          <section id="ebook">
-            <div className={styles.isca}>
-              <div className={styles.inner}>
-                <div className={styles.iscaGrid}>
-                  <div>
-                    <div className={styles.eyebrow}>Comece grátis</div>
-                    <h2>
-                      Descubra a inadimplência real da sua empresa em 2 minutos
-                    </h2>
-                    <p>
-                      Faça o Diagnóstico Clever e receba o e-book "
-                      {ebookSelected?.title}" no seu e-mail. Sem custo, direto
-                      ao ponto.
-                    </p>
-                    <Link
-                      className={`${styles.btn} ${styles.tealb}`}
-                      to="/diagnostico"
-                    >
-                      Fazer o diagnóstico gratuito
-                    </Link>
+          <section id="diagnostico" className={styles.diagnostico}>
+            <div className={styles.inner}>
+              <div className={styles.diagnosticoContent}>
+                <div className={styles.eyebrow}>Comece grátis</div>
+                <h2>
+                  Descubra a inadimplência real da sua empresa em 2 minutos
+                </h2>
+                <p>
+                  Faça o Diagnóstico Clever e ganhe um presente exclusivo para
+                  ajudar sua instituição a cobrar melhor, proteger o caixa e
+                  reduzir os impactos da inadimplência
+                </p>
+                <Link
+                  className={`${styles.btn} ${styles.tealb}`}
+                  to="/diagnostico"
+                >
+                  Fazer o diagnóstico gratuito
+                </Link>
+              </div>
+            </div>
+          </section>
+        </ScrollReveal>
+
+        {/* 3. E-BOOK */}
+        <ScrollReveal variant="fadeUp">
+          <section id="ebook" className={styles.ebookSection}>
+            <div className={styles.innerEbook}>
+              <div className={styles.ebookGrid}>
+                <div className={styles.ebookInfo}>
+                  <div className={styles.ebookCover}>
+                    {ebookSelected.id === 1 ? (
+                      <img
+                        src={CobrancaSemMedo}
+                        alt="Capa do e-book Cobrança Sem Medo, Escola Sem Prejuízo"
+                      />
+                    ) : (
+                      <img
+                        src={CobrancaInteligente}
+                        alt="Capa do e-book Cobrança Inteligente"
+                      />
+                    )}
+                  </div>
+                  <div className={styles.ebookHeading}>
+                    <div className={styles.eyebrow}>E-book gratuito</div>
+                    <h2>{ebookSelected.title}</h2>
                   </div>
 
-                  <div className={`${styles.card}`}>
-                    <form
-                      type="submit"
-                      className={`${styles.form}`}
-                      onSubmit={handleSubmit}
-                    >
-                      <b className={styles.inkText}>
-                        Receba o e-book "{ebookSelected?.title}" no seu e-mail
-                      </b>
-                      {/* Honeypot - Campo oculto para prevenir bots */}
-                      <div style={{ display: "none" }}>
-                        <label htmlFor="form_proibido">
-                          Não preencher este campo
-                        </label>
-                        <input
-                          type="text"
-                          name="form_proibido"
-                          id="form_proibido"
-                          autoComplete="off"
-                          value={formData.form_proibido}
-                          onChange={handleInputChange}
-                          tabIndex={-1}
-                        />
-                      </div>
-                      <label htmlFor="nome">Nome</label>
-                      <input
-                        name="nome"
-                        type="text"
-                        id="nome"
-                        value={formData.nome}
-                        placeholder="Seu nome"
-                        onChange={handleInputChange}
-                      />
-                      <label htmlFor="email">Seu melhor e-mail</label>
-                      <input
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        id="email"
-                        placeholder="voce@escola.com.br"
-                        onChange={handleInputChange}
-                      />
-                      <label htmlFor="whatsapp">WhatsApp com DDD</label>
-                      <input
-                        name="whatsapp"
-                        type="tel"
-                        value={formData.whatsapp}
-                        id="whatsapp"
-                        placeholder="(11) 90000-0000"
-                        onChange={handleInputChange}
-                      />
-                      <label htmlFor="empresa">Sua empresa</label>
-                      <input
-                        name="empresa"
-                        type="text"
-                        value={formData.empresa}
-                        id="empresa"
-                        placeholder="Nome da empresa"
-                        onChange={handleInputChange}
-                      />
-                      <label className={styles.chk} htmlFor="conteudos">
-                        <input
-                          name="conteudos"
-                          id="conteudos"
-                          value={formData.conteudos}
-                          type="checkbox"
-                          defaultChecked
-                          onChange={handleInputChange}
-                        />
-                        <span>
-                          Quero receber conteúdos educacionais da Clever.
-                        </span>
+                  {ebookSelected.id === 1 ? (
+                    <ul className={styles.ebookDescription}>
+                      <li>
+                        Um guia direto e prático para gestores escolares que
+                        desejam profissionalizar sua cobrança, estruturando
+                        processos eficazes e reduzindo a inadimplência com base
+                        legal, técnica e estratégica.
+                      </li>
+                      <li>
+                        Como montar uma régua de cobrança inteligente, com ações
+                        antes, no vencimento e após o atraso.
+                      </li>
+                      <li>
+                        Quais são os erros que mais atrapalham a cobrança
+                        escolar e como eliminá-los do dia a dia.
+                      </li>
+                      <li>
+                        O que dizer (e o que nunca dizer) em uma cobrança, com
+                        modelos prontos e linguagem assertiva.
+                      </li>
+                      <li>
+                        Como aplicar scripts de negociação, lidar com objeções e
+                        manter o controle da conversa.
+                      </li>
+                      <li>
+                        Quando e como encaminhar contratos para assessoria
+                        especializada, com respaldo jurídico.
+                      </li>
+                    </ul>
+                  ) : (
+                    <ul className={styles.ebookDescription}>
+                      <li>
+                        Cobrar de forma inteligente significa compreender
+                        pessoas, conduzir conversas estratégicas e transformar
+                        cada contato em uma oportunidade real de recuperação de
+                        crédito.
+                      </li>
+                      <li>
+                        Alan Clever apresenta um método prático para
+                        profissionais e empresas que desejam elevar o nível da
+                        operação de cobrança e alcançar resultados consistentes.
+                      </li>
+                      <li>
+                        O material reúne técnicas aplicadas diariamente em
+                        operações que lidam com milhares de negociações e altos
+                        volumes financeiros.
+                      </li>
+                      <li>
+                        Você aprenderá a transformar contatos com devedores em
+                        negociações produtivas, aplicar comunicação estratégica
+                        e conduzir a conversa até o fechamento do acordo.
+                      </li>
+                      <li>
+                        O conteúdo mostra como compreender o comportamento do
+                        devedor, estruturar abordagens eficazes e aumentar as
+                        taxas de recuperação.
+                      </li>
+                      <li>
+                        Um guia construído a partir de situações reais, que
+                        demonstra como pequenas mudanças na comunicação podem
+                        gerar grandes resultados.
+                      </li>
+                      <li>
+                        Princípios para proteger o faturamento, manter a saúde
+                        financeira do negócio e transformar a cobrança em um
+                        processo mais estratégico.
+                      </li>
+                    </ul>
+                  )}
+                </div>
+
+                <div className={styles.card}>
+                  <form className={styles.form} onSubmit={handleSubmit}>
+                    <b className={styles.inkText}>
+                      Receba o e-book "{ebookSelected.title}" no seu e-mail
+                    </b>
+                    {/* Honeypot - Campo oculto para prevenir bots */}
+                    <div style={{ display: "none" }}>
+                      <label htmlFor="form_proibido">
+                        Não preencher este campo
                       </label>
-                      <span className={styles.error}>{error}</span>
-                      <span className={styles.success}>{successMessage}</span>
-                      <button
-                        disabled={status === "loading"}
-                        className={`${styles.btn} ${styles.gold} ${styles.fullButton}`}
-                        type="submit"
-                      >
-                        Quero o e-book
-                      </button>
-                    </form>
-                  </div>
+                      <input
+                        type="text"
+                        name="form_proibido"
+                        id="form_proibido"
+                        autoComplete="off"
+                        value={formData.form_proibido}
+                        onChange={handleInputChange}
+                        tabIndex={-1}
+                      />
+                    </div>
+                    <label htmlFor="nome">Nome</label>
+                    <input
+                      name="nome"
+                      type="text"
+                      id="nome"
+                      value={formData.nome}
+                      placeholder="Seu nome"
+                      onChange={handleInputChange}
+                    />
+                    <label htmlFor="email">Seu melhor e-mail</label>
+                    <input
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      id="email"
+                      placeholder="voce@empresa.com.br"
+                      onChange={handleInputChange}
+                    />
+                    <label htmlFor="whatsapp">WhatsApp com DDD</label>
+                    <input
+                      name="whatsapp"
+                      type="tel"
+                      value={formData.whatsapp}
+                      id="whatsapp"
+                      placeholder="(11) 90000-0000"
+                      onChange={handleInputChange}
+                    />
+                    <label htmlFor="empresa">Sua empresa</label>
+                    <input
+                      name="empresa"
+                      type="text"
+                      value={formData.empresa}
+                      id="empresa"
+                      placeholder="Nome da empresa"
+                      onChange={handleInputChange}
+                    />
+                    <label className={styles.chk} htmlFor="conteudos">
+                      <input
+                        name="conteudos"
+                        id="conteudos"
+                        type="checkbox"
+                        checked={formData.conteudos}
+                        onChange={handleInputChange}
+                      />
+                      <span>
+                        Quero receber conteúdos educacionais da Clever.
+                      </span>
+                    </label>
+                    <span className={styles.error}>{error}</span>
+                    <span className={styles.success}>{successMessage}</span>
+                    <button
+                      disabled={status === "loading"}
+                      className={`${styles.btn} ${styles.gold} ${styles.fullButton}`}
+                      type="submit"
+                    >
+                      Quero o e-book
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
           </section>
         </ScrollReveal>
-        {/* 3. PRODUTO PRINCIPAL */}
+
+        {/* 4. PRODUTO PRINCIPAL */}
         <ScrollReveal variant="fadeRight">
           <section id="curso">
             <div className={styles.principal}>
@@ -348,33 +446,30 @@ export default function Educacao() {
                   </div>
 
                   <div className={styles.prodBody}>
-                    <h4>O que você leva</h4>
+                    <h4>Neste método você irá aprender: </h4>
                     <ul>
                       <li>
-                        Descobrir a inadimplência real e prevenir o calote na
-                        matrícula
+                        Descobrir a inadimplência real e prevenir o prejuízo na
+                        matrícula.
                       </li>
                       <li>
-                        Blindar o contrato e montar política e régua de cobrança
+                        Blindar o contrato e montar política e régua de
+                        cobrança.
                       </li>
                       <li>
-                        Cobrar com firmeza e dentro da lei, sem medo do Procon
+                        Cobrar com firmeza e dentro da lei, sem medo do Procon.
                       </li>
-                      <li>Negociar com roteiro e fechar o pagamento</li>
+                      <li>Melhores roteiros para negociação.</li>
                       <li>
-                        Ferramentas prontas: diagnóstico, régua, política,
-                        painel, roteiro e resposta ao Procon
+                        Ferramentas prontas: Diagnóstico, Régua de cobrança,
+                        Política, Painel, Roteiros de negociação e Resposta ao
+                        Procon.
                       </li>
                     </ul>
-                    <div className={styles.bump}>
-                      <b>Order bump no checkout:</b> Caixa de Ferramentas Clever
-                      (gerador de documentos, e-mails da régua e controle em
-                      planilha) por + R$ 97.
-                    </div>
                     <div className={styles.prodActions}>
                       <a
                         className={`${styles.btn} ${styles.dark}`}
-                        href="https://pay.hotmart.com/Y107046224V?checkoutMode=10&offDiscount=METODOCLEVER"
+                        href="https://pay.hotmart.com/Y107046224V?checkoutMode=10&offDiscount=METODOCLEVER&bid=1788272087273"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -396,16 +491,17 @@ export default function Educacao() {
               <div className={styles.inner}>
                 <div className={styles.center}>
                   <div className={styles.eyebrow}>Qual é o seu caso</div>
-                  <h2 className={styles.sec}>Escolha o seu caminho</h2>
+                  <h2 className={styles.sec}>Escolha sua trilha</h2>
                 </div>
 
                 <div className={styles.duo}>
                   <div className={styles.tr}>
-                    <div className={styles.who}>Você tem uma escola</div>
-                    <h3>Reduza a inadimplência da sua instituição</h3>
+                    <div className={styles.who}>Instituição</div>
+                    <h3>Você tem uma Empresa</h3>
                     <p>
-                      Para dono e gestor de escola que quer receber o que é seu
-                      sem quebrar a relação com a família.
+                      Para empresários ou gestores que não querem mais sofrer
+                      com inadimplência, sem deixar de manter uma boa relação
+                      com os seus clientes.
                     </p>
                     <div className={styles.steps}>
                       E-book grátis → Curso Cobrança Educacional na Prática →
@@ -425,8 +521,8 @@ export default function Educacao() {
                     </div>
                     <h3>Domine a cobrança e viva disso</h3>
                     <p>
-                      Para o cobrador, a equipe e quem quer abrir a própria
-                      empresa de cobrança.
+                      Para o negociador, equipe de cobrança ou você que quer
+                      abrir a sua própria empresa de cobrança.
                     </p>
                     <div className={styles.steps}>
                       E-book O Código da Cobrança → Curso Cobrança Inteligente →
@@ -469,11 +565,13 @@ export default function Educacao() {
                     </div>
                     <div className={styles.ebCt}>
                       <span className={styles.tagfree}>
-                        Grátis · Instituição
+                        Grátis · Instituição de Ensino
                       </span>
                       <p>
-                        A isca do dono de uma instituição. Entregue por e-mail
-                        na captura acima.
+                        Um guia prático para gestores escolares estruturarem uma
+                        cobrança segura, estratégica e juridicamente respaldada,
+                        reduzindo a inadimplência e protegendo o faturamento da
+                        escola.
                       </p>
                       <a
                         href="#ebook"
@@ -496,10 +594,14 @@ export default function Educacao() {
                       />
                     </div>
                     <div className={styles.ebCt}>
-                      <span className={styles.tagfree}>Grátis · Cobrador</span>
+                      <span className={styles.tagfree}>
+                        Grátis · Negociador
+                      </span>
                       <p>
-                        A isca de quem cobra. Porta de entrada da trilha do
-                        operador.
+                        Descubra o método prático de Alan Clever para
+                        transformar contatos em negociações estratégicas,
+                        aumentar a recuperação de crédito e proteger o
+                        faturamento da sua empresa.
                       </p>
                       <a
                         href="#ebook"
@@ -524,8 +626,9 @@ export default function Educacao() {
                     <div className={styles.ebCt}>
                       <span className={styles.tagbonus}>Bônus do curso</span>
                       <p>
-                        Os 3 ebooks de negociação entram como bônus do curso
-                        Cobrança Inteligente, sem concorrer entre si.
+                        Um guia prático de Alan Clever para cobrar com
+                        estratégia, comunicação e respaldo legal, transformando
+                        inadimplência em negociação e resultado financeiro.
                       </p>
                       <a href="#curso">
                         <b className={styles.goldText}>Incluído no curso</b>
@@ -542,35 +645,82 @@ export default function Educacao() {
         <ScrollReveal variant="fadeLeft">
           <section>
             <div className={styles.aut}>
-              <div className={styles.inner}>
+              <div className={styles.innerConductor}>
                 <div className={styles.autGrid}>
-                  <div className={styles.foto}>
-                    <img
-                      src={AlanCondutor}
-                      alt="Alan Clever Condutor da Clever"
-                    />
-                  </div>
-                  <div>
-                    <div className={styles.eyebrow}>Quem conduz</div>
-                    <h2>Alan Clever</h2>
-                    <p>
-                      Fundador da Clever Assessoria e Cobrança. Engenheiro de
-                      formação, com pós em Direito Contratual e Processo Civil.
-                      Depois de anos como gestor de escolas, transformou o
-                      problema da inadimplência em um método firme, ético e
-                      legal.
-                    </p>
+                  <div className={styles.numbersContainer}>
+                    <div className={styles.foto}>
+                      <img
+                        src={AlanCondutor}
+                        alt="Alan Clever Condutor da Clever"
+                      />
+                    </div>
+
                     <div className={styles.nums}>
                       <div>
                         <b>+R$ 180 mi</b>em dívida educacional gerida
                       </div>
                       <div>
-                        <b>Milhares</b>de contratos recuperados
+                        <b>+150 Negociadores</b>de cobrança capacitados
                       </div>
                       <div>
-                        <b>Brasil</b>todo atendido
+                        <b>8 anos desenvolvendo</b>estratégia de recuperação de
+                        crédito
                       </div>
                     </div>
+                  </div>
+                  <div>
+                    <div className={styles.eyebrow}>Quem conduz</div>
+                    <h2>Alan Clever</h2>
+                    <p>
+                      Alan Clever é fundador e CEO da Clever Assessoria Jurídica
+                      e Cobrança e especialista em recuperação de crédito, com
+                      atuação especialmente voltada ao mercado educacional.
+                      <br />
+                      <br />
+                      Sua história na cobrança não começou apenas estudando
+                      inadimplência. Começou vivendo o problema do lado do
+                      credor.
+                      <br />
+                      <br />
+                      Antes da Clever, Alan esteve à frente da gestão de duas
+                      unidades de cursos profissionalizantes e enfrentou
+                      diretamente um dos maiores problemas financeiros das
+                      instituições de ensino: vender, prestar o serviço e não
+                      receber.
+                      <br />
+                      <br />
+                      Após buscar empresas de cobrança e não encontrar o nível
+                      de transparência, acompanhamento e resultado que esperava
+                      como credor, identificou uma oportunidade:
+                      <br />
+                      <br />
+                      criar uma empresa de recuperação de crédito pensada a
+                      partir da realidade de quem precisa receber.
+                      <br />
+                      <br />
+                      Foi dessa experiência que nasceu a Clever, em 2019.
+                      <br />
+                      <br />
+                      <strong>Construção da operação</strong>
+                      <br />
+                      Nos primeiros meses, Alan participou pessoalmente da
+                      cobrança, notificações, negociações, acompanhamento
+                      financeiro e relacionamento com as unidades.
+                      <br />
+                      <br />
+                      <strong>Especialização</strong>
+                      <br />
+                      A experiência operacional passou a ser combinada com
+                      conhecimento jurídico, gestão, dados, negociação e
+                      tecnologia.
+                      <br />
+                      <br />
+                      <strong>Hoje</strong>
+                      <br />
+                      Alan transforma essa experiência em metodologia,
+                      treinamento e estratégia para empresas que precisam
+                      profissionalizar sua recuperação de crédito.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -598,7 +748,7 @@ export default function Educacao() {
               <h2>Pronto para parar de perder o que é seu?</h2>
               <p>
                 Comece pelo diagnóstico gratuito e veja o tamanho real da
-                inadimplência da sua escola.
+                inadimplência da sua empresa.
               </p>
               <Link
                 className={`${styles.btn} ${styles.gold}`}
@@ -617,10 +767,59 @@ export default function Educacao() {
             <br />
             clevercobranca.com.br
           </div>
-          <div>
-            WhatsApp (11) 95846-1450
-            <br />
-            @clevercobranca · @oalanclever
+          <div className={styles.footerContact}>
+            <a
+              href="https://wa.me/5511986037555"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp (11) 98603-7555
+            </a>
+            <div
+              className={styles.socialLinks}
+              aria-label="Redes sociais da Clever"
+            >
+              <a
+                href="https://www.instagram.com/clevercobranca"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="https://web.facebook.com/clevercobranca?_rdc=1&_rdr#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <FaFacebookF />
+              </a>
+              <a
+                href="https://www.tiktok.com/@cleverassessoria1?is_from_webapp=1&sender_device=pc"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+              >
+                <FaTiktok />
+              </a>
+              <a
+                href="https://www.youtube.com/@clevercobranca"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+              >
+                <FaYoutube />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/clevercobranca/?viewAsMember=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedinIn />
+              </a>
+            </div>
           </div>
         </div>
       </footer>

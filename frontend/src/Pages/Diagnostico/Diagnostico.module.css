@@ -521,22 +521,81 @@
   color: #40525a;
 }
 .ctaButton {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--amber);
   color: #fff;
   font-weight: 800;
   text-decoration: none;
   padding: 12px 22px;
   border-radius: 10px;
-  margin: 2px 0 12px;
+  margin: 0;
   font-size: 14.5px;
 }
-.contact,
+
+.resultActions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px 0 20px;
+}
+
+.pdfButton {
+  background: var(--amber);
+  color: #fff;
+}
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  color: var(--grey);
+  text-align: left;
+}
+
+.contact strong {
+  color: var(--ink);
+}
+
 .contact a {
   color: var(--teal);
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.resultSocialLinks {
+  display: flex;
+  gap: 7px;
+}
+
+.resultSocialLinks a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: 15px;
+  transition: 0.15s;
+}
+
+.resultSocialLinks a:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+  transform: translateY(-1px);
 }
 .lgpd {
   font-size: 12px;
@@ -562,6 +621,13 @@
 .printFooter {
   display: none;
 }
+
+@media (max-width: 1025px) {
+  .wrap {
+    padding: 18px 20px;
+  }
+}
+
 @media (max-width: 600px) {
   .comparison,
   .formGrid {
@@ -580,10 +646,35 @@
   .stepTag {
     display: none;
   }
+
+  .resultActions,
+  .contact {
+    flex-direction: column;
+  }
+
+  .resultActions > *,
+  .contactDetails {
+    width: 100%;
+  }
+
+  .contact,
+  .contactDetails {
+    align-items: center;
+    text-align: center;
+  }
+
+  .resultSocialLinks {
+    justify-content: center;
+  }
 }
 @media (min-width: 601px) {
   .wrap {
     padding-top: 18px;
+  }
+}
+@media (max-width: 360px) {
+  .wrap {
+    padding: 18px 6px;
   }
 }
 
@@ -620,7 +711,8 @@
 
   .tabs,
   .navButtons,
-  .lgpd {
+  .lgpd,
+  .pdfButton {
     display: none;
   }
 }

@@ -2,6 +2,13 @@ import styles from "../../Pages/Diagnostico/Diagnostico.module.css";
 import { QUESTIONS } from "../../Pages/Diagnostico/diagnostico.config";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTiktok,
+  FaYoutube,
+} from "react-icons/fa";
 
 const cx = (...names) =>
   names
@@ -139,47 +146,49 @@ export function Result({
             equipe preparada. A Clever conduz esse processo com a sua empresa,
             do diagnóstico à recuperação.
           </p>
-          <a
-            className={styles.ctaButton}
-            href="https://wa.me/5511958461450"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Falar com a Clever no WhatsApp
-          </a>
-          <div className={styles.contact}>
+          <div className={styles.resultActions}>
             <a
-              href="https://www.clevercobranca.com.br"
+              className={styles.ctaButton}
+              href="https://wa.me/5511986037555"
               target="_blank"
               rel="noopener noreferrer"
             >
-              clevercobranca.com.br
-            </a>{" "}
-            ·{" "}
-            <a
-              href="https://instagram.com/clevercobranca"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @clevercobranca
-            </a>{" "}
-            ·{" "}
-            <a
-              href="https://wa.me/5511958461450"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              (11) 95846-1450
+              Falar com a Clever no WhatsApp
             </a>
+            <button
+              className={cx("button", "primary", "pdfButton")}
+              type="button"
+              onClick={handleGeneratePDF}
+            >
+              Baixar Diagnóstico em PDF
+            </button>
+          </div>
+          <div className={styles.contact}>
+            <div>
+              <strong>CLEVER</strong> · Assessoria Jurídica e Cobrança
+              <br />
+              <a href="https://www.clevercobranca.com.br" target="_blank" rel="noopener noreferrer">
+                clevercobranca.com.br
+              </a>
+            </div>
+            <div className={styles.contactDetails}>
+              <a href="https://wa.me/5511986037555" target="_blank" rel="noopener noreferrer">
+                WhatsApp (11) 98603-7555
+              </a>
+              <div className={styles.resultSocialLinks} aria-label="Redes sociais da Clever">
+                <a href="https://www.instagram.com/oalanclever" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+                <a href="https://web.facebook.com/clevercobranca?_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
+                <a href="https://www.tiktok.com/@cleverassessoria1?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><FaTiktok /></a>
+                <a href="https://www.youtube.com/@clevercobranca" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><FaYoutube /></a>
+                <a href="https://www.linkedin.com/company/clevercobranca/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div className={styles.navButtons}>
         <button className={cx("button", "ghost")} onClick={() => goTo(1)}>
           Voltar
-        </button>
-        <button className={styles.button} onClick={handleGeneratePDF}>
-          Baixar Diagnóstico em PDF
         </button>
       </div>
     </>

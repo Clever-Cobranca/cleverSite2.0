@@ -186,16 +186,108 @@
   font-size: 20px;
 }
 
-/* ISCA */
-.isca {
+/* DIAGNÓSTICO */
+.diagnostico {
   background: var(--tint-gold);
 }
 
-.iscaGrid {
+.diagnosticoContent {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 28px 0;
+  text-align: center;
+}
+
+.diagnosticoContent h2 {
+  margin: 8px auto 14px;
+  color: var(--ink);
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.15;
+}
+
+.diagnosticoContent p {
+  max-width: 760px;
+  margin: 0 auto 24px;
+  color: #40525a;
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.6;
+}
+
+/* E-BOOK */
+
+.innerEbook {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 44px 22px;
+}
+.ebookSection {
+  background: var(--soft);
+}
+
+.ebookGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.ebookInfo {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.75fr) minmax(0, 1.25fr);
+  grid-template-areas:
+    "cover heading"
+    "cover description";
   gap: 24px;
-  align-items: center;
+  align-items: baseline;
+}
+
+.ebookCover {
+  grid-area: cover;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(14, 47, 60, 0.16);
+}
+
+.ebookCover img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ebookInfo h2 {
+  margin: 7px 0 10px;
+  color: var(--ink);
+  font-size: 27px;
+  line-height: 1.25;
+}
+
+.ebookHeading {
+  grid-area: heading;
+  align-self: end;
+}
+
+.ebookDescription {
+  grid-area: description;
+  align-self: start;
+  margin: 0;
+  padding-left: 20px;
+  color: #40525a;
+  font-size: 16px;
+  list-style-type: disc;
+}
+
+.ebookDescription li {
+  margin-bottom: 8px;
+  padding-left: 3px;
+}
+
+.ebookDescription li:last-child {
+  margin-bottom: 0;
+}
+
+.ebookDescription li::marker {
+  color: var(--gold);
 }
 
 .card {
@@ -204,18 +296,6 @@
   padding: 22px;
   background: #fff;
   box-shadow: 0 2px 10px rgba(14, 47, 60, 0.06);
-}
-
-.isca h2 {
-  margin: 6px 0 8px;
-  color: var(--ink);
-  font-size: 27px;
-  line-height: 1.25;
-}
-
-.isca p {
-  margin: 0 0 14px;
-  color: #40525a;
 }
 
 .inkText {
@@ -348,24 +428,11 @@
   padding-left: 18px;
   color: #40525a;
   font-size: 14.5px;
+  list-style-type: disc;
 }
 
 .prodBody li {
   margin: 5px 0;
-}
-
-.bump {
-  margin-bottom: 14px;
-  border: 1px dashed var(--gold);
-  border-radius: 10px;
-  padding: 12px 14px;
-  background: var(--tint-gold);
-  color: #6b5327;
-  font-size: 13.5px;
-}
-
-.bump b {
-  color: var(--ink);
 }
 
 .prodActions {
@@ -436,6 +503,7 @@
 
 /* EBOOKS */
 .threeColumns {
+  min-height: 480px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
@@ -452,7 +520,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 240px;
+  height: 340px;
   background: linear-gradient(160deg, #12384a, #0a2029);
   color: #cfe0e4;
   font-size: 12px;
@@ -511,6 +579,11 @@
 }
 
 /* AUTORIDADE */
+.innerConductor {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 44px 22px;
+}
 .aut {
   background: var(--ink);
   color: #fff;
@@ -519,16 +592,21 @@
 .autGrid {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
-  gap: 26px;
-  align-items: center;
+  gap: 32px;
+}
+
+.numbersContainer {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .foto {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 420px;
-  width: 400px;
   border: 1px solid #23576b;
   border-radius: 14px;
   background: linear-gradient(160deg, #1c4a5c, #0e2f3c);
@@ -553,10 +631,12 @@
 }
 
 .nums {
+  width: 100%;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 26px;
-  margin-top: 14px;
+  gap: 22px;
+  margin-top: 18px;
 }
 
 .nums div {
@@ -642,10 +722,58 @@
   color: #fff;
 }
 
+.footerContact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.footerContact > a {
+  color: #9db8c1;
+  text-decoration: none;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 8px;
+}
+
+.socialLinks a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 16px;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.socialLinks a:hover {
+  border-color: var(--gold2);
+  color: var(--gold2);
+  transform: translateY(-2px);
+}
+
 /* TABLET */
+
+@media (max-width: 1200px) {
+  .ebookGrid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  }
+  .nums {
+    justify-content: start;
+  }
+}
 @media (max-width: 900px) {
   .heroInner,
-  .iscaGrid,
+  .ebookGrid,
   .prod,
   .duo,
   .autGrid {
@@ -653,7 +781,21 @@
   }
 
   .threeColumns {
+    height: 100%;
     grid-template-columns: 1fr;
+  }
+
+  .numbersContainer {
+    align-items: center;
+  }
+
+  .ebookGrid {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .cv {
+    height: 460px;
   }
 
   .heroInner {
@@ -677,6 +819,37 @@
   }
   .eb {
     min-height: 300px;
+  }
+}
+
+.aut p strong {
+  color: var(--gold);
+}
+
+/* TABLET: mantém as capas legíveis sem transformar cada card em um banner */
+@media (min-width: 601px) and (max-width: 900px) {
+  .threeColumns {
+    width: 100%;
+    max-width: 760px;
+    height: auto;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+
+  .threeColumns .eb:last-child {
+    grid-column: 1 / -1;
+    width: calc((100% - 16px) / 2);
+    justify-self: center;
+  }
+
+  .threeColumns .cv {
+    height: clamp(280px, 42vw, 350px);
+  }
+
+  .threeColumns .cv img {
+    object-fit: cover;
+    object-position: center top;
   }
 }
 
@@ -716,7 +889,7 @@
   }
 
   .cta .btn,
-  .isca .btn,
+  .diagnostico .btn,
   .tr .btn,
   .final .btn,
   .courseButton,
@@ -742,9 +915,37 @@
     height: 220px;
   }
 
-  .isca h2,
+  .ebookInfo h2,
   .sec {
     font-size: 24px;
+  }
+
+  .diagnosticoContent {
+    padding: 12px 0;
+  }
+
+  .diagnosticoContent h2 {
+    font-size: clamp(24px, 8vw, 32px);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  .ebookInfo {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "heading"
+      "cover"
+      "description";
+    text-align: center;
+  }
+
+  .ebookDescription {
+    text-align: left;
+  }
+
+  .ebookCover {
+    width: min(100%, 280px);
+    margin: 0 auto;
   }
 
   .card,
@@ -787,7 +988,11 @@
   }
 
   .cv {
-    height: 130px;
+    height: 330px;
+  }
+  .cv img {
+    object-position: 50% 10%;
+    object-fit: cover;
   }
 
   .autGrid {
@@ -804,7 +1009,6 @@
 
   .nums {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
 
@@ -823,6 +1027,10 @@
   .footerInner {
     flex-direction: column;
     text-align: center;
+  }
+
+  .footerContact {
+    align-items: center;
   }
 }
 

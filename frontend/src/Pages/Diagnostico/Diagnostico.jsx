@@ -44,15 +44,17 @@ export default function Diagnostico() {
     [financialData],
   );
   const quiz = useMemo(() => evaluateQuiz(answers), [answers]);
-  console.log(result);
 
   //Navegação entre as etapas do diagnóstico
   const goTo = (next) => {
-    if ((next === 2) & (quiz.answeredCount < QUESTIONS.length)) {
+    if (next === 2 && quiz.answeredCount < QUESTIONS.length) {
       return;
     }
     setTab(next);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setTimeout(() => {
+      document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 0);
   };
 
   // Atualizar os dados financeiros da Etapa 1 "Inadimplência" com base no campo alterado(Evitando digite letras ou simbolos)
@@ -116,7 +118,12 @@ export default function Diagnostico() {
       );
       return;
     }
+    setError("");
     goTo(2);
+    setTimeout(() => {
+      document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 1000);
   };
 
   const submit = async (event) => {
@@ -132,7 +139,7 @@ export default function Diagnostico() {
 
     setError("");
     setSending(true);
-    
+
     try {
       await fetch(FORM_ENDPOINT, {
         method: "POST",
@@ -196,8 +203,8 @@ export default function Diagnostico() {
                 tag="o que você vê hoje"
               />
               <NumberField
-                label="Parcelas que já venceram neste mês"
-                hint="Some só as parcelas com vencimento até hoje."
+                label="Valor total das parcelas que já venceram neste mês"
+                hint="Some só as parcelas com vencimento até hoje(pagas ou não)"
                 prefix="R$"
                 value={financialData.overdueThisMonth}
                 onChange={updateFinancialData("overdueThisMonth")}
@@ -226,17 +233,19 @@ export default function Diagnostico() {
               />
               <NumberField
                 label="Total de clientes nos últimos 12 meses"
+                hint="Quantos contratos você fez nos últimos 12 meses"
                 value={financialData.totalCustomers}
                 onChange={updateFinancialData("totalCustomers")}
               />
               <NumberField
                 label="Clientes que saíram devendo"
-                hint="Cancelados e encerrados com débito."
+                hint="Cancelados e encerrados com débito há mais de 90 dias"
                 value={financialData.inactiveDebtors}
                 onChange={updateFinancialData("inactiveDebtors")}
               />
               <NumberField
                 label="Clientes ativos hoje com parcela em atraso"
+                hint="Com atraso entre 1 a 90 dias"
                 value={financialData.activeDebtors}
                 onChange={updateFinancialData("activeDebtors")}
               />
@@ -257,7 +266,7 @@ export default function Diagnostico() {
               <StepHeading number="3" title="Valor em aberto" />
               <NumberField
                 label="Valor médio em aberto por devedor"
-                hint="Parcelas em aberto mais a multa contratual."
+                hint="A soma de Parcelas/Mensalidade/Boleto - Boletos em atraso mais multa contratual"
                 prefix="R$"
                 value={financialData.averageDebt}
                 onChange={updateFinancialData("averageDebt", true)}
@@ -271,7 +280,12 @@ export default function Diagnostico() {
               <span />
               <button
                 className={cx("button", "primary")}
-                onClick={() => goTo(1)}
+                onClick={() => {
+                  goTo(1);
+                  window.scrollTo(0, 0);
+                  document.documentElement.scrollTop = 0;
+                  document.body.scrollTop = 0;
+                }}
               >
                 Próxima etapa: Cultura
               </button>

@@ -69,4 +69,4 @@ export const QUESTIONS = [
 ];
 
 // Configure the same endpoint used by the e-book form when it is available.
-export const FORM_ENDPOINT = "http://localhost:5050/diagnostico";
+export const FORM_ENDPOINT = "https://agenda.clevercobranca.com.br/diagnostico";
