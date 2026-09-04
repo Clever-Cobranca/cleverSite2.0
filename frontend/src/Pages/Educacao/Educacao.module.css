@@ -152,11 +152,14 @@
 }
 
 .mock {
+  --image-zoom: 1.2;
+  --image-focus-x: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 0;
   height: 300px;
+  overflow: hidden;
   border: 1px solid #23576b;
   border-radius: 16px;
   background: linear-gradient(160deg, #1c4a5c, #0e2f3c);
@@ -169,6 +172,9 @@
   height: 100%;
   border-radius: 12px;
   object-fit: cover;
+  transform: scale(var(--image-zoom));
+  transform-origin: var(--image-focus-x) center;
+  transition: transform 300ms ease;
 }
 
 .trust {
@@ -800,12 +806,20 @@
 
   .heroInner {
     gap: 28px;
+    align-items: center;
   }
 
   .mock {
-    height: 260px;
+    width: min(100%, 420px);
+    margin-inline: auto;
+    justify-self: center;
+    --image-zoom: 1.2;
+    --image-focus-x: 70%;
   }
-
+  .mock img {
+    transform: scale(var(--image-zoom));
+    transform-origin: var(--image-focus-x) bottom;
+  }
   .capa {
     min-height: 280px;
   }
