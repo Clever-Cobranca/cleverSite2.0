@@ -16,7 +16,6 @@ import KathCNPJ from "./Pages/KathCPNJ";
 import TermosDeServico from "./Pages/TermosDeServico";
 import PoliticaDePrivacidade from "./Pages/PoliticaDePrivacidade";
 import Diagnostico from "./Pages/Diagnostico/Diagnostico";
-import DiagnosticPdfPage from "./Pages/Diagnostico/DiagnosticoPdfPage";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -26,7 +25,6 @@ createRoot(document.getElementById("root")).render(
         <Route path="/" element={<Home />} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/diagnostico" element={<Diagnostico />} />
-        <Route path="/diagnostico/pdf/:id" element={<DiagnosticPdfPage />} />
         <Route path="/cultura" element={<Cultura />} />
         <Route path="/servicos" element={<Serviços />} />
         <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
