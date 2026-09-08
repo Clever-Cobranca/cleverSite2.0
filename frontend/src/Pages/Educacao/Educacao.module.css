@@ -152,13 +152,13 @@
 }
 
 .mock {
-  --image-zoom: 1.2;
+  --image-zoom: 1.1;
   --image-focus-x: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 0;
-  height: 300px;
+  height: 340px;
   overflow: hidden;
   border: 1px solid #23576b;
   border-radius: 16px;
@@ -172,8 +172,9 @@
   height: 100%;
   border-radius: 12px;
   object-fit: cover;
-  transform: scale(var(--image-zoom));
-  transform-origin: var(--image-focus-x) center;
+  object-position: var(--image-focus-x) top;
+  transform: scale(var(--image-zoom)) translateY(-32px);
+  transform-origin: var(--image-focus-x) top;
   transition: transform 300ms ease;
 }
 
@@ -828,9 +829,6 @@
     max-width: 520px;
     width: 100%;
   }
-  .mock img {
-    object-position: 90% 30%;
-  }
   .eb {
     min-height: 300px;
   }
@@ -925,10 +923,6 @@
     font-size: 18px;
   }
 
-  .mock {
-    height: 220px;
-  }
-
   .ebookInfo h2,
   .sec {
     font-size: 24px;
@@ -1014,7 +1008,7 @@
   }
 
   .foto {
-    height: 210px;
+    height: 280px;
   }
 
   .aut h2 {
@@ -1052,6 +1046,10 @@
   .inner {
     padding-left: 15px;
     padding-right: 15px;
+  }
+
+  .mock{
+    height: 300px;
   }
 
   .trust,

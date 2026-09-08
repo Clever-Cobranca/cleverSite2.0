@@ -769,11 +769,11 @@ export default function Educacao() {
           </div>
           <div className={styles.footerContact}>
             <a
-              href="https://wa.me/5511986037555"
+              href="https://wa.me/5511910699108"
               target="_blank"
               rel="noopener noreferrer"
             >
-              WhatsApp (11) 98603-7555
+              WhatsApp (11) 91069-9108
             </a>
             <div
               className={styles.socialLinks}
