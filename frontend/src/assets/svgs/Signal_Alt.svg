@@ -1,12 +1,23 @@
-<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_188_1992)">
-<path d="M27.0833 12.5H22.9167C21.8116 12.5 20.7518 12.939 19.9704 13.7204C19.189 14.5018 18.75 15.5616 18.75 16.6667V50H31.25V16.6667C31.25 15.5616 30.811 14.5018 30.0296 13.7204C29.2482 12.939 28.1884 12.5 27.0833 12.5ZM27.0833 45.8333H22.9167V16.6667H27.0833V45.8333Z" fill="#F1B434"/>
-<path d="M45.8333 0H41.6667C40.5616 0 39.5018 0.438987 38.7204 1.22039C37.939 2.00179 37.5 3.0616 37.5 4.16667V50H50V4.16667C50 3.0616 49.561 2.00179 48.7796 1.22039C47.9982 0.438987 46.9384 0 45.8333 0V0ZM45.8333 45.8333H41.6667V4.16667H45.8333V45.8333Z" fill="#F1B434"/>
-<path d="M8.33333 25H4.16667C3.0616 25 2.00179 25.439 1.22039 26.2204C0.438987 27.0018 0 28.0616 0 29.1667L0 50H12.5V29.1667C12.5 28.0616 12.061 27.0018 11.2796 26.2204C10.4982 25.439 9.4384 25 8.33333 25Z" fill="#F1B434"/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="98" height="98" viewBox="0 0 98 98" fill="none">
+<title>Sinal — vidro com reflexos suaves</title>
 <defs>
-<clipPath id="clip0_188_1992">
-<rect width="50" height="50" fill="white"/>
-</clipPath>
+<path id="shape" d="M53.0833 24.5H44.9167C42.7507 24.5 40.6735 25.3604 39.142 26.892C37.6104 28.4235 36.75 30.5007 36.75 32.6667V98H61.25V32.6667C61.25 30.5007 60.3896 28.4235 58.858 26.892C57.3265 25.3604 55.2493 24.5 53.0833 24.5V24.5ZM53.0833 89.8333H44.9167V32.6667H53.0833V89.8333Z M89.8333 0H81.6667C79.5007 0 77.4235 0.860414 75.892 2.39196C74.3604 3.92351 73.5 6.00073 73.5 8.16667V98H98V8.16667C98 6.00073 97.1396 3.92351 95.608 2.39196C94.0765 0.860414 91.9993 0 89.8333 0V0ZM89.8333 89.8333H81.6667V8.16667H89.8333V89.8333Z M16.3333 49H8.16667C6.00073 49 3.92351 49.8604 2.39196 51.392C0.860414 52.9235 0 55.0007 0 57.1667L0 98H24.5V57.1667C24.5 55.0007 23.6396 52.9235 22.108 51.392C20.5765 49.8604 18.4993 49 16.3333 49Z" />
+<clipPath id="clip"><use xlink:href="#shape" /></clipPath>
+<linearGradient id="glass" x1="14" y1="4" x2="78" y2="94" gradientUnits="userSpaceOnUse" gradientTransform="scale(1.0208333333)">
+<stop stop-color="#eff4f4" stop-opacity=".33" /><stop offset=".28" stop-color="#d3dfe0" stop-opacity=".22" /><stop offset=".49" stop-color="#f4f8f8" stop-opacity=".36" /><stop offset=".72" stop-color="#c1ced0" stop-opacity=".21" /><stop offset="1" stop-color="#edf3f3" stop-opacity=".31" />
+</linearGradient>
+<linearGradient id="edge" x1="22" y1="8" x2="76" y2="92" gradientUnits="userSpaceOnUse" gradientTransform="scale(1.0208333333)">
+<stop stop-color="#fff" stop-opacity=".52" /><stop offset=".27" stop-color="#fff" stop-opacity=".1" /><stop offset=".5" stop-color="#e5f4f5" stop-opacity=".32" /><stop offset=".73" stop-color="#fff" stop-opacity=".06" /><stop offset="1" stop-color="#fff" stop-opacity=".35" />
+</linearGradient>
+<radialGradient id="shine" cx="32" cy="7" r="23" gradientUnits="userSpaceOnUse" gradientTransform="scale(1.0208333333)"><stop stop-color="#fff" stop-opacity=".37" /><stop offset=".33" stop-color="#fff" stop-opacity=".17" /><stop offset="1" stop-color="#fff" stop-opacity="0" /></radialGradient>
+<radialGradient id="shine2" cx="82" cy="83" r="24" gradientUnits="userSpaceOnUse" gradientTransform="scale(1.0208333333)"><stop stop-color="#fff" stop-opacity=".25" /><stop offset=".3" stop-color="#fff" stop-opacity=".12" /><stop offset="1" stop-color="#fff" stop-opacity="0" /></radialGradient>
+<linearGradient id="reflection" x1="20" y1="22" x2="65" y2="80" gradientUnits="userSpaceOnUse" gradientTransform="scale(1.0208333333)"><stop stop-color="#fff" stop-opacity="0" /><stop offset=".42" stop-color="#fff" stop-opacity="0" /><stop offset=".50" stop-color="#fff" stop-opacity=".14" /><stop offset=".59" stop-color="#fff" stop-opacity=".02" /><stop offset="1" stop-color="#fff" stop-opacity="0" /></linearGradient>
 </defs>
+<use xlink:href="#shape" fill="url(#glass)" />
+<g clip-path="url(#clip)">
+<path d="M0 0H98V98H0Z" fill="url(#shine)" />
+<path d="M0 0H98V98H0Z" fill="url(#shine2)" />
+<path d="M0 0H98V98H0Z" fill="url(#reflection)" />
+<use xlink:href="#shape" stroke="url(#edge)" stroke-width="1.4" />
+</g>
 </svg>

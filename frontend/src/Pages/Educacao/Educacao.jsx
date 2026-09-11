@@ -1,14 +1,15 @@
 import styles from "./Educacao.module.css";
-import { Header } from "../../components/Header/Header";
 import Alan from "../../assets/Alan.jpeg";
 import AlanCondutor from "../../assets/alan-condutor.jpeg";
 import CobrancaInteligente from "../../assets/cobranca-inteligente.jpeg";
 import CobrancaSemMedo from "../../assets/cobranca-sem-medo.jpg";
 import PareCobrarErrado from "../../assets/pare-de-cobrar-errado.jpeg";
-import { useState } from "react";
-import PostsCarousel from "../../components/Blog/PostsCarousel";
 import ScrollReveal from "../../components/scrollView";
-import { Link } from "react-router";
+import CardPosts from "../../components/Blog/CardPosts";
+import Carousel from "../../components/Carousel";
+import { Header } from "../../components/Header/Header";
+import { useState } from "react";
+import { Link, useParams } from "react-router";
 import {
   FaFacebookF,
   FaInstagram,
@@ -16,6 +17,7 @@ import {
   FaTiktok,
   FaYoutube,
 } from "react-icons/fa";
+import { posts } from "../blog/blogPost";
 
 export default function Educacao() {
   const [formData, setFormData] = useState({
@@ -34,6 +36,12 @@ export default function Educacao() {
   }); // Default selected ebook
   const [successMessage, setSuccessMessage] = useState("");
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const { postSlug } = useParams();
+
+  const postsFilteredBySlug = posts
+    .filter((p) => p.slug != postSlug)
+    .splice(0, 6);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -123,13 +131,16 @@ export default function Educacao() {
     setError(null);
 
     try {
-      const response = await fetch("https://agenda.clevercobranca.com.br/ebook", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://agenda.clevercobranca.com.br/ebook",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
         },
-        body: JSON.stringify(payload),
-      });
+      );
 
       if (response.ok) {
         const responseData = await response.json();
@@ -735,8 +746,19 @@ export default function Educacao() {
                 <div className={styles.eyebrow}>Conteúdo</div>
                 <h2 className={styles.sec}>Blog Clever</h2>
               </div>
-
-              <PostsCarousel />
+              <div className="max-h-[510px]">
+                <Carousel scrollMode="item" scrollStep={400}>
+                  {postsFilteredBySlug.map((post) => (
+                    <div
+                      key={post.id}
+                      data-carousel-item
+                      className="shrink-0 snap-start"
+                    >
+                      <CardPosts post={post} />
+                    </div>
+                  ))}
+                </Carousel>
+              </div>
             </div>
           </div>
         </section>

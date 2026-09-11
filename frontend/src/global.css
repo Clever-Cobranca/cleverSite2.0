@@ -1,18 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Slab:wght@100..900&display=swap");
 @import "tailwindcss";
 
 @theme {
   --breakpoint-lgs: 66rem;
   --breakpoing-xs: 20rem;
-  --font-family-roboto-slab: "Roboto Slab", "Monteserrat", sans-serif;
+  --font-family-headers: "Bebas Neue", "Opens Sans", sans-serif;
+  --font-family-roboto-slab: "Roboto Slab", "Opens Sans", sans-serif;
+  --font-family-garamond: "EB Garamond";
+  --color-black-primary: #111315;
+  --color-gray-primary: #f9f9f9;
   --color-orange-primary: #f1b434;
-  --color-gray-primary: #f2f2f2;
-  --text-color-dark: #f1b434;
 
   --font-family: {
-    /* Cria o utilitário font-roboto-slab */
+    /* Cria o utilitário de fontes */
     roboto-slab: var(--font-family-roboto-slab);
+    headers: var(--font-family-headers);
+    garamond: var(--font-family-garamond);
+  };
+}
+
+@layer utilities {
+  .backdrop-liquid-glass {
+    backdrop-filter: blur(24px) saturate(180%) brightness(1.05)
+      url("#liquid-glass-container-refraction");
+    -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+    /* highlight no topo + sombra ambiente = a "lente" de vidro */
+    box-shadow:
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -1px 1px 0 rgba(0, 0, 0, 0.04),
+      0 20px 50px -15px rgba(0, 0, 0, 0.25);
+  }
+
+  .dark .backdrop-liquid-glass {
+    backdrop-filter: blur(24px) saturate(180%) brightness(0.9)
+      url("#liquid-glass-container-refraction");
+    -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(0.9);
+    box-shadow:
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.08),
+      inset 0 -1px 1px 0 rgba(0, 0, 0, 0.4),
+      0 20px 50px -15px rgba(0, 0, 0, 0.6);
   }
 }
 #carouselTitle {
@@ -27,7 +54,7 @@
 
 body,
 #root {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans";
   min-width: 100vw;
   min-height: 100vh;
   width: 100vw;
@@ -37,7 +64,7 @@ body,
 }
 
 #root::-webkit-scrollbar {
-  width: 12px; /* Width for vertical */
+  width: 8px; /* Width for vertical */
   height: 12px; /* Height for horizontal */
 }
 
@@ -47,8 +74,7 @@ body,
 }
 
 #root::-webkit-scrollbar-thumb {
-  background: #888; /* Dark gray thumb */
-  border-radius: 10px;
+  background: #111315; /* Dark gray thumb */
 }
 
 #root::-webkit-scrollbar-thumb:hover {

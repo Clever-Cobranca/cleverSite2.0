@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="95" height="104" viewBox="0 0 95 104" fill="none">
+<title>Pin — vidro com reflexos suaves</title>
+<defs>
+<path id="shape" d="M35.1 71.4159L54.7 92.8534L57.528 89.7603C61.4373 85.4698 64.2583 80.1402 65.7136 74.2958C67.1688 68.4514 67.2083 62.2933 65.828 56.4271L64.844 52.0521L73.188 42.9259L74.056 43.8753C76.0772 46.1411 78.7622 47.5578 81.6416 47.8777C84.521 48.1976 87.4116 47.4003 89.808 45.6253C91.2285 44.5182 92.4113 43.0858 93.2739 41.4278C94.1366 39.7698 94.6585 37.926 94.8032 36.0249C94.9479 34.1238 94.7119 32.211 94.1117 30.4198C93.5116 28.6286 92.5616 27.0021 91.328 25.6534L71.628 4.07151C69.6069 1.80571 66.9219 0.389009 64.0424 0.0691151C61.163 -0.250779 58.2724 0.546484 55.876 2.32151C54.4555 3.42853 53.2728 4.86093 52.4101 6.51894C51.5474 8.17696 51.0255 10.0207 50.8808 11.9219C50.7362 13.823 50.9721 15.7358 51.5723 17.527C52.1725 19.3182 53.1224 20.9447 54.356 22.2934L55.528 23.5753L47.168 32.7103L43.228 31.6515C37.8555 30.13 32.2133 30.1657 26.8573 31.7553C21.5013 33.3449 16.6164 36.4334 12.684 40.7165L9.856 43.8096L29.456 65.2253L0 97.4296L5.656 103.616L35.1 71.4159ZM41.256 40.1478L49.656 42.3965L66.856 23.584L60 16.1159C59.5858 15.664 59.2674 15.1182 59.067 14.517C58.8666 13.9158 58.7893 13.2739 58.8404 12.6365C58.8915 11.999 59.0698 11.3816 59.3628 10.8278C59.6558 10.2739 60.0562 9.79707 60.536 9.43089C61.3895 8.86575 62.3951 8.63984 63.3832 8.79127C64.3713 8.94269 65.2814 9.46219 65.96 10.2621L85.656 31.8046C86.0702 32.2566 86.3887 32.8024 86.589 33.4035C86.7894 34.0047 86.8667 34.6466 86.8156 35.2841C86.7645 35.9215 86.5862 36.5389 86.2932 37.0928C86.0003 37.6466 85.5998 38.1235 85.12 38.4896C84.2665 39.0548 83.2609 39.2807 82.2728 39.1293C81.2848 38.9778 80.3746 38.4583 79.696 37.6584L73.172 30.5228L55.972 49.3353L58.044 58.5709C58.9168 62.2473 59.0469 66.0875 58.4252 69.8244C57.8035 73.5613 56.4449 77.1052 54.444 80.2096L21.412 44.0853C24.2587 41.8897 27.5091 40.3999 30.9365 39.7199C34.3638 39.0398 37.8856 39.1858 41.256 40.1478Z" />
+<clipPath id="clip"><use xlink:href="#shape" /></clipPath>
+<linearGradient id="glass" x1="14" y1="4" x2="78" y2="94" gradientUnits="userSpaceOnUse" gradientTransform="scale(0.9895833333 1.0833333333)">
+<stop stop-color="#eff4f4" stop-opacity=".33" /><stop offset=".28" stop-color="#d3dfe0" stop-opacity=".22" /><stop offset=".49" stop-color="#f4f8f8" stop-opacity=".36" /><stop offset=".72" stop-color="#c1ced0" stop-opacity=".21" /><stop offset="1" stop-color="#edf3f3" stop-opacity=".31" />
+</linearGradient>
+<linearGradient id="edge" x1="22" y1="8" x2="76" y2="92" gradientUnits="userSpaceOnUse" gradientTransform="scale(0.9895833333 1.0833333333)">
+<stop stop-color="#fff" stop-opacity=".52" /><stop offset=".27" stop-color="#fff" stop-opacity=".1" /><stop offset=".5" stop-color="#e5f4f5" stop-opacity=".32" /><stop offset=".73" stop-color="#fff" stop-opacity=".06" /><stop offset="1" stop-color="#fff" stop-opacity=".35" />
+</linearGradient>
+<radialGradient id="shine" cx="32" cy="7" r="23" gradientUnits="userSpaceOnUse" gradientTransform="scale(0.9895833333 1.0833333333)"><stop stop-color="#fff" stop-opacity=".37" /><stop offset=".33" stop-color="#fff" stop-opacity=".17" /><stop offset="1" stop-color="#fff" stop-opacity="0" /></radialGradient>
+<radialGradient id="shine2" cx="82" cy="83" r="24" gradientUnits="userSpaceOnUse" gradientTransform="scale(0.9895833333 1.0833333333)"><stop stop-color="#fff" stop-opacity=".25" /><stop offset=".3" stop-color="#fff" stop-opacity=".12" /><stop offset="1" stop-color="#fff" stop-opacity="0" /></radialGradient>
+<linearGradient id="reflection" x1="20" y1="22" x2="65" y2="80" gradientUnits="userSpaceOnUse" gradientTransform="scale(0.9895833333 1.0833333333)"><stop stop-color="#fff" stop-opacity="0" /><stop offset=".42" stop-color="#fff" stop-opacity="0" /><stop offset=".50" stop-color="#fff" stop-opacity=".14" /><stop offset=".59" stop-color="#fff" stop-opacity=".02" /><stop offset="1" stop-color="#fff" stop-opacity="0" /></linearGradient>
+</defs>
+<use xlink:href="#shape" fill="url(#glass)" />
+<g clip-path="url(#clip)">
+<path d="M0 0H95V104H0Z" fill="url(#shine)" />
+<path d="M0 0H95V104H0Z" fill="url(#shine2)" />
+<path d="M0 0H95V104H0Z" fill="url(#reflection)" />
+<use xlink:href="#shape" stroke="url(#edge)" stroke-width="1.4" />
+</g>
+</svg>

@@ -145,7 +145,6 @@ export function createLeadPayload(lead, financialResult, quizResult) {
     whatsapp: lead.whatsapp.trim(),
     empresa: lead.empresa.trim(),
     novidades: lead.conteudos,
-    origem: "diagnostico-inadimplencia",
     ebookId: 1,
     quiz: {
       score: quizResult.score,

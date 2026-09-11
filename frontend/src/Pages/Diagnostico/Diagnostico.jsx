@@ -360,7 +360,7 @@ export default function Diagnostico() {
                 <h2>Para onde enviamos o seu resultado e o e-book grátis?</h2>
                 <p>
                   Preencha para ver o resultado completo agora e receber o
-                  e-book “O Código da Cobrança” no seu e-mail.
+                  e-book “O Código da Cobrança Inteligente” no seu e-mail.
                 </p>
                 <form onSubmit={submit} noValidate>
                   <div className={styles.formGrid}>

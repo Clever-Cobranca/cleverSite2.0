@@ -1,36 +1,22 @@
-
-import { createContext, useContext, useState, useEffect, useRef } from "react";
-import { motion } from "motion/react";
-import { cn } from "../lib/utils"; 
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useRef,
+  Children,
+  isValidElement,
+} from "react";
+import LiquidGlassFilter from "../components/LiquidGlassFilter";
+import { motion, AnimatePresence } from "motion/react";
+import { cn } from "../lib/utils";
 import { Slot } from "@radix-ui/react-slot";
 
-const contentVariants = {
-  hidden: {
-    clipPath: "inset(10% 50% 90% 50% round 12px)",
-  },
-  show: {
-    clipPath: "inset(0% 0% 0% 0% round 12px)",
-    transition: {
-      type: "spring",
-      bounce: 0,
-      duration: 0.5,
-      delayChildren: 0.15,
-      staggerChildren: 0.1,
-    },
-  },
-};
+const sharedTransition = { type: "spring", bounce: 0, duration: 0.5 };
 
 const itemVariants = {
-  hidden: {
-    opacity: 0,
-    scale: 0.3,
-    filter: "blur(20px)",
-  },
-  show: {
-    opacity: 1,
-    scale: 1,
-    filter: "blur(0px)",
-  },
+  hidden: { opacity: 0, scale: 0.95 },
+  show: { opacity: 1, scale: 1 },
 };
 
 export function DropdownMenu({ className, children, ...props }) {
@@ -53,22 +39,43 @@ function DropdownMenuContainer({ className, children, ...props }) {
         setIsOpen(false);
       }
     }
-
     document.addEventListener("mousedown", handleClickOutside);
-    
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [setIsOpen]);
 
+  // Isola só o Trigger dos children, pra usar como molde do espaçador
+  const triggerChild = Children.toArray(children).find(
+    (child) => isValidElement(child) && child.type === DropdownMenuTrigger,
+  );
+
   return (
-    <div
-      ref={menuRef}
-      className={cn("relative inline-block text-left", className)}
-      {...props}
-    >
-      {children}
-    </div>
+    <>
+      <LiquidGlassFilter />
+      <div
+        ref={menuRef}
+        className={cn("relative w-full inline-block text-left", className)}
+        {...props}
+      >
+        {/* Espaçador: mesmo trigger, mas invisível — reserva a largura/altura
+            no fluxo do header. "invisible" (não "hidden") preserva o espaço. */}
+        <div aria-hidden="true" className="invisible pointer-events-none">
+          {triggerChild}
+        </div>
+
+        {/* Peça de vidro real: sai do fluxo e flutua sobre o espaçador,
+            então crescer pra baixo não afeta mais ninguém no header */}
+        <motion.div
+          layout
+          transition={sharedTransition}
+          className={cn(
+            "absolute top-0 left-0 z-50 w-max rounded-lg",
+            "backdrop-liquid-glass border bg-neutral-900/40 border-white/10",
+          )}
+        >
+          <div className="overflow-hidden rounded-3xl">{children}</div>
+        </motion.div>
+      </div>
+    </>
   );
 }
 
@@ -85,47 +92,42 @@ export function DropdownMenuTrigger({
     <Comp
       type="button"
       className={cn(
-        "flex items-center gap-2 rounded-xl px-3 transition-all cursor-pointer",
-        "hover:bg-gray-100/50 active:scale-95",
-        className
+        "flex items-center gap-2 px-5 py-0.5 transition-all cursor-pointer",
+        "sm:text-[18px] text-sm font-medium text-white/90",
+        isOpen && "text-orange-primary",
+        "hover:text-orange-primary active:scale-95",
+        className,
       )}
       onClick={() => setIsOpen((prev) => !prev)}
       {...props}
     >
-      <span className="sm:text-[18px] text-sm font-medium">{children}</span>
-      <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
-        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </motion.span>
+      {children}
     </Comp>
   );
 }
 
-export function DropdownMenuContent({
-  children,
-  className,
-  ...props
-}) {
+export function DropdownMenuContent({ children, className, ...props }) {
   const { isOpen } = useDropdownMenu();
 
   return (
-    <motion.ul
-      className={cn(
-        "absolute top-full mt-2 left-1/2 -translate-x-1/2", 
-        "z-50",
-        "min-w-[180px] p-2 rounded-xl bg-white border border-gray-100 shadow-xl",
-        "flex flex-col gap-1",
-        isOpen ? "pointer-events-auto" : "pointer-events-none",
-        className
+    <AnimatePresence initial={false}>
+      {isOpen && (
+        <motion.ul
+          initial="hidden"
+          animate="show"
+          exit="hidden"
+          transition={{ staggerChildren: 0.06, delayChildren: 0.08 }}
+          className={cn(
+            "w-max min-w-full p-2 flex flex-col gap-1",
+            "border-t border-white/10",
+            className,
+          )}
+          {...props}
+        >
+          {children}
+        </motion.ul>
       )}
-      variants={contentVariants}
-      initial="hidden"
-      animate={isOpen ? "show" : "hidden"} 
-      {...props}
-    >
-      {children}
-    </motion.ul>
+    </AnimatePresence>
   );
 }
 
@@ -136,18 +138,17 @@ export function DropdownMenuItem({
   ...props
 }) {
   const Comp = asChild ? Slot : "button";
-    const { setIsOpen } = useDropdownMenu();
+  const { setIsOpen } = useDropdownMenu();
 
   return (
     <motion.li variants={itemVariants} transition={{ duration: 0.2 }}>
       <Comp
         className={cn(
-          "w-full flex items-center gap-2 rounded-lg px-3 py-1 text-md text-gray-600 transition-colors text-left",
-          "hover:bg-gray-50 hover:text-black",
-          className
+          "w-full flex items-center gap-2 rounded-lg px-3 py-1.5 text-md text-orange-primary/90 transition-colors text-left",
+          "hover:text-orange-primary hover:bg-white/5",
+          className,
         )}
         onClick={() => setIsOpen(false)}
-
         {...props}
       >
         {children}

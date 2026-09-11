@@ -1,10 +1,11 @@
 import { Header } from "../components/Header/Header";
-import Homepage from "../assets/Homepage_Image.png";
+import HomepageFirst from "../assets/HomepageFirst.png";
+import HomepageSecond from "../assets/HomepageSecond.png";
 import Vector from "../assets/svgs/Vector.svg";
 import ScrollReveal from "../components/scrollView";
-import Chart_Histogram from "../assets/svgs/Chart_Histogram.svg";
+import Pin from "../assets/svgs/Pin.svg";
 import Signal_Alt from "../assets/svgs/Signal_Alt.svg";
-import SejaClever from "../assets/Seja_Clever.png";
+import fotoDanilo from "../assets/danilo-prepara.png";
 import DollarSign from "../assets/svgs/Dollar_sign.svg";
 import Calendar from "../assets/svgs/Calendar.svg";
 import Accordion from "../components/ComponentsHome/Accordion";
@@ -12,96 +13,141 @@ import { Footer } from "../components/Footer/Footer";
 import mic from "../assets/svgs/mic.svg";
 import { FaBalanceScale } from "react-icons/fa";
 import { Link } from "react-router";
+import Carousel from "../components/Carousel";
+import { ServiceCard } from "../components/Home/ServiceCard";
+import { TestimonialCard } from "../components/Home/TestimonialCard";
 
 export default function Home() {
+  const carouselItems = [
+    {
+      src: HomepageFirst,
+      jsx: (
+        <div
+          name="tabDescription"
+          className="absolute md:left-12 md:right-12  md:top-2/3 top-1/2 z-[60] flex -translate-y-1/2 flex-col md:gap-4 gap-2 px-4 md:px-8"
+        >
+          <h1 className="text-[clamp(0.8rem,3vw,2.25rem)]  font-medium text-white text-xl text-shadow-sm text-shadow-black-primary">
+            SUA EMPRESA SOFRE COM{" "}
+            <italic className="font-family-garamond italic font-semibold text-orange-primary">
+              indimplência
+            </italic>{" "}
+            <br />E VOCÊ NÃO SABE COMO RECUPERAR?
+          </h1>
+          <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] text-shadow-xs text-shadow-black-primary text-white">
+            Há 7 anos a Clever é referência em recuperação de crédito,
+            transformando inadimplência em receita recuperada para empresas em
+            todo Brasil
+          </p>
+          <button className="lgs:p-7 md:p-4 px-2 py-1  bg-orange-primary rounded-full w-max text-white text-shadow-2xs lgs:text-3xl max-md:text-xs font-family-headers">
+            AGENDE UMA SESSÃO ESTRATÉGICA
+          </button>
+        </div>
+      ),
+    },
+    {
+      src: HomepageSecond,
+      jsx: (
+        <div
+          name="tabDescription"
+          className="absolute md:left-12 md:right-12  md:top-2/3 top-1/2 z-[60] flex -translate-y-1/2 flex-col md:gap-4 gap-2 px-4 md:px-8"
+        >
+          <h1 className="text-[clamp(0.8rem,3vw,2.25rem)]  font-medium text-white text-xl text-shadow-sm text-shadow-black-primary">
+            RESOLVA SUA{" "}
+            <italic className="font-family-garamond italic font-semibold text-orange-primary">
+              Pendência
+            </italic>{" "}
+            <br />
+            DE FORMA SIMPLES, RÁPIDA E SEGURANÇA
+          </h1>
+          <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] text-shadow-xs text-shadow-black-primary text-white">
+            Fale com um especialista e encontre a melhor forma de resolver sua
+            pendência com praticidade e segurança.
+          </p>
+          <button className="lgs:p-7 md:p-4 px-2 py-1  bg-orange-primary rounded-full w-max text-white text-shadow-2xs lgs:text-3xl max-md:text-xs font-family-headers">
+            REGULARIZAR AGORA
+          </button>
+        </div>
+      ),
+    },
+  ];
+
   return (
     <>
       <div className="min-h-screen">
         <Header />
         {/* main mantém a altura fixa */}
         <div>
-          <main className="h-full">
-            <section className="max-lgs:h-auto lgs:flex justify-around items-center max-lgs:py-10 max-lg:flex-col">
-              <div
-                id="aside"
-                className="flex max-lgs:items-center max-lgs:justify-around flex-col gap-6 md:px-20 px-10 pb-20 "
-              >
-                <p className="text-[clamp(1.4rem,4vw,2rem)]/tight max-lgs:text-center ">
-                  Com expertise consolidada, atuamos continuamente no
-                  desenvolvimento da excelência em recuperação de crédito.
-                </p>
-                <p className="min-h-9 text-[clamp(1.4rem,4vw,2rem)] max-lg:text-center leading-tight">
-                  A Clever é referência em recuperação de crédito, com atuação
-                  estratégica e alto índice de efetividade
-                </p>
-                <div className="md:mt-2 2xl:mt-20 py-4 flex gap-7 items-center">
-                  <a
-                    target="_blank"
-                    href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0"
-                  >
-                    <button className="h-[50px] md:h-[87px] max-sm:p-1 w-[380px] max-sm:w-64 max-md:w-38 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(1rem,4vw,1.5rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
-                      Negocie suas Dívidas
-                    </button>
-                  </a>
+          <main className="h-full w-full">
+            <section className="w-full">
+              <div className="flex items-center h-full lgs:px-14 lgs:py-8">
+                <div className="lgs:overflow-x-hidden">
+                  <Carousel scrollMode="page" isScrollX={false}>
+                    {carouselItems.map((item, index) => (
+                      <div
+                        key={index}
+                        data-carousel-item
+                        className="relative  w-full shrink-0 snap-start"
+                      >
+                        <img
+                          className="w-full"
+                          src={item.src}
+                          alt="Clever Informações"
+                        />
+                        {item.jsx}
+                      </div>
+                    ))}
+                  </Carousel>
                 </div>
-              </div>
-
-              {/* 2. CONTAINER DA IMAGEM: Deve usar h-full para ocupar 100% da altura da section. */}
-              <div className="flex h-full w-full max-lgs:h-0">
-                <img
-                  className="w-full h-full object-fill max-lgs:hidden"
-                  src={Homepage}
-                  alt="Clever Informações"
-                />
               </div>
             </section>
 
             {/* Container Nossos Números */}
 
-            <section className="bg-orange-primary flex max-lgs:flex-col justify-center items-center py-10 gap-10 lgs:gap-16">
+            <section className="lg:p-10 p-2 w-full">
               <ScrollReveal
-                className="flex max-lg:gap-20 max-2xl:gap-8 gap-24 justify-around max-lgs:flex-col items-center"
+                className="flex gap-12 flex-col items-center"
                 variant="fadeRight"
                 delay={0.2}
               >
-                <h2 className="text-[clamp(2.2rem,5vw,5.8rem)]  font-family-roboto-slab font-bold">
-                  Nossos Números
+                <h2 className="text-[clamp(2.2rem,5vw,5.8rem)] font-family-headers">
+                  Nossos{" "}
+                  <b className="text-[clamp(2.4rem,6vw,6rem)] font-family-garamond italic font-normal text-orange-primary">
+                    Números
+                  </b>
                 </h2>
 
-                <div className="flex items-center max-md:flex-col max-lgs:justify-center gap-10 max-lgs:flex-wrap">
-                  <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
+                <div className="flex w-full items-center max-md:flex-col justify-evenly rounded-4xl min-h-[480px] bg-black text-white max-md:gap-3 max-md:py-2 max-lgs:flex-wrap">
+                  <div className="flex flex-col items-center rounded-2xl gap-4 justify-around  sm:h-52 max-w-[320px] md:text-3xl p-4">
                     <img
-                      className="md:w-[50px] md:h-[50px] h-[30px] w-[30px]"
+                      className="md:w-[70px] md:h-[70px] h-[50px] w-[50px]"
                       src={Vector}
                       alt="Ícone de unidades"
                     />
-                    <p className=" font-family-roboto-slab font-bold">+200</p>
-                    <p className="text-base max-w-[194px] text-center">
-                      Clientes atendidos em todo o Brasil
+                    <p className="font-semibold">+350</p>
+                    <p className="text-base font-semibold max-w-[194px] text-center">
+                      EMPRESAS ATENDIDAS EM TODO O BRASIL
                     </p>
                   </div>
-                  <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
+                  <div className="flex flex-col items-center rounded-2xl gap-4 justify-around  sm:h-52 max-w-[320px] md:text-3xl p-4">
                     <img
-                      className="md:w-[50px] md:h-[50px] h-[30px] w-[30px]"
-                      src={Chart_Histogram}
+                      className="md:w-[70px] md:h-[70px] h-[50px] w-[50px]"
+                      src={Signal_Alt}
                       alt="Ícone de gráfico de barras"
                     />
-                    <p className="font-family-roboto-slab font-bold">
-                      +255 MIL
-                    </p>
-                    <p className="text-base max-w-[194px] text-center">
-                      Interações com Clientes em 2025
+                    <p className="font-semibold">+120M</p>
+                    <p className="text-base font-semibold max-w-[194px] text-center">
+                      DE VALORES NEGOCIADOS
                     </p>
                   </div>
-                  <div className="flex flex-col items-center rounded-2xl justify-around bg-white sm:h-52 max-w-64 md:text-3xl p-4">
+                  <div className="flex flex-col items-center rounded-2xl gap-4 justify-around  sm:h-52 max-w-[320px] md:text-3xl p-4">
                     <img
-                      src={Signal_Alt}
+                      src={Pin}
                       alt="Ícone de sinal de crescimento"
-                      className="md:w-[50px] md:h-[50px] h-[30px] w-[30px]"
+                      className="md:w-[70px] md:h-[70px] h-[50px] w-[50px] ml-4"
                     />
-                    <p className=" font-family-roboto-slab font-bold">23</p>
-                    <p className="text-base max-w-[194px] text-center">
-                      Estados com clientes atendidos em todo o Brasil
+                    <p className="font-semibold">+22</p>
+                    <p className="text-base font-semibold max-w-[150px] text-center">
+                      ESTADOS ATENDIDOS
                     </p>
                   </div>
                 </div>
@@ -109,86 +155,83 @@ export default function Home() {
             </section>
 
             <ScrollReveal>
-              <section className="h-full bg-gray-primary flex flex-col items-center p-10 gap-10">
-                <h1 className="font-family-roboto-slab font-bold text-[clamp(2.2rem,5vw,5.8rem)]">
-                  Serviços Clever
-                </h1>
-                <div className="w-full flex justify-around flex-wrap">
-                  <Link to="/servicos">
-                    <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
-                      <img
-                        src={DollarSign}
-                        alt="Ícone de cifrão"
-                        className="max-sm:w-[30px] max-lg:w-[45px] max-lg:h-[45px] max-sm:h-[30px] w-[60px] h-[60px]"
-                      />
-                      <p className="text-base ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
-                        Recuperação de Crédito
-                      </p>
-                    </div>
-                  </Link>
+              <section className="flex w-full flex-col items-center gap-10 bg-gray-primary px-5 py-10 sm:px-10">
+                <h2 className="text-[clamp(2.2rem,5vw,5.8rem)] font-family-headers">
+                  SERVIÇOS{" "}
+                  <b className="text-[clamp(2.4rem,6vw,6rem)] font-family-garamond italic font-normal text-orange-primary">
+                    Clever
+                  </b>
+                </h2>
 
-                  <Link to="/servicos#Preventiva">
-                    <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
-                      <img
-                        src={Calendar}
-                        alt="Ícone de calendario"
-                        className="sm:ml-3 max-sm:w-[30px] max-lg:w-[45px] max-lg:h-[45px] max-sm:h-[30px] w-[60px] h-[60px]"
-                      />
-                      <p className="text-base ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px]  border-orange-primary">
-                        Negociação Preventina
-                      </p>
-                    </div>
-                  </Link>
-                  <Link to="/servicos#Assessoria">
-                    <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
-                      <FaBalanceScale
-                        size={60}
-                        color="#f1b434"
-                        className="max-sm:h-[30px] max-sm:w-[30px] max-lg:w-[45px] max-lg:h-[45px]"
-                      />
-                      <p className="text-base ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
-                        Assessoria Jurídica
-                      </p>
-                    </div>
-                  </Link>
-                  <Link to="/servicos#SAC">
-                    <div className="max-w-[482px] max-sm:w-[210px] flex flex-col max-md:items-center">
-                      <img
-                        src={mic}
-                        alt="Ícone de mic"
-                        className="max-sm:w-[30px] max-sm:h-[30px] max-lg:w-[45px] max-lg:h-[45px]  w-[60px] h-[60px]"
-                      />
-                      <p className="text-base min-w-[150px] text-center ml-3 mt-5 max-sm:w-[196px] pt-4 border-t-[5px] border-orange-primary">
-                        SAC
-                      </p>
-                    </div>
-                  </Link>
+                <div className="grid w-full auto-rows-fr grid-cols-1 gap-6 md:grid-cols-2">
+                  <ServiceCard
+                    title="Recuperação de crédito"
+                    description="Estratégias de cobrança e negociação para recuperar valores em atraso com método, acompanhamento e foco em resultado."
+                    icon={<img src={DollarSign} alt="" />}
+                    to="/servicos"
+                  />
+
+                  <ServiceCard
+                    title="Cobrança preventiva"
+                    description="Ações realizadas antes e nos primeiros dias de atraso para reduzir a inadimplência e aumentar as chances de recebimento."
+                    icon={<img src={Calendar} alt="" />}
+                    to="/servicos#Preventiva"
+                  />
+
+                  <ServiceCard
+                    title="SAC"
+                    description="Atendimento estruturado para orientar, registrar e resolver demandas com agilidade, clareza e profissionalismo."
+                    icon={<img src={mic} alt="" />}
+                    to="/servicos#SAC"
+                  />
+
+                  <ServiceCard
+                    title="Assessoria jurídica"
+                    description="Suporte jurídico especializado para orientar decisões, prevenir riscos e proteger os interesses da empresa com segurança e respaldo legal."
+                    icon={<FaBalanceScale />}
+                    to="/servicos#Assessoria"
+                  />
                 </div>
               </section>
             </ScrollReveal>
-            {/* Container vem ser Um Clever */}
+            {/* Container depoimentos */}
             <ScrollReveal>
-              <section className="flex justify-around max-md:justify-center items-center flex-wrap py-8">
-                <div className="flex flex-col md:gap-11 gap-7 items-start max-md:pl-2 max-lgs:items-center">
-                  <h1 className="text-[clamp(2.2rem,5vw,5.8rem)] leading-tight max-sm:w-max max-md:text-center font-family-roboto-slab font-bold">
-                    Vem ser <span className="text-orange-primary">Clever!</span>
-                  </h1>
-                  <p className="text-[clamp(1.4rem,3vw,2rem)]/tight max-w-[778px] max-lg:w-[700px] max-md:w-[340px] max-sm:w-[260px] max-sm:text-center ">
-                    Conheça as oportunidades de carreira na Clever e junte-se a
-                    nós em nossa missão de ser parte da solução para pessoas,
-                    empresas e comunidades.
-                  </p>
-                  <a href="/trabalhe-conosco">
-                    <button className="h-[50px] md:h-[87px] max-sm:p-1 w-[380px] max-sm:w-64 max-md:w-38 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(1rem,4vw,1.5rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer">
-                      Trabalhe Conosco
-                    </button>
-                  </a>
+              <section className="h-full">
+                <div className="lgs:overflow-x-hidden">
+                  <Carousel scrollMode="item" isDraggable={true} isScrollX={false}>
+                    {" "}
+                    <TestimonialCard
+                      photo={fotoDanilo}
+                      name="Danilo"
+                      role="Franqueado Prepara Cursos"
+                      testimonial="clientes de dois, três, quatro, cinco anos nós tivemos ótimos resultados de recebimento"
+                    />
+                    <TestimonialCard
+                      photo={fotoDanilo}
+                      name="Danilo"
+                      role="Franqueado Prepara Cursos"
+                      testimonial="clientes de dois, três, quatro, cinco anos nós tivemos ótimos resultados de recebimento"
+                    />
+                    <TestimonialCard
+                      photo={fotoDanilo}
+                      name="Danilo"
+                      role="Franqueado Prepara Cursos"
+                      testimonial="clientes de dois, três, quatro, cinco anos nós tivemos ótimos resultados de recebimento"
+                    />
+                    <TestimonialCard
+                      photo={fotoDanilo}
+                      name="Danilo"
+                      role="Franqueado Prepara Cursos"
+                      testimonial="clientes de dois, três, quatro, cinco anos nós tivemos ótimos resultados de recebimento"
+                    />
+                    <TestimonialCard
+                      photo={fotoDanilo}
+                      name="Danilo"
+                      role="Franqueado Prepara Cursos"
+                      testimonial="clientes de dois, três, quatro, cinco anos nós tivemos ótimos resultados de recebimento"
+                    />
+                  </Carousel>
                 </div>
-                <img
-                  alt="Seja um clever"
-                  src={SejaClever}
-                  className="max-w-[654px] max-h-[446px] object-contain py-8 max-[1332px]:hidden max-sm:w-full"
-                />
               </section>
             </ScrollReveal>
 
