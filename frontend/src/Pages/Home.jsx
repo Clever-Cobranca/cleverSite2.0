@@ -1,11 +1,14 @@
 import { Header } from "../components/Header/Header";
 import HomepageFirst from "../assets/HomepageFirst.png";
 import HomepageSecond from "../assets/HomepageSecond.png";
+import HomepageThird from "../assets/HomepageThird.png";
+import HomepageFourth from "../assets/HomepageFourth.png";
 import Vector from "../assets/svgs/Vector.svg";
 import ScrollReveal from "../components/scrollView";
 import Pin from "../assets/svgs/Pin.svg";
 import Signal_Alt from "../assets/svgs/Signal_Alt.svg";
 import fotoDanilo from "../assets/danilo-prepara.png";
+import fotoDaiane from "../assets/daiane-microlins.png";
 import DollarSign from "../assets/svgs/Dollar_sign.svg";
 import Calendar from "../assets/svgs/Calendar.svg";
 import Accordion from "../components/ComponentsHome/Accordion";
@@ -16,58 +19,38 @@ import { Link } from "react-router";
 import Carousel from "../components/Carousel";
 import { ServiceCard } from "../components/Home/ServiceCard";
 import { TestimonialCard } from "../components/Home/TestimonialCard";
+import { DashboardImage } from "../components/Home/DashboardImage";
+import LiquidGlassFilter from "../components/LiquidGlassFilter";
 
 export default function Home() {
-  const carouselItems = [
+  const testimonials = [
     {
-      src: HomepageFirst,
-      jsx: (
-        <div
-          name="tabDescription"
-          className="absolute md:left-12 md:right-12  md:top-2/3 top-1/2 z-[60] flex -translate-y-1/2 flex-col md:gap-4 gap-2 px-4 md:px-8"
-        >
-          <h1 className="text-[clamp(0.8rem,3vw,2.25rem)]  font-medium text-white text-xl text-shadow-sm text-shadow-black-primary">
-            SUA EMPRESA SOFRE COM{" "}
-            <italic className="font-family-garamond italic font-semibold text-orange-primary">
-              indimplência
-            </italic>{" "}
-            <br />E VOCÊ NÃO SABE COMO RECUPERAR?
-          </h1>
-          <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] text-shadow-xs text-shadow-black-primary text-white">
-            Há 7 anos a Clever é referência em recuperação de crédito,
-            transformando inadimplência em receita recuperada para empresas em
-            todo Brasil
-          </p>
-          <button className="lgs:p-7 md:p-4 px-2 py-1  bg-orange-primary rounded-full w-max text-white text-shadow-2xs lgs:text-3xl max-md:text-xs font-family-headers">
-            AGENDE UMA SESSÃO ESTRATÉGICA
-          </button>
-        </div>
-      ),
+      photo: fotoDaiane ?? "",
+      name: "Maria",
+      role: "Franqueada Prepara Cursos",
+      testimonial:
+        "recuperamos mais de R$ 300.000 em contratos desde 2011, 2012, que a gente já não tinha mais contato.",
     },
     {
-      src: HomepageSecond,
-      jsx: (
-        <div
-          name="tabDescription"
-          className="absolute md:left-12 md:right-12  md:top-2/3 top-1/2 z-[60] flex -translate-y-1/2 flex-col md:gap-4 gap-2 px-4 md:px-8"
-        >
-          <h1 className="text-[clamp(0.8rem,3vw,2.25rem)]  font-medium text-white text-xl text-shadow-sm text-shadow-black-primary">
-            RESOLVA SUA{" "}
-            <italic className="font-family-garamond italic font-semibold text-orange-primary">
-              Pendência
-            </italic>{" "}
-            <br />
-            DE FORMA SIMPLES, RÁPIDA E SEGURANÇA
-          </h1>
-          <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] text-shadow-xs text-shadow-black-primary text-white">
-            Fale com um especialista e encontre a melhor forma de resolver sua
-            pendência com praticidade e segurança.
-          </p>
-          <button className="lgs:p-7 md:p-4 px-2 py-1  bg-orange-primary rounded-full w-max text-white text-shadow-2xs lgs:text-3xl max-md:text-xs font-family-headers">
-            REGULARIZAR AGORA
-          </button>
-        </div>
-      ),
+      photo: fotoDanilo,
+      name: "Danilo",
+      role: "Franqueado Prepara Cursos",
+      testimonial:
+        "clientes de dois, três, quatro, cinco anos nós tivemos ótimos resultados de recebimento.",
+    },
+    {
+      photo: fotoDaiane ?? "",
+      name: "Daiane",
+      role: "Franqueada Microlins",
+      testimonial:
+        "Clever já tem anos junto conosco na área de cobrança, onde a gente está colhendo excelentes resultados.",
+    },
+    {
+      photo: fotoDanilo ?? "",
+      name: "Laerti",
+      role: "Franqueado Microlins",
+      testimonial:
+        "Durante todo esse período a gente foi muito bem atendido e orientado, conseguimos receber de muitos clientes que estavam inadimplentes há +3 anos.",
     },
   ];
 
@@ -82,20 +65,43 @@ export default function Home() {
               <div className="flex items-center h-full lgs:px-14 lgs:py-8">
                 <div className="lgs:overflow-x-hidden">
                   <Carousel scrollMode="page" isScrollX={false}>
-                    {carouselItems.map((item, index) => (
-                      <div
-                        key={index}
-                        data-carousel-item
-                        className="relative  w-full shrink-0 snap-start"
+                    <DashboardImage
+                      h1="SUA EMPRESA SOFRE COM"
+                      imgSrc={HomepageFirst}
+                      italicText="inadimplência"
+                      subtitle="E VOCÊ NÃO SABE COMO RECUPERAR?"
+                    >
+                      <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] text-shadow-xs text-shadow-black-primary text-white">
+                        Há 7 anos a Clever é referência em recuperação de
+                        crédito, transformando inadimplência em receita
+                        recuperada para empresas em todo Brasil
+                      </p>
+                      <a
+                        target="_blank"
+                        href="https://api.whatsapp.com/send/?phone=5511986037555&text=Ol%C3%A1,+quero+agendar+uma+sessão+estratégica!&type=phone_number&app_absent=0"
+                        className="lgs:p-7 md:p-4 px-2 py-1  bg-orange-primary rounded-full w-max text-white text-shadow-2xs lgs:text-3xl max-md:text-xs font-family-headers"
                       >
-                        <img
-                          className="w-full"
-                          src={item.src}
-                          alt="Clever Informações"
-                        />
-                        {item.jsx}
-                      </div>
-                    ))}
+                        AGENDE UMA SESSÃO ESTRATÉGICA
+                      </a>
+                    </DashboardImage>
+                    <DashboardImage
+                      h1="RESOLVA SUA"
+                      imgSrc={HomepageSecond}
+                      italicText="Pendência"
+                      subtitle="DE FORMA SIMPLES, RÁPIDA E SEGURA"
+                    >
+                      <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] text-shadow-xs text-shadow-black-primary text-white">
+                        Fale com um especialista e encontre a melhor forma de
+                        resolver sua pendência com praticidade e segurança.
+                      </p>
+                      <a
+                        target="_blank"
+                        href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0"
+                        className="lgs:p-7 md:p-4 px-2 py-1  bg-orange-primary rounded-full w-max text-white text-shadow-2xs lgs:text-3xl max-md:text-xs font-family-headers"
+                      >
+                        REGULARIZAR AGORA
+                      </a>
+                    </DashboardImage>
                   </Carousel>
                 </div>
               </div>
@@ -198,38 +204,21 @@ export default function Home() {
             <ScrollReveal>
               <section className="h-full">
                 <div className="lgs:overflow-x-hidden">
-                  <Carousel scrollMode="item" isDraggable={true} isScrollX={false}>
+                  <Carousel
+                    scrollMode="item"
+                    isDraggable={true}
+                    isScrollX={false}
+                  >
                     {" "}
-                    <TestimonialCard
-                      photo={fotoDanilo}
-                      name="Danilo"
-                      role="Franqueado Prepara Cursos"
-                      testimonial="clientes de dois, três, quatro, cinco anos nós tivemos ótimos resultados de recebimento"
-                    />
-                    <TestimonialCard
-                      photo={fotoDanilo}
-                      name="Danilo"
-                      role="Franqueado Prepara Cursos"
-                      testimonial="clientes de dois, três, quatro, cinco anos nós tivemos ótimos resultados de recebimento"
-                    />
-                    <TestimonialCard
-                      photo={fotoDanilo}
-                      name="Danilo"
-                      role="Franqueado Prepara Cursos"
-                      testimonial="clientes de dois, três, quatro, cinco anos nós tivemos ótimos resultados de recebimento"
-                    />
-                    <TestimonialCard
-                      photo={fotoDanilo}
-                      name="Danilo"
-                      role="Franqueado Prepara Cursos"
-                      testimonial="clientes de dois, três, quatro, cinco anos nós tivemos ótimos resultados de recebimento"
-                    />
-                    <TestimonialCard
-                      photo={fotoDanilo}
-                      name="Danilo"
-                      role="Franqueado Prepara Cursos"
-                      testimonial="clientes de dois, três, quatro, cinco anos nós tivemos ótimos resultados de recebimento"
-                    />
+                    {testimonials.map((t) => (
+                      <TestimonialCard
+                        key={t.name}
+                        name={t.name}
+                        photo={t.photo}
+                        role={t.role}
+                        testimonial={t.testimonial}
+                      />
+                    ))}
                   </Carousel>
                 </div>
               </section>
@@ -237,11 +226,60 @@ export default function Home() {
 
             {/* Sessão de perguntas frequentes */}
             <ScrollReveal>
-              <section className="min-h-[600px] w-full sm:px-20 px-1 bg-gray-primary flex flex-wrap max-lgs:gap-3 justify-center py-14 items-baseline">
-                <h2 className="text-[clamp(2.2rem,5vw,5.8rem)] font-family-roboto-slab max-sm:text-center leading-tight lgs:max-w-80 mb-2 font-bold">
-                  Perguntas Frequentes
-                </h2>
-                <Accordion />
+              <section className="min-h-[600px] w-full sm:px-20 px-1 bg-gray-primary flex flex-wrap gap-20 justify-center py-14 items-baseline">
+                <DashboardImage
+                  h1="QUANTO DA SUA RECEITA AINDA ESTÁ"
+                  imgSrc={HomepageThird}
+                  italicText="Fora do Caixa"
+                >
+                  <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] text-shadow-xs text-shadow-black-primary text-white">
+                    Descubra onde está a perda e qual estratégia pode acelerar
+                    sua recuperação.
+                  </p>
+                  <a
+                    target="_blank"
+                    href="https://api.whatsapp.com/send/?phone=5511986037555&text=Ol%C3%A1,+quero+agendar+uma+sessão+estratégica!&type=phone_number&app_absent=0"
+                    className="
+                    backdrop-liquid-glass
+                    md:p-4 px-2 py-1
+                    rounded-full sm:w-[400px] w-max
+                  text-white text-shadow-2xs text-center
+                    lgs:text-3xl max-md:text-xs
+                    font-family-headers
+                    hover:cursor-pointer
+                    "
+                  >
+                    AGENDA UMA SESSÃO ESTRATÉGICA
+                  </a>
+                </DashboardImage>
+                <DashboardImage
+                  h1="RECEBEU UMA"
+                  imgSrc={HomepageFourth}
+                  italicText="Notificação"
+                  subtitle="DA CLEVER?"
+                >
+                  <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] text-shadow-xs text-shadow-black-primary text-white">
+                    Este é o momento de consultar sua pendência e buscar uma
+                    solução pelos canais oficiais de atendimento
+                  </p>
+                  <LiquidGlassFilter />
+
+                  <a
+                    target="_blank"
+                    href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0"
+                    className="
+                    backdrop-liquid-glass
+                    md:p-4 px-2 py-1
+                    rounded-full sm:w-[400px] w-max
+                  text-white text-shadow-2xs text-center
+                    lgs:text-3xl max-md:text-xs
+                    font-family-headers
+                    hover:cursor-pointer
+                    "
+                  >
+                    ENTRE EM CONTATO CONOSCO
+                  </a>
+                </DashboardImage>
               </section>
             </ScrollReveal>
           </main>

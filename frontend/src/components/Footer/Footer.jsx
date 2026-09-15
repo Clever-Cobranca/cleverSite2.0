@@ -1,19 +1,17 @@
 import logoFooter from "../../assets/logoFooter.png";
 import { BsTelephone } from "react-icons/bs";
 import { CiMail } from "react-icons/ci";
-import {
-  FaFacebookF,
-  FaTiktok,
-  FaInstagram,
-  FaLinkedinIn,
-  FaYoutube,
-} from "react-icons/fa6";
+import InstagramLiquidGlass from "../../assets/icons/Instagram.png";
+import FacebookLiquidGlass from "../../assets/icons/Facebook.png";
+import TiktokLiquidGlass from "../../assets/icons/Tiktok.png";
+import YoutubeLiquidGlass from "../../assets/icons/Youtube.png";
+import LinkedinLiquidGlass from "../../assets/icons/Linkedin.png";
 import { Link } from "react-router";
 
 export function Footer() {
   return (
     <footer
-      className={`sm:min-h-[252px] max-sm:items-center max-sm:text-center sm:p-7 p-3 flex justify-around max-md:flex-col max-md:gap-8  max-md:flex-wrap bg-[#292929]`}
+      className={`sm:min-h-[252px] font-family-headers max-sm:items-center max-sm:text-center sm:p-7 p-3 flex justify-around max-md:flex-col max-md:gap-8  max-md:flex-wrap bg-black-primary`}
     >
       <div className="flex flex-col justify-around max-md:items-center max-sm:pl-2.5 max-sm:items-baseline max-sm:w-full max-sm:mr-6 max-lgs:w-1/3 ">
         <img
@@ -21,14 +19,13 @@ export function Footer() {
           src={logoFooter}
           className="w-3/5 h-auto max-sm:w-[120px]"
         />
-        <p className="text-base max-md:hidden text-white max-lgs:text-sm">
-          Copyright © 2025 - Clever Assessoria e Cobrança - CNPJ
-          33.331.482/0001-11
+        <p className="text-lg max-md:hidden text-white max-lgs:text-sm">
+          © 2026 - CLEVER ASSESSORIA E COBRANÇA - CNPJ 33.331.482/0001-11
         </p>
       </div>
       <div className="w-1/6 flex flex-col items-center max-sm:items-baseline max-sm:text-left max-sm:w-full">
         <nav className="w-max">
-          <ul className="flex flex-col md:gap-2 gap-1 text-base text-white font-light">
+          <ul className="flex flex-col gap-1 text-lg text-white font-extralight">
             <li className="hover:text-[#F1B434] hover:ml-3 transition-all duration-300 ease-out">
               <Link to="/sobre">Sobre nós</Link>
             </li>
@@ -61,7 +58,11 @@ export function Footer() {
               color="#f1b434"
               className="max-sm:w-[20px] max-sm:h-[20px]"
             />
-            <a target="_blank" href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0" className="text-orange-primary font-medium text-base max-sm:text-[14px]">
+            <a
+              target="_blank"
+              href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0"
+              className="text-orange-primary font-medium text-base max-sm:text-[14px]"
+            >
               0800 000 4820
             </a>
           </div>
@@ -79,34 +80,37 @@ export function Footer() {
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <p className="text-base max-sm:text-xs text-white border-t border-white w-6/12 max-sm:text-left pt-3">Aprenda conosco:</p>
+          <p className="text-base max-sm:text-xs text-white border-t border-white w-6/12 max-sm:text-left pt-3">
+            Aprenda conosco:
+          </p>
           <nav className="flex gap-4 items-center">
             <a target="blank" href="https://www.instagram.com/clevercobranca">
-              <FaInstagram color="white" size={20} />
+              <img
+                src={InstagramLiquidGlass}
+                alt="Instagram"
+                className="w-5 h-5"
+              />
             </a>
             <a
               target="blank"
               href="https://web.facebook.com/clevercobranca?_rdc=1&_rdr#"
             >
-              <FaFacebookF color="white" size={20} />
+              <img src={FacebookLiquidGlass} alt="Facebook" />
             </a>
             <a
               target="blank"
               href="https://www.tiktok.com/@cleverassessoria1?is_from_webapp=1&sender_device=pc"
             >
-              <FaTiktok color="white" size={20} />
+              <img src={TiktokLiquidGlass} alt="TikTok" />{" "}
             </a>
-            <a
-              target="blank"
-              href="https://www.youtube.com/@cleverassessoriaecobranca7043"
-            >
-              <FaYoutube color="white" size={20} />
+            <a target="blank" href="https://www.youtube.com/@clevercobranca">
+              <img src={YoutubeLiquidGlass} alt="YouTube" />
             </a>
             <a
               target="blank"
               href="https://www.linkedin.com/company/clevercobranca/?viewAsMember=true"
             >
-              <FaLinkedinIn color="white" size={20} />
+              <img src={LinkedinLiquidGlass} alt="Linkedin" />
             </a>
           </nav>
         </div>

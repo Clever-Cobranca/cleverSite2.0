@@ -12,7 +12,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { cn } from "../lib/utils";
 import { Slot } from "@radix-ui/react-slot";
 
-const sharedTransition = { type: "spring", bounce: 0, duration: 0.5 };
+const sharedTransition = { type: "spring", bounce: 0, duration: 0.3 };
 
 const itemVariants = {
   hidden: { opacity: 0, scale: 0.95 },
@@ -69,7 +69,7 @@ function DropdownMenuContainer({ className, children, ...props }) {
           transition={sharedTransition}
           className={cn(
             "absolute top-0 left-0 z-50 w-max rounded-lg",
-            "backdrop-liquid-glass border bg-neutral-900/40 border-white/10",
+            "backdrop-liquid-glass",
           )}
         >
           <div className="overflow-hidden rounded-3xl">{children}</div>

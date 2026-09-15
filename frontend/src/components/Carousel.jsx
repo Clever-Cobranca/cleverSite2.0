@@ -48,6 +48,7 @@ export default function Carousel({
 
     return itemWidth + gap;
   };
+
   const scrollHorizontally = (direction) => {
     const container = carousel.current;
 
@@ -86,8 +87,7 @@ export default function Carousel({
       drag.current.hasDragged = true;
     }
 
-    event.currentTarget.scrollLeft =
-      drag.current.startScrollLeft - distance;
+    event.currentTarget.scrollLeft = drag.current.startScrollLeft - distance;
   };
 
   const finishDragging = (event) => {
@@ -161,12 +161,14 @@ export default function Carousel({
         onPointerUp={finishDragging}
         onPointerCancel={finishDragging}
         onClickCapture={preventClickAfterDrag}
-        onDragStart={isDraggable ? (event) => event.preventDefault() : undefined}
+        onDragStart={
+          isDraggable ? (event) => event.preventDefault() : undefined
+        }
         className={cn(
           "flex w-full max-h-full gap-6 scroll-smooth snap-x snap-mandatory max-lg:px-1",
           isScrollX
             ? "overflow-x-auto"
-            : "overflow-x-auto lgs:overflow-x-hidden",
+            : "overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]",
           isDraggable && "cursor-grab select-none",
           isDragging && "cursor-grabbing snap-none scroll-auto",
         )}
