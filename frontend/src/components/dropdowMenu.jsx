@@ -8,30 +8,40 @@ import {
   isValidElement,
 } from "react";
 import LiquidGlassFilter from "../components/LiquidGlassFilter";
-import { motion, AnimatePresence } from "motion/react";
+import { motion as Motion, AnimatePresence } from "motion/react";
 import { cn } from "../lib/utils";
 import { Slot } from "@radix-ui/react-slot";
-
-const sharedTransition = { type: "spring", bounce: 0, duration: 0.3 };
 
 const itemVariants = {
   hidden: { opacity: 0, scale: 0.95 },
   show: { opacity: 1, scale: 1 },
 };
 
-export function DropdownMenu({ className, children, ...props }) {
+export function DropdownMenu({
+  className,
+  isActive = false,
+  children,
+  ...props
+}) {
   return (
     <DropdownMenuProvider>
-      <DropdownMenuContainer className={className} {...props}>
+      <DropdownMenuContainer
+        isActive={isActive}
+        className={className}
+        {...props}
+      >
         {children}
       </DropdownMenuContainer>
     </DropdownMenuProvider>
   );
 }
 
-function DropdownMenuContainer({ className, children, ...props }) {
-  const { setIsOpen } = useDropdownMenu();
+function DropdownMenuContainer({ className, isActive, children, ...props }) {
+  const { setIsOpen, isOpen } = useDropdownMenu();
   const menuRef = useRef(null);
+  const triggerChild = Children.toArray(children).find(
+    (child) => isValidElement(child) && child.type === DropdownMenuTrigger,
+  );
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -43,37 +53,25 @@ function DropdownMenuContainer({ className, children, ...props }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [setIsOpen]);
 
-  // Isola só o Trigger dos children, pra usar como molde do espaçador
-  const triggerChild = Children.toArray(children).find(
-    (child) => isValidElement(child) && child.type === DropdownMenuTrigger,
-  );
-
   return (
     <>
       <LiquidGlassFilter />
       <div
         ref={menuRef}
-        className={cn("relative w-full inline-block text-left", className)}
+        className={cn("relative inline-block w-max text-left", className)}
         {...props}
       >
-        {/* Espaçador: mesmo trigger, mas invisível — reserva a largura/altura
-            no fluxo do header. "invisible" (não "hidden") preserva o espaço. */}
         <div aria-hidden="true" className="invisible pointer-events-none">
           {triggerChild}
         </div>
-
-        {/* Peça de vidro real: sai do fluxo e flutua sobre o espaçador,
-            então crescer pra baixo não afeta mais ninguém no header */}
-        <motion.div
-          layout
-          transition={sharedTransition}
+        <div
           className={cn(
-            "absolute top-0 left-0 z-50 w-max rounded-lg",
-            "backdrop-liquid-glass",
+            "absolute top-0 left-0 z-50 w-max overflow-hidden rounded-lg",
+            (isOpen || isActive) && "backdrop-liquid-glass",
           )}
         >
-          <div className="overflow-hidden rounded-3xl">{children}</div>
-        </motion.div>
+          {children}
+        </div>
       </div>
     </>
   );
@@ -82,6 +80,7 @@ function DropdownMenuContainer({ className, children, ...props }) {
 export function DropdownMenuTrigger({
   asChild = false,
   children,
+  isActive = false,
   className,
   ...props
 }) {
@@ -92,9 +91,9 @@ export function DropdownMenuTrigger({
     <Comp
       type="button"
       className={cn(
-        "flex items-center gap-2 px-5 py-0.5 transition-all cursor-pointer",
+        "flex items-center gap-2  transition-colors cursor-pointer",
         "sm:text-[18px] text-sm font-medium text-white/90",
-        isOpen && "text-orange-primary",
+        (isOpen || isActive) && "px-5 py-0.5 text-orange-primary",
         "hover:text-orange-primary active:scale-95",
         className,
       )}
@@ -112,20 +111,27 @@ export function DropdownMenuContent({ children, className, ...props }) {
   return (
     <AnimatePresence initial={false}>
       {isOpen && (
-        <motion.ul
+        <Motion.ul
           initial="hidden"
           animate="show"
           exit="hidden"
-          transition={{ staggerChildren: 0.06, delayChildren: 0.08 }}
+          variants={{
+            hidden: { opacity: 0, height: 0, padding: 0, y: -8 },
+            show: { opacity: 1, height: "auto", y: 0 },
+          }}
+          transition={{
+            duration: 0.25,
+            ease: "easeOut",
+            staggerChildren: 0.06,
+          }}
           className={cn(
-            "w-max min-w-full p-2 flex flex-col gap-1",
-            "border-t border-white/10",
+            "flex w-max min-w-full flex-col overflow-hidden border-t border-white/10",
             className,
           )}
           {...props}
         >
           {children}
-        </motion.ul>
+        </Motion.ul>
       )}
     </AnimatePresence>
   );
@@ -141,10 +147,14 @@ export function DropdownMenuItem({
   const { setIsOpen } = useDropdownMenu();
 
   return (
-    <motion.li variants={itemVariants} transition={{ duration: 0.2 }}>
+    <Motion.li
+      variants={itemVariants}
+      transition={{ duration: 0.2 }}
+      className="first:pt-2 first:pb-1 last:pb-2"
+    >
       <Comp
         className={cn(
-          "w-full flex items-center gap-2 rounded-lg px-3 py-1.5 text-md text-orange-primary/90 transition-colors text-left",
+          "w-full flex items-center rounded-lg px-3 text-md text-orange-primary/90 transition-colors text-left",
           "hover:text-orange-primary hover:bg-white/5",
           className,
         )}
@@ -153,7 +163,7 @@ export function DropdownMenuItem({
       >
         {children}
       </Comp>
-    </motion.li>
+    </Motion.li>
   );
 }
 

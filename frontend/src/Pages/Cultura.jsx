@@ -1,58 +1,50 @@
-import Logo3D from "../assets/Logo3D.png";
 import { Header } from "../components/Header/Header";
-import { LiaHandHoldingHeartSolid } from "react-icons/lia";
-import { GoTrophy, GoGraph } from "react-icons/go";
+import DashImage from "../assets/nossaCulturaDash.png";
+import { GoStar, GoGraph } from "react-icons/go";
 import { AiOutlineTeam } from "react-icons/ai";
-
-import { LuHandshake } from "react-icons/lu";
+import { LuHandshake, LuFileCheck } from "react-icons/lu";
 import { BsCurrencyDollar } from "react-icons/bs";
-import { FiUserPlus } from "react-icons/fi";
-import { PiBank, PiHandHeartBold } from "react-icons/pi";
+import { LuHandHeart } from "react-icons/lu";
+import { PiBank } from "react-icons/pi";
 import { Footer } from "../components/Footer/Footer";
 import ButtonWhats from "../components/ButtonWhats";
 import ScrollReveal from "../components/scrollView";
+import { DashboardImageWithText } from "../components/DashboardImageWithText";
 
 export default function Cultura() {
   const valores = [
     {
-      title: "Foco em Resultados",
-      text: "Cada ação do colaborador deve ter um propósito claro: gerar recuperação efetiva ao credor. Todas as atividades devem ser executadas com objetividade, prioridade no que realmente entrega resultado e comprometimento total com a solução da inadimplência.",
-      icone: <GoTrophy size={30} color="#F1B434" />,
-    },
-    {
-      title: "Ética e Transparência",
-      text: "Todas nossas ações, desde a negociação até a interação entre colaboradores, devem ser claras, íntegras e verdadeiras. Não há espaço para omissões ou informações falsas. O credor deve ter ciência do que está sendo feito em todas as etapas.",
-      icone: <PiHandHeartBold size={30} color="#F1B434" />,
-    },
-    {
-      title: "Compromisso",
-      text: "Cumprimos as responsabilidades assumidas, priorizando a entrega de resultado. Corrigimos falhas de forma imediata, respeitando normas internas, horários e processos, sendo responsáveis pela execução e acompanhamento das próprias tarefas.",
-      icone: <LuHandshake size={30} color="#F1B434" />,
+      title: "Foco em Resultado",
+      icone: <GoStar size={42} color="#F1B434" />,
     },
     {
       title: "Respeito",
-      text: "Tratamos credores, devedores e colaboradores com clareza e profissionalismo, mantendo a firmeza necessária. Respeito não significa flexibilizar obrigações, mas conduzir cada situação de forma correta e responsável.",
-      icone: <LiaHandHoldingHeartSolid size={30} color="#F1B434" />,
-    },
-    {
-      title: "Desenvolvimento Contínuo",
-      text: "Promovemos a evolução constante de métodos, pessoas e tecnologia. Investimos em capacitação para aumentar a eficiência da recuperação de crédito, valorizando colaboradores que demonstram comprometimento, aprendizado contínuo e vontade real de evoluir.",
-      icone: <GoGraph size={30} color="#F1B434" />,
-    },
-    {
-      title: "Responsabilidade Financeira",
-      text: "Atuamos com precisão e compromisso absoluto, assegurando que prazos sejam respeitados e valores pagos de forma justa, protegendo a confiança e o sucesso de credores e colaboradores.",
-      icone: <BsCurrencyDollar size={30} color="#F1B434" />,
+      icone: <LuHandHeart  size={42} color="#F1B434" />,
     },
     {
       title: "Trabalho em Equipe",
-      text: "Colaboração entre setores para garantir que as metas sejam atingidas.",
-      icone: <AiOutlineTeam size={30} color="#F1B434" />,
+      icone: <AiOutlineTeam size={42} color="#F1B434" />,
+    },
+    {
+      title: "Ética e Transparência",
+      icone: <LuFileCheck size={42} color="#F1B434" />,
+    },
+    {
+      title: "Desenvolvimento",
+      icone: <GoGraph size={42} color="#F1B434" />,
     },
     {
       title: "Legalidade",
-      text: "Todas as ações são pautadas na legislação, respeitando os direitos dos credores e colaboradores, facilitando a regularização dos devedores.",
-      icone: <PiBank size={30} color="#F1B434" />,
+      icone: <PiBank size={42} color="#F1B434" />,
+    },
+
+    {
+      title: "Compromisso",
+      icone: <LuHandshake size={42} color="#F1B434" />,
+    },
+    {
+      title: "Responsabilidade Financeira",
+      icone: <BsCurrencyDollar size={42} color="#F1B434" />,
     },
   ];
 
@@ -60,55 +52,46 @@ export default function Cultura() {
     <>
       <Header />
       <main>
-        <div className="flex flex-col items-center w-full md:pr-20 md:pl-20">
-          <h1 className="text-[clamp(2.2rem,6vw,5rem)]/tight max-sm:text-center text-orange-primary font-family-roboto-slab font-bold">
-            Nossa Cultura
-          </h1>
-          <h4 className="mt-5 text-[clamp(1.2rem,4vw,2rem)]/tight max-sm:text-left max-sm:px-6 text-center font-light">
-            A Nossa Cultura organizacional é um conjunto de valores, crenças e
+        <div className="flex flex-col items-center md:mt-16 mt-10 w-full md:pr-20 md:pl-20">
+          <div className="flex gap-2 items-baseline">
+            <h1 className="text-[clamp(2.2rem,6vw,5rem)] font-family-headers">
+              Nossa
+            </h1>
+            <italic className="text-[clamp(2.2rem,6vw,5.6rem)] italic font-family-garamond text-orange-primary">
+              Cultura
+            </italic>
+          </div>
+          <h2 className="text-[clamp(1.2rem,4vw,1.8rem)]/tight max-sm:px-6 text-center">
+            A Nossa Cultura organizacional é um conjunto de valores, crenças e
             ações que definem como decidimos, como cobramos, como negociamos e
             como sustentamos resultados, todos os dias.
-          </h4>
+          </h2>
         </div>
 
         <ScrollReveal variant="fadeLeft">
-          <section className="flex items-center justify-evenly max-md:px-3.5 md:pl-20 max-lg:flex-wrap mt-5">
-            <div className="flex flex-col gap-5 lg:pb-40 max-xl:w-full max-lg:items-center">
-              <h2 className="text-[clamp(2.8rem,5vw,6rem)]/tight max-sm:text-center font-bold font-family-roboto-slab">
-                Nossa <span className="text-[#F1B434]">Missão</span>
-              </h2>
-              <p className="text-[clamp(1.2rem,4vw,2rem)]/tight max-w-[900px] text-wrap font-light">
-                Transformar inadimplência em resultado real para clientes e
-                colaboradores.
-              </p>
-              <p className="text-[clamp(1.2rem,4vw,2rem)]/tight max-w-[900px] text-wrap font-light">
-                Desenvolver crescimento nas pessoas que constroem e participam
-                da MISSÃO.
-              </p>
-            </div>
-
-            <img
-              alt="Laurinha e Estagiário"
-              src={Logo3D}
-              className="md:max-w--primtext-orange-primarypx]"
+          <section className="sm:px-10 px-1 my-5">
+            <DashboardImageWithText
+              imgSrc={DashImage}
+              position="left"
+              title="Nossa Missão"
+              text="Defender os direitos dos credores com assertividade, eficiência e compromisso, garantindo a recuperação de crédito por meio de soluções práticas, firmes e alinhadas à legislação vigente, sempre priorizando resultados para os credores."
             />
           </section>
         </ScrollReveal>
 
-        <section className="bg-[#F1B434]">
+        <section className="bg-black-primary rounded-3xl mx-1 sm:mx-10">
           <ScrollReveal
-            className="flex justify-between items-center max-md:gap-6 max-md:flex-col-reverse p-3 sm:p-32"
+            className="flex justify-evenly lg:justify-around items-center max-lg:flex-col-reverse h-[530px]"
             variant="fadeRight"
           >
-            <p className="lg:w-7/12 text-[#fff] text-[clamp(1rem,4vw,1.6rem)] font-bold">
-              Até 1º de janeiro de 2030, transformar inadimplência em resultado
-              para 5 mil empresas/clientes, contando com 400 colaboradores, e
-              ter faturado 50 Milhões no ano anterior, sendo referência em
+            <p className="lg:w-7/12 lg:h-[70%] xl:p-12 max-lg:mx-4 p-6 text-glass-highlight border border-glass-fade rounded-3xl  text-[clamp(1rem,4vw,1.6rem)] font-bold">
+              Consolidar-se até 2030 como referência no mercado de recuperação
+              de crédito, contando com 400 colaboradores, sendo referência em
               treinamento e educação na área de recuperação de crédito no
               Brasil, atuando em diversos nichos: varejo, bancos, além do
               educacional.
             </p>
-            <h4 className="font-bold text-[clamp(4rem,8vw,7rem)] text-[#fff]">
+            <h4 className="text-[clamp(5rem,10vw,8rem)] font-family-headers text-glass-highlight">
               Visão
             </h4>
           </ScrollReveal>
@@ -118,32 +101,29 @@ export default function Cultura() {
           <section className="bg-white py-16 px-4 md:px-8">
             <div className="max-w-6xl mx-auto">
               {/* Cabeçalho opcional da seção */}
-              <div className="mb-12 text-center">
-                <h3 className="text-[clamp(4rem,8vw,7rem)]/tight font-bold font-family-roboto-slab text-center mt-5">
-                  Nossos <span className="text-[#F1B434]">Valores</span>
-                </h3>
-                <div className="w-60 h-1 bg-orange-primary mx-auto mt-4 rounded-full"></div>
+              <div className="flex gap-2 justify-center items-baseline">
+                <h1 className="text-[clamp(2.2rem,6vw,5rem)] font-family-headers">
+                  Nossos
+                </h1>
+                <italic className="text-[clamp(2.2rem,6vw,5.6rem)] italic font-family-garamond text-orange-primary">
+                  Valores
+                </italic>
               </div>
 
               {/* Grid dos Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
                 {valores.map((item, index) => (
                   <div
                     key={index}
                     className="flex flex-row max-lg:flex-wrap items-start gap-5"
                   >
                     <div className="flex flex-col pt-2">
-                      <div className="flex gap-3">
-                        {/* Lado Esquerdo: Icone */}
-                        <div className="flex-shrink-0">{item.icone}</div>
-                        <h3 className="text-[clamp(0.8rem,5vw,1.25rem)] font-bold text-orange-primary mb-3 uppercase tracking-wide">
+                      <div className="flex lg:gap-12 gap-2 items-center ">
+                        <div className="flex shrink mb-1">{item.icone}</div>
+                        <h3 className="text-[clamp(1rem,4vw,1.6rem)] font-family-headers tracking-wide">
                           {item.title}
                         </h3>
                       </div>
-                      {/* Lado Direito: Conteúdo (Flex-col) */}
-                      <p className="text-gray-600 leading-relaxed text-[clamp(0.8rem,4vw,1rem)] md:text-justify">
-                        {item.text}
-                      </p>
                     </div>
                   </div>
                 ))}

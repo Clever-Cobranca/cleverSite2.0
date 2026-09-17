@@ -12,6 +12,17 @@
   --color-gray-primary: #f9f9f9;
   --color-orange-primary: #f1b434;
 
+  --color-glass-text: rgba(255, 255, 255, 0.8);
+  --color-glass-border: rgba(255, 255, 255, 0.25);
+  --color-glass-highlight: rgba(255, 255, 255, 0.45);
+
+  --color-glass-gradient: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.55) 45%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
+
   --font-family: {
     /* Cria o utilitário de fontes */
     roboto-slab: var(--font-family-roboto-slab);
@@ -21,6 +32,47 @@
 }
 
 @layer utilities {
+  .text-liquid-glass {
+    color: transparent;
+    background-image: var(--glass-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+
+  .border-glass-fade {
+    position: relative;
+    border: 1px solid transparent;
+  }
+
+  .border-glass-fade::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+
+    background: linear-gradient(
+      to top right,
+      transparent 0%,
+      transparent 20%,
+      var(--glass-border, rgba(255, 255, 255, 0.25)) 30%,
+      var(--glass-highlight, rgba(255, 255, 255, 0.45)) 50%,
+      var(--glass-border, rgba(255, 255, 255, 0.25)) 70%,
+      transparent 80%,
+      transparent 100%
+    );
+
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
   .backdrop-liquid-glass {
     background-color: rgba(255, 255, 255, 0.08);
 
@@ -90,7 +142,6 @@ body,
 
 #root::-webkit-scrollbar {
   width: 8px; /* Width for vertical */
-  height: 12px; /* Height for horizontal */
 }
 
 #root::-webkit-scrollbar-track {
@@ -100,6 +151,7 @@ body,
 
 #root::-webkit-scrollbar-thumb {
   background: #111315; /* Dark gray thumb */
+  height: 276px; /* Height for horizontal */
 }
 
 #root::-webkit-scrollbar-thumb:hover {
