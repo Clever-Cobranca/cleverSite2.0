@@ -105,7 +105,7 @@ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 #clever-lp .sec.dark .case .n{color:#fff}
 #clever-lp .case p{font-size:15.5px}
 #clever-lp .alan{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;background:var(--tint);border-radius:18px;padding:30px}
-#clever-lp .alan .ini{width:78px;height:78px;border-radius:50%;background:var(--ink);color:var(--gold);display:flex;align-items:center;justify-content:center;font:700 28px var(--serif)}
+#clever-lp .alan .ini{width:180px;height:180px;border-radius:50%;background:var(--ink);color:var(--gold);display:inline-block;}
 #clever-lp .eag{display:inline-block;margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:30px;padding:7px 16px;font-size:15px;font-weight:700;color:var(--ink)}
 #clever-lp .final{background:var(--teal);color:#fff;border-radius:20px;padding:44px;text-align:center}
 #clever-lp .final h2{color:#fff;font-size:36px}
@@ -289,7 +289,7 @@ const HTML = `<!-- ===================== HERO ===================== -->
 <!-- ===================== QUEM CONDUZ ===================== -->
 <section class="sec">
   <div class="w alan">
-    <div class="ini">AC</div>
+    <div class="ini"><img alt="Alan Clever" style="width:100%;height:100%;border-radius:100%;object-fit:cover;object-position:center;" src="/alan-escola.jpeg"/></div>
     <div>
       <div class="kick">Quem conduz essa estratégia</div>
       <h3 style="margin-top:6px">Alan Clever, fundador e CEO da Clever</h3>
