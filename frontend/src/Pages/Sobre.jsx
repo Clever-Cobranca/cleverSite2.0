@@ -30,9 +30,8 @@ export default function Sobre() {
             </div>
           </div>
         </ScrollReveal>
-
         <ScrollReveal variant="fadeDown">
-          <section className="flex items-center px-10 justify-center">
+          <section className="flex items-center sm:px-10 justify-center">
             <LinhaDoTempoSVG />
           </section>
         </ScrollReveal>

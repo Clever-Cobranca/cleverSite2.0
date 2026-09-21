@@ -60,7 +60,7 @@ export default function Home() {
         <div>
           <main className="h-full w-full">
             <section className="w-full">
-              <div className="flex items-center h-full lgs:px-14 lgs:py-8">
+              <div className="flex items-center h-full lgs:px-14 lgs:py-4">
                 <div className="lgs:overflow-x-hidden">
                   <Carousel scrollMode="page" isScrollX={false}>
                     <DashboardImage

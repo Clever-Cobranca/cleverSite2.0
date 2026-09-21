@@ -93,7 +93,7 @@ export function DropdownMenuTrigger({
       className={cn(
         "flex items-center gap-2  transition-colors cursor-pointer",
         "sm:text-[18px] text-sm font-medium text-white/90",
-        (isOpen || isActive) && "px-5 py-0.5 text-orange-primary",
+        (isOpen || isActive) && "px-3.5 py-0.5 text-orange-primary",
         "hover:text-orange-primary active:scale-95",
         className,
       )}
@@ -125,7 +125,7 @@ export function DropdownMenuContent({ children, className, ...props }) {
             staggerChildren: 0.06,
           }}
           className={cn(
-            "flex w-max min-w-full flex-col overflow-hidden border-t border-white/10",
+            "flex w-max min-w-full flex-col overflow-hidden",
             className,
           )}
           {...props}
@@ -154,7 +154,7 @@ export function DropdownMenuItem({
     >
       <Comp
         className={cn(
-          "w-full flex items-center rounded-lg px-3 text-md text-orange-primary/90 transition-colors text-left",
+          "w-full flex items-center rounded-lg px-3 text-md text-black-primary/90 transition-colors text-left",
           "hover:text-orange-primary hover:bg-white/5",
           className,
         )}

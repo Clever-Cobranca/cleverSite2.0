@@ -1,6 +1,3 @@
-import SejaClever from "../assets/SejaUmClever.png";
-import LogoCleverTrabalhe from "../assets/Logo_Clever_Trabalhe.png";
-import lauraTrabalheConosco from "../assets/lauraTrabalheConosco.png";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import { CircleExpandButton } from "../components/button";
@@ -11,7 +8,8 @@ import { IoClose } from "react-icons/io5";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import InteractiveForm from "../components/InteractiveForm";
-import LauraSeusAmigos from "../assets/LauraSeusAmigos.png";
+import quemSomosFirst from "../assets/quem-somos-first.png";
+import quemSomosSecond from "../assets/quem-somos-second.png";
 import ScrollReveal from "../components/scrollView";
 
 export default function TrabalheConosco() {
@@ -22,59 +20,50 @@ export default function TrabalheConosco() {
     <>
       <Header />
       <main>
-        <ScrollReveal variant="fadeDown">
-          <div className="w-full max-sm:h-full sm:p-5">
-            <div className="relative">
-              <img
-                src={SejaClever}
-                alt="Trabalhe Conosco - Seja um Clever"
-                className="block w-full h-[100px] sm:h-auto object-cover"
-              />
-
-              <div className="absolute inset-0 w-full h-[115%] flex justify-center items-end">
-                <span className="h-full flex items-end justify-center">
-                  <img
-                    src={LogoCleverTrabalhe}
-                    alt="Logo Clever Assessoria Escrita"
-                    className="lg:w-[75%] max-md:w-1/3 max-sm:w-2/12 w-1/3 object-contain"
-                  />
-                </span>
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
         <ScrollReveal variant="fadeUp">
-          <section className="sm:pt-10 pt-6 pb-20 lg:mb-10">
-            <div className="flex sm:pt-16 flex-col justify-center items-center">
-              <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] max-lgs:max-w-[645px]  max-sm:pl-0 md:max-lg:pl-8 lg:max-xl:pl-6 lg:max-xl:text-center leading-tight font-family-roboto-slab font-bold py-2">
-                Quem Somos?
-              </h1>
-              <div className="flex w-[90%] justify-between flex-col wrap-break-word flex-wrap gap-4">
-                <div className="flex flex-col items-center gap-3">
-                  <p className="text-[clamp(1.2rem,3vw,2rem)] pb-2 lgs:text-justify max-w-full max-lgs:px-3">
+          <section className="pb-20 lg:mb-10 px-10">
+            <div className="flex sm:pt-16 flex-col justify-center">
+              <div className="flex w-full sm:px-7 max-sm:flex-col gap-4 wrap-break-word justify-center items-center">
+                <div className="flex flex-col  gap-3">
+                  <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] font-family-headers">
+                    Quem Somos?
+                  </h1>
+                  <p className="text-[clamp(0.8rem,4vw,1.1rem)] tracking-wide  pb-2 max-w-[620px] h-full">
                     Somos a Clever Assessoria Jurídica e Cobrança, uma empresa
-                    especializada em recuperação de crédito com atuação firme,
-                    transparente e totalmente orientada ao credor. Nascemos para
-                    preencher uma lacuna do mercado: entregar resultado real,
-                    sem promessas vazias e sem favorecer manobras que afastem o
-                    devedor de sua obrigação legal.
+                    especializada em recuperação de crédito que acredita que uma
+                    boa cobrança também pode ser um caminho para reorganização e
+                    solução. Atuamos de forma transparente, responsável e
+                    orientada à construção de acordos viáveis, buscando
+                    aproximar credores e devedores para encontrar alternativas
+                    que permitam a regularização das pendências de forma segura
+                    e respeitosa.
                   </p>
                   <img
-                    className="max-w-[540px] w-full h-full"
-                    src={LauraSeusAmigos}
-                    alt="Equipe clever fantasiada"
+                    className="max-w-[590px] w-full h-full"
+                    src={quemSomosFirst}
+                    alt="Equipe Clever"
                   />
                 </div>
-                <div className="flex flex-col pt-2 items-center gap-3">
-                  <p className="text-[clamp(1.2rem,3vw,2rem)] lgs:text-justify max-w-full max-lgs:px-3">
-                    Trabalhamos em todo o ciclo da cobrança, da fase
-                    extrajudicial às medidas mais severas quando necessárias,
-                    sempre com base jurídica sólida, estratégia e foco absoluto
-                    em eficiência. Nosso compromisso é simples: garantir que o
-                    credor receba o que lhe é devido, preservando direitos,
-                    fortalecendo relações e elevando o padrão de cobrança no
-                    Brasil.
+                <div className="flex flex-col items-center gap-3">
+                  <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] hover:cursor-default text-transparent">
+                    ""
+                  </h1>
+                  <p className="text-[clamp(0.8rem,4vw,1.1rem)] tracking-tight pb-2 max-w-[620px] h-full">
+                    Nosso trabalho vai além de cobrar. Buscamos entender cada
+                    situação, facilitar o diálogo e criar oportunidades para que
+                    quem possui uma dívida consiga regularizar sua vida
+                    financeira, ao mesmo tempo em que ajudamos nossos clientes a
+                    recuperar seus créditos com eficiência, segurança e
+                    profissionalismo. A Clever nasceu para transformar a
+                    cobrança em um processo mais claro, organizado e resolutivo,
+                    gerando benefícios para ambas as partes e contribuindo para
+                    relações financeiras mais saudáveis.
                   </p>
+                  <img
+                    className="max-w-[590px] w-full h-full"
+                    src={quemSomosSecond}
+                    alt="Usuário mexendo no celular"
+                  />
                 </div>
               </div>
             </div>
@@ -82,25 +71,26 @@ export default function TrabalheConosco() {
         </ScrollReveal>
 
         <ScrollReveal variant="fadeLeft">
-          <section className="pl-6 pb-10 pr-6 flex max-sm:text-center justify-center items-center flex-col">
+          <section className="px-6 flex max-sm:text-center justify-center items-center">
             <div className="flex-col flex gap-10 justify-center w-full items-center">
               <div className="flex max-sm:justify-center ">
-                <div className="flex-col [&>p]:text-[clamp(1.2rem,3vw,2rem)] lgs:text-justify lg:pl-12 gap-5 flex max-sm:items-center max-sm:text-center">
-                  <h2 className="font-family-roboto-slab font-bold text-[clamp(2.6rem,6vw,6.2rem)]/tight">
-                    Vem fazer Parte da <br />{" "}
-                    <span className="text-[#F1B434]">#CleverFamily</span>
+                <div className="flex-col gap-2 flex max-sm:items-center max-sm:text-center">
+                  <h2 className="font-family-headers text-[clamp(2.6rem,6vw,6.2rem)]/tight">
+                    Vem fazer Parte da
+                    <p className="text-[#F1B434]">Clever!</p>
                   </h2>
                   <div className="w-11/12 max-lgs:w-full border-t-3 rounded-2xl border-[#F1B434]" />
-                  <p>Conheça nossos cargos clicando em qualquer um abaixo:</p>
+                  <p className="font-family-headers lg:text-2xl text-xl">
+                    Conheça nossos cargos clicando em qualquer um abaixo:
+                  </p>
                   <div className="flex flex-col items-center flex-wrap">
                     <button onClick={() => setIsOpen("supervisor")}>
                       <CircleExpandButton
                         bgColor="bg-[#f1b434]"
                         hoverColor="bg-[#e0a92e]"
-                        textColor="#fff"
+                        textColor="#00000"
                         text="Supervisor / Coordenador de operações"
                         hoverTextColor="#fff"
-                        className="text-center p-4 rounded-4xl hover:cursor-pointer"
                         onClick={() => setIsOpen(true)}
                       />
                     </button>
@@ -149,8 +139,8 @@ export default function TrabalheConosco() {
                 </div>
               </div>
             </div>
-            <div className="w-[90%] max-lgs:w-full max-lgs:pt-10 pt-6 flex flex-col sm:gap-12 gap-2 h-full">
-              <p className="max-w-full lgs:text-justify max-sm:text-left sm:max-lgs:px-10 text-[clamp(1.2rem,3vw,2rem)]">
+            <div className="w-[90%] h-full">
+              <p className="font-semibold lgs:text-justify max-sm:text-left sm:max-lgs:px-10 text-[clamp(1.2rem,4vw,1.6rem)]">
                 Estamos entre as melhores empresas para iniciar a carreira e 85%
                 de nossas vagas administrativas e de liderança são preenchidas
                 internamente! Então, se você sonha em fazer parte de um time que
