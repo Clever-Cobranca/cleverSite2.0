@@ -9,6 +9,8 @@ import Pin from "../assets/svgs/Pin.svg";
 import Signal_Alt from "../assets/svgs/Signal_Alt.svg";
 import fotoDanilo from "../assets/danilo-prepara.png";
 import fotoDaiane from "../assets/daiane-microlins.png";
+import fotoLaerti from "../assets/laerti-microlins.jpeg";
+import fotoMaria from "../assets/maria-prepara-cursos.jpeg";
 import DollarSign from "../assets/svgs/Dollar_sign.svg";
 import Calendar from "../assets/svgs/Calendar.svg";
 import { Footer } from "../components/Footer/Footer";
@@ -23,7 +25,7 @@ import LiquidGlassFilter from "../components/LiquidGlassFilter";
 export default function Home() {
   const testimonials = [
     {
-      photo: fotoDaiane ?? "",
+      photo: fotoMaria ?? "",
       name: "Maria",
       role: "Franqueada Prepara Cursos",
       testimonial:
@@ -44,7 +46,7 @@ export default function Home() {
         "Clever já tem anos junto conosco na área de cobrança, onde a gente está colhendo excelentes resultados.",
     },
     {
-      photo: fotoDanilo ?? "",
+      photo: fotoLaerti ?? "",
       name: "Laerti",
       role: "Franqueado Microlins",
       testimonial:
@@ -62,7 +64,7 @@ export default function Home() {
             <section className="w-full">
               <div className="flex items-center h-full lgs:px-14 lgs:py-4">
                 <div className="lgs:overflow-x-hidden">
-                  <Carousel scrollMode="page" isScrollX={false}>
+                  <Carousel scrollMode="page" isScrollX={false} isInfinity={true}>
                     <DashboardImage
                       h1="SUA EMPRESA SOFRE COM"
                       imgSrc={HomepageFirst}

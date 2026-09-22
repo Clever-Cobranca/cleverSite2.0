@@ -19,7 +19,7 @@ export function TestimonialCard({ photo, name, role, testimonial }) {
           alt={`Foto de ${name}`}
           loading="lazy"
           className="
-          size-32 shrink-0 rounded-full object-cover
+          size-32 shrink-0 rounded-full object-cover object-top-left
           lg:size-[180px]
         "
         />

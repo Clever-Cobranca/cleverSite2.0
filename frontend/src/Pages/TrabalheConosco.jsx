@@ -71,7 +71,7 @@ export default function TrabalheConosco() {
         </ScrollReveal>
 
         <ScrollReveal variant="fadeLeft">
-          <section className="px-6 flex max-sm:text-center justify-center items-center">
+          <section className="px-6 pb-8 flex max-sm:text-center justify-center max-lg:flex-wrap">
             <div className="flex-col flex gap-10 justify-center w-full items-center">
               <div className="flex max-sm:justify-center ">
                 <div className="flex-col gap-2 flex max-sm:items-center max-sm:text-center">
@@ -83,64 +83,62 @@ export default function TrabalheConosco() {
                   <p className="font-family-headers lg:text-2xl text-xl">
                     Conheça nossos cargos clicando em qualquer um abaixo:
                   </p>
-                  <div className="flex flex-col items-center flex-wrap">
-                    <button onClick={() => setIsOpen("supervisor")}>
+                  {/* Cargos */}
+                  <div className="relative flex w-full max-w-[720px] flex-col items-center">
+                    <div className="relative z-10 w-4/5 sm:w-[50%]">
                       <CircleExpandButton
                         bgColor="bg-[#f1b434]"
                         hoverColor="bg-[#e0a92e]"
-                        textColor="#00000"
+                        textColor="#000000"
                         text="Supervisor / Coordenador de operações"
                         hoverTextColor="#fff"
-                        onClick={() => setIsOpen(true)}
+                        className="min-h-[108px] w-full !p-5"
+                        onClick={() => setIsOpen("supervisor")}
                       />
-                    </button>
-                    <div className="flex items-center w-full justify-center">
-                      <div className="w-px h-6 bg-gray-800"></div>
                     </div>
 
-                    <div className="flex items-center justify-center w-full">
-                      <div className="max-sm:w-42 w-62 h-px bg-gray-800"></div>
-                      <div className="w-0 h-px bg-gray-800"></div>
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-x-0 top-0 h-[155px] text-[#d7d7d7]"
+                    >
+                      <div className="absolute left-[10%] top-[54px] h-0.5 w-[14%] bg-current sm:left-[18%]" />
+                      <div className="absolute left-[24%] top-[54px] h-[94px] w-0.5 -translate-x-1/2 bg-current sm:left-[18%]" />
+                      <div className="absolute left-[76%] top-[54px] h-0.5 w-[14%] bg-current sm:left-[68%]" />
+                      <div className="absolute left-[76%] top-[54px] h-[94px] w-0.5 -translate-x-1/2 bg-current sm:left-[82%]" />
+                      <div className="absolute left-[24%] top-[141px] h-3.5 w-3.5 -translate-x-1/2 rounded-full bg-current sm:left-[18%]" />
+                      <div className="absolute left-[76%] top-[141px] h-3.5 w-3.5 -translate-x-1/2 rounded-full bg-current sm:left-[82%]" />
                     </div>
 
-                    <div className="flex justify-center max-sm:gap-40 gap-60">
-                      <div className="flex flex-col items-center">
-                        <div className="w-px h-8 bg-gray-800"></div>
-                        <div className="w-2 h-2 rounded-full bg-gray-800 -mt-1"></div>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <div className="w-px h-8 bg-gray-800"></div>
-                        <div className="w-2 h-2 rounded-full bg-gray-800 -mt-1"></div>
-                      </div>
-                    </div>
-                    <div className="flex justify-center gap-10">
-                      <button onClick={() => setIsOpen("operadorCobranca")}>
+                    <div className="lg:mt-14 mt-6 flex w-full justify-between">
+                      <div className="flex w-[48%] sm:w-[36%]">
                         <CircleExpandButton
-                          bgColor="bg-[#f1b434]"
+                          bgColor="bg-white"
                           hoverColor="bg-[#e0a92e]"
-                          textColor="#fff"
-                          text="Operação de cobrança"
+                          textColor="#000000"
+                          text="Operador de cobrança"
                           hoverTextColor="#fff"
-                          className="text-center p-4 rounded-4xl hover:cursor-pointer"
+                          className="h-full w-full !p-4"
+                          onClick={() => setIsOpen("operadorCobranca")}
                         />
-                      </button>
-                      <button onClick={() => setIsOpen("oparadorNotificacao")}>
+                      </div>
+                      <div className="flex w-[48%] sm:w-[36%]">
                         <CircleExpandButton
-                          bgColor="bg-[#f1b434]"
+                          bgColor="bg-white"
                           hoverColor="bg-[#e0a92e]"
-                          textColor="#fff"
+                          textColor="#000000"
                           text="Operador de notificação"
-                          className="text-center p-4 rounded-4xl hover:cursor-pointer"
-                          onClick={() => setIsOpen(true)}
+                          hoverTextColor="#fff"
+                          className="h-full w-full !p-4"
+                          onClick={() => setIsOpen("oparadorNotificacao")}
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="w-[90%] h-full">
-              <p className="font-semibold lgs:text-justify max-sm:text-left sm:max-lgs:px-10 text-[clamp(1.2rem,4vw,1.6rem)]">
+            <div className="w-[90%] pt-6 h-full">
+              <p className="font-semibold text-left sm:max-lgs:px-10 text-[clamp(0.8rem,4vw,1.1rem)]">
                 Estamos entre as melhores empresas para iniciar a carreira e 85%
                 de nossas vagas administrativas e de liderança são preenchidas
                 internamente! Então, se você sonha em fazer parte de um time que
@@ -150,15 +148,15 @@ export default function TrabalheConosco() {
               <div className="h-5 max-lgs:text-center justify-center items-center flex mt-10 mb-10">
                 <button
                   onClick={() => estaAbrindo(true)}
-                  className="h-[50px] md:h-[87px] max-sm:p-1 w-[380px] uppercase max-sm:w-64 max-md:w-38 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(1rem,4vw,1.5rem)] rounded-4xl bg-orange-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer"
+                  className="h-[50px] md:h-[87px] max-sm:p-1 w-[380px] max-sm:w-64 max-md:w-38 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(1rem,4vw,1.5rem)] rounded-4xl bg-black-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer"
                 >
-                  Candidatar-se
+                  QUERO FAZER PARTE
                 </button>
               </div>
             </div>
             <AnimatePresence initial={false}>
               {isOpen == "supervisor" && (
-                <div className="flex justify-center items-center fixed inset-0 z-50 rounded-4xl">
+                <div className="flex justify-center items-center fixed inset-0 z-999 rounded-4xl">
                   <motion.div
                     className="absolute -z-10 inset-0 bg-black/30"
                     onClick={() => setIsOpen(false)}
@@ -285,7 +283,7 @@ export default function TrabalheConosco() {
 
             <AnimatePresence initial={false}>
               {isOpen == "operadorCobranca" && (
-                <div className="flex justify-center items-center fixed inset-0 z-50 rounded-4xl">
+                <div className="flex justify-center items-center fixed inset-0 z-999 rounded-4xl">
                   <motion.div
                     className="absolute -z-10 inset-0 bg-black/30"
                     onClick={() => setIsOpen(false)}
@@ -392,7 +390,7 @@ export default function TrabalheConosco() {
 
             <AnimatePresence initial={false}>
               {isOpen == "oparadorNotificacao" && (
-                <div className="flex justify-center items-center fixed inset-0 z-50 rounded-4xl">
+                <div className="flex justify-center items-center fixed inset-0 z-999 rounded-4xl">
                   <motion.div
                     className="absolute -z-10 inset-0 bg-black/30"
                     onClick={() => setIsOpen(false)}
@@ -521,7 +519,7 @@ export default function TrabalheConosco() {
             </AnimatePresence>
             <AnimatePresence initial={false}>
               {Aberto == true && (
-                <div className="flex justify-center items-center fixed inset-0 z-50 rounded-4xl">
+                <div className="flex justify-center items-center fixed inset-0 z-999 rounded-4xl">
                   <motion.div
                     className="absolute -z-10 inset-0 bg-black/30"
                     onClick={() => setIsOpen(false)}

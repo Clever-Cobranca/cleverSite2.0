@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import Home from "./Pages/Home";
 import Sobre from "./Pages/Sobre";
 import Cultura from "./Pages/Cultura";
@@ -34,6 +34,10 @@ createRoot(document.getElementById("root")).render(
         <Route
           path="/politica-de-privacidade"
           element={<PoliticaDePrivacidade />}
+        />
+        <Route
+          path="/blog"
+          element={<Navigate to="/blog/juros-altos-aumentam-inadimplencia" replace />}
         />
         <Route path="/blog/:postSlug" element={<Blog />} />
         <Route path="/kath" element={<KathCNPJ />} />

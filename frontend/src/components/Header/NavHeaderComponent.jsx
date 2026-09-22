@@ -21,6 +21,10 @@ export function NavHeaderComponent() {
       path: "",
     },
     {
+      name: "Blog",
+      path: "/blog/juros-altos-aumentam-inadimplencia",
+    },
+    {
       name: "Educação",
       path: "/educacao",
     },
@@ -79,7 +83,7 @@ export function NavHeaderComponent() {
                       className={cn(
                         "group relative block hover:text-orange-primary",
                         item.path === location.pathname
-                          ? "backdrop-liquid-glass px-5 py-0.5 rounded-lg text-orange-primary"
+                          ? "backdrop-liquid-glass px-5 max-sm:w-max py-0.5 rounded-lg text-orange-primary"
                           : "text-white",
                       )}
                     >

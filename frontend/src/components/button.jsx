@@ -1,7 +1,15 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-export function CircleExpandButton({ bgColor, hoverColor, textColor, text, hoverTextColor }) {
+export function CircleExpandButton({
+    bgColor,
+    hoverColor,
+    textColor,
+    text,
+    hoverTextColor,
+    className = "",
+    onClick,
+}) {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
 
@@ -26,7 +34,9 @@ export function CircleExpandButton({ bgColor, hoverColor, textColor, text, hover
 
     return (
         <motion.button
-            className={`relative overflow-hidden ${bgColor} ${textColor} text-[clamp(0.8rem,4vw,1.3rem)] hover:cursor-pointer text-center p-4 rounded-4xl border-2 border-[#F1B434]`}
+            type="button"
+            className={`relative font-family-headers overflow-hidden ${bgColor} ${textColor} text-[clamp(0.8rem,4vw,1.3rem)] hover:cursor-pointer text-center p-8 rounded-2xl border-2 border-[#F1B434] ${className}`}
+            onClick={onClick}
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}

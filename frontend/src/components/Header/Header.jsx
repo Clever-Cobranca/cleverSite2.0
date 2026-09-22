@@ -21,7 +21,7 @@ export function Header({ children }) {
 
   return (
     <>
-      <header className="pt-4 z-999 font-family-headers flex items-center-safe justify-between max-sm:justify-between pl-16 pr-15 w-full h-24 max-lg:shadow-none max-lg:border-b max-lg:border-t max-lg:border-black/20 shadow-[0_15px_60px_-15px_rgba(0,0,0,0.3)] sticky top-0 bg-black-primary">
+      <header className="pt-4 z-700 font-family-headers flex items-center-safe justify-between max-sm:justify-between pl-16 pr-15 w-full h-24 max-lg:shadow-none max-lg:border-b max-lg:border-t max-lg:border-black/20 shadow-[0_15px_60px_-15px_rgba(0,0,0,0.3)] sticky top-0 bg-black-primary">
         <div className="max-[1056px]:hidden flex items-center gap-10">
           <Link to="/">
             <img src={Logo} alt="Icon Clever" className="w-16 h-auto" />

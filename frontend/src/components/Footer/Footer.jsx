@@ -36,7 +36,7 @@ export function Footer() {
               <Link to="/servicos">Nossos Serviços</Link>
             </li>
             <li className="hover:text-[#F1B434] hover:ml-3 transition-all duration-300 ease-out">
-              <Link to="#!">Blog</Link>
+              <Link to="/blog">Blog</Link>
             </li>
             <li className="hover:text-[#F1B434] hover:ml-3 transition-all duration-300 ease-out">
               <Link to="/educacao">Educação</Link>

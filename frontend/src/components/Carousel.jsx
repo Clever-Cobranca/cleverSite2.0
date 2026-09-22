@@ -8,6 +8,7 @@ export default function Carousel({
   scrollStep,
   isScrollX = true,
   isDraggable = false,
+  isInfinity = false,
 }) {
   const carousel = useRef(null);
   const drag = useRef({
@@ -53,6 +54,20 @@ export default function Carousel({
     const container = carousel.current;
 
     if (!container) return;
+
+    const maxScrollLeft = container.scrollWidth - container.clientWidth;
+    const isAtStart = container.scrollLeft <= 1;
+    const isAtEnd = container.scrollLeft >= maxScrollLeft - 1;
+
+    if (isInfinity && direction === "right" && isAtEnd) {
+      container.scrollTo({ left: 0, behavior: "smooth" });
+      return;
+    }
+
+    if (isInfinity && direction === "left" && isAtStart) {
+      container.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
+      return;
+    }
 
     const amount = getScrollAmount();
 
@@ -116,9 +131,13 @@ export default function Carousel({
 
     const updateScrollButtons = () => {
       const { scrollLeft, scrollWidth, clientWidth } = carouselRef;
+      const hasOverflow = scrollWidth > clientWidth + 1;
 
-      setCanScrollLeft(scrollLeft > 1);
-      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 1);
+      setCanScrollLeft(hasOverflow && (isInfinity || scrollLeft > 1));
+      setCanScrollRight(
+        hasOverflow &&
+          (isInfinity || scrollLeft + clientWidth < scrollWidth - 1),
+      );
     };
 
     const resizeObserver = new ResizeObserver(updateScrollButtons);
@@ -131,7 +150,7 @@ export default function Carousel({
       carouselRef.removeEventListener("scroll", updateScrollButtons);
       resizeObserver.disconnect();
     };
-  }, [children]);
+  }, [children, isInfinity]);
 
   return (
     <div className="group relative w-full h-full py-3.5 pl-2 z-50">

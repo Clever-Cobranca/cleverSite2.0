@@ -237,50 +237,64 @@ export default function Blog() {
                 bttnRef={bttnRef}
               >
                 <DropdownMenu className="z-10 text-xs">
-                  <DropdownMenuTrigger type="button" className="p-0">
+                  <DropdownMenuTrigger
+                    type="button"
+                    className="py-2 px-5 text-black"
+                  >
                     {optionValue || "Categorias"}
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent onClick={() => bttnRef.current.click()}>
-                    <DropdownMenuItem type="button" className="w-full">
-                      <option
-                        onClick={() => {
-                          setOptionSelected("Todas");
-                          setOptionValue("Todas");
-                        }}
-                      >
-                        Todas
-                      </option>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem type="button" className="w-full">
-                      <option
-                        onClick={() => {
-                          setOptionSelected("cobranca");
-                          setOptionValue("Cobrança");
-                        }}
-                      >
-                        Cobrança
-                      </option>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem type="button">
-                      <option
-                        onClick={() => {
-                          setOptionSelected("credito");
-                          setOptionValue("Crédito");
-                        }}
-                      >
-                        Crédito
-                      </option>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem type="button" className="w-full">
-                      <option
-                        onClick={() => {
-                          setOptionSelected("inadimplencia");
-                          setOptionValue("Inadimplência");
-                        }}
-                      >
-                        Inadimplência
-                      </option>
-                    </DropdownMenuItem>
+                  <DropdownMenuContent
+                    onClick={() => bttnRef.current.click()}
+                    className="gap-2"
+                  >
+                    {optionValue != "Todas" && (
+                      <DropdownMenuItem type="button" className="w-full">
+                        <option
+                          onClick={() => {
+                            setOptionSelected("Todas");
+                            setOptionValue("Todas");
+                          }}
+                        >
+                          Todas
+                        </option>
+                      </DropdownMenuItem>
+                    )}
+                    {optionSelected != "cobranca" && (
+                      <DropdownMenuItem type="button" className="w-full">
+                        <option
+                          onClick={() => {
+                            setOptionSelected("cobranca");
+                            setOptionValue("Cobrança");
+                          }}
+                        >
+                          Cobrança
+                        </option>
+                      </DropdownMenuItem>
+                    )}
+                    {!optionSelected != "credito" && (
+                      <DropdownMenuItem type="button">
+                        <option
+                          onClick={() => {
+                            setOptionSelected("credito");
+                            setOptionValue("Crédito");
+                          }}
+                        >
+                          Crédito
+                        </option>
+                      </DropdownMenuItem>
+                    )}
+                    {!optionSelected != "inadimplencia" && (
+                      <DropdownMenuItem type="button" className="w-full">
+                        <option
+                          onClick={() => {
+                            setOptionSelected("inadimplencia");
+                            setOptionValue("Inadimplência");
+                          }}
+                        >
+                          Inadimplência
+                        </option>
+                      </DropdownMenuItem>
+                    )}
                   </DropdownMenuContent>
                 </DropdownMenu>
               </SearchComponent>
@@ -349,9 +363,7 @@ export default function Blog() {
             />
             <div className="border-t-2 w-full border-orange-primary" />
             <div className="h-full">
-              <label htmlFor="#categories" className="font-semibold text-xl">
-                CATEGORIAS
-              </label>
+              <label className="font-semibold text-xl">CATEGORIAS</label>
               <optgroup
                 id="categories"
                 className="flex h-max flex-col gap-3 [&>option]:bg-gray-200 [&>option]:p-2 [&>option]:w-full [&>option]:text-[#707372] [&>option]:hover:cursor-pointer [&>option]:hover:opacity-85"
