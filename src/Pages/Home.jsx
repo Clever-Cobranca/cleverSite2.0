@@ -29,28 +29,28 @@ export default function Home() {
       name: "Danilo",
       role: "Franqueado Prepara Cursos",
       testimonial:
-        "clientes de dois, três, quatro, cinco anos nós tivemos ótimos resultados de recebimento.",
+        "Com a atuação da Clever tivemos ótimos resultados de recebimento, até de clientes que estavam mais de 5 anos inadimplentes.",
     },
     {
       photo: fotoDaiane ?? "",
       name: "Daiane",
       role: "Franqueada Microlins",
       testimonial:
-        "Clever já tem anos junto conosco na área de cobrança, onde a gente está colhendo excelentes resultados.",
+        "Desde que a Clever assumiu nossa carteira de devedores, nossa inadimplência diminuiu drásticamente e estamos colhendo excelentes resultados.",
     },
     {
       photo: fotoLaerti ?? "",
       name: "Laerti",
       role: "Franqueado Microlins",
       testimonial:
-        "Durante todo esse período a gente foi muito bem atendido e orientado, conseguimos receber de muitos clientes que estavam inadimplentes há +3 anos.",
+        "Durante todos esses anos de parceria fomos muito bem atendidos e orientados. Conseguimos receber de clientes que estavam inadimplentes há mais de 3 anos.",
     },
     {
       photo: fotoMaria ?? "",
       name: "Maria",
       role: "Franqueada Prepara Cursos",
       testimonial:
-        "recuperamos mais de R$ 300.000 em contratos, de clientes que não tínhamos mais contato desde 2011.",
+        "Recuperamos mais de R$ 300.000 em contratos, de clientes que não tínhamos mais contato desde 2011.",
     },
   ];
 
