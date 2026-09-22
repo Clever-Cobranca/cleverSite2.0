@@ -76,7 +76,7 @@ export default function Servicos() {
               imgSrc={cobrancaPreventivaServico}
               position="right"
               title="Cobrança Preventiva"
-              text="Nosso consiste em lembretes de vencimento, envio de boletos e cobranças, incluindo renegociação de atrasos. Atuamos em plataforma Omni-Channel (call center, e-mail, SMS, WhatsApp, redes sociais e boleto impresso) para reduzir até 95% dos atrasos recorrentes."
+              text="Consiste em lembretes de vencimento, envio de boletos e cobranças, incluindo renegociação de atrasos. Atuamos em plataforma Omni-Channel (call center, e-mail, SMS, WhatsApp, redes sociais e boleto impresso) para reduzir até 95% dos atrasos recorrentes."
             >
               <p className="mt-5 text-base font-semibold leading-relaxed md:text-sm xl:text-xl">
                 A cobrança preventiva elimina custos de manter um setor interno,

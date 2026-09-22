@@ -8,7 +8,7 @@ export const DashboardImage = (props) => {
       >
         <h1 className="text-[clamp(0.8rem,3vw,2.25rem)]  font-medium text-white text-xl text-shadow-sm text-shadow-black-primary">
           {props.h1}{" "}
-          <italic className="font-family-garamond italic font-semibold text-orange-primary">
+          <italic className="font-family-garamond italic text-shadow-sm font-semibold text-orange-primary">
             {props.italicText}
           </italic>{" "}
           <br /> {props.subtitle ?? ""}

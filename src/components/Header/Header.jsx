@@ -37,12 +37,27 @@ export function Header({ children }) {
         />
 
         <div className="flex items-center gap-5 max-[1056px]:hidden">
+          <a
+            target="blank"
+            href="https://www.linkedin.com/company/clevercobranca/?viewAsMember=true"
+          >
+            <img src={LinkedinLiquidGlass} alt="Linkedin" />
+          </a>
           <a target="blank" href="https://www.instagram.com/clevercobranca">
             <img
               src={InstagramLiquidGlass}
               alt="Instagram"
               className="w-5 h-5"
             />
+          </a>
+          <a target="blank" href="https://www.youtube.com/@clevercobranca">
+            <img src={YoutubeLiquidGlass} alt="YouTube" />
+          </a>
+          <a
+            target="blank"
+            href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+quero+saber+mais!&type=phone_number&app_absent=0"
+          >
+            <img src={WhatsappLiquidGlass} alt="Whatsapp" />
           </a>
           <a
             target="blank"
@@ -55,21 +70,6 @@ export function Header({ children }) {
             href="https://www.tiktok.com/@cleverassessoria1?is_from_webapp=1&sender_device=pc"
           >
             <img src={TiktokLiquidGlass} alt="TikTok" />{" "}
-          </a>
-          <a target="blank" href="https://www.youtube.com/@clevercobranca">
-            <img src={YoutubeLiquidGlass} alt="YouTube" />
-          </a>
-          <a
-            target="blank"
-            href="https://www.linkedin.com/company/clevercobranca/?viewAsMember=true"
-          >
-            <img src={LinkedinLiquidGlass} alt="Linkedin" />
-          </a>
-          <a
-            target="blank"
-            href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+quero+saber+mais!&type=phone_number&app_absent=0"
-          >
-            <img src={WhatsappLiquidGlass} alt="Whatsapp" />
           </a>
         </div>
       </header>
