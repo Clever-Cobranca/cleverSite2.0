@@ -16,6 +16,7 @@ import KathCNPJ from "./Pages/KathCPNJ";
 import TermosDeServico from "./Pages/TermosDeServico";
 import PoliticaDePrivacidade from "./Pages/PoliticaDePrivacidade";
 import Diagnostico from "./Pages/Diagnostico/Diagnostico";
+import PaginaEscolas from "./Pages/PaginaEscolas";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -23,6 +24,7 @@ createRoot(document.getElementById("root")).render(
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/escolas" element={<PaginaEscolas />} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/diagnostico" element={<Diagnostico />} />
         <Route path="/cultura" element={<Cultura />} />
