@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=EB+Garamond:ital,wght@0,300,400..800;1,400..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Slab:wght@100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-lgs: 66rem;
+  --breakpoing-xs: 20rem;
+  --font-family-headers: "Bebas Neue", "Opens Sans", sans-serif;
+  --font-family-roboto-slab: "Roboto Slab", "Opens Sans", sans-serif;
+  --font-family-garamond: "EB Garamond";
+  --color-black-primary: #111315;
+  --color-gray-primary: #f9f9f9;
+  --color-orange-primary: #f1b434;
+
+  --color-glass-text: rgba(255, 255, 255, 0.8);
+  --color-glass-border: rgba(255, 255, 255, 0.25);
+  --color-glass-highlight: rgba(255, 255, 255, 0.45);
+
+  --color-glass-gradient: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.55) 45%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
+
+  --font-family: {
+    /* Cria o utilitário de fontes */
+    roboto-slab: var(--font-family-roboto-slab);
+    headers: var(--font-family-headers);
+    garamond: var(--font-family-garamond);
+  };
+}
+
+@layer utilities {
+  .text-liquid-glass {
+    color: transparent;
+    background-image: var(--glass-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+
+  .border-glass-fade {
+    position: relative;
+    border: 1px solid transparent;
+  }
+
+  .border-glass-fade::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+
+    background: linear-gradient(
+      to top right,
+      transparent 0%,
+      transparent 20%,
+      var(--glass-border, rgba(255, 255, 255, 0.25)) 30%,
+      var(--glass-highlight, rgba(255, 255, 255, 0.45)) 50%,
+      var(--glass-border, rgba(255, 255, 255, 0.25)) 70%,
+      transparent 80%,
+      transparent 100%
+    );
+
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+  .backdrop-liquid-glass {
+    background-color: rgba(255, 255, 255, 0.08);
+
+    background-image: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.04) 40%,
+      rgba(255, 255, 255, 0.01) 65%,
+      rgba(255, 255, 255, 0.07) 100%
+    );
+
+    -webkit-backdrop-filter: blur(10px) saturate(120%) brightness(1.08);
+    backdrop-filter: blur(10px) saturate(120%) brightness(1.08);
+
+    border: 1px solid rgba(255, 255, 255, 0);
+
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.35),
+      inset 1px 0 1px rgba(255, 255, 255, 0.1),
+      inset 0 -1px 1px rgba(255, 255, 255, 0.08),
+      0 6px 18px rgba(0, 0, 0, 0.2);
+
+    transition:
+      background-color 250ms ease,
+      border-color 250ms ease,
+      box-shadow 250ms ease;
+  }
+
+  @media (hover: hover) {
+    .backdrop-liquid-glass:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.1);
+
+      box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.45),
+        inset 1px 0 1px rgba(255, 255, 255, 0.14),
+        inset 0 -1px 1px rgba(255, 255, 255, 0.12),
+        0 8px 22px rgba(0, 0, 0, 0.24);
+    }
+  }
+
+  .backdrop-liquid-glass:focus-visible {
+    outline: 1px solid rgba(255, 255, 255, 0.75);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 639px) {
+    .dashboard-mobile-panel {
+      background-color: rgba(255, 255, 255, 0.94);
+      background-image: none;
+    }
+  }
+}
+#carouselTitle {
+  font-size: clamp(0.3rem, 4vw, 0.875rem);
+  font-weight: 600;
+}
+#carouselAbout {
+  max-height: 100px;
+  overflow-y: auto;
+  font-size: clamp(0.3rem, 4vw, 0.875rem);
+}
+
+body,
+#root {
+  font-family: "Open Sans";
+  min-width: 100vw;
+  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+#root::-webkit-scrollbar {
+  width: 8px; /* Width for vertical */
+}
+
+#root::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light gray track */
+  border-radius: 10px;
+}
+
+#root::-webkit-scrollbar-thumb {
+  background: #111315; /* Dark gray thumb */
+  height: 276px; /* Height for horizontal */
+}
+
+#root::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker on hover */
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
