@@ -24,7 +24,7 @@ const Pagination = ({
   return (
     <nav
       className={clsx(
-        "flex items-center space-x-2 my-8 overflow-x-auto sm:justify-center pb-4 max-sm:w-full",
+        "flex items-center space-x-2 my-8 overflow-x-auto justify-center pb-4 max-sm:w-full",
         { "justify-center": pages.length < 5 }
       )}
     >

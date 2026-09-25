@@ -1,42 +1,24 @@
-export function CardPostSkeleton() {
+export const CardPostSkeleton = () => {
   return (
-    <>
-      <div class="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-80 animate-pulse">
-        <div class="relative grid h-56 mx-4 overflow-hidden text-gray-700 bg-gray-300 bg-clip-border rounded-xl place-items-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            class="w-12 h-12 text-gray-500"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-            ></path>
-          </svg>
+    <div
+      className="@max-xs:w-full w-[340px] max-h-[510px] mb-4 flex flex-col items-center animate-pulse"
+      role="status"
+      aria-label="Carregando publicação"
+    >
+      <div className="h-[230px] max-sm:h-[160px] w-full bg-gray-200" />
+
+      <div className="w-full">
+        <div className="pt-2 space-y-2">
+          <div className="h-5 w-full rounded bg-gray-200" />
+          <div className="h-5 w-3/4 rounded bg-gray-200" />
         </div>
-        <div class="p-6">
-          <div class="block w-56 h-3 mb-4 font-sans text-5xl antialiased font-semibold leading-tight tracking-normal bg-gray-300 rounded-full text-inherit">
-            &nbsp;
-          </div>
-          <div class="block w-full h-2 mb-2 font-sans text-base antialiased font-light leading-relaxed bg-gray-300 rounded-full text-inherit">
-            &nbsp;
-          </div>
-          <div class="block w-full h-2 mb-2 font-sans text-base antialiased font-light leading-relaxed bg-gray-300 rounded-full text-inherit">
-            &nbsp;
-          </div>
-          <div class="block w-full h-2 mb-2 font-sans text-base antialiased font-light leading-relaxed bg-gray-300 rounded-full text-inherit">
-            &nbsp;
-          </div>
-          <div class="block w-full h-2 mb-2 font-sans text-base antialiased font-light leading-relaxed bg-gray-300 rounded-full text-inherit">
-            &nbsp;
-          </div>
+
+        <div className="mt-2.5 max-sm:flex flex-col items-center space-y-2 font-family-headers">
+          <div className="h-4 w-24 rounded bg-gray-200" />
+          <div className="h-4 w-full rounded bg-gray-200" />
+          <div className="h-4 w-5/6 rounded bg-gray-200" />
         </div>
       </div>
-
-    </>
+    </div>
   );
 }

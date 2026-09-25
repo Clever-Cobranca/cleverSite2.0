@@ -22,7 +22,7 @@ export function NavHeaderComponent() {
     },
     {
       name: "Blog",
-      path: "/blog/juros-altos-aumentam-inadimplencia",
+      path: "/blog",
     },
     {
       name: "Educação",

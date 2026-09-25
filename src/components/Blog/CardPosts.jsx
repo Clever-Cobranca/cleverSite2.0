@@ -1,13 +1,9 @@
 import { Link } from "react-router";
 
-export default function CardPosts({ post, setShowPosts }) {
+export default function CardPosts({ post }) {
   return (
-    <div className="@max-xs:w-full w-[340px] max-h-[510px] mb-4 flex flex-col items-center">
-      <Link
-        to={{ pathname: `/blog/${post.slug}` }}
-        className="w-full"
-        onClick={() => setShowPosts(false)}
-      >
+    <div className="@max-sm:w-full w-[340px] max-h-[510px] mb-4 flex flex-col items-center">
+      <Link to={{ pathname: `/blog/${post.slug}` }} className="w-full">
         <img
           id="carouselImg"
           src={post.banner}
@@ -16,7 +12,7 @@ export default function CardPosts({ post, setShowPosts }) {
         />
       </Link>
       <div>
-        <Link to={`/blog/${post.slug}`} onClick={() => setShowPosts(false)}>
+        <Link to={`/blog/${post.slug}`}>
           <p className="font-family-headers font-extralight text-[clamp(1rem,4vw,1.4rem)] leading-5 pt-2">
             {post.title}
           </p>
@@ -29,7 +25,7 @@ export default function CardPosts({ post, setShowPosts }) {
               year: "numeric",
             })}
           </span>
-          <p className="text-[clamp(0.3rem,4vw,1rem)] leading-4 tracking-wider text-black">
+          <p className="text-[clamp(0.3rem,4vw,1.1rem)] leading-4 tracking-wider text-black">
             {post.about}
           </p>
         </div>
