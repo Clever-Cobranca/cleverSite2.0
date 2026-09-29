@@ -29,14 +29,14 @@ export default function Home() {
       name: "Danilo",
       role: "Franqueado Prepara Cursos",
       testimonial:
-        "Com a atuação da Clever tivemos ótimos resultados de recebimento, até de clientes que estavam mais de 5 anos inadimplentes.",
+        "Com a atuação da Clever, tivemos ótimos resultados de recebimento, até de clientes que estavam mais de 5 anos inadimplentes.",
     },
     {
       photo: fotoDaiane ?? "",
       name: "Daiane",
       role: "Franqueada Microlins",
       testimonial:
-        "Desde que a Clever assumiu nossa carteira de devedores, nossa inadimplência diminuiu drásticamente e estamos colhendo excelentes resultados.",
+        "Desde que a Clever assumiu nossa carteira de devedores, nossa inadimplência diminuiu drasticamente e estamos colhendo excelentes resultados.",
     },
     {
       photo: fotoLaerti ?? "",
@@ -50,7 +50,7 @@ export default function Home() {
       name: "Maria",
       role: "Franqueada Prepara Cursos",
       testimonial:
-        "Recuperamos mais de R$ 300.000 em contratos, de clientes que não tínhamos mais contato desde 2011.",
+        "Recuperamos mais de R$ 300.000 em contratos, de clientes com os quais não tínhamos mais contato desde 2011.",
     },
   ];
 
@@ -76,7 +76,7 @@ export default function Home() {
                       italicText="inadimplência"
                       subtitle="E VOCÊ NÃO SABE COMO RECUPERAR?"
                     >
-                      <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] 2xl:text-[clamp(1rem,4vw,1.8rem)] 2xl:max-w-[1200px] text-shadow-sm text-shadow-black-primary text-white">
+                      <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.4rem)] 2xl:text-[clamp(1rem,4vw,2.2rem)] 2xl:max-w-[1200px] text-shadow-md text-shadow-black-primary text-white">
                         Há 7 anos a Clever é referência em recuperação de
                         crédito, transformando inadimplência em receita
                         recuperada para empresas em todo Brasil
@@ -84,7 +84,7 @@ export default function Home() {
                       <a
                         target="_blank"
                         href="https://api.whatsapp.com/send/?phone=5511986037555&text=Ol%C3%A1,+quero+agendar+uma+sessão+estratégica!&type=phone_number&app_absent=0"
-                        className="lgs:p-7 2xl:mt-8 md:p-4 px-2 py-1  bg-orange-primary rounded-full w-max text-white text-shadow-2xs lgs:text-4xl max-md:text-xs font-family-headers"
+                        className="lgs:p-7 2xl:mt-8 md:p-4 px-2 py-1  bg-orange-primary rounded-full w-max text-white text-shadow-md lgs:text-4xl max-md:text-xs font-family-headers"
                       >
                         AGENDE UMA SESSÃO ESTRATÉGICA
                       </a>
@@ -92,17 +92,17 @@ export default function Home() {
                     <DashboardImage
                       h1="RESOLVA SUA"
                       imgSrc={HomepageSecond}
-                      italicText="Pendência"
+                      italicText="pendência"
                       subtitle="DE FORMA SIMPLES, RÁPIDA E SEGURA"
                     >
-                      <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] 2xl:text-[clamp(1rem,4vw,1.8rem)] 2xl:max-w-[1200px] text-shadow-sm text-shadow-black-primary text-white">
+                      <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.4rem)] 2xl:text-[clamp(1rem,4vw,2.2rem)] 2xl:max-w-[1200px] text-shadow-md text-shadow-black-primary text-white">
                         Fale com um especialista e encontre a melhor forma de
                         resolver sua pendência com praticidade e segurança.
                       </p>
                       <a
                         target="_blank"
                         href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0"
-                        className="lgs:p-7 2xl:mt-8 md:p-4 px-2 py-1  bg-orange-primary rounded-full w-max text-white text-shadow-2xs lgs:text-4xl max-md:text-xs font-family-headers"
+                        className="lgs:p-7 2xl:mt-8 md:p-4 px-2 py-1  bg-orange-primary rounded-full w-max text-white text-shadow-md lgs:text-4xl max-md:text-xs font-family-headers"
                       >
                         REGULARIZAR AGORA
                       </a>
@@ -234,9 +234,9 @@ export default function Home() {
                 <DashboardImage
                   h1="QUANTO DA SUA RECEITA AINDA ESTÁ"
                   imgSrc={HomepageThird}
-                  italicText="Fora do Caixa?"
+                  italicText="fora do caixa?"
                 >
-                  <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] 2xl:text-[clamp(1rem,4vw,1.8rem)] 2xl:max-w-[1200px] text-shadow-sm text-shadow-black-primary text-white">
+                  <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.4rem)] 2xl:text-[clamp(1rem,4vw,2.2rem)] 2xl:max-w-[1200px] text-shadow-md text-shadow-black-primary text-white">
                     Descubra onde está a perda e qual estratégia pode acelerar
                     sua recuperação.
                   </p>
@@ -247,8 +247,8 @@ export default function Home() {
                     backdrop-liquid-glass
                     md:p-4 px-2 py-1
                     rounded-full sm:w-[400px] w-max
-                  text-white text-shadow-2xs text-center
-                    lgs:text-3xl max-md:text-xs
+                  text-white text-shadow-md text-center
+                    text-[clamp(0.6rem,2vw,1.4rem)] 2xl:text-[clamp(1rem,4vw,2.2rem)]
                     font-family-headers
                     hover:cursor-pointer
                     "
@@ -259,10 +259,10 @@ export default function Home() {
                 <DashboardImage
                   h1="RECEBEU UMA"
                   imgSrc={HomepageFourth}
-                  italicText="Notificação"
+                  italicText="notificação"
                   subtitle="DA CLEVER?"
                 >
-                  <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] 2xl:text-[clamp(1rem,4vw,1.8rem)] 2xl:max-w-[1200px] text-shadow-sm text-shadow-black-primary text-white">
+                  <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.4rem)] 2xl:text-[clamp(1rem,4vw,2.2rem)] 2xl:max-w-[1200px] text-shadow-md text-shadow-black-primary text-white">
                     Este é o momento de consultar sua pendência e buscar uma
                     solução pelos canais oficiais de atendimento
                   </p>
@@ -275,8 +275,8 @@ export default function Home() {
                     backdrop-liquid-glass
                     md:p-4 px-2 py-1
                     rounded-full sm:w-[400px] w-max
-                  text-white text-shadow-2xs text-center
-                    lgs:text-3xl max-md:text-xs
+                  text-white text-shadow-md text-center
+                    text-[clamp(0.6rem,2vw,1.4rem)] 2xl:text-[clamp(1rem,4vw,2.2rem)]
                     font-family-headers
                     hover:cursor-pointer
                     "
