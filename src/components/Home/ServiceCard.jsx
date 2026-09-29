@@ -5,7 +5,7 @@ export function ServiceCard({ title, description, icon, to }) {
     <Link
       to={to}
       className="
-        block h-full min-w-0 rounded-[24px] bg-white
+        block h-full min-w-0 max-w-[860px] rounded-[24px] bg-white
         p-6 text-[#111315] no-underline
         shadow-[0_2px_2px_rgba(0,0,0,0.18)]
         transition duration-200 ease-out
@@ -35,14 +35,14 @@ export function ServiceCard({ title, description, icon, to }) {
           <h3
             className="
               min-w-0 font-family-headers
-              text-2xl leading-tight uppercase lg:text-3xl
+              text-2xl xl:text-4xl leading-tight uppercase lg:text-3xl
             "
           >
             {title}
           </h3>
         </header>
 
-        <p className="mt-5 text-base font-semibold leading-relaxed lg:text-lg">
+        <p className="mt-5 text-base font-semibold leading-relaxed lg:text-lg xl:text-2xl">
           {description}
         </p>
       </article>

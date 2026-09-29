@@ -10,7 +10,7 @@ export default function WhatsAppButton() {
         href="https://api.whatsapp.com/send/?phone=5511951144137&text=Ola+vim+pelo+site+e+gostaria+de+saber+mais+sobre+o+trabalho+da+Clever&type=phone_number&app_absent=0"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 flex items-center gap-3 bg-green-500 text-white rounded-full shadow-lg hover:shadow-2xl cursor-pointer overflow-hidden group"
+        className="z-20 fixed bottom-6 right-6 flex items-center gap-3 bg-green-500 text-white rounded-full shadow-lg hover:shadow-2xl cursor-pointer overflow-hidden group"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{

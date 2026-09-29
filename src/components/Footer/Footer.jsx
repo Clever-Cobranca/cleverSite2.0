@@ -25,7 +25,7 @@ export function Footer() {
       </div>
       <div className="w-1/6 flex flex-col items-center max-sm:items-baseline max-sm:text-left max-sm:w-full">
         <nav className="w-max">
-          <ul className="flex flex-col gap-1 text-lg text-white font-extralight">
+          <ul className="flex flex-col gap-1 text-xl max-sm:text-[14px] text-white font-extralight">
             <li className="hover:text-[#F1B434] hover:ml-3 transition-all duration-300 ease-out">
               <Link to="/sobre">Sobre nós</Link>
             </li>
@@ -61,7 +61,7 @@ export function Footer() {
             <a
               target="_blank"
               href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+Quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0"
-              className="text-orange-primary font-medium text-base max-sm:text-[14px]"
+              className="text-orange-primary font-medium text-xl max-sm:text-[14px]"
             >
               0800 000 4820
             </a>
@@ -73,14 +73,14 @@ export function Footer() {
               className="max-sm:w-[20px] max-sm:h-[20px]"
             />
             <a href="mailto:contato@clevercobranca.com.br">
-              <p className="text-orange-primary font-medium max-sm:text-[14px] text-base">
+              <p className="text-orange-primary font-medium max-sm:text-[14px] text-xl">
                 contato@clevercobranca.com.br
               </p>
             </a>
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <p className="text-base max-sm:text-xs text-white border-t border-white w-6/12 max-sm:text-left pt-3">
+          <p className="text-base max-sm:text-xs xl:text-xl text-white border-t border-white w-6/12 max-sm:text-left pt-3">
             Aprenda conosco:
           </p>
           <nav className="flex gap-4 items-center">
@@ -88,34 +88,50 @@ export function Footer() {
               <img
                 src={InstagramLiquidGlass}
                 alt="Instagram"
-                className="w-5 h-5"
+                className="sm:w-6 sm:h-7"
               />
             </a>
             <a
               target="blank"
               href="https://web.facebook.com/clevercobranca?_rdc=1&_rdr#"
             >
-              <img src={FacebookLiquidGlass} alt="Facebook" />
+              <img
+                src={FacebookLiquidGlass}
+                className="sm:w-5 sm:h-7"
+                alt="Facebook"
+              />
             </a>
             <a
               target="blank"
               href="https://www.tiktok.com/@cleverassessoria1?is_from_webapp=1&sender_device=pc"
             >
-              <img src={TiktokLiquidGlass} alt="TikTok" />{" "}
+              <img
+                src={TiktokLiquidGlass}
+                className="sm:w-6 sm:h-7"
+                alt="TikTok"
+              />{" "}
             </a>
             <a target="blank" href="https://www.youtube.com/@clevercobranca">
-              <img src={YoutubeLiquidGlass} alt="YouTube" />
+              <img
+                src={YoutubeLiquidGlass}
+                className="sm:w-6 sm:h-6"
+                alt="YouTube"
+              />
             </a>
             <a
               target="blank"
               href="https://www.linkedin.com/company/clevercobranca/?viewAsMember=true"
             >
-              <img src={LinkedinLiquidGlass} alt="Linkedin" />
+              <img
+                src={LinkedinLiquidGlass}
+                className="sm:w-6 sm:h-7"
+                alt="Linkedin"
+              />
             </a>
           </nav>
         </div>
       </div>
-      <p className="text-base max-sm:text-xs max-sm:text-left text-white max-md:block hidden mt-6">
+      <p className="text-lg max-sm:text-xs max-sm:text-left text-white max-md:block hidden mt-6">
         Copyright © 2025 - Clever Assessoria e Cobrança - CNPJ
         33.331.482/0001-11
       </p>

@@ -28,7 +28,9 @@ export function Header({ children }) {
           </Link>
           <NavHeaderComponent />
         </div>
-        <img src={Logo} className="lgs:hidden" alt="Icon Clever" />
+        <Link to="/">
+          <img src={Logo} className="lgs:hidden" alt="Icon Clever" />
+        </Link>
         <IoMenuOutline
           aria-label="Abrir Modal"
           size={32}
@@ -41,35 +43,39 @@ export function Header({ children }) {
             target="blank"
             href="https://www.linkedin.com/company/clevercobranca/?viewAsMember=true"
           >
-            <img src={LinkedinLiquidGlass} alt="Linkedin" />
+            <img src={LinkedinLiquidGlass} alt="Linkedin" className="w-6 h-7" />
           </a>
           <a target="blank" href="https://www.instagram.com/clevercobranca">
             <img
               src={InstagramLiquidGlass}
               alt="Instagram"
-              className="w-5 h-5"
+              className="w-6 h-7"
             />
           </a>
           <a target="blank" href="https://www.youtube.com/@clevercobranca">
-            <img src={YoutubeLiquidGlass} alt="YouTube" />
+            <img src={YoutubeLiquidGlass} className="w-6 h-6" alt="YouTube" />
           </a>
           <a
             target="blank"
             href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+quero+saber+mais!&type=phone_number&app_absent=0"
           >
-            <img src={WhatsappLiquidGlass} alt="Whatsapp" />
+            <img src={WhatsappLiquidGlass} className="w-6 h-6" alt="Whatsapp" />
           </a>
           <a
             target="blank"
             href="https://web.facebook.com/clevercobranca?_rdc=1&_rdr#"
           >
-            <img src={FacebookLiquidGlass} alt="Facebook" />
+            <img src={FacebookLiquidGlass} className="w-5 h-7" alt="Facebook" />
           </a>
           <a
             target="blank"
             href="https://www.tiktok.com/@cleverassessoria1?is_from_webapp=1&sender_device=pc"
           >
-            <img src={TiktokLiquidGlass} alt="TikTok" />{" "}
+            <img
+              src={TiktokLiquidGlass}
+              className="w-6 h-7"
+              alt="TikTok"
+            />{" "}
           </a>
         </div>
       </header>

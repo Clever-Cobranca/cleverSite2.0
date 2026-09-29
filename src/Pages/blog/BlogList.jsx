@@ -12,6 +12,7 @@ import {
 } from "../../components/dropdowMenu";
 import { Footer } from "../../components/Footer/Footer";
 import { CardPostSkeleton } from "../../components/Blog/skeletons/CardPostSkeleton";
+import { cn } from "../../lib/utils";
 
 export default function BlogList() {
   const bttnRef = useRef(null);
@@ -178,7 +179,7 @@ export default function BlogList() {
           <form
             aria-label="formulario_de_pesquisa_de_notícias"
             onSubmit={handleSubmit}
-            className="bg-transparent 2xl:w-[320px] self-start sticky top-52 max-lg:hidden mb-1.5 flex flex-col gap-16"
+            className="bg-transparent 2xl:w-[320px] max-2xl:w-[200px] self-start sticky ml-5 top-52 max-lg:hidden mb-1.5 flex flex-col gap-16"
           >
             <SearchComponent
               handleInputChange={handleInputChange}
@@ -186,7 +187,7 @@ export default function BlogList() {
             />
             <div className="border-t-2 w-full border-orange-primary" />
             <div className="h-full font-family-headers">
-              <label className="font-semibold text-xl">CATEGORIAS</label>
+              <label className="font-semibold text-xl lg:text-3xl">CATEGORIAS</label>
               <optgroup
                 id="categories"
                 className="flex  h-max flex-col gap-3 [&>option]:bg-gray-200 [&>option]:p-2 [&>option]:w-full [&>option]:text-[#707372] [&>option]:hover:cursor-pointer [&>option]:hover:opacity-85"
@@ -198,10 +199,12 @@ export default function BlogList() {
                     setOptionSelected(e.target.value);
                     setOptionValue("Cobrança");
                   }}
-                  className={
+                  className={cn(
+                    "xl:text-2xl",
                     optionSelected === "cobranca"
                       ? "border-l-4 border-orange-primary"
                       : ""
+                  )
                   }
                 >
                   Cobrança
@@ -212,20 +215,24 @@ export default function BlogList() {
                     setOptionSelected(e.target.value);
                     setOptionValue("Crédito");
                   }}
-                  className={
+                  className={cn(
+                    "xl:text-2xl",
                     optionSelected === "credito"
                       ? "border-l-4 border-orange-primary"
                       : ""
+                  )
                   }
                 >
                   Crédito
                 </option>
                 <option
                   value="inadimplencia"
-                  className={
+                  className={cn(
+                    "xl:text-2xl",
                     optionSelected === "inadimplencia"
                       ? "border-l-4 border-orange-primary"
                       : ""
+                  )
                   }
                   onClick={(e) => {
                     setOptionSelected(e.target.value);
@@ -236,10 +243,12 @@ export default function BlogList() {
                 </option>
                 <option
                   value="Todas"
-                  className={
+                  className={cn(
+                    "xl:text-2xl",
                     optionSelected === "none"
                       ? "border-l-4 border-orange-primary"
                       : ""
+                  )
                   }
                   onClick={(e) => {
                     setOptionSelected("none");

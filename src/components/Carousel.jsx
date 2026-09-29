@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Children, useEffect, useRef, useState } from "react";
 import { CgChevronLeftO, CgChevronRightO } from "react-icons/cg";
 import { cn } from "../lib/utils";
 
@@ -9,7 +9,9 @@ export default function Carousel({
   isScrollX = true,
   isDraggable = false,
   isInfinity = false,
+  showDots = false,
 }) {
+  const itemCount = Children.count(children);
   const carousel = useRef(null);
   const drag = useRef({
     isPointerDown: false,
@@ -20,6 +22,7 @@ export default function Carousel({
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const getScrollAmount = () => {
     const container = carousel.current;
@@ -73,6 +76,22 @@ export default function Carousel({
 
     container.scrollBy({
       left: direction === "left" ? -amount : amount,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollToItem = (index) => {
+    const container = carousel.current;
+    const items = container?.querySelectorAll("[data-carousel-item]");
+    const item = items?.[index];
+
+    if (!container || !item) return;
+
+    const containerLeft = container.getBoundingClientRect().left;
+    const itemLeft = item.getBoundingClientRect().left;
+
+    container.scrollTo({
+      left: container.scrollLeft + itemLeft - containerLeft,
       behavior: "smooth",
     });
   };
@@ -138,6 +157,23 @@ export default function Carousel({
         hasOverflow &&
           (isInfinity || scrollLeft + clientWidth < scrollWidth - 1),
       );
+
+      const items = Array.from(
+        carouselRef.querySelectorAll("[data-carousel-item]"),
+      );
+      const containerLeft = carouselRef.getBoundingClientRect().left;
+      const closestItemIndex = items.reduce((closestIndex, item, index) => {
+        const currentDistance = Math.abs(
+          item.getBoundingClientRect().left - containerLeft,
+        );
+        const closestDistance = Math.abs(
+          items[closestIndex].getBoundingClientRect().left - containerLeft,
+        );
+
+        return currentDistance < closestDistance ? index : closestIndex;
+      }, 0);
+
+      setActiveIndex(closestItemIndex);
     };
 
     const resizeObserver = new ResizeObserver(updateScrollButtons);
@@ -159,7 +195,10 @@ export default function Carousel({
         aria-label="Voltar no carrossel"
         disabled={!canScrollLeft}
         onClick={() => scrollHorizontally("left")}
-        className="absolute left-2 top-1/2 z-10 -translate-y-1/2 invisible group-hover:visible focus-visible:visible disabled:opacity-50 disabled:cursor-default hover:cursor-pointer max-md:hidden"
+        className={cn(
+          "absolute left-2 top-1/2 z-10 -translate-y-1/2 invisible group-hover:visible focus-visible:visible disabled:opacity-50 disabled:cursor-default hover:cursor-pointer max-md:hidden",
+          showDots && "max-lg:hidden",
+        )}
       >
         <CgChevronLeftO color="#ffff" size={32} aria-hidden="true" />
       </button>
@@ -169,7 +208,10 @@ export default function Carousel({
         aria-label="Avançar no carrossel"
         disabled={!canScrollRight}
         onClick={() => scrollHorizontally("right")}
-        className="absolute right-2 top-1/2 z-10 -translate-y-1/2 invisible group-hover:visible focus-visible:visible disabled:opacity-50 disabled:cursor-default hover:cursor-pointer max-md:hidden"
+        className={cn(
+          "absolute right-2 top-1/2 z-10 -translate-y-1/2 invisible group-hover:visible focus-visible:visible disabled:opacity-50 disabled:cursor-default hover:cursor-pointer max-md:hidden",
+          showDots && "max-lg:hidden",
+        )}
       >
         <CgChevronRightO color="#ffff" size={32} aria-hidden="true" />
       </button>
@@ -194,6 +236,33 @@ export default function Carousel({
       >
         {children}
       </div>
+
+      {showDots && itemCount > 1 && (
+        <div
+          className="absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 items-center max-lg:flex"
+          role="group"
+          aria-label="Navegação do carrossel"
+        >
+          {Array.from({ length: itemCount }, (_, index) => (
+            <button
+              key={index}
+              type="button"
+              aria-label={`Ir para o slide ${index + 1}`}
+              aria-current={activeIndex === index ? "true" : undefined}
+              onClick={() => scrollToItem(index)}
+              className="flex size-7 items-center justify-center hover:cursor-pointer"
+            >
+              <span
+                className={cn(
+                  "size-2.5 rounded-full border border-white transition-colors",
+                  activeIndex === index ? "bg-orange-primary" : "bg-white/50",
+                )}
+                aria-hidden="true"
+              />
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

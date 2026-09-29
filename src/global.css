@@ -74,43 +74,23 @@
     mask-composite: exclude;
   }
   .backdrop-liquid-glass {
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: rgba(255, 255, 255, 0.28);
 
     background-image: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.14) 0%,
-      rgba(255, 255, 255, 0.04) 40%,
-      rgba(255, 255, 255, 0.01) 65%,
-      rgba(255, 255, 255, 0.07) 100%
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.2) 100%
     );
 
-    -webkit-backdrop-filter: blur(10px) saturate(120%) brightness(1.08);
-    backdrop-filter: blur(10px) saturate(120%) brightness(1.08);
+    -webkit-backdrop-filter: blur(24px) saturate(80%);
+    backdrop-filter: blur(24px) saturate(80%);
 
-    border: 1px solid rgba(255, 255, 255, 0);
-
-    box-shadow:
-      inset 0 1px 1px rgba(255, 255, 255, 0.35),
-      inset 1px 0 1px rgba(255, 255, 255, 0.1),
-      inset 0 -1px 1px rgba(255, 255, 255, 0.08),
-      0 6px 18px rgba(0, 0, 0, 0.2);
-
-    transition:
-      background-color 250ms ease,
-      border-color 250ms ease,
-      box-shadow 250ms ease;
   }
 
   @media (hover: hover) {
-    .backdrop-liquid-glass:hover {
-      background-color: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.1);
-
-      box-shadow:
-        inset 0 1px 1px rgba(255, 255, 255, 0.45),
-        inset 1px 0 1px rgba(255, 255, 255, 0.14),
-        inset 0 -1px 1px rgba(255, 255, 255, 0.12),
-        0 8px 22px rgba(0, 0, 0, 0.24);
+    .backdrop-liquid-glass.dashboard-mobile-panel:hover {
+      background-color: rgba(255, 255, 255, 0.24);
     }
   }
 
@@ -119,8 +99,9 @@
     outline-offset: 2px;
   }
 
-  @media (max-width: 639px) {
-    .dashboard-mobile-panel {
+  @media (max-width: 770px) {
+    .backdrop-liquid-glass.dashboard-mobile-panel,
+    .backdrop-liquid-glass.dashboard-mobile-panel:hover {
       background-color: rgba(255, 255, 255, 0.94);
       background-image: none;
     }

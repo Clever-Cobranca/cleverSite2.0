@@ -21,7 +21,7 @@ export default function Sobre() {
             </div>
 
             <div className="bg-black-primary text-[clamp(0.8rem,4vw,1.2rem)] max-sm:mx-1.5 sm:w-[60%] rounded-4xl lg:h-40 mb-12">
-              <p className="text-white font-light text-center py-8 px-4">
+              <p className="text-white xl:text-2xl font-light text-center py-8 px-4">
                 A Clever surgiu em 2019 quando Alan Clever identificou que as
                 assessorias do mercado não entregavam resultados reais na
                 recuperação de crédito. Criou então uma empresa transparente,
