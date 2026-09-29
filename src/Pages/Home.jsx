@@ -145,7 +145,7 @@ export default function Home() {
                       src={Signal_Alt}
                       alt="Ícone de gráfico de barras"
                     />
-                    <p className="font-semibold xl:text-2xl">+120M</p>
+                    <p className="font-semibold xl:text-5xl">+120M</p>
                     <p className="text-base font-semibold xl:text-2xl max-w-[194px] text-center">
                       DE VALORES NEGOCIADOS
                     </p>
@@ -156,7 +156,7 @@ export default function Home() {
                       alt="Ícone de sinal de crescimento"
                       className="md:w-[70px] md:h-[70px] xl:h-[100px] xl:w-[100px] h-[50px] w-[50px] ml-4"
                     />
-                    <p className="font-semibold">+22</p>
+                    <p className="font-semibold xl:text-5xl">+22</p>
                     <p className="text-base font-semibold xl:text-2xl max-w-[150px] text-center">
                       ESTADOS ATENDIDOS
                     </p>
