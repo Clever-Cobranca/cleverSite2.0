@@ -17,6 +17,7 @@ import TermosDeServico from "./Pages/TermosDeServico";
 import PoliticaDePrivacidade from "./Pages/PoliticaDePrivacidade";
 import Diagnostico from "./Pages/Diagnostico/Diagnostico";
 import PaginaEscolas from "./Pages/PaginaEscolas";
+import BlogList from "./Pages/blog/BlogList";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -37,10 +38,7 @@ createRoot(document.getElementById("root")).render(
           path="/politica-de-privacidade"
           element={<PoliticaDePrivacidade />}
         />
-        <Route
-          path="/blog"
-          element={<Navigate to="/blog/juros-altos-aumentam-inadimplencia" replace />}
-        />
+        <Route path="/blog" element={<BlogList />} />
         <Route path="/blog/:postSlug" element={<Blog />} />
         <Route path="/kath" element={<KathCNPJ />} />
         <Route path="/links" element={<Links />} />

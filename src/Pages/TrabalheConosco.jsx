@@ -28,7 +28,7 @@ export default function TrabalheConosco() {
                   <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] font-family-headers">
                     Quem Somos?
                   </h1>
-                  <p className="text-[clamp(0.8rem,4vw,1.1rem)] tracking-wide  pb-2 max-w-[620px] h-full">
+                  <p className="text-[clamp(0.8rem,4vw,1.4rem)] tracking-wide  pb-2 max-w-[620px] h-full">
                     Somos a Clever Assessoria Jurídica e Cobrança, uma empresa
                     especializada em recuperação de crédito que acredita que uma
                     boa cobrança também pode ser um caminho para reorganização e
@@ -48,7 +48,7 @@ export default function TrabalheConosco() {
                   <h1 className="text-[clamp(2.5rem,6vw,6.2rem)] hover:cursor-default text-transparent">
                     ""
                   </h1>
-                  <p className="text-[clamp(0.8rem,4vw,1.1rem)] tracking-tight pb-2 max-w-[620px] h-full">
+                  <p className="text-[clamp(0.8rem,4vw,1.4rem)] tracking-tight pb-2 max-w-[620px] h-full">
                     Nosso trabalho vai além de cobrar. Buscamos entender cada
                     situação, facilitar o diálogo e criar oportunidades para que
                     quem possui uma dívida consiga regularizar sua vida
@@ -80,7 +80,7 @@ export default function TrabalheConosco() {
                     <p className="text-[#F1B434]">Clever!</p>
                   </h2>
                   <div className="w-11/12 max-lgs:w-full border-t-3 rounded-2xl border-[#F1B434]" />
-                  <p className="font-family-headers lg:text-2xl text-xl">
+                  <p className="font-family-headers lg:text-3xl text-xl">
                     Conheça nossos cargos clicando em qualquer um abaixo:
                   </p>
                   {/* Cargos */}
@@ -138,17 +138,17 @@ export default function TrabalheConosco() {
               </div>
             </div>
             <div className="w-[90%] pt-6 h-full">
-              <p className="font-semibold text-left sm:max-lgs:px-10 text-[clamp(0.8rem,4vw,1.1rem)]">
+              <p className="font-semibold text-left sm:max-lgs:px-10 text-[clamp(0.8rem,4vw,1.4rem)]">
                 Estamos entre as melhores empresas para iniciar a carreira e 85%
                 de nossas vagas administrativas e de liderança são preenchidas
                 internamente! Então, se você sonha em fazer parte de um time que
                 valoriza a carreira e seu desenvolvimento, conheça as novas
                 vagas!
               </p>
-              <div className="h-5 max-lgs:text-center justify-center items-center flex mt-10 mb-10">
+              <div className="h-5 max-lgs:text-center justify-center items-center flex mt-14 mb-10">
                 <button
                   onClick={() => estaAbrindo(true)}
-                  className="h-[50px] md:h-[87px] max-sm:p-1 w-[380px] max-sm:w-64 max-md:w-38 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(1rem,4vw,1.5rem)] rounded-4xl bg-black-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer"
+                  className="h-[50px] md:h-[87px] max-sm:p-1 w-[380px] max-sm:w-64 max-md:w-38 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(1rem,4vw,1.5rem)] sm:rounded-4xl rounded-lg bg-black-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer"
                 >
                   QUERO FAZER PARTE
                 </button>
@@ -554,7 +554,7 @@ export default function TrabalheConosco() {
                       </div>
                       <div>
                         <h4 className="text-4xl font-bold text-center">
-                          Candidaturar
+                          Candidatura
                           <br />
                           <span className="text-[#F1B434]">Clever</span> !
                         </h4>

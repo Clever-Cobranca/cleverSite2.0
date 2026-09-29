@@ -29,44 +29,60 @@ export function HeaderModal({ isModalOpen, setIsModalOpen }) {
           transform: isModalOpen ? `translate(0px)` : `translate(100%)`,
         }}
       >
-        <div className="flex flex-col justify-around">
+        <div className="flex flex-col justify-evenly">
           <NavHeaderComponent />
-          <div className="flex items-center gap-5 ">
+          <nav className="flex items-center gap-5 ">
             <a target="blank" href="https://www.instagram.com/clevercobranca">
               <img
                 src={InstagramLiquidGlass}
                 alt="Instagram"
-                className="w-5 h-5"
+                className="sm:w-6 sm:h-7"
               />
             </a>
             <a
               target="blank"
               href="https://web.facebook.com/clevercobranca?_rdc=1&_rdr#"
             >
-              <img src={FacebookLiquidGlass} alt="Facebook" />
+              <img
+                src={FacebookLiquidGlass}
+                className="sm:w-5 sm:h-7"
+                alt="Facebook"
+              />
             </a>
             <a
               target="blank"
               href="https://www.tiktok.com/@cleverassessoria1?is_from_webapp=1&sender_device=pc"
             >
-              <img src={TiktokLiquidGlass} alt="TikTok" />{" "}
+              <img
+                src={TiktokLiquidGlass}
+                className="sm:w-6 sm:h-7"
+                alt="TikTok"
+              />{" "}
             </a>
             <a target="blank" href="https://www.youtube.com/@clevercobranca">
-              <img src={YoutubeLiquidGlass} alt="YouTube" />
+              <img src={YoutubeLiquidGlass} className="sm:w-6 sm:h-6" alt="YouTube" />
             </a>
             <a
               target="blank"
               href="https://www.linkedin.com/company/clevercobranca/?viewAsMember=true"
             >
-              <img src={LinkedinLiquidGlass} alt="Linkedin" />
+              <img
+                src={LinkedinLiquidGlass}
+                className="sm:w-6 sm:h-7"
+                alt="Linkedin"
+              />
             </a>
             <a
               target="blank"
               href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+quero+saber+mais!&type=phone_number&app_absent=0"
             >
-              <img src={WhatsappLiquidGlass} alt="Whatsapp" />
+              <img
+                src={WhatsappLiquidGlass}
+                className="sm:w-6 sm:h-7"
+                alt="Whatsapp"
+              />
             </a>
-          </div>
+          </nav>
         </div>
         <button
           className="w-max h-max
@@ -75,7 +91,7 @@ export function HeaderModal({ isModalOpen, setIsModalOpen }) {
           onClick={setIsModalOpen}
           aria-label="close modal"
         >
-          <IoCloseOutline size={28} color="#f1b434" />
+          <IoCloseOutline size={36} color="#f1b434" />
         </button>
       </div>
     </>

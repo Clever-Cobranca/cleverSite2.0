@@ -68,6 +68,7 @@ export default function Home() {
                     scrollMode="page"
                     isScrollX={false}
                     isInfinity={true}
+                    showDots={true}
                   >
                     <DashboardImage
                       h1="SUA EMPRESA SOFRE COM"
@@ -75,7 +76,7 @@ export default function Home() {
                       italicText="inadimplência"
                       subtitle="E VOCÊ NÃO SABE COMO RECUPERAR?"
                     >
-                      <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] text-shadow-xs text-shadow-black-primary text-white">
+                      <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] 2xl:text-[clamp(1rem,4vw,1.8rem)] 2xl:max-w-[1200px] text-shadow-sm text-shadow-black-primary text-white">
                         Há 7 anos a Clever é referência em recuperação de
                         crédito, transformando inadimplência em receita
                         recuperada para empresas em todo Brasil
@@ -83,7 +84,7 @@ export default function Home() {
                       <a
                         target="_blank"
                         href="https://api.whatsapp.com/send/?phone=5511986037555&text=Ol%C3%A1,+quero+agendar+uma+sessão+estratégica!&type=phone_number&app_absent=0"
-                        className="lgs:p-7 md:p-4 px-2 py-1  bg-orange-primary rounded-full w-max text-white text-shadow-2xs lgs:text-3xl max-md:text-xs font-family-headers"
+                        className="lgs:p-7 2xl:mt-8 md:p-4 px-2 py-1  bg-orange-primary rounded-full w-max text-white text-shadow-2xs lgs:text-4xl max-md:text-xs font-family-headers"
                       >
                         AGENDE UMA SESSÃO ESTRATÉGICA
                       </a>
@@ -94,14 +95,14 @@ export default function Home() {
                       italicText="Pendência"
                       subtitle="DE FORMA SIMPLES, RÁPIDA E SEGURA"
                     >
-                      <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] text-shadow-xs text-shadow-black-primary text-white">
+                      <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] 2xl:text-[clamp(1rem,4vw,1.8rem)] 2xl:max-w-[1200px] text-shadow-sm text-shadow-black-primary text-white">
                         Fale com um especialista e encontre a melhor forma de
                         resolver sua pendência com praticidade e segurança.
                       </p>
                       <a
                         target="_blank"
                         href="https://api.whatsapp.com/send/?phone=5508000004820&text=Ol%C3%A1,+quero+negociar+minhas+dívidas!&type=phone_number&app_absent=0"
-                        className="lgs:p-7 md:p-4 px-2 py-1  bg-orange-primary rounded-full w-max text-white text-shadow-2xs lgs:text-3xl max-md:text-xs font-family-headers"
+                        className="lgs:p-7 2xl:mt-8 md:p-4 px-2 py-1  bg-orange-primary rounded-full w-max text-white text-shadow-2xs lgs:text-4xl max-md:text-xs font-family-headers"
                       >
                         REGULARIZAR AGORA
                       </a>
@@ -129,23 +130,23 @@ export default function Home() {
                 <div className="flex w-full items-center max-md:flex-col justify-evenly rounded-4xl min-h-[480px] bg-black text-white max-md:gap-3 max-md:py-2 max-lgs:flex-wrap">
                   <div className="flex flex-col items-center rounded-2xl gap-4 justify-around  sm:h-52 max-w-[320px] md:text-3xl p-4">
                     <img
-                      className="md:w-[70px] md:h-[70px] h-[50px] w-[50px]"
+                      className="md:w-[70px] md:h-[70px] xl:h-[90px] xl:w-[90px] h-[50px] w-[50px]"
                       src={Vector}
                       alt="Ícone de unidades"
                     />
-                    <p className="font-semibold">+350</p>
-                    <p className="text-base font-semibold max-w-[194px] text-center">
+                    <p className="font-semibold xl:text-5xl">+350</p>
+                    <p className="text-base font-semibold xl:text-2xl max-w-[194px] text-center">
                       EMPRESAS ATENDIDAS EM TODO O BRASIL
                     </p>
                   </div>
                   <div className="flex flex-col items-center rounded-2xl gap-4 justify-around  sm:h-52 max-w-[320px] md:text-3xl p-4">
                     <img
-                      className="md:w-[70px] md:h-[70px] h-[50px] w-[50px]"
+                      className="md:w-[70px] md:h-[70px] xl:h-[90px] xl:w-[90px] h-[50px] w-[50px]"
                       src={Signal_Alt}
                       alt="Ícone de gráfico de barras"
                     />
-                    <p className="font-semibold">+120M</p>
-                    <p className="text-base font-semibold max-w-[194px] text-center">
+                    <p className="font-semibold xl:text-2xl">+120M</p>
+                    <p className="text-base font-semibold xl:text-2xl max-w-[194px] text-center">
                       DE VALORES NEGOCIADOS
                     </p>
                   </div>
@@ -153,10 +154,10 @@ export default function Home() {
                     <img
                       src={Pin}
                       alt="Ícone de sinal de crescimento"
-                      className="md:w-[70px] md:h-[70px] h-[50px] w-[50px] ml-4"
+                      className="md:w-[70px] md:h-[70px] xl:h-[100px] xl:w-[100px] h-[50px] w-[50px] ml-4"
                     />
                     <p className="font-semibold">+22</p>
-                    <p className="text-base font-semibold max-w-[150px] text-center">
+                    <p className="text-base font-semibold xl:text-2xl max-w-[150px] text-center">
                       ESTADOS ATENDIDOS
                     </p>
                   </div>
@@ -228,7 +229,6 @@ export default function Home() {
               </section>
             </ScrollReveal>
 
-            {/* Sessão de perguntas frequentes */}
             <ScrollReveal>
               <section className="min-h-[600px] w-full sm:px-20 px-1 bg-gray-primary flex flex-wrap gap-20 justify-center py-14 items-baseline">
                 <DashboardImage
@@ -236,7 +236,7 @@ export default function Home() {
                   imgSrc={HomepageThird}
                   italicText="Fora do Caixa?"
                 >
-                  <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] text-shadow-xs text-shadow-black-primary text-white">
+                  <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] 2xl:text-[clamp(1rem,4vw,1.8rem)] 2xl:max-w-[1200px] text-shadow-sm text-shadow-black-primary text-white">
                     Descubra onde está a perda e qual estratégia pode acelerar
                     sua recuperação.
                   </p>
@@ -262,7 +262,7 @@ export default function Home() {
                   italicText="Notificação"
                   subtitle="DA CLEVER?"
                 >
-                  <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] text-shadow-xs text-shadow-black-primary text-white">
+                  <p className="max-w-[660px] text-[clamp(0.6rem,2vw,1.2rem)] 2xl:text-[clamp(1rem,4vw,1.8rem)] 2xl:max-w-[1200px] text-shadow-sm text-shadow-black-primary text-white">
                     Este é o momento de consultar sua pendência e buscar uma
                     solução pelos canais oficiais de atendimento
                   </p>

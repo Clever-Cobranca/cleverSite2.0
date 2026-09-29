@@ -1,46 +1,29 @@
-import "./Blog.css";
-import { Header } from "../../components/Header/Header";
-import { Footer } from "../../components/Footer/Footer";
 import { useEffect, useRef, useState } from "react";
+import PaginationPage from "../../components/Blog/pagination/PaginationPage";
+import { Header } from "../../components/Header/Header";
 import { posts } from "./blogPost";
-import { useParams } from "react-router";
-import { BlogSkeleton } from "../../components/Blog/skeletons/BlogSkeleton";
+import { useDebounce } from "../../hooks/useDebounce";
+import { SearchComponent } from "../../components/SearchComponent";
 import {
   DropdownMenu,
-  DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuTrigger,
 } from "../../components/dropdowMenu";
-import parse, { domToReact } from "html-react-parser";
-import { useDebounce } from "../../hooks/useDebounce";
+import { Footer } from "../../components/Footer/Footer";
 import { CardPostSkeleton } from "../../components/Blog/skeletons/CardPostSkeleton";
-import { SearchComponent } from "../../components/SearchComponent";
-import Carousel from "../../components/Carousel";
-import PaginationPage from "../../components/Blog/pagination/PaginationPage";
-import CardPosts from "../../components/Blog/CardPosts";
+import { cn } from "../../lib/utils";
 
-export default function Blog() {
+export default function BlogList() {
   const bttnRef = useRef(null);
   const skeletonTimerRef = useRef(null);
+
+  const [loading, setLoading] = useState(false);
+  const [cardPosts, setCardPosts] = useState(posts);
   const [userSearch, setUserSearch] = useState("");
-  const [loading, setLoading] = useState(true);
+
   const [optionSelected, setOptionSelected] = useState("Todas");
   const [optionValue, setOptionValue] = useState("");
-  const { postSlug } = useParams();
-  const post = posts.find((p) => p.slug === postSlug);
-  const [postsSearched, setPostsSearched] = useState([]);
-
-  const postsFilteredBySlug = posts
-    .filter((p) => p.slug != postSlug)
-    .splice(0, 6);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 700);
-
-    return () => clearTimeout(timer);
-  }, [postSlug]);
 
   //Altera valor no input de pesquisa
   const handleInputChange = (value) => {
@@ -50,11 +33,8 @@ export default function Blog() {
   //função submit do Form do componente de pesquisa
   function handleSubmit(e) {
     e.preventDefault();
-
     handleDebouncedSubmit();
   }
-
-  console.log(postsSearched);
 
   //Todas as funcionalidades do handleSubmit
   function handleSubmitFunctionalities() {
@@ -66,7 +46,7 @@ export default function Blog() {
     setLoading(true); //Loading do skeleton
     const queryFormated = userSearch.toLocaleLowerCase().trim();
 
-    const postsSearchedFiltered = posts.filter((post) => {
+    const cardPostsFiltered = posts.filter((post) => {
       const matchesQuery = post.title
         .toLocaleLowerCase()
         .includes(queryFormated);
@@ -79,7 +59,7 @@ export default function Blog() {
 
     // 2. Guarda o ID do timer na referência
     skeletonTimerRef.current = setTimeout(() => {
-      setPostsSearched(postsSearchedFiltered);
+      setCardPosts(cardPostsFiltered);
       setLoading(false);
     }, 1000);
   }
@@ -94,39 +74,10 @@ export default function Blog() {
     };
   }, [handleDebouncedSubmit]);
 
-  const options = {
-    replace({ attribs, children }) {
-      if (!attribs) {
-        return;
-      }
-
-      if (attribs.id === "leituras-recomendadas") {
-        return <></>;
-      }
-    },
-  };
-
-  if (loading) {
-    return (
-      <>
-        <Header>
-          <div className="w-full lg:hidden z-20 sticky bg-white min-h-20 py-7 shadow-2xl">
-            <div className="h-full w-full flex gap-2 flex-wrap pt-2 sm:justify-around sm:items-center">
-              <h4 className="text-[#1A1A1A] text-xl max-sm:text-lg  max-sm:ml-3 font-light tracking-widest">
-                NOTÍCIAS
-              </h4>
-            </div>
-          </div>
-        </Header>
-        <BlogSkeleton />
-      </>
-    );
-  }
-
   return (
     <>
       <Header>
-        <div className="w-full lgs:hidden z-20 sticky bg-white min-h-20 py-7 shadow-2xl">
+        <div className="w-full lg:hidden z-20 sticky bg-white min-h-20 py-7 shadow-2xl">
           <div
             id="postsContainer"
             className="h-full w-full flex gap-2 flex-wrap pt-2 sm:justify-around sm:items-center"
@@ -140,8 +91,6 @@ export default function Blog() {
               className="flex items-center gap-3.5 mx-2 max-sm:flex-wrap-reverse"
             >
               <SearchComponent
-                slug={post.slug}
-                userSearch={userSearch}
                 handleInputChange={handleInputChange}
                 bttnRef={bttnRef}
               >
@@ -211,43 +160,109 @@ export default function Blog() {
           </div>
         </div>
       </Header>
-      <div key={postSlug}>
-        <section className="flex sm:justify-center max-sm:w-full">
-          {!loading && postsSearched.length <= 0 ? (
-            <div id="displayHtml">
-              {" "}
-              {parse(post.body, options)}{" "}
-              <section className="w-full sm:px-8 py-8 ">
-                <h4 className="text-[clamp(0.8rem,4vw,1.3rem)] font-bold max-w-max mb-2">
-                  Leituras Recomendadas
-                </h4>
-                <div className="max-h-[560px]">
-                  <Carousel scrollMode="item">
-                    {postsFilteredBySlug.map((post) => (
-                      <div
-                        key={post.id}
-                        data-carousel-item
-                        className="shrink-0 snap-start"
-                      >
-                        <CardPosts post={post} />
-                      </div>
-                    ))}
-                  </Carousel>
-                </div>
-              </section>{" "}
+      <main>
+        <section className="flex w-full justify-evenly max-lg:justify-center py-9 px-2">
+          <div className="max-md:w-full flex flex-col items-center">
+            <h1 className="px-2 text-[clamp(2.2rem,6vw,6rem)] font-family-headers">
+              Clever NEWS
+            </h1>
+            {loading ? (
+              <div className="grid grid-cols-3 max-xl:grid-cols-2 max-sm:grid-cols-1 gap-5">
+                {Array.from({ length: 8 }).map((_, index) => (
+                  <CardPostSkeleton key={index} />
+                ))}
+              </div>
+            ) : (
+              <PaginationPage posts={cardPosts} />
+            )}
+          </div>
+          <form
+            aria-label="formulario_de_pesquisa_de_notícias"
+            onSubmit={handleSubmit}
+            className="bg-transparent 2xl:w-[320px] max-2xl:w-[200px] self-start sticky ml-5 top-52 max-lg:hidden mb-1.5 flex flex-col gap-16"
+          >
+            <SearchComponent
+              handleInputChange={handleInputChange}
+              bttnRef={bttnRef}
+            />
+            <div className="border-t-2 w-full border-orange-primary" />
+            <div className="h-full font-family-headers">
+              <label className="font-semibold text-xl lg:text-3xl">CATEGORIAS</label>
+              <optgroup
+                id="categories"
+                className="flex  h-max flex-col gap-3 [&>option]:bg-gray-200 [&>option]:p-2 [&>option]:w-full [&>option]:text-[#707372] [&>option]:hover:cursor-pointer [&>option]:hover:opacity-85"
+                onClick={() => bttnRef.current.click()}
+              >
+                <option
+                  value="cobranca"
+                  onClick={(e) => {
+                    setOptionSelected(e.target.value);
+                    setOptionValue("Cobrança");
+                  }}
+                  className={cn(
+                    "xl:text-2xl",
+                    optionSelected === "cobranca"
+                      ? "border-l-4 border-orange-primary"
+                      : ""
+                  )
+                  }
+                >
+                  Cobrança
+                </option>
+                <option
+                  value="credito"
+                  onClick={(e) => {
+                    setOptionSelected(e.target.value);
+                    setOptionValue("Crédito");
+                  }}
+                  className={cn(
+                    "xl:text-2xl",
+                    optionSelected === "credito"
+                      ? "border-l-4 border-orange-primary"
+                      : ""
+                  )
+                  }
+                >
+                  Crédito
+                </option>
+                <option
+                  value="inadimplencia"
+                  className={cn(
+                    "xl:text-2xl",
+                    optionSelected === "inadimplencia"
+                      ? "border-l-4 border-orange-primary"
+                      : ""
+                  )
+                  }
+                  onClick={(e) => {
+                    setOptionSelected(e.target.value);
+                    setOptionValue("Inadimplência");
+                  }}
+                >
+                  Inadimplência
+                </option>
+                <option
+                  value="Todas"
+                  className={cn(
+                    "xl:text-2xl",
+                    optionSelected === "none"
+                      ? "border-l-4 border-orange-primary"
+                      : ""
+                  )
+                  }
+                  onClick={(e) => {
+                    setOptionSelected("none");
+                    setOptionValue(e.target.value);
+                  }}
+                >
+                  Sem Categoria
+                </option>
+              </optgroup>
             </div>
-          ) : (
-            <div className="min-h-full py-8 max-md:w-full flex flex-col items-center">
-              <h1 className="font-family-headers mb-4 text-3xl">
-                Resultado da pesquisa:{" "}
-                {!userSearch ? optionValue : userSearch}
-              </h1>
-              <PaginationPage posts={postsSearched} />{" "}
-            </div>
-          )}
+          </form>
         </section>
-      </div>
-      <Footer isBgGray />
+      </main>
+      <Footer />
     </>
   );
 }

@@ -15,36 +15,36 @@ export default function Cultura() {
   const valores = [
     {
       title: "Foco em Resultado",
-      icone: <GoStar size={42} color="#F1B434" />,
+      icone: <GoStar className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />,
     },
     {
       title: "Respeito",
-      icone: <LuHandHeart  size={42} color="#F1B434" />,
+      icone: <LuHandHeart  className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />,
     },
     {
       title: "Trabalho em Equipe",
-      icone: <AiOutlineTeam size={42} color="#F1B434" />,
+      icone: <AiOutlineTeam className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />,
     },
     {
       title: "Ética e Transparência",
-      icone: <LuFileCheck size={42} color="#F1B434" />,
+      icone: <LuFileCheck className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />,
     },
     {
       title: "Desenvolvimento",
-      icone: <GoGraph size={42} color="#F1B434" />,
+      icone: <GoGraph className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />,
     },
     {
       title: "Legalidade",
-      icone: <PiBank size={42} color="#F1B434" />,
+      icone: <PiBank className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />,
     },
 
     {
       title: "Compromisso",
-      icone: <LuHandshake size={42} color="#F1B434" />,
+      icone: <LuHandshake className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />,
     },
     {
       title: "Responsabilidade Financeira",
-      icone: <BsCurrencyDollar size={42} color="#F1B434" />,
+      icone: <BsCurrencyDollar className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />,
     },
   ];
 
@@ -84,14 +84,14 @@ export default function Cultura() {
             className="flex justify-evenly lg:justify-around items-center max-lg:flex-col-reverse h-[530px]"
             variant="fadeRight"
           >
-            <p className="lg:w-7/12 lg:h-[70%] xl:p-12 max-lg:mx-4 p-6 text-glass-highlight border border-glass-fade rounded-3xl  text-[clamp(1rem,4vw,1.6rem)] font-bold">
+            <p className="lg:w-7/12 lg:h-[75%] xl:p-12 max-lg:mx-4 p-6 text-glass-highlight border border-glass-fade rounded-3xl  text-[clamp(1rem,4vw,2rem)] font-bold">
               Consolidar-se até 2030 como referência no mercado de recuperação
               de crédito, contando com 400 colaboradores, sendo referência em
               treinamento e educação na área de recuperação de crédito no
               Brasil, atuando em diversos nichos: varejo, bancos, além do
               educacional.
             </p>
-            <h4 className="text-[clamp(5rem,10vw,8rem)] font-family-headers text-glass-highlight">
+            <h4 className="text-[clamp(2.2rem,10vw,9.2rem)] font-family-headers text-glass-highlight">
               Visão
             </h4>
           </ScrollReveal>
@@ -120,7 +120,7 @@ export default function Cultura() {
                     <div className="flex flex-col pt-2">
                       <div className="flex lg:gap-12 gap-2 items-center ">
                         <div className="flex shrink mb-1">{item.icone}</div>
-                        <h3 className="text-[clamp(1rem,4vw,1.6rem)] font-family-headers tracking-wide">
+                        <h3 className="text-[clamp(1rem,4vw,1.9rem)] font-family-headers tracking-wide">
                           {item.title}
                         </h3>
                       </div>

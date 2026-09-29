@@ -448,7 +448,7 @@ export default function Educacao() {
                     </div>
                     <a
                       className={`${styles.btn} ${styles.gold} ${styles.courseButton}`}
-                      href="https://pay.hotmart.com/Y107046224V?checkoutMode=10&offDiscount=METODOCLEVER"
+                      href="https://cobrancaeducacionalnapratica.hotmart.app/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -480,7 +480,7 @@ export default function Educacao() {
                     <div className={styles.prodActions}>
                       <a
                         className={`${styles.btn} ${styles.dark}`}
-                        href="https://pay.hotmart.com/Y107046224V?checkoutMode=10&offDiscount=METODOCLEVER&bid=1788272087273"
+                        href="https://cobrancaeducacionalnapratica.hotmart.app/"
                         target="_blank"
                         rel="noopener noreferrer"
                       >

@@ -2,9 +2,9 @@ import { useState } from "react";
 import Pagination from "./Pagination";
 import CardPosts from "../CardPosts";
 
-const PaginationPage = ({ posts, setShowPosts }) => {
+const PaginationPage = ({ posts }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 9;
   const totalItems = posts.length;
 
   // Lógica para filtrar os dados que serão exibidos
@@ -17,9 +17,9 @@ const PaginationPage = ({ posts, setShowPosts }) => {
 
   return (
     <>
-      <div className="w-full flex flex-wrap gap-3 justify-center">
+      <div className="grid grid-cols-3 max-xl:grid-cols-2 max-sm:grid-cols-1 gap-5">
         {currentItems.map((post) => (
-          <CardPosts key={post.id} post={post} setShowPosts={setShowPosts} />
+          <CardPosts key={post.id} post={post} />
         ))}
       </div>
       <Pagination

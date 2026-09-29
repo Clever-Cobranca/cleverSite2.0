@@ -92,7 +92,7 @@ export function DropdownMenuTrigger({
       type="button"
       className={cn(
         "flex items-center gap-2  transition-colors cursor-pointer",
-        "sm:text-[18px] text-sm font-medium text-white/90",
+        "text-xl font-medium text-white/90",
         (isOpen || isActive) && "px-3.5 py-0.5 text-orange-primary",
         "hover:text-orange-primary active:scale-95",
         className,
@@ -154,7 +154,7 @@ export function DropdownMenuItem({
     >
       <Comp
         className={cn(
-          "w-full flex items-center rounded-lg px-3 text-md text-black-primary/90 transition-colors text-left",
+          "w-full flex items-center rounded-lg px-3 text-xl text-black-primary/90 transition-colors text-left",
           "hover:text-orange-primary hover:bg-white/5",
           className,
         )}

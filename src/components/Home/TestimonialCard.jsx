@@ -34,8 +34,8 @@ export function TestimonialCard({ photo, name, role, testimonial }) {
           lg:text-3xl
         "
       >
-        <span className="block">{name}</span>
-        <span className="block">{role}</span>
+        <span className="block xl:text-4xl">{name}</span>
+        <span className="block xl:text-4xl">{role}</span>
       </figcaption>
 
       <blockquote
@@ -43,7 +43,7 @@ export function TestimonialCard({ photo, name, role, testimonial }) {
           mx-0 mb-0 mt-6 font-family-garamond
           text-xl font-semibold italic
           leading-[1.3] text-orange-primary
-          lg:text-2xl
+          lg:text-2xl xl:text-3xl
         "
       >
         <span className="text-[#111315]">“</span>

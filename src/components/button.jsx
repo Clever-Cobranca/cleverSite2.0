@@ -35,7 +35,7 @@ export function CircleExpandButton({
     return (
         <motion.button
             type="button"
-            className={`relative font-family-headers overflow-hidden ${bgColor} ${textColor} text-[clamp(0.8rem,4vw,1.3rem)] hover:cursor-pointer text-center p-8 rounded-2xl border-2 border-[#F1B434] ${className}`}
+            className={`relative font-family-headers overflow-hidden ${bgColor} ${textColor} text-[clamp(0.8rem,4vw,1.6rem)] hover:cursor-pointer text-center p-8 rounded-2xl border-2 border-[#F1B434] ${className}`}
             onClick={onClick}
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}

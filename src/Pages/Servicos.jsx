@@ -43,25 +43,37 @@ export default function Servicos() {
       <Header />
       <main>
         <ScrollReveal variant="fadeRight" duration={0.4}>
-          <section className="my-5 px-2">
+          <section className="my-5 px-2 lg:mx-auto lg:max-w-[1600px] lg:px-8 2xl:px-12">
             <DashboardImageWithText
+              className="lg:h-[clamp(38rem,52vw,50rem)]"
+              panelClassName="lg:max-h-none lg:max-w-[58%] xl:max-w-[52%] 2xl:max-w-[48%]"
               imgSrc={recuperacaoServico}
               position="right"
               title="Recuperação de Crédito"
               text="É a recuperação daqueles Títulos, Contratos, Mensalidades, Notas Promissórias, Cheques, Dívidas que estão em atraso e você já tentou negociar ou já fez restrições nos Órgãos de Proteção ao Crédito, tentou fazer de tudo e mesmo assim o devedor insiste em não querer pagar."
-            />
+            >
+              <p className="mt-5 text-xl font-semibold leading-relaxed xl:text-2xl">
+                Além disso, a persistência na inadimplência gera impactos
+                diretos na saúde financeira da sua empresa ou patrimônio
+                pessoal, comprometendo o fluxo de caixa e o planejamento de
+                novos investimentos.
+              </p>
+            </DashboardImageWithText>
           </section>
         </ScrollReveal>
 
         <ScrollReveal variant="fadeLeft" duration={0.4}>
-          <section className="my-5">
+          <section className="my-5 lg:mx-auto lg:max-w-[1600px] lg:px-8 2xl:px-12">
             <DashboardImageWithText
+              className="lg:grid lg:h-auto lg:min-h-[38rem]"
+              imageClassName="lg:col-start-1 lg:row-start-1 lg:h-full lg:min-h-0"
+              panelClassName="lg:relative lg:inset-auto lg:max-h-none lg:left-auto lg:col-start-1 lg:row-start-1 lg:m-8 lg:w-[58%] lg:max-w-none lg:justify-self-start 2xl:w-[48%]"
               imgSrc={cobrancaPresencialServico}
               position="left"
               title="Cobrança Presencial"
               text="Realizamos a cobrança no local que o devedor adquiriu o produto ou serviço. Enviamos um de nossos representantes em qualquer lugar do Brasil. Este irá realizar atendimentos presenciais com hora marcada, negociações e também formalização dos acordos. Apenas solicitamos uma sala reservada, impressora e acesso à internet."
             >
-              <p className="mt-5 text-base font-semibold leading-relaxed md:text-sm xl:text-xl">
+              <p className="mt-5 text-xl font-semibold leading-relaxed xl:text-2xl">
                 Nosso trabalho consiste em localizar, notificar e levar o
                 devedor até o dia do atendimento. Um de nossos representantes
                 realiza o acordo e você recebe. Como resultado, nossa estratégia
@@ -71,14 +83,19 @@ export default function Servicos() {
           </section>
         </ScrollReveal>
         <ScrollReveal variant="fadeRight" duration={0.5}>
-          <section id="Preventiva" className="my-5">
+          <section
+            id="Preventiva"
+            className="my-5 lg:mx-auto lg:max-w-[1600px] lg:px-8 2xl:px-12"
+          >
             <DashboardImageWithText
+              className="lg:h-[clamp(38rem,52vw,50rem)]"
+              panelClassName="lg:max-h-none lg:max-w-[58%] xl:max-w-[52%] 2xl:max-w-[48%]"
               imgSrc={cobrancaPreventivaServico}
               position="right"
               title="Cobrança Preventiva"
               text="Consiste em lembretes de vencimento, envio de boletos e cobranças, incluindo renegociação de atrasos. Atuamos em plataforma Omni-Channel (call center, e-mail, SMS, WhatsApp, redes sociais e boleto impresso) para reduzir até 95% dos atrasos recorrentes."
             >
-              <p className="mt-5 text-base font-semibold leading-relaxed md:text-sm xl:text-xl">
+              <p className="mt-5 text-xl font-semibold leading-relaxed xl:text-2xl">
                 A cobrança preventiva elimina custos de manter um setor interno,
                 garante que o credor receba o que é devido e reduz vínculos
                 empregatícios. A Clever estrutura toda a operação de lembretes e
@@ -90,9 +107,11 @@ export default function Servicos() {
         <ScrollReveal>
           <section
             id="SAC"
-            className="flex flex-col lg:flex-row min-h-[600px] -z-10"
+            className="flex min-h-[600px] h-full flex-col -z-10 lg:mx-auto lg:max-w-[1600px] lg:px-8 2xl:px-12"
           >
             <DashboardImageWithText
+              className="lg:h-[clamp(44rem,58vw,56rem)]"
+              panelClassName="lg:max-h-none lg:max-w-[58%] xl:max-w-[52%] 2xl:max-w-[48%]"
               position="left"
               imgSrc={sacServico}
               title="SAC"
@@ -119,7 +138,7 @@ export default function Servicos() {
                         }}
                       />
                       <Motion.p
-                        className="text-sm sm:text-[clamp(0.8rem,4vw,1.3rem)]   relative z-10 px-3"
+                        className="text-base sm:text-[clamp(0.8rem,4vw,1.4rem)]   relative z-10 px-3"
                         variants={{
                           hover: {
                             transition: { duration: 0.3 },
@@ -150,7 +169,7 @@ export default function Servicos() {
                         }}
                       />
                       <Motion.p
-                        className="text-sm sm:text-[clamp(0.8rem,4vw,1.3rem)]   relative z-10 px-3"
+                        className="text-base sm:text-[clamp(0.8rem,4vw,1.4rem)]   relative z-10 px-3"
                         variants={{
                           hover: {
                             transition: { duration: 0.3 },
@@ -181,7 +200,7 @@ export default function Servicos() {
                         }}
                       />
                       <Motion.p
-                        className="text-sm sm:text-[clamp(0.8rem,4vw,1.3rem)]  relative z-10 px-3"
+                        className="text-base sm:text-[clamp(0.8rem,4vw,1.4rem)]  relative z-10 px-3"
                         variants={{
                           hover: {
                             transition: { duration: 0.3 },
@@ -212,7 +231,7 @@ export default function Servicos() {
                         }}
                       />
                       <Motion.p
-                        className="text-sm sm:text-[clamp(0.8rem,4vw,1.3rem)]   relative z-10 px-3"
+                        className="text-base sm:text-[clamp(0.8rem,4vw,1.4rem)]   relative z-10 px-3"
                         variants={{
                           hover: {
                             transition: { duration: 0.3 },
@@ -238,7 +257,7 @@ export default function Servicos() {
               </h2>
 
               {/* Parágrafo introdutório */}
-              <p className="text-[clamp(0.8rem,4vw,1.3rem)] text-center text-gray-700 mb-12 max-w-4xl mx-auto">
+              <p className="text-[clamp(0.8rem,4vw,1.8rem)] text-center text-gray-700 mb-12 max-w-4xl mx-auto">
                 Contamos com equipe jurídica altamente qualificada que assegura
                 conformidade legal em todas as etapas do processo.
               </p>
@@ -248,10 +267,10 @@ export default function Servicos() {
                 {/* Card 1 - Conformidade Legal */}
                 <div className="rounded-xl p-6 border border-[#F1B434]/30 shadow-sm transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-lg hover:border-[#F1B434] hover:bg-white cursor-pointer">
                   <FaBalanceScale className="text-[#F1B434] text-4xl mb-4 transition-transform duration-300 hover:scale-110" />
-                  <h3 className="text-[#F1B434]  mb-3 font-family-headers text-[clamp(1rem,4vw,1.4rem)]">
+                  <h3 className="text-[#F1B434]  mb-3 font-family-headers text-[clamp(1.4rem,4vw,2.2rem)]">
                     Conformidade Legal
                   </h3>
-                  <p className="text-gray-700  text-sm leading-6">
+                  <p className="text-gray-700  lg:text-xl text-lg leading-6">
                     Todas as ações são realizadas em estrita conformidade com a
                     legislação vigente, garantindo segurança jurídica para sua
                     empresa.
@@ -261,10 +280,10 @@ export default function Servicos() {
                 {/* Card 2 - Análise de Contratos */}
                 <div className="rounded-xl p-6 border border-[#F1B434]/30 shadow-sm transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-lg hover:border-[#F1B434] hover:bg-white cursor-pointer">
                   <FaFileContract className="text-[#F1B434] text-4xl mb-4 transition-transform duration-300 hover:scale-110" />
-                  <h3 className="text-[#F1B434]  mb-3 font-family-headers text-[clamp(1rem,4vw,1.4rem)]">
+                  <h3 className="text-[#F1B434]  mb-3 font-family-headers text-[clamp(1.4rem,4vw,2.2rem)]">
                     Análise de Contratos
                   </h3>
-                  <p className="text-gray-700  text-sm leading-6">
+                  <p className="text-gray-700  lg:text-xl text-lg leading-6">
                     Revisão detalhada de contratos e documentos, identificando
                     as melhores estratégias para recuperação de crédito.
                   </p>
@@ -273,10 +292,10 @@ export default function Servicos() {
                 {/* Card 3 - Proteção Jurídica */}
                 <div className="rounded-xl p-6 border border-[#F1B434]/30 shadow-sm transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-lg hover:border-[#F1B434] hover:bg-white cursor-pointer">
                   <FaShieldAlt className="text-[#F1B434] text-4xl mb-4 transition-transform duration-300 hover:scale-110" />
-                  <h3 className="text-[#F1B434]  mb-3 font-family-headers text-[clamp(1rem,4vw,1.4rem)]">
+                  <h3 className="text-[#F1B434]  mb-3 font-family-headers text-[clamp(1.4rem,4vw,2.2rem)]">
                     Proteção Jurídica
                   </h3>
-                  <p className="text-gray-700  text-sm leading-6">
+                  <p className="text-gray-700  lg:text-xl text-lg leading-6">
                     Assessoria completa em processos judiciais e extrajudiciais,
                     protegendo os interesses da sua empresa.
                   </p>
@@ -285,10 +304,10 @@ export default function Servicos() {
                 {/* Card 4 - Estratégias Personalizadas */}
                 <div className="rounded-xl p-6 border border-[#F1B434]/30 shadow-sm transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-lg hover:border-[#F1B434] hover:bg-white cursor-pointer">
                   <FaChartLine className="text-[#F1B434] text-4xl mb-4 transition-transform duration-300 hover:scale-110" />
-                  <h3 className="text-[#F1B434]  mb-3 font-family-headers text-[clamp(1rem,4vw,1.4rem)]">
+                  <h3 className="text-[#F1B434]  mb-3 font-family-headers text-[clamp(1.4rem,4vw,2.2rem)]">
                     Estratégias Personalizadas
                   </h3>
-                  <p className="text-gray-700  text-sm leading-6">
+                  <p className="text-gray-700  lg:text-xl text-lg leading-6">
                     Desenvolvimento de estratégias jurídicas personalizadas para
                     maximizar a recuperação de crédito.
                   </p>
@@ -297,10 +316,10 @@ export default function Servicos() {
                 {/* Card 5 - Negociação Eficiente */}
                 <div className="rounded-xl p-6 border border-[#F1B434]/30 shadow-sm transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-lg hover:border-[#F1B434] hover:bg-white cursor-pointer">
                   <FaHandHolding className="text-[#F1B434] text-4xl mb-4 transition-transform duration-300 hover:scale-110" />
-                  <h3 className="text-[#F1B434]  mb-3 font-family-headers text-[clamp(1rem,4vw,1.4rem)]">
+                  <h3 className="text-[#F1B434]  mb-3 font-family-headers text-[clamp(1.4rem,4vw,2.2rem)]">
                     Negociação Eficiente
                   </h3>
-                  <p className="text-gray-700  text-sm leading-6">
+                  <p className="text-gray-700  lg:text-xl text-lg leading-6">
                     Mediação e negociação de acordos que beneficiam ambas as
                     partes, sempre dentro da legalidade.
                   </p>
@@ -309,10 +328,10 @@ export default function Servicos() {
                 {/* Card 6 - Agilidade Processual */}
                 <div className="rounded-xl p-6 border border-[#F1B434]/30 shadow-sm transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-lg hover:border-[#F1B434] hover:bg-white cursor-pointer">
                   <FaClock className="text-[#F1B434] text-4xl mb-4 transition-transform duration-300 hover:scale-110" />
-                  <h3 className="text-[#F1B434]  mb-3 font-family-headers text-[clamp(1rem,4vw,1.4rem)]">
+                  <h3 className="text-[#F1B434]  mb-3 font-family-headers text-[clamp(1.4rem,4vw,2.2rem)]">
                     Agilidade Processual
                   </h3>
-                  <p className="text-gray-700  text-sm leading-6">
+                  <p className="text-gray-700  lg:text-xl text-lg leading-6">
                     Atuação rápida e eficiente em todos os processos, garantindo
                     celeridade na recuperação de crédito.
                   </p>

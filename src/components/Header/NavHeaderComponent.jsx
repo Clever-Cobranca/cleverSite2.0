@@ -22,7 +22,7 @@ export function NavHeaderComponent() {
     },
     {
       name: "Blog",
-      path: "/blog/juros-altos-aumentam-inadimplencia",
+      path: "/blog",
     },
     {
       name: "Educação",
@@ -42,13 +42,15 @@ export function NavHeaderComponent() {
     },
   ];
 
+
+
   return (
     <nav className={"flex justify-between max-lgs:p-4 max-lgs:flex-col"}>
       <div className="flex items-center">
         <ul className={"flex sm:gap-10 gap-5 lgs:items-center max-lgs:flex-col "}>
           {items.map((item) => {
             return (
-              <li key={item.name} className="text-[18px] text-white">
+              <li key={item.name} className="text-xl text-white">
                 {item.name == "Clever" ? (
                   <DropdownMenu
                     className="z-10"
