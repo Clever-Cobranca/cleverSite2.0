@@ -131,8 +131,8 @@ export function Footer() {
           </nav>
         </div>
       </div>
-      <p className="text-lg max-sm:text-xs max-sm:text-left text-white max-md:block hidden mt-6">
-        Copyright © 2025 - Clever Assessoria e Cobrança - CNPJ
+      <p className="text-lg max-sm:text-xs max-sm:text-left px-2 text-white max-md:block hidden mt-6">
+        Copyright © 2026 - Clever Assessoria e Cobrança - CNPJ
         33.331.482/0001-11
       </p>
     </footer>

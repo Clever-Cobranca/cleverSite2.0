@@ -239,7 +239,7 @@ export default function Educacao() {
                   className={`${styles.btn} ${styles.tealb}`}
                   to="/diagnostico"
                 >
-                  Fazer o diagnóstico gratuito
+                  Faça o diagnóstico gratuito
                 </Link>
               </div>
             </div>
@@ -776,7 +776,7 @@ export default function Educacao() {
                 className={`${styles.btn} ${styles.gold}`}
                 to="/diagnostico"
               >
-                Fazer o diagnóstico gratuito
+                Faça o diagnóstico gratuito
               </Link>
             </div>
           </div>
