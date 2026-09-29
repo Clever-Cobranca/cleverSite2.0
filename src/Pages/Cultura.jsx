@@ -15,36 +15,76 @@ export default function Cultura() {
   const valores = [
     {
       title: "Foco em Resultado",
-      icone: <GoStar className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />,
+      icone: (
+        <GoStar className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />
+      ),
     },
     {
       title: "Respeito",
-      icone: <LuHandHeart  className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />,
+      icone: (
+        <LuHandHeart
+          className="xl:w-[72px] xl:h-[60px]"
+          size={42}
+          color="#F1B434"
+        />
+      ),
     },
     {
       title: "Trabalho em Equipe",
-      icone: <AiOutlineTeam className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />,
+      icone: (
+        <AiOutlineTeam
+          className="xl:w-[72px] xl:h-[60px]"
+          size={42}
+          color="#F1B434"
+        />
+      ),
     },
     {
       title: "Ética e Transparência",
-      icone: <LuFileCheck className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />,
+      icone: (
+        <LuFileCheck
+          className="xl:w-[72px] xl:h-[60px]"
+          size={42}
+          color="#F1B434"
+        />
+      ),
     },
     {
       title: "Desenvolvimento",
-      icone: <GoGraph className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />,
+      icone: (
+        <GoGraph
+          className="xl:w-[72px] xl:h-[60px]"
+          size={42}
+          color="#F1B434"
+        />
+      ),
     },
     {
       title: "Legalidade",
-      icone: <PiBank className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />,
+      icone: (
+        <PiBank className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />
+      ),
     },
 
     {
       title: "Compromisso",
-      icone: <LuHandshake className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />,
+      icone: (
+        <LuHandshake
+          className="xl:w-[72px] xl:h-[60px]"
+          size={42}
+          color="#F1B434"
+        />
+      ),
     },
     {
       title: "Responsabilidade Financeira",
-      icone: <BsCurrencyDollar className="xl:w-[72px] xl:h-[60px]" size={42} color="#F1B434" />,
+      icone: (
+        <BsCurrencyDollar
+          className="xl:w-[72px] xl:h-[60px]"
+          size={42}
+          color="#F1B434"
+        />
+      ),
     },
   ];
 
@@ -72,6 +112,7 @@ export default function Cultura() {
           <section className="sm:px-10 px-1 my-5">
             <DashboardImageWithText
               imgSrc={DashImage}
+              className="lg:h-[clamp(22rem,52vw,38rem)]"
               position="left"
               title="Nossa Missão"
               text="Defender os direitos dos credores com assertividade, eficiência e compromisso, garantindo a recuperação de crédito por meio de soluções práticas, firmes e alinhadas à legislação vigente, sempre priorizando resultados para os credores."
