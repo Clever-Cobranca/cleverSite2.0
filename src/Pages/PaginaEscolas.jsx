@@ -20,8 +20,8 @@ import { useEffect } from "react";
 const CONFIG = {
   WPP: "5511910699108",      // WhatsApp do comercial, só números, com 55 na frente
   FOTOS: "/",    // pasta das fotos dentro de public
-  ADS_CONVERSAO: "",         // ex.: "AW-123456789/AbCdEfGhIj"
-  META_PIXEL: "",            // ex.: "1234567890"
+  ADS_CONVERSAO: "AW-10847571731/ykcgCJid6IsdEJOew7Qo",         // ex.: "AW-123456789/AbCdEfGhIj"
+  META_PIXEL: "610222846745355",            // ex.: "1234567890"
 };
 
 const CSS = `#clever-lp{--ink:#0E2F3C;--teal:#15697B;--amber:#C9821F;--gold:#F3C77A;--tint:#EEF4F5;--bg:#F4F8F9;--line:#D6E2E5;--tx:#1A2A30;--tx2:#5A6B72;
