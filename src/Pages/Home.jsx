@@ -21,6 +21,7 @@ import { ServiceCard } from "../components/Home/ServiceCard";
 import { TestimonialCard } from "../components/Home/TestimonialCard";
 import { DashboardImage } from "../components/Home/DashboardImage";
 import LiquidGlassFilter from "../components/LiquidGlassFilter";
+import { useRastreamentoWhatsApp } from "../hooks/useGoogleAdsWhatsappConversion";
 
 export default function Home() {
   const testimonials = [
@@ -54,6 +55,8 @@ export default function Home() {
     },
   ];
 
+  useRastreamentoWhatsApp("home");
+
   return (
     <>
       <div className="min-h-screen">
@@ -84,6 +87,8 @@ export default function Home() {
                       <a
                         target="_blank"
                         href="https://api.whatsapp.com/send/?phone=5511986037555&text=Ol%C3%A1,+quero+agendar+uma+sessão+estratégica!&type=phone_number&app_absent=0"
+                        data-track="whatsapp"
+                        data-secao="home-carrosel"
                         className="lgs:p-7 2xl:mt-8 md:p-4 px-2 py-1  bg-orange-primary rounded-full w-max text-white text-shadow-md lgs:text-4xl max-md:text-xs font-family-headers"
                       >
                         AGENDE UMA SESSÃO ESTRATÉGICA
@@ -243,6 +248,8 @@ export default function Home() {
                   <a
                     target="_blank"
                     href="https://api.whatsapp.com/send/?phone=5511986037555&text=Ol%C3%A1,+quero+agendar+uma+sessão+estratégica!&type=phone_number&app_absent=0"
+                    data-rastrear="whatsapp"
+                    data-secao="home-ultima-imagem"
                     className="
                     backdrop-liquid-glass
                     md:p-4 px-2 py-1
@@ -253,7 +260,7 @@ export default function Home() {
                     hover:cursor-pointer
                     "
                   >
-                    AGENDA UMA SESSÃO ESTRATÉGICA
+                    AGENDE UMA SESSÃO ESTRATÉGICA
                   </a>
                 </DashboardImage>
                 <DashboardImage

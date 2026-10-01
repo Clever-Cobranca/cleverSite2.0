@@ -329,6 +329,18 @@ const HTML = `<!-- ===================== HERO ===================== -->
 <div class="fixa"><span>Análise da carteira sem custo</span><a class="btn" data-secao="barra-fixa" data-msg="Quero a análise gratuita da carteira da minha escola." href="#">Falar com a Clever agora</a></div>`;
 
 export default function PaginaEscolas() {
+
+   function registrar(secao) {
+      try {
+        if (window.gtag) {
+          window.gtag("event", "clique_whatsapp", { secao, pagina: "escolas" });
+          if (CONFIG.ADS_CONVERSAO) window.gtag("event", "conversion", { send_to: CONFIG.ADS_CONVERSAO });
+        }
+        if (window.dataLayer) window.dataLayer.push({ event: "clique_whatsapp", secao });
+        if (window.fbq) window.fbq("track", "Lead", { content_name: secao, content_category: "escolas" });
+      } catch (e) { console.log(e)}
+    }
+
   useEffect(() => {
     const raiz = document.getElementById("clever-lp");
     if (!raiz) return;
@@ -363,17 +375,6 @@ export default function PaginaEscolas() {
       img.onerror = () => d.classList.add("sem-foto");
       img.src = CONFIG.FOTOS + d.getAttribute("data-foto");
     });
-
-    function registrar(secao) {
-      try {
-        if (window.gtag) {
-          window.gtag("event", "clique_whatsapp", { secao, pagina: "escolas" });
-          if (CONFIG.ADS_CONVERSAO) window.gtag("event", "conversion", { send_to: CONFIG.ADS_CONVERSAO });
-        }
-        if (window.dataLayer) window.dataLayer.push({ event: "clique_whatsapp", secao });
-        if (window.fbq) window.fbq("track", "Lead", { content_name: secao, content_category: "escolas" });
-      } catch (e) { console.log(e)}
-    }
 
     const limpar = [];
     raiz.querySelectorAll("a.btn").forEach((a, i) => {
