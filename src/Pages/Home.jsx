@@ -248,7 +248,7 @@ export default function Home() {
                   <a
                     target="_blank"
                     href="https://api.whatsapp.com/send/?phone=5511986037555&text=Ol%C3%A1,+quero+agendar+uma+sessão+estratégica!&type=phone_number&app_absent=0"
-                    data-rastrear="whatsapp"
+                    data-track="whatsapp"
                     data-secao="home-ultima-imagem"
                     className="
                     backdrop-liquid-glass

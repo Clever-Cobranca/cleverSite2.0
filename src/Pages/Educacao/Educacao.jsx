@@ -240,7 +240,7 @@ export default function Educacao() {
                 <Link
                   className={`${styles.btn} ${styles.tealb}`}
                   to="/diagnostico"
-                  data-rastrear="whatsapp"
+                  data-track="whatsapp"
                   data-secao="botao-diagnostico"
                 >
                   Faça o diagnóstico gratuito
@@ -418,7 +418,7 @@ export default function Educacao() {
                     <button
                       disabled={status === "loading"}
                       className={`${styles.btn} ${styles.gold} ${styles.fullButton}`}
-                      data-rastrear="whatsapp"
+                      data-track="whatsapp"
                       data-secao="botao-ebook"
                       type="submit"
                     >
@@ -457,7 +457,7 @@ export default function Educacao() {
                       href="https://cobrancaeducacionalnapratica.hotmart.app/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      data-rastrear="whatsapp"
+                      data-track="whatsapp"
                       data-secao="metedo-clever-quero-curso"
                     >
                       Quero o curso
@@ -491,7 +491,7 @@ export default function Educacao() {
                         href="https://cobrancaeducacionalnapratica.hotmart.app/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        data-rastrear="whatsapp"
+                        data-track="whatsapp"
                         data-secao="metodo-clever-ver-conteudo"
                       >
                         Ver o conteúdo completo
@@ -531,7 +531,7 @@ export default function Educacao() {
                     <Link
                       className={`${styles.btn} ${styles.tealb}`}
                       to="/diagnostico"
-                      data-rastrear="whatsapp"
+                      data-track="whatsapp"
                       data-secao="trilha-escola"
                     >
                       Ver o caminho da escola
@@ -554,7 +554,7 @@ export default function Educacao() {
                     <Link
                       className={`${styles.btn} ${styles.dark}`}
                       to="/diagnostico"
-                      data-rastrear="whatsapp"
+                      data-track="whatsapp"
                       data-secao="trilha-cobrador"
                     >
                       Ver o caminho do cobrador
@@ -789,7 +789,7 @@ export default function Educacao() {
               <Link
                 className={`${styles.btn} ${styles.gold}`}
                 to="/diagnostico"
-                data-rastrear="whatsapp"
+                data-track="whatsapp"
                 data-secao="rodape-diagnostico"
               >
                 Faça o diagnóstico gratuito

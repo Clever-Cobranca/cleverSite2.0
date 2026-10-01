@@ -282,7 +282,7 @@ export default function Diagnostico() {
               <span />
               <button
                 className={cx("button", "primary")}
-                data-rastrear="whatsapp"
+                data-track="whatsapp"
                 data-secao="diagnostico-proxima-etapa-cultura"
                 onClick={() => {
                   goTo(1);
@@ -348,7 +348,7 @@ export default function Diagnostico() {
               </button>
               <button
                 className={cx("button", "primary")}
-                data-rastrear="whatsapp"
+                data-track="whatsapp"
                 data-secao="diagnostico-ver-resultado"
                 onClick={handleQuizNext}
               >
@@ -427,7 +427,7 @@ export default function Diagnostico() {
                     disabled={sending}
                     className={cx("button", "primary", "fullButton")}
                     type="submit"
-                    data-rastrear="whatsapp"
+                    data-track="whatsapp"
                     data-secao="diagnostico-ver-resultado-e-book"
                   >
                     {sending
