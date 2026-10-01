@@ -23,6 +23,7 @@ import { Header } from "../../components/Header/Header";
 import { StepHeading } from "../../components/Diagnostico/StepHeading";
 import { NumberField } from "../../components/Diagnostico/NumberField";
 import { Result } from "../../components/Diagnostico/Result";
+import { useRastreamentoWhatsApp } from "../../hooks/useRastreamentoWhatsApp";
 
 const cx = (...names) =>
   names
@@ -38,6 +39,7 @@ export default function Diagnostico() {
   const [error, setError] = useState("");
   const [captured, setCaptured] = useState(false);
   const [sending, setSending] = useState(false);
+  useRastreamentoWhatsApp("diagnostico");
 
   const result = useMemo(
     () => calculateFinancialResult(financialData),
@@ -280,6 +282,8 @@ export default function Diagnostico() {
               <span />
               <button
                 className={cx("button", "primary")}
+                data-track="whatsapp"
+                data-secao="diagnostico-proxima-etapa-cultura"
                 onClick={() => {
                   goTo(1);
                   window.scrollTo(0, 0);
@@ -344,6 +348,8 @@ export default function Diagnostico() {
               </button>
               <button
                 className={cx("button", "primary")}
+                data-track="whatsapp"
+                data-secao="diagnostico-ver-resultado"
                 onClick={handleQuizNext}
               >
                 Ver o resultado
@@ -421,6 +427,8 @@ export default function Diagnostico() {
                     disabled={sending}
                     className={cx("button", "primary", "fullButton")}
                     type="submit"
+                    data-track="whatsapp"
+                    data-secao="diagnostico-ver-resultado-e-book"
                   >
                     {sending
                       ? "Enviando..."
