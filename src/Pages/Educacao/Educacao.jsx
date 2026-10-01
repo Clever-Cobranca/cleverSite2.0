@@ -18,7 +18,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { posts } from "../blog/blogPost";
-import { useRastreamentoWhatsApp } from "../../hooks/useGoogleAdsWhatsappConversion";
+import { useRastreamentoWhatsApp } from "../../hooks/useRastreamentoWhatsApp";
 
 export default function Educacao() {
   const [formData, setFormData] = useState({

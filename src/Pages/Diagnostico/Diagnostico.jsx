@@ -23,7 +23,7 @@ import { Header } from "../../components/Header/Header";
 import { StepHeading } from "../../components/Diagnostico/StepHeading";
 import { NumberField } from "../../components/Diagnostico/NumberField";
 import { Result } from "../../components/Diagnostico/Result";
-import { useRastreamentoWhatsApp } from "../../hooks/useGoogleAdsWhatsappConversion";
+import { useRastreamentoWhatsApp } from "../../hooks/useRastreamentoWhatsApp";
 
 const cx = (...names) =>
   names

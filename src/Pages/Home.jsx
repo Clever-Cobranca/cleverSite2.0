@@ -21,7 +21,7 @@ import { ServiceCard } from "../components/Home/ServiceCard";
 import { TestimonialCard } from "../components/Home/TestimonialCard";
 import { DashboardImage } from "../components/Home/DashboardImage";
 import LiquidGlassFilter from "../components/LiquidGlassFilter";
-import { useRastreamentoWhatsApp } from "../hooks/useGoogleAdsWhatsappConversion";
+import { useRastreamentoWhatsApp } from "../hooks/useRastreamentoWhatsApp";
 
 export default function Home() {
   const testimonials = [

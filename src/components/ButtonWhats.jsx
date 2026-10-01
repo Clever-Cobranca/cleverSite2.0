@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
-import { useRastreamentoWhatsApp } from "../hooks/useGoogleAdsWhatsappConversion";
+import { useRastreamentoWhatsApp } from "../hooks/useRastreamentoWhatsApp";
 
 export default function WhatsAppButton() {
   const [isHovered, setIsHovered] = useState(false);
