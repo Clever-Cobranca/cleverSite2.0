@@ -23,7 +23,7 @@ import { Header } from "../../components/Header/Header";
 import { StepHeading } from "../../components/Diagnostico/StepHeading";
 import { NumberField } from "../../components/Diagnostico/NumberField";
 import { Result } from "../../components/Diagnostico/Result";
-import { useRastreamentoWhatsApp } from "../../hooks/useRastreamentoWhatsApp";
+import { useRastreamentoNavegacao } from "../../hooks/useRastreamentoNavegacao";
 
 const cx = (...names) =>
   names
@@ -39,7 +39,7 @@ export default function Diagnostico() {
   const [error, setError] = useState("");
   const [captured, setCaptured] = useState(false);
   const [sending, setSending] = useState(false);
-  useRastreamentoWhatsApp("diagnostico");
+  useRastreamentoNavegacao();
 
   const result = useMemo(
     () => calculateFinancialResult(financialData),
