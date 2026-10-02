@@ -149,7 +149,7 @@ export function Result({
           <div className={styles.resultActions}>
             <a
               className={styles.ctaButton}
-              href="https://wa.me/5511986037555"
+              href="https://wa.me/5511910699108"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -172,8 +172,8 @@ export function Result({
               </a>
             </div>
             <div className={styles.contactDetails}>
-              <a href="https://wa.me/5511986037555" target="_blank" rel="noopener noreferrer">
-                WhatsApp (11) 98603-7555
+              <a href="https://wa.me/5511910699108" target="_blank" rel="noopener noreferrer">
+                WhatsApp (11) 91069-9108
               </a>
               <div className={styles.resultSocialLinks} aria-label="Redes sociais da Clever">
                 <a href="https://www.instagram.com/oalanclever" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>

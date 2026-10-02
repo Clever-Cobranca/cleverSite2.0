@@ -19,6 +19,7 @@ import {
 } from "react-icons/fa";
 import { posts } from "../blog/blogPost";
 import { useRastreamentoWhatsApp } from "../../hooks/useRastreamentoWhatsApp";
+import { useRastreamentoNavegacao } from "../../hooks/useRastreamentoNavegacao";
 
 export default function Educacao() {
   const [formData, setFormData] = useState({
@@ -38,6 +39,7 @@ export default function Educacao() {
   const [successMessage, setSuccessMessage] = useState("");
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   useRastreamentoWhatsApp("educacao");
+  useRastreamentoNavegacao();
 
   const { postSlug } = useParams();
 
@@ -105,6 +107,34 @@ export default function Educacao() {
     return true;
   };
 
+  const GOOGLE_ADS_EBOOK_CONVERSION = "AW-10847571731/tAaVCJWd6IsdEJOew7Qo";
+
+  function registrarEnvioEbook() {
+    const dados = {
+      pagina: "educacao",
+      secao: "formulario-ebook",
+      rotulo: "Envio do e-book",
+    };
+
+    if (typeof window.gtag === "function") {
+      // Evento de análise no GA4
+      window.gtag("event", "ebook_form_submit", dados);
+
+      // Conversão específica do Google Ads para o e-book
+      window.gtag("event", "conversion", {
+        send_to: GOOGLE_ADS_EBOOK_CONVERSION,
+        value: 1,
+        currency: "BRL",
+      });
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "ebook_form_submit",
+      ...dados,
+    });
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -149,6 +179,8 @@ export default function Educacao() {
         setStatus("success");
         setSuccessMessage(`${responseData.message}`);
 
+
+        registrarEnvioEbook(); // Chama a função para registrar o envio do e-book
         // Limpa o formulário após sucesso
         setFormData({
           nome: "",
@@ -240,8 +272,9 @@ export default function Educacao() {
                 <Link
                   className={`${styles.btn} ${styles.tealb}`}
                   to="/diagnostico"
-                  data-track="whatsapp"
+                  data-track="navegacao"
                   data-secao="botao-diagnostico"
+                  data-rotulo="Faça o diagnóstico gratuito"
                 >
                   Faça o diagnóstico gratuito
                 </Link>
@@ -418,8 +451,6 @@ export default function Educacao() {
                     <button
                       disabled={status === "loading"}
                       className={`${styles.btn} ${styles.gold} ${styles.fullButton}`}
-                      data-track="whatsapp"
-                      data-secao="botao-ebook"
                       type="submit"
                     >
                       Quero o e-book
@@ -457,8 +488,9 @@ export default function Educacao() {
                       href="https://cobrancaeducacionalnapratica.hotmart.app/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      data-track="whatsapp"
+                      data-track="navegacao"
                       data-secao="metedo-clever-quero-curso"
+                      data-rotulo="Quero o curso"
                     >
                       Quero o curso
                     </a>
@@ -491,8 +523,9 @@ export default function Educacao() {
                         href="https://cobrancaeducacionalnapratica.hotmart.app/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        data-track="whatsapp"
+                        data-track="navegacao"
                         data-secao="metodo-clever-ver-conteudo"
+                        data-rotulo="Ver o conteúdo completo"
                       >
                         Ver o conteúdo completo
                       </a>
@@ -531,8 +564,9 @@ export default function Educacao() {
                     <Link
                       className={`${styles.btn} ${styles.tealb}`}
                       to="/diagnostico"
-                      data-track="whatsapp"
+                      data-track="navegacao"
                       data-secao="trilha-escola"
+                      data-rotulo="Ver o caminho da escola"
                     >
                       Ver o caminho da escola
                     </Link>
@@ -554,8 +588,9 @@ export default function Educacao() {
                     <Link
                       className={`${styles.btn} ${styles.dark}`}
                       to="/diagnostico"
-                      data-track="whatsapp"
+                      data-track="navegacao"
                       data-secao="trilha-cobrador"
+                      data-rotulo="Ver o caminho do cobrador"
                     >
                       Ver o caminho do cobrador
                     </Link>
@@ -789,8 +824,9 @@ export default function Educacao() {
               <Link
                 className={`${styles.btn} ${styles.gold}`}
                 to="/diagnostico"
-                data-track="whatsapp"
+                data-track="navegacao"
                 data-secao="rodape-diagnostico"
+                data-rotulo="Faça o diagnóstico gratuito"
               >
                 Faça o diagnóstico gratuito
               </Link>
@@ -810,6 +846,8 @@ export default function Educacao() {
               href="https://wa.me/5511910699108"
               target="_blank"
               rel="noopener noreferrer"
+              data-track="whatsapp"
+              daat-secao="whatsapp-rodape-educacao"
             >
               WhatsApp (11) 91069-9108
             </a>

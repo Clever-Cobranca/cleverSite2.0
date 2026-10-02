@@ -361,8 +361,8 @@ export default function PaginaEscolas() {
         t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
       })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
       window.fbq("init", CONFIG.META_PIXEL);
-      window.fbq("track", "PageView");
     }
+    window.fbq("track", "PageView");
     if (CONFIG.ADS_CONVERSAO && window.gtag) {
       window.gtag("config", CONFIG.ADS_CONVERSAO.split("/")[0]);
     }

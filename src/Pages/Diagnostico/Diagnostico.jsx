@@ -282,8 +282,9 @@ export default function Diagnostico() {
               <span />
               <button
                 className={cx("button", "primary")}
-                data-track="whatsapp"
+                data-track="navegacao"
                 data-secao="diagnostico-proxima-etapa-cultura"
+                data-rotulo="Próxima etapa: Cultura"
                 onClick={() => {
                   goTo(1);
                   window.scrollTo(0, 0);
@@ -348,8 +349,9 @@ export default function Diagnostico() {
               </button>
               <button
                 className={cx("button", "primary")}
-                data-track="whatsapp"
+                data-track="navegacao"
                 data-secao="diagnostico-ver-resultado"
+                data-rotulo="Próxima etapa: Cultura"
                 onClick={handleQuizNext}
               >
                 Ver o resultado
@@ -427,8 +429,9 @@ export default function Diagnostico() {
                     disabled={sending}
                     className={cx("button", "primary", "fullButton")}
                     type="submit"
-                    data-track="whatsapp"
+                    data-track="navegacao"
                     data-secao="diagnostico-ver-resultado-e-book"
+                    data-rotulo="Próxima etapa: Cultura"
                   >
                     {sending
                       ? "Enviando..."
