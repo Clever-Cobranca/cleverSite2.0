@@ -86,7 +86,7 @@ export default function Home() {
                       </p>
                       <a
                         target="_blank"
-                        href="https://api.whatsapp.com/send/?phone=5511986037555&text=Ol%C3%A1,+quero+agendar+uma+sessão+estratégica!&type=phone_number&app_absent=0"
+                        href="https://api.whatsapp.com/send/?phone=5511910699108&text=Ol%C3%A1,+quero+agendar+uma+sessão+estratégica!&type=phone_number&app_absent=0"
                         data-track="whatsapp"
                         data-secao="home-carrosel"
                         className="lgs:p-7 2xl:mt-8 md:p-4 px-2 py-1  bg-orange-primary rounded-full w-max text-white text-shadow-md lgs:text-4xl max-md:text-xs font-family-headers"
@@ -247,7 +247,7 @@ export default function Home() {
                   </p>
                   <a
                     target="_blank"
-                    href="https://api.whatsapp.com/send/?phone=5511986037555&text=Ol%C3%A1,+quero+agendar+uma+sessão+estratégica!&type=phone_number&app_absent=0"
+                    href="https://api.whatsapp.com/send/?phone=5511910699108&text=Ol%C3%A1,+quero+agendar+uma+sessão+estratégica!&type=phone_number&app_absent=0"
                     data-track="whatsapp"
                     data-secao="home-ultima-imagem"
                     className="

@@ -23,7 +23,7 @@ import { Header } from "../../components/Header/Header";
 import { StepHeading } from "../../components/Diagnostico/StepHeading";
 import { NumberField } from "../../components/Diagnostico/NumberField";
 import { Result } from "../../components/Diagnostico/Result";
-import { useRastreamentoWhatsApp } from "../../hooks/useRastreamentoWhatsApp";
+import { useRastreamentoNavegacao } from "../../hooks/useRastreamentoNavegacao";
 
 const cx = (...names) =>
   names
@@ -39,7 +39,7 @@ export default function Diagnostico() {
   const [error, setError] = useState("");
   const [captured, setCaptured] = useState(false);
   const [sending, setSending] = useState(false);
-  useRastreamentoWhatsApp("diagnostico");
+  useRastreamentoNavegacao();
 
   const result = useMemo(
     () => calculateFinancialResult(financialData),
@@ -282,8 +282,9 @@ export default function Diagnostico() {
               <span />
               <button
                 className={cx("button", "primary")}
-                data-track="whatsapp"
+                data-track="navegacao"
                 data-secao="diagnostico-proxima-etapa-cultura"
+                data-rotulo="Próxima etapa: Cultura"
                 onClick={() => {
                   goTo(1);
                   window.scrollTo(0, 0);
@@ -348,8 +349,9 @@ export default function Diagnostico() {
               </button>
               <button
                 className={cx("button", "primary")}
-                data-track="whatsapp"
+                data-track="navegacao"
                 data-secao="diagnostico-ver-resultado"
+                data-rotulo="Próxima etapa: Cultura"
                 onClick={handleQuizNext}
               >
                 Ver o resultado
@@ -427,8 +429,9 @@ export default function Diagnostico() {
                     disabled={sending}
                     className={cx("button", "primary", "fullButton")}
                     type="submit"
-                    data-track="whatsapp"
+                    data-track="navegacao"
                     data-secao="diagnostico-ver-resultado-e-book"
+                    data-rotulo="Próxima etapa: Cultura"
                   >
                     {sending
                       ? "Enviando..."
