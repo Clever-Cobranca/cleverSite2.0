@@ -847,7 +847,7 @@ export default function Educacao() {
               target="_blank"
               rel="noopener noreferrer"
               data-track="whatsapp"
-              daat-secao="whatsapp-rodape-educacao"
+              data-secao="whatsapp-rodape-educacao"
             >
               WhatsApp (11) 91069-9108
             </a>
