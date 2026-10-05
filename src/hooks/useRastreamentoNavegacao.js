@@ -23,23 +23,23 @@ export function useRastreamentoNavegacao(adsConversao = GOOGLE_ADS_CONVERSION) {
         secao: elemento.dataset.secao || "nao_informada",
         rotulo: elemento.dataset.rotulo || elemento.textContent.trim(),
       };
-      
+
       if (typeof window.gtag === "function") {
         window.gtag("event", "navegacao_interna", dados);
       }
 
-      //Registrar acesso à pagina
-      if (typeof window.fbq === "function") {
-        window.fbq("track", "PageView");
-      }
-
+      
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "navegacao_interna",
         ...dados,
       });
     }
-
+    //Registrar acesso à pagina
+    if (typeof window.fbq === "function") {
+      window.fbq("track", "PageView");
+    }
+    
     document.addEventListener("click", aoClicar, true);
 
     return () => {
