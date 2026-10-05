@@ -142,12 +142,39 @@ export default function Diagnostico() {
     setError("");
     setSending(true);
 
+    const GOOGLE_ADS_EBOOK_CONVERSION = "AW-10847571731/tAaVCJWd6IsdEJOew7Qo";
+
     try {
-      await fetch(FORM_ENDPOINT, {
+      const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(createLeadPayload(formData, result, quiz)),
       });
+      if (response.ok) {
+        const dados = {
+          pagina: "diagnostico",
+          secao: "formulario-diagnostico",
+          rotulo: "Envio do e-book e diagnostico",
+        };
+
+        if (typeof window.gtag === "function") {
+          // Evento de análise no GA4
+          window.gtag("event", "diagnostico_form_submit", dados);
+
+          // Conversão específica do Google Ads para o e-book
+          window.gtag("event", "conversion", {
+            send_to: GOOGLE_ADS_EBOOK_CONVERSION,
+            value: 1,
+            currency: "BRL",
+          });
+        }
+        if (typeof window.fbq === "function") {
+          window.fbq("trackCustom", "EbookDownload", {
+            content_name: "cobranca-sem-medo-escola-sem-prejuizo",
+            pagina: "diagnostico",
+          });
+        }
+      }
     } catch (error) {
       console.log(error);
       /* The original form also unlocks the local result if delivery fails. */
@@ -351,7 +378,7 @@ export default function Diagnostico() {
                 className={cx("button", "primary")}
                 data-track="navegacao"
                 data-secao="diagnostico-ver-resultado"
-                data-rotulo="Próxima etapa: Cultura"
+                data-rotulo="Diagnostico: Botão ver resultado"
                 onClick={handleQuizNext}
               >
                 Ver o resultado
@@ -431,7 +458,7 @@ export default function Diagnostico() {
                     type="submit"
                     data-track="navegacao"
                     data-secao="diagnostico-ver-resultado-e-book"
-                    data-rotulo="Próxima etapa: Cultura"
+                    data-rotulo="Diagnostico: Botão ver resultado e receber e-book"
                   >
                     {sending
                       ? "Enviando..."

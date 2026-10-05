@@ -128,6 +128,16 @@ export default function Educacao() {
       });
     }
 
+    if (typeof window.fbq === "function") {
+      window.fbq("trackCustom", "EbookDownload", {
+        content_name:
+          ebookSelected.id === 1
+            ? "cobranca-sem-medo-escola-sem-prejuizo"
+            : "cobranca-inteligente",
+        pagina: "educacao",
+      });
+    }
+
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "ebook_form_submit",
@@ -178,7 +188,6 @@ export default function Educacao() {
         const responseData = await response.json();
         setStatus("success");
         setSuccessMessage(`${responseData.message}`);
-
 
         registrarEnvioEbook(); // Chama a função para registrar o envio do e-book
         // Limpa o formulário após sucesso
@@ -489,7 +498,7 @@ export default function Educacao() {
                       target="_blank"
                       rel="noopener noreferrer"
                       data-track="navegacao"
-                      data-secao="metedo-clever-quero-curso"
+                      data-secao="metodo-clever-quero-curso"
                       data-rotulo="Quero o curso"
                     >
                       Quero o curso
