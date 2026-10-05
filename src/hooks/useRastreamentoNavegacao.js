@@ -21,7 +21,7 @@ export function useRastreamentoNavegacao(adsConversao = GOOGLE_ADS_CONVERSION) {
         pagina_origem: window.location.pathname,
         destino,
         secao: elemento.dataset.secao || "nao_informada",
-        rotulo: elemento.dataset.rotulo || elemento.textContent.trim(),
+        rotulo: elemento.dataset.rotulo || (elemento.innerText || elemento.textContent || '').trim()
       };
 
       if (typeof window.gtag === "function") {
