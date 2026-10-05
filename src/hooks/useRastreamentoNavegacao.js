@@ -5,6 +5,7 @@ const GOOGLE_ADS_CONVERSION = "AW-10847571731/tAaVCJWd6IsdEJOew7Qo";
 export function useRastreamentoNavegacao(adsConversao = GOOGLE_ADS_CONVERSION) {
   useEffect(() => {
     function aoClicar(evento) {
+      //Rastreia elemento que tenha o data-track=navegacao
       const elemento =
         evento.target instanceof Element
           ? evento.target.closest('[data-track="navegacao"]')
@@ -12,6 +13,7 @@ export function useRastreamentoNavegacao(adsConversao = GOOGLE_ADS_CONVERSION) {
 
       if (!elemento) return;
 
+      //Destino da onde o clique o levaria
       const destino =
         elemento.getAttribute("href") || elemento.dataset.destino || "";
 
@@ -21,9 +23,14 @@ export function useRastreamentoNavegacao(adsConversao = GOOGLE_ADS_CONVERSION) {
         secao: elemento.dataset.secao || "nao_informada",
         rotulo: elemento.dataset.rotulo || elemento.textContent.trim(),
       };
-
+      
       if (typeof window.gtag === "function") {
         window.gtag("event", "navegacao_interna", dados);
+      }
+
+      //Registrar acesso à pagina
+      if (typeof window.fbq === "function") {
+        window.fbq("track", "PageView");
       }
 
       window.dataLayer = window.dataLayer || [];
