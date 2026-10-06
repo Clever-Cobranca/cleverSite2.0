@@ -13,8 +13,7 @@ import { useEffect } from "react";
  * 4) Preencha ADS_CONVERSAO e META_PIXEL no CONFIG abaixo quando tiver os IDs
  *
  * O CSS está todo escopado em #clever-lp, então não afeta o resto do site.
- * A página não deve entrar no menu. A tag noindex é aplicada enquanto ela
- * estiver montada, para não aparecer no Google.
+ * A página não deve entrar no menu.
  */
 
 const CONFIG = {
@@ -345,14 +344,6 @@ export default function PaginaEscolas() {
     const raiz = document.getElementById("clever-lp");
     if (!raiz) return;
 
-    // noindex enquanto a página estiver aberta
-    const meta = document.createElement("meta");
-    meta.name = "robots";
-    meta.content = "noindex, nofollow";
-    document.head.appendChild(meta);
-    const tituloAntigo = document.title;
-    document.title = "Clever · Recupere o dinheiro que a sua escola já deu como perdido";
-
     // Meta Pixel (só se ainda não existir no site)
     if (CONFIG.META_PIXEL && !window.fbq) {
       !(function (f, b, e, v, n, t, s) {
@@ -390,8 +381,6 @@ export default function PaginaEscolas() {
 
     return () => {
       limpar.forEach((f) => f());
-      meta.remove();
-      document.title = tituloAntigo;
     };
   }, []);
 

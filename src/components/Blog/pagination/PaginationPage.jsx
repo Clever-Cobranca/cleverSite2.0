@@ -2,10 +2,13 @@ import { useState } from "react";
 import Pagination from "./Pagination";
 import CardPosts from "../CardPosts";
 
-const PaginationPage = ({ posts }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+const PaginationPage = ({ posts, page = 1, usePageLinks = false }) => {
+  const [localPage, setLocalPage] = useState(1);
   const itemsPerPage = 9;
   const totalItems = posts.length;
+  const currentPage = usePageLinks
+    ? page
+    : Math.min(localPage, Math.max(1, Math.ceil(totalItems / itemsPerPage)));
 
   // Lógica para filtrar os dados que serão exibidos
   // 1. Calcula os índices
@@ -26,7 +29,8 @@ const PaginationPage = ({ posts }) => {
         totalItems={totalItems}
         itemsPerPage={itemsPerPage}
         currentPage={currentPage}
-        onPageChange={(page) => setCurrentPage(page)}
+        onPageChange={setLocalPage}
+        usePageLinks={usePageLinks}
       />
     </>
   );

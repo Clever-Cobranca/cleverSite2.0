@@ -1,0 +1,9 @@
+# robots.txt - clevercobranca.com.br
+
+User-agent: *
+Allow: /
+
+# Area interna - nao indexar
+Disallow: /kath
+
+Sitemap: https://www.clevercobranca.com.br/sitemap.xml

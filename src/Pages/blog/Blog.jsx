@@ -11,13 +11,14 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "../../components/dropdowMenu";
-import parse, { domToReact } from "html-react-parser";
+import parse from "html-react-parser";
 import { useDebounce } from "../../hooks/useDebounce";
 import { CardPostSkeleton } from "../../components/Blog/skeletons/CardPostSkeleton";
 import { SearchComponent } from "../../components/SearchComponent";
 import Carousel from "../../components/Carousel";
 import PaginationPage from "../../components/Blog/pagination/PaginationPage";
 import CardPosts from "../../components/Blog/CardPosts";
+import NotFound from "../NotFound";
 
 export default function Blog() {
   const bttnRef = useRef(null);
@@ -95,7 +96,7 @@ export default function Blog() {
   }, [handleDebouncedSubmit]);
 
   const options = {
-    replace({ attribs, children }) {
+    replace({ attribs }) {
       if (!attribs) {
         return;
       }
@@ -105,6 +106,8 @@ export default function Blog() {
       }
     },
   };
+
+  if (!post) return <NotFound />;
 
   if (loading) {
     return (
@@ -221,7 +224,7 @@ export default function Blog() {
                 <h4 className="text-[clamp(0.8rem,4vw,1.3rem)] font-bold max-w-max mb-2">
                   Leituras Recomendadas
                 </h4>
-                <div className="max-h-[560px]">
+                <div className="max-h-[600px]">
                   <Carousel scrollMode="item">
                     {postsFilteredBySlug.map((post) => (
                       <div

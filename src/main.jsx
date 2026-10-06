@@ -18,10 +18,13 @@ import PoliticaDePrivacidade from "./Pages/PoliticaDePrivacidade";
 import Diagnostico from "./Pages/Diagnostico/Diagnostico";
 import PaginaEscolas from "./Pages/PaginaEscolas";
 import BlogList from "./Pages/blog/BlogList";
+import RouteSeo from "./components/RouteSeo";
+import NotFound from "./Pages/NotFound";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
+      <RouteSeo />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -39,9 +42,11 @@ createRoot(document.getElementById("root")).render(
           element={<PoliticaDePrivacidade />}
         />
         <Route path="/blog" element={<BlogList />} />
+        <Route path="/blog/pagina/:pageNumber" element={<BlogList />} />
         <Route path="/blog/:postSlug" element={<Blog />} />
         <Route path="/kath" element={<KathCNPJ />} />
         <Route path="/links" element={<Links />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

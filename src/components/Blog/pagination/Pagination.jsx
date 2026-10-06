@@ -1,10 +1,14 @@
 import clsx from "clsx";
+import { Link } from "react-router";
+
+const pageHref = (page) => page === 1 ? "/blog" : `/blog/pagina/${page}`;
 
 const Pagination = ({
   totalItems,
   itemsPerPage,
   currentPage,
   onPageChange,
+  usePageLinks = false,
 }) => {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
@@ -29,22 +33,36 @@ const Pagination = ({
       )}
     >
       {/* Botão Anterior */}
-      <button
-        onClick={() => {
-          const prev = currentPage <= 1 ? totalPages : currentPage - 1;
-          onPageChange(prev);
-          handleScrollToTop();
-        }}
-        disabled={currentPage === 1}
-        className="px-3 max-sm:hidden py-2 rounded-md bg-white border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-      >
-        Anterior
-      </button>
+      {usePageLinks ? (
+        currentPage > 1 && <Link to={pageHref(currentPage - 1)} className="px-3 max-sm:hidden py-2 rounded-md bg-white border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">Anterior</Link>
+      ) : (
+        <button
+          onClick={() => {
+            onPageChange(currentPage - 1);
+            handleScrollToTop();
+          }}
+          disabled={currentPage === 1}
+          className="px-3 max-sm:hidden py-2 rounded-md bg-white border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        >
+          Anterior
+        </button>
+      )}
 
       {/* Números das Páginas */}
       <div className="flex space-x-1">
         {pages.map((page) => (
-          <button
+          usePageLinks ? <Link
+            key={page}
+            to={pageHref(page)}
+            aria-current={currentPage === page ? "page" : undefined}
+            className={`px-4 py-2 rounded-md text-sm font-semibold transition-all ${
+              currentPage === page
+                ? "bg-blue-600 text-white shadow-md"
+                : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-100"
+            }`}
+          >
+            {page}
+          </Link> : <button
             key={page}
             onClick={() => {
               onPageChange(page);
@@ -62,17 +80,20 @@ const Pagination = ({
       </div>
 
       {/* Botão Próximo */}
-      <button
-        onClick={() => {
-          const next = currentPage >= totalPages ? 1 : currentPage + 1;
-          onPageChange(next);
-          handleScrollToTop();
-        }}
-        disabled={currentPage === totalPages}
-        className="max-sm:hidden px-3 py-2 rounded-md bg-white border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-      >
-        Próximo
-      </button>
+      {usePageLinks ? (
+        currentPage < totalPages && <Link to={pageHref(currentPage + 1)} className="max-sm:hidden px-3 py-2 rounded-md bg-white border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">Próximo</Link>
+      ) : (
+        <button
+          onClick={() => {
+            onPageChange(currentPage + 1);
+            handleScrollToTop();
+          }}
+          disabled={currentPage === totalPages}
+          className="max-sm:hidden px-3 py-2 rounded-md bg-white border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        >
+          Próximo
+        </button>
+      )}
     </nav>
   );
 };
