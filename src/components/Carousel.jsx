@@ -226,7 +226,7 @@ export default function Carousel({
           isDraggable ? (event) => event.preventDefault() : undefined
         }
         className={cn(
-          "flex w-full max-h-full gap-6 scroll-smooth snap-x snap-mandatory max-lg:px-1",
+          "flex w-full lg:overflow-y-hidden max-h-full gap-6 scroll-smooth snap-x snap-mandatory max-lg:px-1",
           isScrollX
             ? "overflow-x-auto"
             : "overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]",

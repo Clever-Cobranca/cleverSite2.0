@@ -13,7 +13,8 @@ import {
 import { Footer } from "../../components/Footer/Footer";
 import { CardPostSkeleton } from "../../components/Blog/skeletons/CardPostSkeleton";
 import { cn } from "../../lib/utils";
-import { Navigate, useParams } from "react-router";
+import { useParams } from "react-router";
+import NotFound from "../NotFound";
 
 export default function BlogList() {
   const { pageNumber } = useParams();
@@ -84,7 +85,7 @@ export default function BlogList() {
     };
   }, [handleDebouncedSubmit]);
 
-  if (invalidPage) return <Navigate to="/blog" replace />;
+  if (invalidPage) return <NotFound />;
 
   return (
     <>

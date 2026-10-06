@@ -19,6 +19,7 @@ import Diagnostico from "./Pages/Diagnostico/Diagnostico";
 import PaginaEscolas from "./Pages/PaginaEscolas";
 import BlogList from "./Pages/blog/BlogList";
 import RouteSeo from "./components/RouteSeo";
+import NotFound from "./Pages/NotFound";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -45,6 +46,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/blog/:postSlug" element={<Blog />} />
         <Route path="/kath" element={<KathCNPJ />} />
         <Route path="/links" element={<Links />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

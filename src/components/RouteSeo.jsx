@@ -91,16 +91,22 @@ export default function RouteSeo() {
     const post = path.startsWith("/blog/")
       ? posts.find((item) => `/blog/${item.slug}` === path)
       : null;
+    const pageNumber = path.match(/^\/blog\/pagina\/([1-9]\d*)$/)?.[1];
+    const validBlogPage = pageNumber && Number(pageNumber) >= 2 && Number(pageNumber) <= Math.ceil(posts.length / 9);
+    const found = Boolean(post || pages[path] || validBlogPage);
     
       //Altera o título, descrição e image padrão do metadata se for um artigo do Blog, se não fica com os metadados padrões
     const page = post
       ? { title: `${post.title} — Clever`, description: (post.about || post.title).slice(0, 155), image: post.banner }
-      : pages[path] || { title: "Clever — Assessoria Jurídica e Cobrança", description: "Assessoria jurídica, cobrança e recuperação de crédito com a Clever." };
+      : validBlogPage
+        ? { title: `Blog da Clever — Página ${pageNumber}`, description: `Artigos sobre cobrança e inadimplência da Clever. Página ${pageNumber} do blog.` }
+        : pages[path] || { title: "Página não encontrada — Clever", description: "O endereço acessado não existe ou foi removido." };
     const url = `${siteUrl}${path}`;
     const image = new URL(page.image || "/Logo.png", siteUrl).href;
 
     document.title = page.title;
-    setHeadAttribute('link[rel="canonical"]', "link", "href", url);
+    if (found) setHeadAttribute('link[rel="canonical"]', "link", "href", url);
+    else document.head.querySelector('link[rel="canonical"]')?.remove();
     setHeadAttribute('meta[name="description"]', "meta", "content", page.description);
     setHeadAttribute('meta[property="og:title"]', "meta", "content", page.title);
     setHeadAttribute('meta[property="og:description"]', "meta", "content", page.description);
