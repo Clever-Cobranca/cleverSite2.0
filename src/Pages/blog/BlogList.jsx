@@ -13,13 +13,22 @@ import {
 import { Footer } from "../../components/Footer/Footer";
 import { CardPostSkeleton } from "../../components/Blog/skeletons/CardPostSkeleton";
 import { cn } from "../../lib/utils";
+import { Navigate, useParams } from "react-router";
 
 export default function BlogList() {
+  const { pageNumber } = useParams();
+  const page = pageNumber ? Number(pageNumber) : 1;
+  const invalidPage = pageNumber !== undefined && (
+    !/^[1-9]\d*$/.test(pageNumber) ||
+    page < 2 ||
+    page > Math.ceil(posts.length / 9)
+  );
   const bttnRef = useRef(null);
   const skeletonTimerRef = useRef(null);
 
   const [loading, setLoading] = useState(false);
   const [cardPosts, setCardPosts] = useState(posts);
+  const [filtersApplied, setFiltersApplied] = useState(false);
   const [userSearch, setUserSearch] = useState("");
 
   const [optionSelected, setOptionSelected] = useState("Todas");
@@ -44,6 +53,7 @@ export default function BlogList() {
     }
 
     setLoading(true); //Loading do skeleton
+    setFiltersApplied(true);
     const queryFormated = userSearch.toLocaleLowerCase().trim();
 
     const cardPostsFiltered = posts.filter((post) => {
@@ -73,6 +83,8 @@ export default function BlogList() {
       if (skeletonTimerRef.current) clearTimeout(skeletonTimerRef.current); // Cancela o setTimeout do skeleton
     };
   }, [handleDebouncedSubmit]);
+
+  if (invalidPage) return <Navigate to="/blog" replace />;
 
   return (
     <>
@@ -173,7 +185,7 @@ export default function BlogList() {
                 ))}
               </div>
             ) : (
-              <PaginationPage posts={cardPosts} />
+              <PaginationPage posts={cardPosts} page={page} usePageLinks={!filtersApplied} />
             )}
           </div>
           <form
