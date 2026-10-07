@@ -46,6 +46,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/blog/:postSlug" element={<Blog />} />
         <Route path="/kath" element={<KathCNPJ />} />
         <Route path="/links" element={<Links />} />
+        <Route path="/cobranca/escolar" element={<Navigate to="/escolas" replace />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
