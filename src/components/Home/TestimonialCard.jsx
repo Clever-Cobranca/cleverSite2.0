@@ -13,7 +13,7 @@ export function TestimonialCard({ photo, name, role, testimonial }) {
         lg:rounded-[72px] lg:px-10 lg:pb-20 lg:pt-14
       "
     >
-      {photo ? (
+      {/* {photo ? (
         <img
           src={photo}
           alt={`Foto de ${name}`}
@@ -25,7 +25,7 @@ export function TestimonialCard({ photo, name, role, testimonial }) {
         />
       ) : (
         <span className="bg-gray-300 size-32 shrink-0 rounded-full"></span>
-      )}
+      )} */}
 
       <figcaption
         className="
