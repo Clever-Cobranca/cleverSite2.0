@@ -32,6 +32,11 @@ export const config = {
   trailingSlash: false,
   redirects: [
     {
+      source: "/cobranca/escolar",
+      destination: "https://www.clevercobranca.com.br/escolas",
+      statusCode: 301,
+    },
+    {
       source: "/:path*",
       has: [{ type: "host", value: "clevercobranca.com.br" }],
       destination: "https://www.clevercobranca.com.br/:path*",
