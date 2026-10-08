@@ -7,14 +7,13 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import InteractiveForm from "../components/InteractiveForm";
 import quemSomosFirst from "../assets/quem-somos-first.png";
 import quemSomosSecond from "../assets/quem-somos-second.png";
 import ScrollReveal from "../components/scrollView";
+import ApplyingForm from "../components/ApplyingForm";
 
 export default function TrabalheConosco() {
   const [isOpen, setIsOpen] = useState(null);
-  const [Aberto, estaAbrindo] = useState(false);
 
   return (
     <>
@@ -72,7 +71,7 @@ export default function TrabalheConosco() {
 
         <ScrollReveal variant="fadeLeft">
           <section className="px-6 pb-8 flex max-sm:text-center justify-center max-lg:flex-wrap">
-            <div className="flex-col flex gap-10 justify-center w-full items-center">
+            <div className="flex-col flex gap-10 w-full items-center">
               <div className="flex max-sm:justify-center ">
                 <div className="flex-col gap-2 flex max-sm:items-center max-sm:text-center">
                   <h2 className="font-family-headers text-[clamp(2.6rem,6vw,6.2rem)]/tight">
@@ -137,22 +136,15 @@ export default function TrabalheConosco() {
                 </div>
               </div>
             </div>
-            <div className="w-[90%] pt-6 h-full">
-              <p className="font-semibold text-left sm:max-lgs:px-10 text-[clamp(0.8rem,4vw,1.4rem)]">
+            <div className="sm:w-[90%] max-lg:pt-6">
+              <p className="font-semibold text-left max-lgs:px-10 text-[clamp(0.8rem,4vw,1.4rem)]">
                 Estamos entre as melhores empresas para iniciar a carreira e 85%
                 de nossas vagas administrativas e de liderança são preenchidas
                 internamente! Então, se você sonha em fazer parte de um time que
                 valoriza a carreira e seu desenvolvimento, conheça as novas
                 vagas!
               </p>
-              <div className="h-5 max-lgs:text-center justify-center items-center flex mt-14 mb-10">
-                <button
-                  onClick={() => estaAbrindo(true)}
-                  className="h-[50px] md:h-[87px] max-sm:p-1 w-[380px] max-sm:w-64 max-md:w-38 max-lgs:w-auto max-lgs:p-5 font-bold text-[clamp(1rem,4vw,1.5rem)] sm:rounded-4xl rounded-lg bg-black-primary text-gray-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e0a92e] hover:cursor-pointer"
-                >
-                  QUERO FAZER PARTE
-                </button>
-              </div>
+              <ApplyingForm/>
             </div>
             <AnimatePresence initial={false}>
               {isOpen == "supervisor" && (
@@ -517,54 +509,7 @@ export default function TrabalheConosco() {
                 </div>
               )}
             </AnimatePresence>
-            <AnimatePresence initial={false}>
-              {Aberto == true && (
-                <div className="flex justify-center items-center fixed inset-0 z-999 rounded-4xl">
-                  <motion.div
-                    className="absolute -z-10 inset-0 bg-black/30"
-                    onClick={() => setIsOpen(false)}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  />
-                  <motion.div
-                    className="bg-[#fff] rounded-4xl p-3 relative"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{
-                      duration: 0.1,
-                      ease: "easeOut",
-                    }}
-                  >
-                    <div className="">
-                      <div className="w-full flex justify-end">
-                        <motion.div
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                        >
-                          <IoClose
-                            className="hover:cursor-pointer"
-                            size={30}
-                            color="#f1b434"
-                            onClick={() => estaAbrindo(false)}
-                          />
-                        </motion.div>
-                      </div>
-                      <div>
-                        <h4 className="text-4xl font-bold text-center">
-                          Candidatura
-                          <br />
-                          <span className="text-[#F1B434]">Clever</span> !
-                        </h4>
-                      </div>
-                      <InteractiveForm />
-                    </div>
-                  </motion.div>
-                </div>
-              )}
-            </AnimatePresence>
+            
           </section>
         </ScrollReveal>
       </main>
