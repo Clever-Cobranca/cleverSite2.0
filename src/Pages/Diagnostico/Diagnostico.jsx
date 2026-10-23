@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./Diagnostico.module.css";
 import {
   FORM_ENDPOINT,
@@ -40,6 +40,15 @@ export default function Diagnostico() {
   const [captured, setCaptured] = useState(false);
   const [sending, setSending] = useState(false);
   useRastreamentoNavegacao();
+
+  useEffect(() => {
+    const urlEntrada = window.location.href;
+
+    // Guarda a primeira URL da sessão, mesmo que a pessoa navegue depois
+    if (!sessionStorage.getItem("url_origem_lead")) {
+      sessionStorage.setItem("url_origem_lead", urlEntrada);
+    }
+  }, []);
 
   const result = useMemo(
     () => calculateFinancialResult(financialData),
@@ -151,10 +160,12 @@ export default function Diagnostico() {
         body: JSON.stringify(createLeadPayload(formData, result, quiz)),
       });
       if (response.ok) {
+        const origem = sessionStorage.getItem("url_origem_lead") || window.location.href;
         const dados = {
           pagina: "diagnostico",
           secao: "formulario-diagnostico",
           rotulo: "Envio do e-book e diagnostico",
+          Origem: origem,
         };
 
         if (typeof window.gtag === "function") {
