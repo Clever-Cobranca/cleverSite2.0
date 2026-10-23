@@ -8,7 +8,7 @@ import ScrollReveal from "../../components/scrollView";
 import CardPosts from "../../components/Blog/CardPosts";
 import Carousel from "../../components/Carousel";
 import { Header } from "../../components/Header/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import {
   FaFacebookF,
@@ -42,6 +42,16 @@ export default function Educacao() {
   useRastreamentoNavegacao();
 
   const { postSlug } = useParams();
+
+  useEffect(() => {
+    const urlEntrada = window.location.href;
+
+    // Guarda a primeira URL da sessão, mesmo que a pessoa navegue depois
+    //Objetivo é pegar o UTM do google para enviar para o lead pro google ads
+    if (!sessionStorage.getItem("url_origem_lead")) {
+      sessionStorage.setItem("url_origem_lead", urlEntrada);
+    }
+  }, []);
 
   const postsFilteredBySlug = posts
     .filter((p) => p.slug != postSlug)
@@ -110,10 +120,13 @@ export default function Educacao() {
   const GOOGLE_ADS_EBOOK_CONVERSION = "AW-10847571731/tAaVCJWd6IsdEJOew7Qo";
 
   function registrarEnvioEbook() {
+    const origem =
+      sessionStorage.getItem("url_origem_lead") || window.location.href;
     const dados = {
       pagina: "educacao",
       secao: "formulario-ebook",
       rotulo: "Envio do e-book",
+      Origem: origem,
     };
 
     if (typeof window.gtag === "function") {
