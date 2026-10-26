@@ -152,15 +152,16 @@ export default function Diagnostico() {
     setSending(true);
 
     const GOOGLE_ADS_EBOOK_CONVERSION = "AW-10847571731/tAaVCJWd6IsdEJOew7Qo";
+    const origem =
+      sessionStorage.getItem("url_origem_lead") || window.location.href;
 
     try {
       const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(createLeadPayload(formData, result, quiz)),
+        body: JSON.stringify(createLeadPayload(formData, origem, result, quiz)),
       });
       if (response.ok) {
-        const origem = sessionStorage.getItem("url_origem_lead") || window.location.href;
         const dados = {
           pagina: "diagnostico",
           secao: "formulario-diagnostico",

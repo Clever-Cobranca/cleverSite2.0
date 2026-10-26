@@ -118,10 +118,9 @@ export default function Educacao() {
   };
 
   const GOOGLE_ADS_EBOOK_CONVERSION = "AW-10847571731/tAaVCJWd6IsdEJOew7Qo";
-
+  const origem =
+    sessionStorage.getItem("url_origem_lead") || window.location.href;
   function registrarEnvioEbook() {
-    const origem =
-      sessionStorage.getItem("url_origem_lead") || window.location.href;
     const dados = {
       pagina: "educacao",
       secao: "formulario-ebook",
@@ -180,6 +179,7 @@ export default function Educacao() {
       novidades: formData.conteudos,
       form_proibido: formData.form_proibido,
       ebookId: ebookSelected.id,
+      origem: origem,
     };
 
     setStatus("loading");
