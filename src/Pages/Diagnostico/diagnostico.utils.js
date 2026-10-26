@@ -136,7 +136,7 @@ export function validateLead({ nome, email, whatsapp, empresa }) {
   return "";
 }
 
-export function createLeadPayload(lead, financialResult, quizResult) {
+export function createLeadPayload(lead, origem, financialResult, quizResult) {
   const quizScorePercentage = (quizResult.score / (QUESTIONS.length * 2)) * 100;
 
   return {
@@ -146,6 +146,7 @@ export function createLeadPayload(lead, financialResult, quizResult) {
     empresa: lead.empresa.trim(),
     novidades: lead.conteudos,
     ebookId: 1,
+    origem: origem,
     quiz: {
       score: quizResult.score,
       scorePercentage: quizScorePercentage,
