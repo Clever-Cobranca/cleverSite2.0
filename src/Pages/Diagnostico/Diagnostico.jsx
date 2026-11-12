@@ -181,10 +181,7 @@ export default function Diagnostico() {
           });
         }
         if (typeof window.fbq === "function") {
-          window.fbq("trackCustom", "EbookDownload", {
-            content_name: "cobranca-sem-medo-escola-sem-prejuizo",
-            pagina: "diagnostico",
-          });
+          window.fbq("track", "Lead");
         }
       }
     } catch (error) {
