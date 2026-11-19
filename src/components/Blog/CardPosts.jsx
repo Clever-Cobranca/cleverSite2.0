@@ -13,19 +13,22 @@ export default function CardPosts({ post }) {
       </Link>
       <div>
         <Link to={`/blog/${post.slug}`}>
-          <p className="font-family-headers font-semibold text-[clamp(1rem,4vw,1.8rem)] leading-7 pt-2">
+          <p
+            className="font-family-headers
+              text-lg leading-tighter uppercase lg:text-3xl pt-2"
+          >
             {post.title}
           </p>
         </Link>
-        <div className="mt-2.5 max-sm:flex flex-col items-center font-family-headers">
-          <span className="max-sm:text-xs xl:text-xl py-2">
+        <div className="mt-2.5 max-sm:flex flex-col items-center">
+          <span className="max-sm:text-xs font-family-headers xl:text-xl py-2">
             {new Date(post.date).toLocaleDateString("pt-br", {
               day: "2-digit",
               month: "short",
               year: "numeric",
             })}
           </span>
-          <p className="text-[clamp(0.3rem,4vw,1.43rem)] leading-6 tracking-wider text-black">
+          <p className="leading-relaxed font-semibold lg:text-lg max-sm:text-xs text-sm tracking-wider text-black">
             {post.about}
           </p>
         </div>
